@@ -95,7 +95,7 @@
                                     </li>
                                     <li><a class="dropdown-item" href="{{ route('drafted.books') }}">Drafted Books</a></li>
                                     <li><a class="dropdown-item" href="{{ route('reported.links') }}">Reported Links</a></li>
-
+                                    <li><a class="dropdown-item" href="{{ route('search.results') }}">Search Results</a></li>
                                     <li>
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf
