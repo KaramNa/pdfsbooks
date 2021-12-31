@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\SearchResults;
+use Illuminate\Support\Facades\DB;
 
 class SearchResultsController extends Controller
 {
     public function index()
     {
-        $queries = SearchResults::get();
+        $queries = SearchResults::get();        
         return view("search-results", [
             "queries" => $queries
         ]);

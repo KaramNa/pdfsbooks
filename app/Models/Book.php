@@ -38,10 +38,7 @@ class Book extends Model
             $query->where("title", "like", "%" . $search . "%")
                 ->orWhere("description", "like", "%" . $search . "%")
         ),
-            SearchResults::create([
-                "query" => $search,
-                "result" => count($query->get()) > 0
-            ])
+            $this->SearchResults($query, $search)
     ]);
 
         $query->when(
@@ -54,5 +51,21 @@ class Book extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function SearchResults($query, $searchWord){
+        $search = SearchResults::where("query", $searchWord)->first();
+        if($search){
+            $num = $search->num_of_searches + 1;
+            $search->update([
+                "num_of_searches" => $num,
+            ]);
+        }else{
+            SearchResults::create([
+                "query" => $searchWord,
+                "result" => count($query->get()) > 0,
+                "num_of_searches" => 1
+            ]);
+        }
     }
 }

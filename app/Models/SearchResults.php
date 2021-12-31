@@ -11,6 +11,6 @@ class SearchResults extends Model
 
     public $timestamps = false;
     protected $fillable = [
-        "query", "result"
+        "query", "result", "num_of_searches"
     ];
 }
