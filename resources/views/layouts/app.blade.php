@@ -186,14 +186,6 @@
             </div>
         </div>
     </footer>
-<script type="text/javascript">
-    var adfly_id = 26088345;
-    var adfly_advert = 'int';
-    var popunder = true;
-    var domains = [];
-</script>
-<script src="https://cdn.adf.ly/js/link-converter.js"></script> 
-
     
     <script src="{{ asset('js/app.js?v=').time()  }}"></script>
     
