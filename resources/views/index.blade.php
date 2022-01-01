@@ -60,7 +60,7 @@
             @else
                 <h1 class="text-dark mt-3">Sorry, Nothing matches your criteria<i
                         class="fas fa-frown text-danger display-4"></i></h1>
-                <h1 class="text-dark mt-2">But you can order the book you need on <a class="blink" href="{{ route('order.book') }}">Order a Book </a><i class="fas fa-smile text-danger display-4"></i></h1>
+                <h1 class="text-dark mt-2">But you can order the book you need <span class="text-success">for Free</span> on <a class="blink" href="{{ route('order.book') }}">Order a Book </a><i class="fas fa-smile text-danger display-4"></i></h1>
             @endif
 
             {{ $books->withQueryString()->links() }}

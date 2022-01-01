@@ -15,7 +15,7 @@
     <div class="text-center mt-5">
         <h1 class="wine-color">Order a book</h1>
         <h2>Suggest a book for PDFSBOOKS.COM</h2>
-        <p class="mt-3">We are happy to help you finding the books you need, we'll do our best to find the book you order and we'll send the link to your email as soon as possible.</p>
+        <p class="mt-3">We are happy to help you finding the books you need, we'll do our best to find the book you order and we'll send the <span class="text-success">Free link</span> to your email as soon as possible.</p>
     </div>
     @if (session()->has('success'))
         <div class="alert alert-success mt-3">{{ session("success") }}</div>
