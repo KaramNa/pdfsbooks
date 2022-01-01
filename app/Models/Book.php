@@ -36,7 +36,7 @@ class Book extends Model
         $query->where(
             fn ($query) =>
             $query->where("title", "like", "%" . $search . "%")
-                ->orWhere("description", "like", "%" . $search . "%")
+                // ->orWhere("description", "like", "%" . $search . "%")
                 ->orWhere("author", "like", "%" . $search . "%")
         ),
             $this->SearchResults($query, $search)
