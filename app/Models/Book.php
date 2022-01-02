@@ -36,9 +36,12 @@ class Book extends Model
             $query->where(
                 fn ($query) =>
                 $query->where(function ($query) use ($search) {
-                    foreach (explode(' ', $search) as $word)
-                        if (strlen($word) > 2)
-                            $query->orWhere('title', 'like', '%' . $word . '%');
+                    if (request("exact_search") == "on")
+                        $query->Where('title', 'like', '%' . $search . '%');
+                    else
+                        foreach (explode(' ', $search) as $word)
+                            if (strlen($word) > 2 || $word == "c#")
+                                $query->orWhere('title', 'like', '%' . $word . '%');
                 })
                     // ->orWhere("description", "like", "%" . $search . "%")
                     ->orWhere("author", "like", "%" . $search . "%")

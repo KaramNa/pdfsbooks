@@ -146,13 +146,21 @@
                             </li>
                         @endauth
                     </ul>
-                    <form action="{{ route('home') }}" method="get" role="search" class="d-flex">
+                    <form action="{{ route('home') }}" method="get" role="search">
                         @if (request('category'))
                             <input type="hidden" name="category" value="{{ request('category') }}">
                         @endif
-                        <input class="inp" name="search" autocomplete="off" placeholder="Search Books"
-                            type="search" value="{{ request('search') }}" required><button aria-label="submit"
-                            class="sbm" type="submit"><i class="fas fa-search"></i></button>
+                        <div>
+                            <div class="ms-2">
+                                <input type="checkbox" name="exact_search" {{ request("exact_search") == "on" ? "checked" : "" }}>
+                                <label for="exact_search" class="text-white">Exact Search</label>
+                            </div>
+                            <div  class="d-flex">
+                                <input class="inp" name="search" autocomplete="off" placeholder="Search Books"
+                                    type="search" value="{{ request('search') }}" required><button aria-label="submit"
+                                    class="sbm" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
