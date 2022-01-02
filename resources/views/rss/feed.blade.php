@@ -14,6 +14,7 @@
                 <title><![CDATA[{{ $book->title }}]]></title>
                 <link>{{ "https://pdfsbooks.com/book/" . $book->slug }}</link>
                 <description><![CDATA[{!! $book->description !!}]]></description>
+                <img src="{{ $book->poster }}" alt="{{ $book->title }}" />
                 <category>{{ $book->category }}</category>
                 <author><![CDATA[{{ $book->author  }}]]></author>
             </item>
