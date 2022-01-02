@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class RssFeedController extends Controller
 {
     public function feed(){
-        $books = Book::orderBy("id", "desc")->get();
+        $books = Book::where("draft", 0)->orderBy("id", "desc")->get();
         return response()->view("rss.feed", [
             "books" => $books
         ])->header("Content-Type", "application/xml");
