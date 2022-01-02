@@ -14,6 +14,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\DraftedBooksController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\RssFeedController;
 use App\Http\Controllers\SearchResultsController;
 
 /*
@@ -84,3 +85,4 @@ Route::middleware(['auth'])->group(function () {
     Route::post('delete-query/{id}', [SearchResultsController::class, 'delete'])->name('delete.query');
 });
 
+Route::get("/feed", [RssFeedController::class, "feed"])->name("rss.feed");
