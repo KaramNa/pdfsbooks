@@ -33,14 +33,18 @@ class Book extends Model
     {
         $query->when($filters["search"] ?? false, fn ($query, $search) =>
         [
-        $query->where(
-            fn ($query) =>
-            $query->where("title", "like", "%" . $search . "%")
-                // ->orWhere("description", "like", "%" . $search . "%")
-                ->orWhere("author", "like", "%" . $search . "%")
-        ),
+            $query->where(
+                fn ($query) =>
+                $query->where(function ($query) use ($search) {
+                    foreach (explode(' ', $search) as $word)
+                        if (strlen($word) > 2)
+                            $query->orWhere('title', 'like', '%' . $word . '%');
+                })
+                    // ->orWhere("description", "like", "%" . $search . "%")
+                    ->orWhere("author", "like", "%" . $search . "%")
+            ),
             $this->SearchResults($query, $search)
-    ]);
+        ]);
 
         $query->when(
             $filters["category"] ?? false,
@@ -54,14 +58,15 @@ class Book extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function SearchResults($query, $searchWord){
+    public function SearchResults($query, $searchWord)
+    {
         $search = SearchResults::where("query", $searchWord)->first();
-        if($search){
+        if ($search) {
             $num = $search->num_of_searches + 1;
             $search->update([
                 "num_of_searches" => $num,
             ]);
-        }else{
+        } else {
             SearchResults::create([
                 "query" => $searchWord,
                 "result" => count($query->get()) > 0,
