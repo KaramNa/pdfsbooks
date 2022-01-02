@@ -1,6 +1,6 @@
 <?=
 '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
-<rss version="2.0">
+<rss version="2.0" xmlns:media="http://pdfsbooks.com">
     <channel>
         <title>
             <![CDATA[ Pdfsbooks.com ]]>
@@ -23,12 +23,11 @@
                 <description>
                     <![CDATA[{!! $book->description !!}]]>
                 </description>
-
-                <media:content url="{{ 'https://pdfsbooks.com' . $book->poster }}" medium="image"> 
                 <category>{{ $book->category }}</category>
                 <author>
                     <![CDATA[{{ $book->author }}]]>
                 </author>
+                <media:content url="{{ 'https://pdfsbooks.com' . $book->poster }}" type="image/jpg" />
             </item>
         @endforeach
     </channel>
