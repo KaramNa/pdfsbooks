@@ -68,6 +68,7 @@ class Book extends Model
             $num = $search->num_of_searches + 1;
             $search->update([
                 "num_of_searches" => $num,
+                "result" => count($query->get()) > 0,
             ]);
         } else {
             SearchResults::create([
