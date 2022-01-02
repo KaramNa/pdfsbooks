@@ -24,12 +24,7 @@
                     <![CDATA[{!! $book->description !!}]]>
                 </description>
 
-                <image>
-                    <url>{{ 'https://pdfsbooks.com' . $book->poster }}</url>
-                    <title>{{ $book->title }}]</title>
-                    <link>https://www.pdfsbooks.com</link>
-                </image>
-                <poster>{{ 'https://pdfsbooks.com' . $book->poster }}</poster>
+                <<media:content url="{{ 'https://pdfsbooks.com' . $book->poster }}" medium="image"> 
                 <category>{{ $book->category }}</category>
                 <author>
                     <![CDATA[{{ $book->author }}]]>
