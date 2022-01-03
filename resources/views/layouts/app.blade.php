@@ -15,6 +15,7 @@
     <meta property="og:url" content="@yield(" book_url", "https://pdfsbooks.com" )">
     <meta name="thumbnail" content="@yield(" share_image", asset('storage/thumbnail.jpg'))">
     <meta property="og:image" content="@yield(" share_image", asset('storage/thumbnail.jpg'))" />
+    <link rel="alternate" hreflang="en-us" href="https://pdfsbooks.com" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
