@@ -23,17 +23,8 @@
             </div>
         @enderror
                 <div id="delayMsg" class="h3"></div>
-                <div class="mt-5"> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673" crossorigin="anonymous"></script>
-                    <ins class="adsbygoogle"
-                         style="display:block; text-align:center;"
-                         data-ad-layout="in-article"
-                         data-ad-format="fluid"
-                         data-ad-client="ca-pub-2052289648779673"
-                         data-ad-slot="3036230486"></ins>
-                <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-        </div>
+                    <x-adsense></x-adsense>
+
         <div id="link" class="d-none">
           <div class="d-flex justify-content-around align-items-center">
                         <span class="blink h1 wine-color"><i class="fas fa-angle-right"></i><i class="fas fa-angle-right"></i></span>
@@ -44,17 +35,8 @@
                     class="border-0 bg-transparent text-primary text-decoration-underline fw-bold" data-bs-toggle="modal"
                     data-bs-target="#exampleModal">Here</button> to report</div>
         </div>
-        <div> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673" crossorigin="anonymous"></script>
-                    <ins class="adsbygoogle"
-                         style="display:block; text-align:center;"
-                         data-ad-layout="in-article"
-                         data-ad-format="fluid"
-                         data-ad-client="ca-pub-2052289648779673"
-                         data-ad-slot="3036230486"></ins>
-                <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-    </div>
+            <x-adsense></x-adsense>
+
             </div>
         </div>
     </div>

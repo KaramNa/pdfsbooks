@@ -1,24 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="mt-3"> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673" crossorigin="anonymous"></script>
-                    <ins class="adsbygoogle"
-                         style="display:block; text-align:center;"
-                         data-ad-layout="in-article"
-                         data-ad-format="fluid"
-                         data-ad-client="ca-pub-2052289648779673"
-                         data-ad-slot="3036230486"></ins>
-                <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-    </div>
+    <x-adsense></x-adsense>
+
     <div>
         <h1 class="text-dark mb-5">eBook Readers and Digital File Formats</h1>
         <p>eBook files come in a variety of formats for use on various tablets and ereader devices and software. The
             information
             below is provided as guidance only., so be sure to choose the correct format for your device and eBook reading
             software program and follow the instructions for your specific device or software.</p>
-        
+
         <p><strong>Table of Contents:</strong></p>
         <ul>
             <li><strong><a href="#Ebook-File-Formats">Digital File Formats</a>: </strong> <a href="#EPUB">EPUB</a>, <a
@@ -41,17 +32,8 @@
                 </ul>
             </li>
         </ul>
-        <div class="mt-3"> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673" crossorigin="anonymous"></script>
-                    <ins class="adsbygoogle"
-                         style="display:block; text-align:center;"
-                         data-ad-layout="in-article"
-                         data-ad-format="fluid"
-                         data-ad-client="ca-pub-2052289648779673"
-                         data-ad-slot="3036230486"></ins>
-                <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-        </div>
+        <x-adsense></x-adsense>
+
         <hr />
         <h2><a name="Ebook-File-Formats" id="Ebook-File-Formats"><strong>DIGITAL FILE FORMATS</strong></a></h2>
         <p><a name="EPUB" id="EPUB"><strong><span class="blue-text">What is the EPUB Format?</span></strong></a></p>
@@ -96,17 +78,8 @@
         </p>
         <hr />
         <h2><a name="eBook-Reader-Software" id="eBook-Reader-Software"><strong>FREE EBOOK READER SOFTWARE</strong></a></h2>
-        <div class="my-3"> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673" crossorigin="anonymous"></script>
-                    <ins class="adsbygoogle"
-                         style="display:block; text-align:center;"
-                         data-ad-layout="in-article"
-                         data-ad-format="fluid"
-                         data-ad-client="ca-pub-2052289648779673"
-                         data-ad-slot="3036230486"></ins>
-                <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-        </div>
+        <x-adsense></x-adsense>
+
         <p>Below are some FREE eBook reader software programs that can be used to read eBooks downloaded from this site, on
             either desktop/ laptop computers or mobile devices. </p>
         <p><a name="Desktop-Ereaders" id="Desktop-Ereaders"><strong><span class="blue-text">Desktop-Only eBook Reader
@@ -166,19 +139,11 @@
         </ul>
         <p class="rteindent1"><a href="http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html"
                 target="_blank">Click here for more information and to download Sumatra PDF.</a></p>
-                <p><a name="Web-Browser-Extensions" id="Web-Browser-Extensions"><span class="blue-text"><strong>Web Browser Extensions</strong></span> </a></p>
-        <div class="my-3"> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673" crossorigin="anonymous"></script>
-                    <ins class="adsbygoogle"
-                         style="display:block; text-align:center;"
-                         data-ad-layout="in-article"
-                         data-ad-format="fluid"
-                         data-ad-client="ca-pub-2052289648779673"
-                         data-ad-slot="3036230486"></ins>
-                <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-        </div>
-        
+        <p><a name="Web-Browser-Extensions" id="Web-Browser-Extensions"><span class="blue-text"><strong>Web Browser
+                        Extensions</strong></span> </a></p>
+        <x-adsense></x-adsense>
+
+
         <p>Add these extensions to your Internet web browser in order to be able to read these files from your browser.</p>
         <ul>
             <li><strong><a href="https://addons.mozilla.org/en-us/firefox/addon/epubreader/" name="EPUBReader"
@@ -286,15 +251,6 @@
             </li>
         </ul>
     </div>
-    <div class="mt-3"> <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673" crossorigin="anonymous"></script>
-                    <ins class="adsbygoogle"
-                         style="display:block; text-align:center;"
-                         data-ad-layout="in-article"
-                         data-ad-format="fluid"
-                         data-ad-client="ca-pub-2052289648779673"
-                         data-ad-slot="3036230486"></ins>
-                <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-    </div>
+    <x-adsense></x-adsense>
+
 @stop
