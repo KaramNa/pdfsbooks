@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    {{-- <x-adsense></x-adsense> --}}
+    <x-adsense></x-adsense>
 
     <div class="container">
         <div class="row justify-content-center">
@@ -37,6 +37,6 @@
             </div>
         </div>
     </div>
-    {{-- <x-adsense></x-adsense> --}}
+    <x-adsense></x-adsense>
 
 @stop

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-        {{-- <x-adsense></x-adsense> --}}
+        <x-adsense></x-adsense>
 
     <div class="text-center mt-5">
         <h1 class="wine-color">Order a book</h1>
@@ -57,6 +57,6 @@
         </div>
         <button class="btn btn-primary mt-3">Order now</button>
     </form>
-        {{-- <x-adsense></x-adsense> --}}
+        <x-adsense></x-adsense>
 
 @stop

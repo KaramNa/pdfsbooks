@@ -135,7 +135,7 @@
                     }
                 </script>
             </div>
-            {{-- <x-adsense></x-adsense> --}}
+            <x-adsense></x-adsense>
 
             <h3 class="text-dark">Related Books</h3>
             <div class="grid m">
@@ -150,6 +150,7 @@
                     </div>
                 @endforeach
             </div>
+            <x-adsense></x-adsense>
             <div class="mb-5">
                 <strong>Disclaimer:</strong><br>
                 <strong>This site complies with DMCA Digital Copyright Laws.</strong> Please bear in mind that we do not own
@@ -189,7 +190,7 @@
                                 class="fas fa-angle-left"></i></span>
                     </div>
                 </div>
-                {{-- <x-adsense></x-adsense> --}}
+                <x-adsense></x-adsense>
 
                 <div class="mt-5">
                     @if (session()->has('subscribed_success'))
