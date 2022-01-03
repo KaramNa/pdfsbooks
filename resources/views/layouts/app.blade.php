@@ -5,27 +5,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield("page_title", "PDFs Books - Free download books")</title>
-    <meta name="description" content="Online Books library where you can find thousands of Free PDF,EPUB ebooks and download them for free, and if you can't find a Textbooks,Book you need you can order it on our website.">
+    <meta name="description"
+        content="Online Books library where you can find thousands of Free PDF,EPUB ebooks and download them for free, and if you can't find a Textbooks,Book you need you can order it on our website.">
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:site_name" content="pdfsbooks.com">
-    <meta property="og:title" content="@yield("book_title", "PDFsBOOks")">
-    <meta property="og:description" content="Free download (PDF) @yield("book_desc")">
-    <meta property="og:url" content="@yield("book_url", "https://pdfsbooks.com")">
-    <meta name="thumbnail" content="@yield("share_image", asset('storage/thumbnail.jpg'))" >
-    <meta property="og:image" content="@yield("share_image", asset('storage/thumbnail.jpg'))" />
+    <meta property="og:title" content="@yield(" book_title", "PDFsBOOks" )">
+    <meta property="og:description" content="Free download (PDF) @yield(" book_desc")">
+    <meta property="og:url" content="@yield(" book_url", "https://pdfsbooks.com" )">
+    <meta name="thumbnail" content="@yield(" share_image", asset('storage/thumbnail.jpg'))">
+    <meta property="og:image" content="@yield(" share_image", asset('storage/thumbnail.jpg'))" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta property="og:type" content="website">
-    <link rel="canonical" href="@yield("book_url", "https://pdfsbooks.com")">
+    <link rel="canonical" href="@yield(" book_url", "https://pdfsbooks.com" )">
     <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com"
         href="https://feeds.feedburner.com/pdfsbooks">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset("storage/favicon.png") }}">
-    <link rel="apple-touch-icon" sizes="100x100" href="{{ asset("storage/favicon.png") }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="{{ asset('css/style.css?v=').time() }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css?v=') . time() }}">
     <meta name="theme-color" content="#fff">
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
@@ -40,21 +41,26 @@
         gtag('config', 'UA-192921243-1');
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KRY9G4D4WQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRY9G4D4WQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-PBFEB4TVQS');
-</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
-     crossorigin="anonymous"></script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PBFEB4TVQS');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=4435731113156551&autoLogAppEvents=1" nonce="fwhpdSvT"></script>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=4435731113156551&autoLogAppEvents=1"
+        nonce="fwhpdSvT"></script>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -89,13 +95,17 @@
                                     Admin
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="{{ route('add.category') }}">Add Category</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('add.category') }}">Add Category</a>
+                                    </li>
                                     <li><a class="dropdown-item" href="{{ route('add.book') }}">Add a Book</a></li>
                                     <li><a class="dropdown-item" href="{{ route('books.orders') }}">Books Orders</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="{{ route('drafted.books') }}">Drafted Books</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('reported.links') }}">Reported Links</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('search.results') }}">Search Results</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('drafted.books') }}">Drafted Books</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="{{ route('reported.links') }}">Reported Links</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="{{ route('search.results') }}">Search Results</a>
+                                    </li>
                                     <li>
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf
@@ -108,17 +118,19 @@
                             <li class="nav-item dropdown dropdown-notifications">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                                                       <span data-count="0" class="badge badge-danger ml-2 text-danger">{{ count(App\Models\Notification::get()->where("seen", 0)) }}</span>
+                                    <span data-count="0"
+                                        class="badge badge-danger ml-2 text-danger">{{ count(App\Models\Notification::get()->where('seen', 0)) }}</span>
 
                                     <i class="fas fa-bell"></i>
                                 </a>
-                                <ul class="dropdown-menu text-lowercase" aria-labelledby="navbarDropdown" style="width: 250px">
+                                <ul class="dropdown-menu text-lowercase" aria-labelledby="navbarDropdown"
+                                    style="width: 250px">
                                     @foreach (App\Models\Notification::latest()->get() as $notif)
                                         <li class="p-2 notif-hover"><a href="{{ route('notif.seen', $notif->id) }}"
                                                 class="text-dark">
                                                 <div class="d-flex justify-content-between">
                                                     <div>{{ $notif->username }}
-                                                         @if ($notif->notif_type == 'comment')
+                                                        @if ($notif->notif_type == 'comment')
                                                             left a comment
                                                         @elseif ($notif->notif_type == 'order')
                                                             ordered a book
@@ -152,13 +164,15 @@
                         @endif
                         <div>
                             <div class="ms-2">
-                                <input type="checkbox" name="exact_search" {{ request("exact_search") == "on" ? "checked" : "" }}>
+                                <input type="checkbox" name="exact_search"
+                                    {{ request('exact_search') == 'on' ? 'checked' : '' }}>
                                 <label for="exact_search" class="text-white">Exact Search</label>
                             </div>
-                            <div  class="d-flex">
-                                <input class="inp" name="search" autocomplete="off" placeholder="Search Books"
-                                    type="search" value="{{ request('search') }}" required><button aria-label="submit"
-                                    class="sbm" type="submit"><i class="fas fa-search"></i></button>
+                            <div class="d-flex">
+                                <input class="inp" name="search" autocomplete="off"
+                                    placeholder="Search Books" type="search" value="{{ request('search') }}"
+                                    required><button aria-label="submit" class="sbm" type="submit"><i
+                                        class="fas fa-search"></i></button>
                             </div>
                         </div>
                     </form>
@@ -194,18 +208,32 @@
             </div>
         </div>
     </footer>
-    
-    <script src="{{ asset('js/app.js?v=').time()  }}"></script>
-    
-<script>
+
+    <script src="{{ asset('js/app.js?v=') . time() }}"></script>
+
+    <script>
         $(document).ready(function() {
             $('.navbar-nav a.active').removeClass('active');
             $('.navbar-nav a[href="https://pdfsbooks.com' + location.pathname + '"]').addClass('active');
-            if(location.pathname == "/")
-            $(".navbar-nav a.home").addClass('active');
+            if (location.pathname == "/")
+                $(".navbar-nav a.home").addClass('active');
         });
     </script>
 
+    <!-- Default Statcounter code for Pdfsbooks https://pdfsbooks.com/ -->
+    <script type="text/javascript">
+        var sc_project = 12696715;
+        var sc_invisible = 1;
+        var sc_security = "addf9e34";
+    </script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript>
+        <div class="statcounter"><a title="Web Analytics Made Easy -
+Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcounter"
+                    src="https://c.statcounter.com/12696715/0/addf9e34/1/" alt="Web Analytics Made Easy - Statcounter"
+                    referrerPolicy="no-referrer-when-downgrade"></a></div>
+    </noscript>
+    <!-- End of Statcounter Code -->
 </body>
 
 </html>
