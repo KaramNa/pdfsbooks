@@ -21,7 +21,7 @@
             </thead>
             <tbody>
                 @foreach ($queries as $query)
-                    <tr>
+                    <tr class="border-bottom border-dark">
                         <td>{{ $query->query }}</td>
                         <td>{{ $query->result == 1 ? 'Found' : 'Not Found' }}</td>
                         <td class="text-center">{{ $query->num_of_searches }}</td>

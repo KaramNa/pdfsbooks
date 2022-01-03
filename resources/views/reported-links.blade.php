@@ -20,7 +20,7 @@
         </thead>
         <tbody>
             @foreach ($reports as $report)
-                <tr>
+                <tr class="border-bottom border-dark py-2">
                     <td><a href="{{ $report->reported_link }}">visit</a></td>
                     <td>{{ $report->email }}</td>
                     <td>{{ $report->message }}</td>
