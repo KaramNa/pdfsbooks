@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="table-responsive">
-        <table class="table">
+        <table class="table mb-5">
             <thead>
                 <tr>
                     <th>
@@ -35,5 +35,6 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $queries->links() }}
     </div>
 @stop
