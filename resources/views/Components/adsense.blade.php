@@ -1,4 +1,4 @@
-<div class="mt-3">
+<div class="mt-3 ads" style="display: none">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
         crossorigin="anonymous"></script>
     <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"

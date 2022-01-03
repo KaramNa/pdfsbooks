@@ -31,7 +31,7 @@
 
                     @endforeach
                 </div>
-                {{-- <x-adsense></x-adsense> --}}
+                <x-adsense></x-adsense>
 
             </div>
         </div>
@@ -91,7 +91,7 @@
                     <button aria-label="submit" class="subscribe" type="submit">Subscribe</button>
                 </div>
             </form>
-                {{-- <x-adsense></x-adsense> --}}
+                <x-adsense></x-adsense>
 
         </div>
     @stop

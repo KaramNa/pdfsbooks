@@ -235,6 +235,25 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
                     referrerPolicy="no-referrer-when-downgrade"></a></div>
     </noscript>
     <!-- End of Statcounter Code -->
+
+    <script>
+        var nowDate = new Date();
+        var date = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
+
+        jQuery(function($) {
+            $('.ads').on('click', function() {
+                localStorage.setItem("date", date);
+                window.location.reload();
+            });
+        });
+
+        $(document).ready(function() {
+            var prevDate = localStorage.getItem("date");
+            if (!prevDate || prevDate != date) {
+                $('.ads').show();
+            } else {}
+        });
+    </script>
 </body>
 
 </html>
