@@ -135,7 +135,7 @@
                     }
                 </script>
             </div>
-            <x-adsense></x-adsense>
+            {{-- <x-adsense></x-adsense> --}}
 
             <h3 class="text-dark">Related Books</h3>
             <div class="grid m">
@@ -189,7 +189,7 @@
                                 class="fas fa-angle-left"></i></span>
                     </div>
                 </div>
-                <x-adsense></x-adsense>
+                {{-- <x-adsense></x-adsense> --}}
 
                 <div class="mt-5">
                     @if (session()->has('subscribed_success'))

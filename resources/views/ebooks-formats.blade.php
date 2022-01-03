@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-adsense></x-adsense>
+    {{-- <x-adsense></x-adsense> --}}
 
     <div>
         <h1 class="text-dark mb-5">eBook Readers and Digital File Formats</h1>
@@ -32,7 +32,7 @@
                 </ul>
             </li>
         </ul>
-        <x-adsense></x-adsense>
+        {{-- <x-adsense></x-adsense> --}}
 
         <hr />
         <h2><a name="Ebook-File-Formats" id="Ebook-File-Formats"><strong>DIGITAL FILE FORMATS</strong></a></h2>
@@ -78,7 +78,7 @@
         </p>
         <hr />
         <h2><a name="eBook-Reader-Software" id="eBook-Reader-Software"><strong>FREE EBOOK READER SOFTWARE</strong></a></h2>
-        <x-adsense></x-adsense>
+        {{-- <x-adsense></x-adsense> --}}
 
         <p>Below are some FREE eBook reader software programs that can be used to read eBooks downloaded from this site, on
             either desktop/ laptop computers or mobile devices. </p>
@@ -141,7 +141,7 @@
                 target="_blank">Click here for more information and to download Sumatra PDF.</a></p>
         <p><a name="Web-Browser-Extensions" id="Web-Browser-Extensions"><span class="blue-text"><strong>Web Browser
                         Extensions</strong></span> </a></p>
-        <x-adsense></x-adsense>
+        {{-- <x-adsense></x-adsense> --}}
 
 
         <p>Add these extensions to your Internet web browser in order to be able to read these files from your browser.</p>
@@ -251,6 +251,6 @@
             </li>
         </ul>
     </div>
-    <x-adsense></x-adsense>
+    {{-- <x-adsense></x-adsense> --}}
 
 @stop

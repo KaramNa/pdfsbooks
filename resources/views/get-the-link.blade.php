@@ -23,7 +23,7 @@
             </div>
         @enderror
                 <div id="delayMsg" class="h3"></div>
-                    <x-adsense></x-adsense>
+                    {{-- <x-adsense></x-adsense> --}}
 
         <div id="link" class="d-none">
           <div class="d-flex justify-content-around align-items-center">
@@ -35,7 +35,7 @@
                     class="border-0 bg-transparent text-primary text-decoration-underline fw-bold" data-bs-toggle="modal"
                     data-bs-target="#exampleModal">Here</button> to report</div>
         </div>
-            <x-adsense></x-adsense>
+            {{-- <x-adsense></x-adsense> --}}
 
             </div>
         </div>
