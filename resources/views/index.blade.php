@@ -17,7 +17,13 @@
                 <button class="py-2 px-5 rounded-pill small border-0 bg-dark text-white" @click="show = !show"
                     @click.away="show = false"><span
                         class="me-3">{{ isset($currentCategory) ? Str::headline($currentCategory) : 'Categories' }}</span>
-                    <i class="fas fa-angle-down"></i></button>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-width="20" height="20">
+                        <g fill='#FFFFFF'>
+                            <path
+                                d="M18.2 7.6c-.4 0-.7.1-.9.4L13 12.6c-.5.5-1.4.5-1.9 0L6.8 8c-.3-.2-.6-.4-1-.4-1.1 0-1.7 1.3-.9 2.1l6.2 6.8c.5.6 1.4.6 1.9 0l6.2-6.8c.6-.8 0-2.1-1-2.1z">
+                            </path>
+                        </g>
+                    </svg></button>
 
                 <div x-show="show"
                     class="bg-dark text-white overflow-auto rounded py-3 text-left m-auto mt-2 position-absolute"
@@ -52,11 +58,16 @@
                     @endforeach
                 </div>
             @else
-                <h1 class="text-dark mt-3">Sorry, Nothing matches your criteria<i
-                        class="fas fa-frown text-danger display-4"></i></h1>
+                <h1 class="text-dark mt-3">Sorry, Nothing matches your criteria</h1>
                 <h1 class="text-dark mt-2">But you can order the book you need <span class="text-success">for Free</span>
-                    on <a class="blink" href="{{ route('order.book') }}">Order a Book </a><i
-                        class="fas fa-smile text-danger display-4"></i></h1>
+                    on <a class="blink" href="{{ route('order.book') }}">Order a Book </a><svg
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="75" height="75">
+                        <g fill='#800000'>
+                            <path
+                                d="M12 3c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm3 5.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5zm-6 0c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5zm7.8 7C15.7 17 14 18 12 18s-3.7-1-4.8-2.5c-.5-.6 0-1.5.8-1.5.3 0 .6.1.8.4.7 1 1.9 1.6 3.2 1.6s2.5-.6 3.2-1.6c.2-.3.5-.4.8-.4.8 0 1.3.9.8 1.5z">
+                            </path>
+                        </g>
+                    </svg></h1>
             @endif
 
             {{ $books->withQueryString()->links() }}
@@ -91,7 +102,7 @@
                     <button aria-label="submit" class="subscribe" type="submit">Subscribe</button>
                 </div>
             </form>
-                <x-adsense></x-adsense>
+            <x-adsense></x-adsense>
 
         </div>
     @stop

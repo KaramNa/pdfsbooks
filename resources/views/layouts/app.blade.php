@@ -16,9 +16,6 @@
     <meta name="thumbnail" content="@yield(" share_image", asset('storage/thumbnail.jpg'))">
     <meta property="og:image" content="@yield(" share_image", asset('storage/thumbnail.jpg'))" />
     <link rel="alternate" hreflang="en-us" href="https://pdfsbooks.com" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta property="og:type" content="website">
     <link rel="canonical" href="@yield(" book_url", "https://pdfsbooks.com" )">
     <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com"
@@ -122,10 +119,17 @@
                                     <span data-count="0"
                                         class="badge badge-danger ml-2 text-danger">{{ count(App\Models\Notification::get()->where('seen', 0)) }}</span>
 
-                                    <i class="fas fa-bell"></i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30px"
+                                        hieght="30px   ">
+                                        <g fill='#FFFFFF'>
+                                            <path
+                                                d="M12 21c1.7 0 3-1.3 3-3H9c0 1.7 1.3 3 3 3zm7-6.6c-3.2-2.6 1-7.1-5-9.4 0-3-4-3-4 0-6 2.4-1.8 6.9-5 9.4-1 1-.3 2.6 1 2.6h12c1.3 0 2-1.6 1-2.6z">
+                                            </path>
+                                        </g>
+                                    </svg>
                                 </a>
                                 <ul class="dropdown-menu text-lowercase" aria-labelledby="navbarDropdown"
-                                    style="width: 250px">
+                                    style="width: 300px">
                                     @foreach (App\Models\Notification::latest()->get() as $notif)
                                         <li class="p-2 notif-hover"><a href="{{ route('notif.seen', $notif->id) }}"
                                                 class="text-dark">
@@ -172,8 +176,14 @@
                             <div class="d-flex">
                                 <input class="inp" name="search" autocomplete="off"
                                     placeholder="Search Books" type="search" value="{{ request('search') }}"
-                                    required><button aria-label="submit" class="sbm" type="submit"><i
-                                        class="fas fa-search"></i></button>
+                                    required><button aria-label="submit" class="sbm" type="submit"><svg
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <g fill='#FFFFFF'>
+                                            <path
+                                                d="M22.1 20.1l-4.8-4.8C18.4 13.8 19 12 19 10c0-5-4-9-9-9s-9 4-9 9 4 9 9 9c2 0 3.8-.6 5.3-1.7l4.8 4.8c.6.6 1.4.6 2 0 .5-.6.5-1.5 0-2zM10 16.5c-3.6 0-6.5-2.9-6.5-6.5S6.4 3.5 10 3.5s6.5 2.9 6.5 6.5-2.9 6.5-6.5 6.5z">
+                                            </path>
+                                        </g>
+                                    </svg></button>
                             </div>
                         </div>
                     </form>

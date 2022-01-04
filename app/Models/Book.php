@@ -40,8 +40,7 @@ class Book extends Model
                         $query->Where('title', 'like', '%' . $search . '%');
                     else
                         foreach (explode(' ', $search) as $word)
-                            if (strlen($word) > 2 || $word == "c#")
-                                $query->orWhere('title', 'like', '%' . $word . '%');
+                            $query->orWhere('title', 'like', '%' . $word . '%');
                 })
                     // ->orWhere("description", "like", "%" . $search . "%")
                     ->orWhere("author", "like", "%" . $search . "%")

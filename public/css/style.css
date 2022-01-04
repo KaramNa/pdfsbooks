@@ -105,10 +105,12 @@ body {
     color: #333;
     min-height: 100%;
 }
+
 input[type='checkbox'] {
     width: 18px;
     height: 18px;
 }
+
 header {
     background: #212522;
     margin-bottom: 30px;
@@ -180,9 +182,10 @@ textarea {
     /*-webkit-appearance: none;*/
 }
 
-.category a{
+.category a {
     color: #fff;
 }
+
 .inp {
     background: #fff;
     border: 0;
@@ -214,6 +217,7 @@ textarea {
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
 }
+
 .sbm {
     color: #fff;
     background: #800000;
@@ -297,6 +301,7 @@ a:hover {
 .notif-hover:hover {
     background-color: #800000!important;
 }
+
 h1,
 h2,
 h3,
@@ -602,6 +607,7 @@ footer .google,
     background: #152d3e;
     border: 1px solid #c8d6e5;
 }
+
 .blink {
     animation: blinker 1s step-start infinite;
 }
@@ -617,6 +623,7 @@ footer .google,
         opacity: 0;
     }
 }
+
 .btn-down {
     background: #333;
     border: 3px solid #333;
