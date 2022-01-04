@@ -27,15 +27,15 @@
 
                 <div id="link" class="d-none">
                     <div class="d-flex justify-content-around align-items-center">
-                        <span class="blink h1 wine-color"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="150" height="150">
+                        <span class="blink h1 wine-color"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100">
                                 <g fill='#800000'>
                                     <path
                                         d="M11 5.8c0 .4.1.7.4.9L16 11c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.6-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9l-6.8-6.2c-.8-.5-2.1.1-2.1 1.1zM3 5.8c0 .4.1.7.4.9L8 11.1c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.5-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9L5.1 4.9c-.8-.7-2.1-.1-2.1.9z">
                                     </path>
                                 </g>
                             </svg></span>
-                        <a href="<?php echo $d_link; ?>" target="_blank" class="h2">Free download</a>
-                        <span class="blink h1 wine-color"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="150" height="150">
+                        <a href="<?php echo $d_link; ?>" target="_blank" class="h2">Click here for Free download</a>
+                        <span class="blink h1 wine-color"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100">
                                 <g fill='#800000'>
                                     <path
                                         d="M12.4 18.2c0-.4-.1-.7-.4-.9L7.4 13c-.5-.5-.5-1.4 0-1.9L12 6.8c.3-.2.4-.6.4-.9 0-1.1-1.3-1.7-2.1-.9l-6.8 6.2c-.6.5-.6 1.4 0 1.9l6.8 6.2c.8.5 2.1-.1 2.1-1.1zM20.4 18.2c0-.4-.1-.7-.4-.9L15.4 13c-.5-.5-.5-1.4 0-1.9L20 6.8c.3-.2.4-.6.4-.9 0-1.1-1.3-1.7-2.1-.9l-6.8 6.2c-.6.5-.6 1.4 0 1.9l6.8 6.2c.8.5 2.1-.1 2.1-1.1z">
