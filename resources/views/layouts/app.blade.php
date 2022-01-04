@@ -220,7 +220,7 @@
         </div>
     </footer>
 
-    <script src="{{ asset('js/app.js?v=') . time() }}"></script>
+    <script src="{{ asset('js/app.js) }}"></script>
 
     <script>
         $(document).ready(function() {
