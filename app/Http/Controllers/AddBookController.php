@@ -41,6 +41,7 @@ class AddBookController extends Controller
             $attributes["slug"] = strtolower(str_replace(" ", "-", $slug));
             $attributes["category_slug"] = strtolower(str_replace(" ", "-", $attributes["category"]));
             $attributes["author"] = "by " . $attributes["author"];
+            $attributes["download_link3"] = request("download_link3");
             if (request()->file("poster"))
                 $attributes["poster"] = "/storage/" . request()->file("poster")->store("posters", "public");
             else
@@ -171,6 +172,7 @@ class AddBookController extends Controller
         if (isset($attributes["poster"]))
             $attributes["poster"] = "/storage/" . request()->file("poster")->store("posters", "public");
         $attributes["download_link2"] = request("download_link2");
+        $attributes["download_link3"] = request("download_link3");
         $book->update($attributes);
 
         return back()->with("success", "Book has been updated");

@@ -26,6 +26,7 @@ class Book extends Model
         "PDF_size",
         "language",
         "download_link2",
+        "download_link3",
         "draft"
     ];
 

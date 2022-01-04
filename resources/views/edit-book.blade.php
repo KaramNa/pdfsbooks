@@ -124,7 +124,7 @@
                     </div>
 
                     <div class="my-2">
-                        <label for="size">Book size</label>
+                        <label for="PDF_size">Book size</label>
                         <input type="text" class="form-control" name="PDF_size" value="{{ old('PDF_size', $book->PDF_size) }}">
                         @error('PDF_size')
                             <div class="text-danger">
@@ -134,10 +134,20 @@
                     </div>
                     
                      <div class="my-2">
-                        <label for="size">Download link</label>
+                        <label for="download_link2">Download link</label>
                         <input type="text" class="form-control" name="download_link2"
                             value="{{ old('download_link2', $book->download_link2) }}">
                         @error('download_link2')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                     <div class="my-2">
+                        <label for="download_link3">Download link2</label>
+                        <input type="text" class="form-control" name="download_link3"
+                            value="{{ old('download_link3', $book->download_link3) }}">
+                        @error('download_link3')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>

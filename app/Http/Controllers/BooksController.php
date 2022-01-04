@@ -75,9 +75,11 @@ class BooksController extends Controller
             }
         } else {
             $d_link = Book::find($book->id)->download_link2;
+            $d_link2 = Book::find($book->id)->download_link3;
         }
         return view("get-the-link", [
             "d_link" => $d_link,
+            "d_link2" => $d_link2,
             "slug" => $slug
 
         ]);
