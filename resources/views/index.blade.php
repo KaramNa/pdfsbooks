@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('book_url', \Request::fullUrl())
+@section('page_title', "PDFs Books - Free download " . $currentCategory . " books")
 
 @section('content')
     <div class="title">
