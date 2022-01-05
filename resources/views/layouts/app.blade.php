@@ -22,22 +22,12 @@
         href="https://feeds.feedburner.com/pdfsbooks">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <meta name="theme-color" content="#fff">
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-192921243-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-192921243-1');
-    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRY9G4D4WQ"></script>
     <script>
@@ -220,7 +210,7 @@
         </div>
     </footer>
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.min.js') }}"></script>
 
     <script>
         $(document).ready(function() {
