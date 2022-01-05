@@ -60,7 +60,7 @@ class BooksController extends Controller
         $book = Book::get()->where("slug", $slug)->first();
 
         $url = $book->download_link;
-
+        $d_link2 = "";
         if ($url) {
             $httpClient = new Client();
             $response = $httpClient->get($url);

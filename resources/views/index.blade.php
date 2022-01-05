@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('book_url', \Request::fullUrl())
+
 @section('content')
     <div class="title">
         <h1>Welcome to PDFsBooks Library</h1>

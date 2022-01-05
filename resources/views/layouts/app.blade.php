@@ -17,7 +17,7 @@
     <meta property="og:image" content="@yield(" share_image", asset('storage/thumbnail.jpg'))" />
     <link rel="alternate" hreflang="en-us" href="https://pdfsbooks.com" />
     <meta property="og:type" content="website">
-    <link rel="canonical" href="@yield(" book_url", "https://pdfsbooks.com" )">
+    <link rel="canonical" href="@yield("book_url", "https://pdfsbooks.com" )">
     <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com"
         href="https://feeds.feedburner.com/pdfsbooks">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">

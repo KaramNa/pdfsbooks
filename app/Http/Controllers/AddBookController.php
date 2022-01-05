@@ -36,7 +36,7 @@ class AddBookController extends Controller
             ]);
             if (request()->has("draft"))
                 $attributes["draft"] = 1;
-            $slug = str_replace(["#", "?"], "", $attributes["title"]);
+            $slug = str_replace(["#", "?", ",", "/"], "", $attributes["title"]);
             $slug = str_replace(":", " ", $slug);
             $attributes["slug"] = strtolower(str_replace(" ", "-", $slug));
             $attributes["category_slug"] = strtolower(str_replace(" ", "-", $attributes["category"]));
