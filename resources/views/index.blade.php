@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="title">
-        <h1 class="text-capitalize">PDFsBooks the best online ebooks Library</h1>
+        <h1 class="text-uppercase">PDFsBooks the best online ebooks Library</h1>
         <h2>Free download PDF books</h2>
         <div class="soc">
             {!! $shareComponent !!}
