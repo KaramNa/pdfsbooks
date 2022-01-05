@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="{{ asset('css/style.css?v=') . time() }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <meta name="theme-color" content="#fff">
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
