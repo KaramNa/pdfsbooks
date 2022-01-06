@@ -21,7 +21,7 @@ class AddBookController extends Controller
     {
         if (request()->has("publish") || request()->has("draft")) {
             $attributes =  request()->validate([
-                "title" => "required",
+                "title" => "required|unique:books,title",
                 "qoute" => "",
                 "author" => "required",
                 "poster" => "image",
@@ -48,7 +48,19 @@ class AddBookController extends Controller
             else
                 $attributes["poster"] = "/storage/" . request("image_url");
             $attributes["PDF_size"] .=" MB";
-            Book::create($attributes);
+            if (Book::create($attributes)) {
+                $replacement = "<url>
+  <loc>https://pdfsbooks.com/book/" . $attributes["slug"] . "</loc>
+  <lastmod>" . now() . "</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.8</priority>
+</url>";
+                $contents = file('sitemap.xml', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                $size = count($contents);
+                $contents[$size - 2] .= "\n" . $replacement;
+                $temp = implode("\n", $contents);
+                file_put_contents('sitemap.xml', $temp);
+            }
 
             return back()->with("success", "Book has been added. Link: https://pdfsbooks.com/book/"
                                                                                             . $attributes["slug"]);
