@@ -55,7 +55,7 @@ class AddBookController extends Controller
   <changefreq>daily</changefreq>
   <priority>0.8</priority>
 </url>";
-                $contents = file(asset("sitemap.xml"), FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                $contents = file('sitemap.xml', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
                 $size = count($contents);
                 $contents[$size - 2] .= "\n" . $replacement;
                 $temp = implode("\n", $contents);
