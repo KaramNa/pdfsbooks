@@ -164,8 +164,8 @@
                                 <label for="exact_search" class="text-white">Exact Search</label>
                             </div>
                             <div class="d-flex">
-                                <input class="inp" name="search" autocomplete="off"
-                                    placeholder="Search Books" type="search" value="{{ request('search') }}"
+                                <input class="inp" name="search1" autocomplete="off"
+                                    placeholder="Search Books" type="search" value="{{ request('search1') }}"
                                     required><button aria-label="submit" class="sbm" type="submit"><svg
                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                         <g fill='#FFFFFF'>

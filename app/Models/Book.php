@@ -48,6 +48,24 @@ class Book extends Model
             ),
             $this->SearchResults($query, $search)
         ]);
+        if (!isset($filters["search"]))
+            $query->where("draft", 0);
+        $query->when($filters["search1"] ?? false, fn ($query, $search) =>
+        [
+            $query->where(
+                fn ($query) =>
+                $query->where(function ($query) use ($search) {
+                    if (request("exact_search") == "on")
+                        $query->Where('title', 'like', '%' . $search . '%');
+                    else
+                        foreach (explode(' ', $search) as $word)
+                            $query->orWhere('title', 'like', '%' . $word . '%');
+                })
+                    // ->orWhere("description", "like", "%" . $search . "%")
+                    ->orWhere("author", "like", "%" . $search . "%")
+            ),
+            $this->SearchResults($query, $search)
+        ]);
 
         $query->when(
             $filters["category"] ?? false,
