@@ -36,7 +36,7 @@ class AddBookController extends Controller
             ]);
             if (request()->has("draft"))
                 $attributes["draft"] = 1;
-            $slug = str_replace(["?", ",", "/"], "", $attributes["title"]);
+            $slug = str_replace(["?", ",", "/", "|", "&", "$"], "", $attributes["title"]);
             $slug = str_replace(":", " ", $slug);
             $slug = str_replace("#", "sharp", $slug);
             $attributes["slug"] = strtolower(str_replace(" ", "-", $slug));
@@ -47,23 +47,10 @@ class AddBookController extends Controller
                 $attributes["poster"] = "/storage/" . request()->file("poster")->store("posters", "public");
             else
                 $attributes["poster"] = "/storage/" . request("image_url");
-            $attributes["PDF_size"] .=" MB";
-            if (Book::create($attributes)) {
-                $replacement = "<url>
-  <loc>https://pdfsbooks.com/book/" . $attributes["slug"] . "</loc>
-  <lastmod>" . now() . "</lastmod>
-  <changefreq>daily</changefreq>
-  <priority>0.8</priority>
-</url>";
-                $contents = file('sitemap.xml', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-                $size = count($contents);
-                $contents[$size - 2] .= "\n" . $replacement;
-                $temp = implode("\n", $contents);
-                file_put_contents('sitemap.xml', $temp);
-            }
-
-            return back()->with("success", "Book has been added. Link: https://pdfsbooks.com/book/"
-                                                                                            . $attributes["slug"]);
+            $attributes["PDF_size"] .= " MB";
+            if (Book::create($attributes))
+                return back()->with("success", "Book has been added. Link: https://pdfsbooks.com/book/"
+                    . $attributes["slug"]);
         }
         if (request()->has("fill")) {
             $url = request()->validate([
@@ -103,9 +90,8 @@ class AddBookController extends Controller
                 $details["author"] = $author;
                 $details["image_url"] = $image_name;
                 $details["size"] = "";
-
             } else {
-                 $attr = $response->filter('tr td');
+                $attr = $response->filter('tr td');
                 foreach ($attr as $value) {
                     if ($value->textContent == "Title: ")
                         $title = $value->nextSibling->textContent;
@@ -115,7 +101,7 @@ class AddBookController extends Controller
                         $publisher = $value->nextSibling->textContent;
                     } elseif ($value->textContent == "Year:") {
                         $published = $value->nextSibling->textContent;
-                    } elseif (str_contains($value->textContent ,"Pages (biblio\\tech):")) {
+                    } elseif (str_contains($value->textContent, "Pages (biblio\\tech):")) {
                         $pages = $value->nextSibling->textContent;
                         $pages = explode("\\", $pages)[0];
                     } elseif ($value->textContent == "Language:") {
@@ -125,7 +111,7 @@ class AddBookController extends Controller
                         $size = explode("(", $size_temp)[0];
                         $size = preg_replace('/[^0-9.]/', '', $size);
                         if (str_contains($size_temp, "kB"))
-                        $size = number_format($size / 1024, 1);
+                            $size = number_format($size / 1024, 1);
                     }
                 }
                 $description = addslashes($response->evaluate('//td[@colspan="4"]')->text());
