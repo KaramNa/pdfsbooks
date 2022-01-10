@@ -11,8 +11,8 @@
         <description>
             <![CDATA[ Online library for download pdf books for free ]]>
         </description>
+        <pubDate>{{ date('r', strtotime($books[0]->created_at)) }}</pubDate>
         <language>en</language>
-        <pubDate>{{ now()->toDayDateTimeString('Asia/Damasucs') }}</pubDate>
 
         @foreach ($books as $book)
             <item>
@@ -27,6 +27,7 @@
                 <author>
                     <![CDATA[{{ $book->author }}]]>
                 </author>
+                <pubDate>{{ date('r', strtotime($book->created_at)) }}</pubDate>
                 <media:content url="{{ 'https://pdfsbooks.com' . $book->poster }}" type="image/jpg" />
             </item>
         @endforeach
