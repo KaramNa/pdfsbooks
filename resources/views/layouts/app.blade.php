@@ -159,7 +159,7 @@
                         @endif
                         <div>
                             <div class="ms-2">
-                                <input type="checkbox" name="exact_search"
+                                <input id="exact_search" type="checkbox" name="exact_search"
                                     {{ request('exact_search') == 'on' ? 'checked' : '' }}>
                                 <label for="exact_search" class="text-white">Exact Search</label>
                             </div>
