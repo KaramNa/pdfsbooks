@@ -16,7 +16,7 @@ class Book extends Model
         'columns' => [
 
             'books.title' => 10,
-            'books.author' => 10,
+            'books.author' => 5,
         ],
         'groupBy' => [
             "id",
