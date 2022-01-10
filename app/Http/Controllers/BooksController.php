@@ -12,7 +12,7 @@ class BooksController extends Controller
 {
     public function index()
     {
-        $books = Book::filter(request(["search", "category", "search1"]))->latest()->paginate(20);
+        $books = Book::filter(request(["search", "category", "search1"]))->paginate(20);
         $shareComponent = \Share::currentPage()
         ->facebook()
         ->twitter()

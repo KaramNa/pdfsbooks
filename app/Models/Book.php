@@ -4,12 +4,50 @@ namespace App\Models;
 
 use App\Models\SearchResults;
 use Illuminate\Database\Eloquent\Model;
+use Nicolaslopezj\Searchable\SearchableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Book extends Model
 {
-    use HasFactory;
+    use HasFactory, SearchableTrait;
 
+    protected $searchable = [
+
+        'columns' => [
+
+            'books.title' => 10,
+            'books.author' => 10,
+        ],
+        'groupBy' => [
+            "id",
+            "title",
+            "slug",
+            "qoute",
+            "author",
+            "poster",
+            "description",
+            "category",
+            "category_slug",
+            "publisher",
+            "published",
+            "pages",
+            "PDF_size",
+            "language",
+            "download_link2",
+            "download_link3",
+            "draft",
+            "edition",
+            "isbn13",
+            "isbn10",
+            "isbn13_digital",
+            "isbn10_digital",
+            "license",
+            "download_link",
+            "created_at",
+            "updated_at"
+        ]
+
+    ];
 
     protected $fillable = [
         "title",
@@ -32,46 +70,31 @@ class Book extends Model
 
     public function scopeFilter($query, array $filters)
     {
-        $query->when($filters["search"] ?? false, fn ($query, $search) =>
-        [
-            $query->where(
-                fn ($query) =>
-                $query->where(function ($query) use ($search) {
-                    if (request("exact_search") == "on")
-                        $query->Where('title', 'like', '%' . $search . '%');
-                    else
-                        foreach (explode(' ', $search) as $word)
-                            $query->orWhere('title', 'like', '%' . $word . '%');
-                })
-                    // ->orWhere("description", "like", "%" . $search . "%")
-                    ->orWhere("author", "like", "%" . $search . "%")
-            ),
-            $this->SearchResults($query, $search)
-        ]);
-        if (!isset($filters["search"]))
+        if (isset($filters["search"])) {
+            if (request("exact_search") == "on")
+                $query->search($filters['search'], null, true, true);
+            else
+                $query->search($filters['search'], null, true);
+        } else {
             $query->where("draft", 0);
-        $query->when($filters["search1"] ?? false, fn ($query, $search) =>
-        [
-            $query->where(
-                fn ($query) =>
-                $query->where(function ($query) use ($search) {
-                    if (request("exact_search") == "on")
-                        $query->Where('title', 'like', '%' . $search . '%');
-                    else
-                        foreach (explode(' ', $search) as $word)
-                            $query->orWhere('title', 'like', '%' . $word . '%');
-                })
-                    // ->orWhere("description", "like", "%" . $search . "%")
-                    ->orWhere("author", "like", "%" . $search . "%")
-            ),
-            $this->SearchResults($query, $search)
-        ]);
+        }
+
+        if (isset($filters["search1"])) {
+            if (request("exact_search") == "on")
+                $query->search($filters['search1'], null, true, true);
+            else
+                $query->search($filters['search1'], null, true);
+            $this->SearchResults($query, $filters["search1"]);
+        }
 
         $query->when(
             $filters["category"] ?? false,
             fn ($query, $category) =>
             $query->where("category_slug", "like", "%" . $category . "%")
         );
+
+        if (!isset($filters["search"]) && !isset($filters["category"]))
+            $query->latest();
     }
 
     public function comments()
