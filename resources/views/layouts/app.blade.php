@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css?v=2') }}">
     <meta name="theme-color" content="#fff">
     <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/app.min.js') }}"></script>
 
 </head>
 
@@ -223,7 +224,6 @@
         });
     </script>
 
-    <script defer src="{{ asset('js/app.min.js') }}"></script>
     <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRY9G4D4WQ"></script>
