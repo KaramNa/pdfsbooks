@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('book_url', \Request::fullUrl())
-@section('page_title', "PDFs Books - Free download " . $currentCategory . " books")
+@section('page_title', 'PDFs Books - Free download ' . $currentCategory . ' books')
 
 @section('content')
     <div class="title">
@@ -29,8 +29,8 @@
                     </svg></button>
 
                 <div x-show="show"
-                    class="bg-dark text-white overflow-auto rounded py-3 text-left m-auto mt-2 position-absolute"
-                    style="width:300px; right:0; left:0; display:none; z-index:50; height:300px">
+                    class="bg-dark text-white overflow-auto rounded py-3 text-left m-auto mt-2 position-absolute categories-list"
+                    style="display: none">
                     <a href="{{ route('home') }}" class="d-block py-1 px-3 text-start">All Categories</a>
 
 
@@ -40,11 +40,11 @@
 
                     @endforeach
                 </div>
-                <x-adsense></x-adsense>
 
             </div>
         </div>
     </div>
+    <x-adsense></x-adsense>
     <div class="wrap index">
         <div class="col100">
             @if (count($books) > 0)
@@ -96,15 +96,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @enderror
-            <form action="{{ route('newsletter') }}" method="POST" class="border shadow-lg p-4 border-raduis-12">
-                @csrf
-                <p>Subscribe to our newsletters to stay up to date with our activities</p>
-                <div class="d-flex">
-                    <input class="inp" name="email_address" autocomplete="off"
-                        placeholder="Subscribe to newsletter, Enter your email" type="email" required>
-                    <button aria-label="submit" class="subscribe" type="submit">Subscribe</button>
-                </div>
-            </form>
+            <x-newsletter></x-newsletter>
             <x-adsense></x-adsense>
 
         </div>

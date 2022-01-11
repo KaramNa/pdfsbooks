@@ -106,7 +106,7 @@ body {
     min-height: 100%;
 }
 
-input[type='checkbox'] {
+input[type="checkbox"] {
     width: 18px;
     height: 18px;
 }
@@ -295,11 +295,11 @@ a:hover {
 }
 
 .notif-hover:hover a {
-    color: white!important;
+    color: white !important;
 }
 
 .notif-hover:hover {
-    background-color: #800000!important;
+    background-color: #800000 !important;
 }
 
 h1,
@@ -376,15 +376,15 @@ h4 {
 
 img.selected {
     box-shadow: 0 0 0 4px #00c09e;
-    animation: selected 0.3s cubic-bezier(0.250, 0.100, 0.250, 1.000);
-    -o-animation: selected 0.3s cubic-bezier(0.250, 0.100, 0.250, 1.000);
-    -ms-animation: selected 0.3s cubic-bezier(0.250, 0.100, 0.250, 1.000);
-    -moz-animation: selected 0.3s cubic-bezier(0.250, 0.100, 0.250, 1.000);
-    -webkit-animation: selected 0.3s cubic-bezier(0.250, 0.100, 0.250, 1.000);
+    animation: selected 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    -o-animation: selected 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    -ms-animation: selected 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    -moz-animation: selected 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    -webkit-animation: selected 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .w-100px {
-    max-width: 100px!important;
+    max-width: 100px !important;
 }
 
 .img {
@@ -395,9 +395,22 @@ img.selected {
 }
 
 .category a:hover,
-.category a.active {
+.category a.active,
+.checkbox-dropdown-list li:hover {
     background-color: #800000;
     color: #fff;
+}
+
+.checkbox-dropdown-list li {
+    padding: 5px;
+}
+
+.categories-list {
+    width: 320px;
+    right: 0;
+    left: 0;
+    z-index: 50;
+    height: 300px;
 }
 
 #menu {
@@ -669,6 +682,27 @@ footer .google,
     max-width: 300px;
     min-width: 200px;
 }
+
+
+/* Mail chimp */
+
+#mc_embed_signup #mce-success-response {
+    color: #529214;
+    display: none;
+}
+
+#mc_embed_signup #mc-embedded-subscribe-form input.mce_inline_error {
+    border: 2px solid #e85c41;
+}
+
+#mc_embed_signup div.mce_inline_error,
+#mc_embed_signup div.response {
+    background-color: transparent!important;
+    color: #e85c41!important;
+}
+
+
+/* end Mail Chimp */
 
 .btn-menu,
 .btn-menu2 {

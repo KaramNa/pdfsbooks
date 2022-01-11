@@ -89,7 +89,7 @@
             </div>
 
         </div>
-        <div class="col100 txt mt-4 mt-sm-0">
+        <div class="col100 txt mt-4 mt-sm-0 position-relative">
             <a href="#description" id="a_description" onclick="return tab('description')" class="btn-menu active"
                 title="Book Description">
                 <span class="mobi1">Description</span>
@@ -243,15 +243,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @enderror
-                        <form action="{{ route('newsletter') }}" method="POST" class="border shadow-lg p-4 border-raduis-12">
-                            @csrf
-                            <p>Subscribe to our newsletters to stay up to date with our activities</p>
-                            <div class="d-flex">
-                                <input class="inp" name="email_address" autocomplete="off"
-                                    placeholder="Subscribe to newsletter, Enter your email" type="email" required>
-                                <button aria-label="submit" class="subscribe" type="submit">Subscribe</button>
-                            </div>
-                        </form>
+                        <x-newsletter></x-newsletter>
                     </div>
                 </div>
                 <section>
