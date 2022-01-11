@@ -77,7 +77,7 @@
     </div>
     <div class="wrap mt30">
         <div class="col300 center"> <img src="{{ $book->poster }}" alt="Remote Sensing of Plant Biodiversity"
-                class="img">
+                class="img" width="277.5" height="417.167">
             <div class="soc">
                 {!! $shareComponent !!}
             </div>
@@ -161,8 +161,8 @@
                 @foreach ($relatedBooks as $relatedBook)
                     <div class="item"><a href="{{ route('single.book', $relatedBook->slug) }}"
                             title="{{ $relatedBook->title }}"><img data-src="{{ $relatedBook->poster }}"
-                                src="{{ $relatedBook->poster }}" class="lazyload img"
-                                alt="{{ $relatedBook->title }}"></a>
+                                src="{{ $relatedBook->poster }}" class="img"
+                                alt="{{ $relatedBook->title }}" width="277.5" height="417.167"></a>
                         <div class="pad"><a href="{{ route('single.book', $relatedBook->slug) }}"
                                 title="{{ $relatedBook->title }}">{{ $relatedBook->title }}</a></div>
                         <div class="h">{{ $relatedBook->description }}</div>

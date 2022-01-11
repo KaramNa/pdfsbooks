@@ -53,7 +53,7 @@
                         <div class="item">
                             <a href="{{ route('single.book', $book->slug) }}"
                                 title="Free Download {{ $book->title }}"><img data-src="{{ $book->title }}"
-                                    src="{{ $book->poster }}" class="lazyload img" alt="{{ $book->title }}"></a>
+                                    src="{{ $book->poster }}" class="img" alt="{{ $book->title }}" width="277.5" height="417.167"></a>
                             <div class="pad mt-3"><a href="{{ route('single.book', $book->slug) }}"
                                     title="Free Download {{ $book->title }}">{{ $book->title }}</a></div>
                             <div class="h">{{ $book->description }}</div>
