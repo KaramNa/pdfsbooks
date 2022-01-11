@@ -10,16 +10,15 @@
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:site_name" content="pdfsbooks.com">
-    <meta property="og:title" content="@yield("book_title", "PDFsBOOks" )">
-    <meta property="og:description" content="Free download (PDF) @yield("book_desc")">
-    <meta property="og:url" content="@yield("book_url", "https://pdfsbooks.com" )">
-    <meta name="thumbnail" content="@yield("share_image", asset('storage/thumbnail.jpg'))">
-    <meta property="og:image" content="@yield("share_image", asset('storage/thumbnail.jpg'))" />
+    <meta property="og:title" content="@yield(" book_title", "PDFsBOOks" )">
+    <meta property="og:description" content="Free download (PDF) @yield(" book_desc")">
+    <meta property="og:url" content="@yield(" book_url", "https://pdfsbooks.com" )">
+    <meta name="thumbnail" content="@yield(" share_image", asset('storage/thumbnail.jpg'))">
+    <meta property="og:image" content="@yield(" share_image", asset('storage/thumbnail.jpg'))" />
     <link rel="alternate" hreflang="en-us" href="https://pdfsbooks.com" />
     <meta property="og:type" content="website">
-    <link rel="canonical" href="@yield("book_url", "https://pdfsbooks.com" )">
-    <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com"
-        href="https://pdfsbooks.com/feed">
+    <link rel="canonical" href="@yield(" book_url", "https://pdfsbooks.com" )">
+    <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com" href="https://pdfsbooks.com/feed">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
@@ -27,21 +26,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css?v=2') }}">
     <meta name="theme-color" content="#fff">
     <script src="{{ asset('js/jquery.js') }}"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRY9G4D4WQ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-PBFEB4TVQS');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
-        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -210,8 +195,6 @@
         </div>
     </footer>
 
-    <script src="{{ asset('js/app.min.js') }}"></script>
-
     <script>
         $(document).ready(function() {
             $('.navbar-nav a.active').removeClass('active');
@@ -220,21 +203,6 @@
                 $(".navbar-nav a.home").addClass('active');
         });
     </script>
-
-    <!-- Default Statcounter code for Pdfsbooks https://pdfsbooks.com/ -->
-    <script type="text/javascript">
-        var sc_project = 12696715;
-        var sc_invisible = 1;
-        var sc_security = "addf9e34";
-    </script>
-    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
-    <noscript>
-        <div class="statcounter"><a title="Web Analytics Made Easy -
-Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcounter"
-                    src="https://c.statcounter.com/12696715/0/addf9e34/1/" alt="Web Analytics Made Easy - Statcounter"
-                    referrerPolicy="no-referrer-when-downgrade"></a></div>
-    </noscript>
-    <!-- End of Statcounter Code -->
 
     <script>
         var nowDate = new Date();
@@ -254,6 +222,38 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
             } else {}
         });
     </script>
+
+    <script defer src="{{ asset('js/app.min.js') }}"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRY9G4D4WQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PBFEB4TVQS');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
+        crossorigin="anonymous"></script>
+
+    <!-- Default Statcounter code for Pdfsbooks https://pdfsbooks.com/ -->
+    <script type="text/javascript">
+        var sc_project = 12696715;
+        var sc_invisible = 1;
+        var sc_security = "addf9e34";
+    </script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript>
+        <div class="statcounter"><a title="Web Analytics Made Easy -
+Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcounter"
+                    src="https://c.statcounter.com/12696715/0/addf9e34/1/" alt="Web Analytics Made Easy - Statcounter"
+                    referrerPolicy="no-referrer-when-downgrade"></a></div>
+    </noscript>
+    <!-- End of Statcounter Code -->
 </body>
 
 </html>
