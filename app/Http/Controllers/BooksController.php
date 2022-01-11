@@ -73,8 +73,8 @@ class BooksController extends Controller
                 $d_link = 'https://www.dbooks.org' . $link->attributes['href']->value;
             }
         } else {
-            $d_link = Book::find($book->id)->download_link2;
-            $d_link2 = Book::find($book->id)->download_link3;
+            $d_link = $book->download_link2;
+            $d_link2 = $book->download_link3;
         }
         return view("get-the-link", [
             "d_link" => $d_link,
