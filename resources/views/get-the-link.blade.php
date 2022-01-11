@@ -69,20 +69,17 @@
         </div>
     </div>
     <script>
-        $('document').ready(function() {
-            $('#delayMsg').html(
-                'Please wait, the download link will appear after <span id="countDown" class="wine-color fw-bold">10</span> seconds....'
-            );
-            var count = 10;
-            var timer = setInterval(function() {
-                count--;
-                $('#countDown').html(count);
-                if (count == 0) {
-                    $('#link').removeClass('d-none');
-                    clearInterval(timer);
-                }
-            }, 1000);
-        })
+        document.getElementById('delayMsg').innerHTML =
+            'Please wait, the download link will appear after <span id="countDown" class="wine-color fw-bold">10</span> seconds....';
+        var count = 10;
+        var timer = setInterval(function() {
+            count--;
+            document.getElementById('countDown').innerHTML = count;
+            if (count == 0) {
+                document.getElementById('link').classList.remove('d-none');
+                clearInterval(timer);
+            }
+        }, 1000);
     </script>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

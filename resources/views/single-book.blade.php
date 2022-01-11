@@ -289,19 +289,18 @@
                                 @foreach ($avatars as $avatar)
                                     <img src="/storage/avatars/{{ $avatar }}" width="100" height="100"
                                         class="avatar {{ $avatar == 'avatar1.jpg' ? 'selected' : '' }} 
-                                    w-100px mx-1 px-0 position-relative" />
+                                    w-100px mx-1 px-0 position-relative" onclick="selectAvatar(this)" />
                                 @endforeach
                             </div>
                         </div>
                         <button class="btn btn-dark mt-3">Post comment</button>
                     </form>
                     <script>
-                        $('.avatar').on("click", function() {
-                            $('.avatar').removeClass('selected');
-                            $(this).addClass('selected');
-                            $("#avatar").val($(this).first()[0].getAttribute('src'));
-
-                        });
+                        function selectAvatar(element){
+                            document.getElementsByClassName('selected')[0].classList.remove('selected');
+                            element.classList.add('selected');
+                            document.getElementById("avatar").value = element.getAttribute('src');
+                        }
                     </script>
                     @foreach ($book->comments as $comment)
                         <article class="d-flex p-3 border justify-content-between shadow-lg border-raduis-12 mt-5">

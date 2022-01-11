@@ -25,7 +25,6 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="{{ asset('css/style.css?v=2') }}">
     <meta name="theme-color" content="#fff">
-    <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/app.min.js') }}"></script>
     <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
 
@@ -198,15 +197,16 @@
     </footer>
 
     <script>
-        $(document).ready(function() {
-            $('.navbar-nav a.active').removeClass('active');
-            $('.navbar-nav a[href="https://pdfsbooks.com' + location.pathname + '"]').addClass('active');
-            if (location.pathname == "/")
-                $(".navbar-nav a.home").addClass('active');
-        });
+        try {
+            var url = "pdfsbooks.com" + location.pathname;
+            document.querySelector('a[href=' + CSS.escape(url) + ']').classList.add(
+                'active');
+        } catch {}
+        if (location.pathname == "/")
+            var home = document.getElementsByClassName("home")[0].classList.add("active");
     </script>
 
-    <script>
+    {{-- <script>
         var nowDate = new Date();
         var date = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
 
@@ -223,7 +223,7 @@
                 $('.ads').show();
             } else {}
         });
-    </script>
+    </script> --}}
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRY9G4D4WQ"></script>
