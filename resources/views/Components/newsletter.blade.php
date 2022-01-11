@@ -126,7 +126,7 @@
                 <div class=""></div>
                 <div class="clear foot mc-field-group">
                     <div class="d-flex">
-                        <input type="email" value="" name="EMAIL" class="required email inp" id="mce-EMAIL">
+                        <input type="email" value="" name="EMAIL" class="required email inp" id="mce-EMAIL" placeholder="Enter your email address">
                         <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
                             class="subscribe">
                     </div>

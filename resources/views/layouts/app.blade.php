@@ -83,7 +83,7 @@
                                     <li>
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf
-                                            <button id="logout" type="submit" rel="search" title="Search Books"
+                                            <button id="logout" type="submit" rel="logout" title="logout"
                                                 class="border-0 bg-transparent dropdown-item">Logout</button>
                                         </form>
                                     </li>
@@ -151,7 +151,7 @@
                             </div>
                             <div class="d-flex">
                                 <input class="inp" name="search1" autocomplete="off"
-                                    placeholder="Search Books" type="search" value="{{ request('search1') }}"
+                                    placeholder="Search By Title or Author" type="search" value="{{ request('search1') }}"
                                     required><button aria-label="submit" class="sbm" type="submit"><svg
                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                         <g fill='#FFFFFF'>
@@ -185,11 +185,6 @@
     </main>
     <footer>
         <div class="main wrap">
-            <div class="col100">
-                <a href="https://www.facebook.com/FreeBooks" title="Follow us on Facebook" target="_blank"
-                    rel="noreferrer">FOLLOW US ON FACEBOOK.COM
-                </a>
-            </div>
             <div class="col100">
                 <div class="text-sm-end text-center"><small><b>pdfsbooks.com &copy; 2020-2021</b></small></div>
             </div>
