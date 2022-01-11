@@ -27,6 +27,20 @@
     <meta name="theme-color" content="#fff">
     <script src="{{ asset('js/app.min.js') }}"></script>
     <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRY9G4D4WQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PBFEB4TVQS');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
+        crossorigin="anonymous"></script>
 
 </head>
 
@@ -151,9 +165,10 @@
                             </div>
                             <div class="d-flex">
                                 <input class="inp" name="search1" autocomplete="off"
-                                    placeholder="Search By Title or Author" type="search" value="{{ request('search1') }}"
-                                    required><button aria-label="submit" class="sbm" type="submit"><svg
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    placeholder="Search By Title or Author" type="search"
+                                    value="{{ request('search1') }}" required><button aria-label="submit"
+                                    class="sbm" type="submit"><svg xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
                                         <g fill='#FFFFFF'>
                                             <path
                                                 d="M22.1 20.1l-4.8-4.8C18.4 13.8 19 12 19 10c0-5-4-9-9-9s-9 4-9 9 4 9 9 9c2 0 3.8-.6 5.3-1.7l4.8 4.8c.6.6 1.4.6 2 0 .5-.6.5-1.5 0-2zM10 16.5c-3.6 0-6.5-2.9-6.5-6.5S6.4 3.5 10 3.5s6.5 2.9 6.5 6.5-2.9 6.5-6.5 6.5z">
@@ -219,21 +234,6 @@
             } else {}
         });
     </script> --}}
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRY9G4D4WQ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-PBFEB4TVQS');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
-        crossorigin="anonymous"></script>
 
     <!-- Default Statcounter code for Pdfsbooks https://pdfsbooks.com/ -->
     <script type="text/javascript">
