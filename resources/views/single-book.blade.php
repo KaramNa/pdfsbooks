@@ -13,6 +13,7 @@
             <h1 class="wine-color">{{ $book->title }}</h1>
             <h2 class="mt-3">{{ $book->qoute }}</h2>
             <p><b>{{ $book->author }}</b></p>
+            <p class="text-success h4"><b>Scroll down to find the free download link</b></p>
         </div>
         <div class="col300 action">
             @auth
