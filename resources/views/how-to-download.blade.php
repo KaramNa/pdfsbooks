@@ -9,7 +9,7 @@
 
     <div>
         <p class="mt-4 h5 mb-3"><span class="text-danger fw-bold">Step 1:</span> After you visit the link of the book you want, scroll down to find the <span
-                class="text-primary">Get the Link</span> button and click on it. (see images below) </p>
+                class="text-primary">Free Download Link</span> button and click on it. (see images below) </p>
         <img class="img-fluid" src="{{ asset('storage/1.jpg') }}" alt="">
     </div>
           <x-adsense></x-adsense>

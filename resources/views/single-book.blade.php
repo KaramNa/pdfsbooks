@@ -13,7 +13,8 @@
             <h1 class="wine-color">{{ $book->title }}</h1>
             <h2 class="mt-3">{{ $book->qoute }}</h2>
             <p><b>{{ $book->author }}</b></p>
-            <p class="text-success h4"><b>Scroll down to find the free download link</b></p>
+            <p class="text-success h4"><span class="wine-color blink fw-bold">&gt;&gt;</span> Scroll down to find "Free
+                Download Link" <span class="wine-color blink fw-bold">&lt;&lt;</span></p>
         </div>
         <div class="col300 action">
             @auth
@@ -211,7 +212,7 @@
                                     </path>
                                 </g>
                             </svg></span>
-                        <a href="{{ route('get.the.link', $book->slug) }}" class="h2">Get the link</a>
+                        <a href="{{ route('get.the.link', $book->slug) }}" class="h2">Free Download Link</a>
                         <span class="blink h1 wine-color"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                 width="75" height="75">
                                 <g fill='#800000'>
@@ -290,14 +291,15 @@
                                 @foreach ($avatars as $avatar)
                                     <img src="/storage/avatars/{{ $avatar }}" width="100" height="100"
                                         class="avatar {{ $avatar == 'avatar1.jpg' ? 'selected' : '' }} 
-                                    w-100px mx-1 px-0 position-relative" onclick="selectAvatar(this)" />
+                                    w-100px mx-1 px-0 position-relative"
+                                        onclick="selectAvatar(this)" />
                                 @endforeach
                             </div>
                         </div>
                         <button class="btn btn-dark mt-3">Post comment</button>
                     </form>
                     <script>
-                        function selectAvatar(element){
+                        function selectAvatar(element) {
                             document.getElementsByClassName('selected')[0].classList.remove('selected');
                             element.classList.add('selected');
                             document.getElementById("avatar").value = element.getAttribute('src');
