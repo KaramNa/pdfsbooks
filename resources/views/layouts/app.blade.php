@@ -15,6 +15,7 @@
     <meta property="og:url" content="@yield(" book_url", "https://pdfsbooks.com" )">
     <meta name="thumbnail" content="@yield(" share_image", asset('storage/thumbnail.jpg'))">
     <meta property="og:image" content="@yield(" share_image", asset('storage/thumbnail.jpg'))" />
+    <meta name="yandex-verification" content="aac0de0adfffbbb7" />
     <link rel="alternate" hreflang="en-us" href="https://pdfsbooks.com" />
     <meta property="og:type" content="website">
     <link rel="canonical" href="@yield(" book_url", "https://pdfsbooks.com" )">
