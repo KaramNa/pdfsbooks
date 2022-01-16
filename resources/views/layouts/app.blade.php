@@ -216,7 +216,8 @@
         if (location.pathname == "/")
             var home = document.getElementsByClassName("home")[0].classList.add("active");
     </script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script>
         var nowDate = new Date();
         var date = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
@@ -250,8 +251,7 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
                     referrerPolicy="no-referrer-when-downgrade"></a></div>
     </noscript>
     <!-- End of Statcounter Code -->
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
