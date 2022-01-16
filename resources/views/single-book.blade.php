@@ -13,7 +13,7 @@
             <h1 class="wine-color">{{ $book->title }}</h1>
             <h2 class="mt-3">{{ $book->qoute }}</h2>
             <p><b>{{ $book->author }}</b></p>
-            <p class="text-success h4"><span class="wine-color blink fw-bold">&gt;&gt;</span> Scroll down to find "Free
+            <p class="text-success h4">Scroll down until you find <span class="wine-color blink fw-bold">&gt;&gt;</span> "Free
                 Download Link" <span class="wine-color blink fw-bold">&lt;&lt;</span></p>
         </div>
         <div class="col300 action">
