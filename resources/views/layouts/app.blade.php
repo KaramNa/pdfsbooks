@@ -75,7 +75,7 @@
                             <a class="nav-link" href="{{ route('how.to.download') }}">How to download!</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('ebooks.formats') }}">eBook Readers</a>
+                            <a class="nav-link" href="{{ route('ebooks.formats') }}">eBook Apps</a>
                         </li>
                         @auth
                             <li class="nav-item dropdown">

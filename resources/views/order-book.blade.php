@@ -4,7 +4,7 @@
         <x-adsense></x-adsense>
 
     <div class="text-center mt-5">
-        <h1 class="wine-color">Order a book</h1>
+        <h1 class="wine-color">Order a book for free</h1>
         <h2>Suggest a book for PDFSBOOKS.COM</h2>
         <p class="mt-3">We are happy to help you finding the books you need, we'll do our best to find the book you order and we'll send the <span class="text-success">Free link</span> to your email as soon as possible.</p>
     </div>
@@ -25,7 +25,7 @@
             @enderror
         </div>
         <div class="mt-3">
-            <label for="book_url"><span class="text-danger">*</span> Book link(Amazon or other website)</label>
+            <label for="book_url"><span class="text-danger">*</span> Book link on Amazon or other website to know whick book exactly you need</label>
             <input type="text" class="form-control" name="book_url" value="{{ old('book_url') }}">
             @error('book_url')
                 <div class="text-danger">

@@ -79,7 +79,8 @@ class BooksController extends Controller
         return view("get-the-link", [
             "d_link" => $d_link,
             "d_link2" => $d_link2,
-            "slug" => $slug
+            "slug" => $slug,
+            "book_size" => $book->PDF_size,
 
         ]);
     }

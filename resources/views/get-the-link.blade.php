@@ -37,16 +37,19 @@
                             </svg></span>
                         <div>
                             @if ($d_link)
-                                <div>
-                                    <span class="h2">Click here </span>
-                                    <a href="<?php echo $d_link; ?>" target="_blank" class="h2">Mirror1</a>
+                                <div class="bg-light p-3 rounded d-flex flex-column justify-content-center">
+                                    <a href="<?php echo $d_link; ?>" target="_blank" class="h2">Free download
+                                        link 1</a>
+                                    <p><img src="{{ asset('storage\icons\kaspersky.png') }}" alt="kaspersky icon"
+                                            width="120" height="30"> Checked by Kaspersky. No virus detected</p>
                                 </div>
                             @endif
                             @if ($d_link2)
-                                <div>
-                                    <div class="h1 mt-3">OR</div>
-                                    <span class="h2">Click here </span>
-                                    <a href="<?php echo $d_link2; ?>" target="_blank" class="h2">Mirror2</a>
+                                <div class="bg-light p-3 mt-5 rounded d-flex flex-column justify-content-center">
+                                    <a href="<?php echo $d_link2; ?>" target="_blank" class="h2">Free download
+                                        link 2</a>
+                                    <p><img src="{{ asset('storage\icons\kaspersky.png') }}" alt="kaspersky icon"
+                                            width="120" height="30"> Checked by Kaspersky. No virus detected</p>
                                 </div>
                             @endif
                         </div>
@@ -69,9 +72,31 @@
         </div>
     </div>
     <script>
+        var count = 0;
+        var c = parseFloat("{{ $book_size }}");
+        switch (true) {
+            case c <= 5:
+                count = 10;
+                break;
+            case (c > 5) && (c <= 10):
+                count = 15;
+                break;
+            case (c > 10) && (c <= 15):
+                count = 20;
+                break;
+            case (c > 15) && (c <= 20):
+                count = 25;
+                break;
+            case c > 20:
+                count = 30;
+                break;
+            default:
+                count = 15;
+                break;
+        }
         document.getElementById('delayMsg').innerHTML =
-            'Please wait, the download link will appear after <span id="countDown" class="wine-color fw-bold">10</span> seconds....';
-        var count = 10;
+            'Please wait while preparing the download link and checking for viruses, this process could take from <span class="wine-color">10</span> to <span class="wine-color">30</span> secondes depending on file size <span id="countDown" class="wine-color fw-bold d-block display-1">' +
+            count + '</span>';
         var timer = setInterval(function() {
             count--;
             document.getElementById('countDown').innerHTML = count;

@@ -4,7 +4,7 @@
     <x-adsense></x-adsense>
 
     <div>
-        <h1 class="text-dark mb-5">eBook Readers and Digital File Formats</h1>
+        <h1 class="wine-color mb-5">EBook Readers and Digital File Formats</h1>
         <p>eBook files come in a variety of formats for use on various tablets and ereader devices and software. The
             information
             below is provided as guidance only., so be sure to choose the correct format for your device and eBook reading
