@@ -9,6 +9,7 @@
         "fabpot/goutte": "^4.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.4",
+        "intervention/image": "^2.7",
         "jorenvanhocht/laravel-share": "^4.1",
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",

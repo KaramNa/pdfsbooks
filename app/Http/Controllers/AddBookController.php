@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Goutte\Client;
 use App\Models\Book;
 use App\Models\Category;
+use Image;
 use Illuminate\Support\Facades\Storage;
-use Goutte\Client;
 
 class AddBookController extends Controller
 {
@@ -44,9 +45,9 @@ class AddBookController extends Controller
             $attributes["author"] = "by " . $attributes["author"];
             $attributes["download_link3"] = request("download_link3");
             if (request()->file("poster"))
-                $attributes["poster"] = "/storage/" . request()->file("poster")->store("posters", "public");
+                $attributes["poster"] = $this->uploadImage(request()->file("poster"));
             else
-                $attributes["poster"] = "/storage/" . request("image_url");
+                $attributes["poster"] = request("image_url");
             $attributes["PDF_size"] .= " MB";
             if (Book::create($attributes))
                 return back()->with("success", "Book has been added. Link: https://pdfsbooks.com/book/"
@@ -76,9 +77,8 @@ class AddBookController extends Controller
                     $qoute = "";
                 }
                 $author = $response->filter('td.t50')->siblings()->text();
-                $image_name = "posters/" .  basename($response->evaluate('//img[@class="imgborder"]')->extract(["src"])[0]);
                 $poster = "https://itbook.store" . $response->evaluate('//img[@class="imgborder"]')->extract(["src"])[0];
-                Storage::disk('local')->put("public/" . $image_name, file_get_contents($poster));
+                $image_name = $this->uploadImage($poster);
 
                 $details["title"] = $title;
                 $details["description"] = $description;
@@ -115,13 +115,13 @@ class AddBookController extends Controller
                     }
                 }
                 $description = addslashes($response->evaluate('//td[@colspan="4"]')->text());
-                $image_name = "posters/" .  basename($response->evaluate('//img')->extract(["src"])[0]);
                 $image_src = $response->evaluate('//img')->extract(["src"])[0];
                 if (str_contains($image_src, "https"))
                     $poster = $image_src;
                 else
                     $poster = "https://www.libgen.is" .  $image_src;
-                Storage::disk('local')->put("public/" . $image_name, file_get_contents($poster));
+                $image_name = $this->uploadImage($poster);
+
 
                 $categories = Category::all();
                 $details["title"] = $title;
@@ -173,7 +173,7 @@ class AddBookController extends Controller
         $attributes["title_slug"] = strtolower(str_replace(" ", "-", $attributes["title"]));
         $attributes["category_slug"] = strtolower(str_replace(" ", "-", $attributes["category"]));
         if (isset($attributes["poster"]))
-            $attributes["poster"] = "/storage/" . request()->file("poster")->store("posters", "public");
+            $attributes["poster"] = $this->uploadImage(request()->file("poster"));
         $attributes["download_link2"] = request("download_link2");
         $attributes["download_link3"] = request("download_link3");
         $book->update($attributes);
@@ -186,5 +186,19 @@ class AddBookController extends Controller
         $book = Book::find($id);
         $book->delete();
         return redirect(route("home"));
+    }
+
+    public function uploadImage($image)
+    {
+        $image_name = time() . '.' . 'webp';
+        $imageResize = Image::make($image)->encode('webp', 90);
+        if ($imageResize->width() > 300) {
+            $imageResize->resize(300, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+        }
+        $destinationPath = public_path('/storage/posters/');
+        $imageResize->save($destinationPath . $image_name);
+        return '/storage/posters/' . $image_name;
     }
 }
