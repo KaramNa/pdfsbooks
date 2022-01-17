@@ -116,7 +116,11 @@ class AddBookController extends Controller
                 }
                 $description = addslashes($response->evaluate('//td[@colspan="4"]')->text());
                 $image_name = "posters/" .  basename($response->evaluate('//img')->extract(["src"])[0]);
-                $poster = "https://www.libgen.is" .  $response->evaluate('//img')->extract(["src"])[0];
+                $image_src = $response->evaluate('//img')->extract(["src"])[0];
+                if (str_contains($image_src, "https"))
+                    $poster = $image_src;
+                else
+                    $poster = "https://www.libgen.is" .  $image_src;
                 Storage::disk('local')->put("public/" . $image_name, file_get_contents($poster));
 
                 $categories = Category::all();

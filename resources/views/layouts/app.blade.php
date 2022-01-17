@@ -40,6 +40,19 @@
 
         gtag('config', 'G-PBFEB4TVQS');
     </script>
+    <!-- test  -->
+     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-214406203-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-214406203-1 ');
+    </script>
+    <!-- end test  -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
         crossorigin="anonymous"></script>
 
