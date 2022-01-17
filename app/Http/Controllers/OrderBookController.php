@@ -26,7 +26,10 @@ class OrderBookController extends Controller
     {
         $details = request()->validate([
             "book_name" => "required",
-            "book_url" => "required",
+            "book_url" => ["required", function($attr, $value, $fail){
+                if(!str_contains($value, "https://www.amazon.com/" || !str_contains($value, "https://www.goodreads.com/")))
+                    return $fail("The url you entered is invalid");
+            }],
             "orderer_name" => "required",
             "orderer_email" => "required|email",
         ]);

@@ -25,7 +25,7 @@
             @enderror
         </div>
         <div class="mt-3">
-            <label for="book_url"><span class="text-danger">*</span> Please search Amazon or any other site for the book you need, then copy the link and paste it here so we know which book exactly you are looking for</label>
+            <label for="book_url"><span class="text-danger">*</span> Please search Amazon or Goodreads for the book you need, then copy the link and paste it here so we know which book exactly you are looking for</label>
             <input type="text" class="form-control" name="book_url" value="{{ old('book_url') }}">
             @error('book_url')
                 <div class="text-danger">
