@@ -43,6 +43,7 @@ Route::post('/delete-notification/{id}', [NotificationController::class, 'delete
 Route::post('report-the-link/{slug}', [ReportController::class, 'reportTheLink'])->name('report.the.link');
 
 Route::get("/feed", [RssFeedController::class, "feed"])->name("rss.feed");
+Route::get("{category}/feed", [RssFeedController::class, "categoryFeed"])->name("rss.category.feed");
 
 Route::middleware(['auth'])->group(function () {
     Route::get('reported-links', [ReportController::class, 'showReportedLinks'])->name('reported.links');
