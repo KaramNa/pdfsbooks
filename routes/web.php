@@ -12,6 +12,7 @@ use App\Http\Controllers\SingleBookController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\DraftedBooksController;
+use App\Http\Controllers\OrderReplyMail;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RssFeedController;
 use App\Http\Controllers\SearchResultsController;
@@ -63,5 +64,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/publish/{id}', [BooksController::class, 'publish'])->name('publish');
     Route::get('/drafted-books-show', [DraftedBooksController::class, 'index'])->name('drafted.books');
     Route::post('/drafted-books-publish', [DraftedBooksController::class, 'publish'])->name('publish.drafted.books');
+
+    Route::post('/send-email/{id}', [OrderReplyMail::class, 'sendMail'])->name('order.reply.mail');
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 });
