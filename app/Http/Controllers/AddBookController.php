@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Image;
 use Goutte\Client;
 use App\Models\Book;
 use App\Models\Category;
-use Image;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class AddBookController extends Controller
 {
@@ -37,11 +37,9 @@ class AddBookController extends Controller
             ]);
             if (request()->has("draft"))
                 $attributes["draft"] = 1;
-            $slug = str_replace(["?", ",", "/", "|", "&", "$"], "", $attributes["title"]);
-            $slug = str_replace(":", " ", $slug);
-            $slug = str_replace("#", "sharp", $slug);
-            $attributes["slug"] = strtolower(str_replace(" ", "-", $slug));
-            $attributes["category_slug"] = strtolower(str_replace(" ", "-", $attributes["category"]));
+
+            $attributes["slug"] = Str::slug($attributes["title"]);
+            $attributes["category_slug"] = str::slug($attributes["category"]);
             $attributes["author"] = "by " . $attributes["author"];
             $attributes["download_link3"] = request("download_link3");
             if (request()->file("poster"))
@@ -170,8 +168,8 @@ class AddBookController extends Controller
             "language" => "required",
         ]);
 
-        $attributes["title_slug"] = strtolower(str_replace(" ", "-", $attributes["title"]));
-        $attributes["category_slug"] = strtolower(str_replace(" ", "-", $attributes["category"]));
+        $attributes["title_slug"] = str::slug($attributes["title"]);
+        $attributes["category_slug"] = str::slug($attributes["category"]);
         if (isset($attributes["poster"]))
             $attributes["poster"] = $this->uploadImage(request()->file("poster"));
         $attributes["download_link2"] = request("download_link2");

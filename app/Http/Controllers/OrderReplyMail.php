@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\BookOrderMail;
 use App\Models\Suggestion;
 use Illuminate\Support\Facades\Mail;
 
@@ -16,11 +17,8 @@ class OrderReplyMail extends Controller
             "email" => $suggestion->orderer_email,
             "book_url" => request("book_url")
         ];
-        Mail::send('emails.order-reply-mail', $data, function ($message) use ($data) {
-            $message->from('info@pdfsbooks.com', 'PdfsBooks.com');
-            $message->to($data["email"], $data["name"]);
-            $message->subject($data["subject"]);
-        });
+        Mail::send(new BookOrderMail($data));
+
         return back()->with("success", "Email has been sent successfully");
     }
 }
