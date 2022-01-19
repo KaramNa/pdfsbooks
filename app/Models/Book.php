@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use App\Models\SearchResults;
 use Illuminate\Database\Eloquent\Model;
 use Nicolaslopezj\Searchable\SearchableTrait;
@@ -70,20 +71,33 @@ class Book extends Model
 
     public function scopeFilter($query, array $filters)
     {
+        $subsctract = "";
         if (isset($filters["search"])) {
-            if (request("exact_search") == "on")
-                $query->search($filters['search'], null, true, true);
-            else
-                $query->search($filters['search'], null, true);
+            if (str_contains($filters["search"], "-")) {
+                $subsctract = substr($filters["search"], strpos($filters["search"], "-") + 2);
+                if ($subsctract != "")
+                    $query->where("title", "NOT LIKE", "%" . $subsctract . "%");
+            }
+            $search = substr($filters["search"], strpos($filters["search"], "-"));
+            if (request("exact_search") == "on") {
+                $query->search($search, null, true, true);
+            } else
+                $query->search($search, null, true);
         } else {
             $query->where("draft", 0);
         }
 
         if (isset($filters["search1"])) {
+            if (str_contains($filters["search1"], "-")) {
+                $subsctract = substr($filters["search1"], strpos($filters["search1"], "-") + 2);
+                if ($subsctract != "")
+                    $query->where("title", "NOT LIKE", "%" . $subsctract . "%");
+            }
+            $search = substr($filters["search1"], 0, strpos($filters["search1"], "-") - 1);
             if (request("exact_search") == "on")
-                $query->search($filters['search1'], null, true, true);
+                $query->search($search, null, true, true);
             else
-                $query->search($filters['search1'], null, true);
+                $query->search($search, null, true);
             $this->SearchResults($query, $filters["search1"]);
         }
 
@@ -118,5 +132,17 @@ class Book extends Model
                 "num_of_searches" => 1
             ]);
         }
+    }
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes["title"] = $value;
+        $this->attributes["slug"] = Str::slug($value);
+    }
+
+    public function setcategoryAttribute($value)
+    {
+        $this->attributes["category"] = $value;
+        $this->attributes["category_slug"] = Str::slug($value);
     }
 }

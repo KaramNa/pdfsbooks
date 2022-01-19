@@ -95,7 +95,7 @@
                 break;
         }
         document.getElementById('delayMsg').innerHTML =
-            'Please wait while preparing the download link and checking for viruses, this process could take from <span class="wine-color">10</span> to <span class="wine-color">30</span> secondes depending on file size <span id="countDown" class="wine-color fw-bold d-block display-1">' +
+            'Please wait while preparing the download link and checking for viruses, this process could take from <span class="wine-color">10</span> to <span class="wine-color">30</span> secondes depending on the file size <span id="countDown" class="wine-color fw-bold d-block display-1">' +
             count + '</span>';
         var timer = setInterval(function() {
             count--;

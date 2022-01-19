@@ -38,8 +38,7 @@ class AddBookController extends Controller
             if (request()->has("draft"))
                 $attributes["draft"] = 1;
 
-            $attributes["slug"] = Str::slug($attributes["title"]);
-            $attributes["category_slug"] = str::slug($attributes["category"]);
+            $slug = Str::slug($attributes["title"]);
             $attributes["author"] = "by " . $attributes["author"];
             $attributes["download_link3"] = request("download_link3");
             if (request()->file("poster"))
@@ -49,7 +48,7 @@ class AddBookController extends Controller
             $attributes["PDF_size"] .= " MB";
             if (Book::create($attributes))
                 return back()->with("success", "Book has been added. Link: https://pdfsbooks.com/book/"
-                    . $attributes["slug"]);
+                    . $slug);
         }
         if (request()->has("fill")) {
             $url = request()->validate([
@@ -168,8 +167,6 @@ class AddBookController extends Controller
             "language" => "required",
         ]);
 
-        $attributes["title_slug"] = str::slug($attributes["title"]);
-        $attributes["category_slug"] = str::slug($attributes["category"]);
         if (isset($attributes["poster"]))
             $attributes["poster"] = $this->uploadImage(request()->file("poster"));
         $attributes["download_link2"] = request("download_link2");
