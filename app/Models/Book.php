@@ -78,7 +78,7 @@ class Book extends Model
                 if ($subsctract != "")
                     $query->where("title", "NOT LIKE", "%" . $subsctract . "%");
             }
-            $search = substr($filters["search"], strpos($filters["search"], "-"));
+            $search = substr($filters["search"], 0, strpos($filters["search"], "-") - 1);
             if (request("exact_search") == "on") {
                 $query->search($search, null, true, true);
             } else
