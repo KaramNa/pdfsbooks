@@ -302,6 +302,10 @@ a:hover {
     background-color: #800000 !important;
 }
 
+.label-color {
+    color: #e85c41;
+}
+
 h1,
 h2,
 h3,
@@ -366,7 +370,7 @@ h4 {
 }
 
 .tabin {
-    background: #cde1f1;
+    background: #d9e8f4;
     color: #152d3e;
     padding: 25px 20px 10px 20px;
     border-radius: 0 0 12px 12px;
@@ -697,8 +701,8 @@ footer .google,
 
 #mc_embed_signup div.mce_inline_error,
 #mc_embed_signup div.response {
-    background-color: transparent!important;
-    color: #e85c41!important;
+    background-color: transparent !important;
+    color: #e85c41 !important;
 }
 
 
@@ -706,7 +710,7 @@ footer .google,
 
 .btn-menu,
 .btn-menu2 {
-    background: #cde1f1;
+    background: #d9e8f4;
     color: #333;
     border-radius: 12px 12px 0 0;
     padding: 15px 20px;
@@ -724,8 +728,8 @@ footer .google,
 .btn-menu.active,
 .btn-menu:hover,
 .btn-menu2:hover {
-    background: #58b4e5;
-    color: #eee;
+    background: #577be6;
+    color: #fff;
     transition: 0.2s;
 }
 

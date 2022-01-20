@@ -12,7 +12,7 @@
             <h1 class="wine-color">{{ $book->title }}</h1>
             <h2 class="mt-3">{{ $book->qoute }}</h2>
             <p><b>{{ $book->author }}</b></p>
-            <p class="text-success h4">Scroll down until you find <span class="wine-color blink fw-bold">&gt;&gt;</span> "Free
+            <p class="label-color h4">Scroll down until you find <span class="wine-color blink fw-bold">&gt;&gt;</span> "Free
                 Download Link" <span class="wine-color blink fw-bold">&lt;&lt;</span></p>
         </div>
         <div class="col300 action">
@@ -257,7 +257,7 @@
                         <p>Your email address will not be published.</p>
                         <div class="mt-2">
                             <label for="comment">Comment <span class="text-danger">*</span></label>
-                            <textarea name="comment" class="form-control">{{ old('comment') }}</textarea>
+                            <textarea id="comment" name="comment" class="form-control">{{ old('comment') }}</textarea>
                             @error('comment')
                                 <div class="text-danger">
                                     {{ $message }}
@@ -266,7 +266,7 @@
                         </div>
                         <div class="mt-2">
                             <label for="name">Name <span class="text-danger">*</span></label>
-                            <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+                            <input id="name" type="text" name="name" class="form-control" value="{{ old('name') }}">
                             @error('name')
                                 <div class="text-danger">
                                     {{ $message }}
@@ -275,7 +275,7 @@
                         </div>
                         <div class="mt-2">
                             <label for="email">Email <span class="text-danger">*</span></label>
-                            <input type="text" name="email" class="form-control" value="{{ old('email') }}">
+                            <input id="email" type="text" name="email" class="form-control" value="{{ old('email') }}">
                             @error('email')
                                 <div class="text-danger">
                                     {{ $message }}
@@ -288,7 +288,7 @@
                             <input type="hidden" id="avatar" name="avatar" value="/storage/avatars/avatar1.jpg">
                             <div class="row flex-row flex-nowrap  pb-4 pt-2 ps-2 h-scroll">
                                 @foreach ($avatars as $avatar)
-                                    <img src="/storage/avatars/{{ $avatar }}" width="100" height="100"
+                                    <img src="/storage/avatars/{{ $avatar }}" alt="user avatar for comments" width="100" height="100"
                                         class="avatar {{ $avatar == 'avatar1.jpg' ? 'selected' : '' }} 
                                     w-100px mx-1 px-0 position-relative"
                                         onclick="selectAvatar(this)" />

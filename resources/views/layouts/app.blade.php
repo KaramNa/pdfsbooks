@@ -5,20 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield("page_title", "PDFs Books - Free download books")</title>
+    <link rel="alternate" hreflang="en-us" href="https://pdfsbooks.com" />
     <meta name="description"
         content="Online Books library where you can find thousands of Free PDF,EPUB ebooks and download them for free, and if you can't find a Textbooks,Book you need you can order it on our website.">
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:site_name" content="pdfsbooks.com">
-    <meta property="og:title" content="@yield(" book_title", "PDFsBOOks" )">
-    <meta property="og:description" content="Free download (PDF) @yield(" book_desc")">
-    <meta property="og:url" content="@yield(" book_url", "https://pdfsbooks.com" )">
-    <meta name="thumbnail" content="@yield(" share_image", asset('storage/thumbnail.jpg'))">
-    <meta property="og:image" content="@yield(" share_image", asset('storage/thumbnail.jpg'))" />
+    <meta property="og:title" content="@yield("book_title", "PDFsBOOks" )">
+    <meta property="og:description" content="Free download (PDF) @yield("book_desc")">
+    <meta property="og:url" content="@yield("book_url", "https://pdfsbooks.com" )">
+    <meta name="thumbnail" content="@yield("share_image", asset('storage/thumbnail.jpg'))">
+    <meta property="og:image" content="@yield("share_image", asset('storage/thumbnail.jpg'))" />
     <meta name="yandex-verification" content="aac0de0adfffbbb7" />
-    <link rel="alternate" hreflang="en-us" href="https://pdfsbooks.com" />
     <meta property="og:type" content="website">
-    <link rel="canonical" href="@yield(" book_url", "https://pdfsbooks.com" )">
+    <link rel="canonical" href="@yield("book_url", "https://pdfsbooks.com" )">
     <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com" href="https://pdfsbooks.com/feed">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
