@@ -11,50 +11,23 @@
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:site_name" content="pdfsbooks.com">
-    <meta property="og:title" content="@yield("book_title", "PDFsBOOks" )">
-    <meta property="og:description" content="Free download (PDF) @yield("book_desc")">
-    <meta property="og:url" content="@yield("book_url", "https://pdfsbooks.com" )">
-    <meta name="thumbnail" content="@yield("share_image", asset('storage/thumbnail.jpg'))">
-    <meta property="og:image" content="@yield("share_image", asset('storage/thumbnail.jpg'))" />
+    <meta property="og:title" content="@yield(" book_title", "PDFsBOOks" )">
+    <meta property="og:description" content="Free download (PDF) @yield(" book_desc")">
+    <meta property="og:url" content="@yield(" book_url", "https://pdfsbooks.com" )">
+    <meta name="thumbnail" content="@yield(" share_image", asset('storage/thumbnail.jpg'))">
+    <meta property="og:image" content="@yield(" share_image", asset('storage/thumbnail.jpg'))" />
     <meta name="yandex-verification" content="aac0de0adfffbbb7" />
     <meta property="og:type" content="website">
-    <link rel="canonical" href="@yield("book_url", "https://pdfsbooks.com" )">
+    <link rel="canonical" href="@yield(" book_url", "https://pdfsbooks.com" )">
+
     <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com" href="https://pdfsbooks.com/feed">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="{{ asset('css/style.css?v=1') }}">
     <meta name="theme-color" content="#fff">
-    <script src="{{ asset('js/app.min.js') }}"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRY9G4D4WQ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-PBFEB4TVQS');
-    </script>
-    <!-- test  -->
-     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-214406203-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-214406203-1 ');
-    </script>
-    <!-- end test  -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
-        crossorigin="anonymous"></script>
 
 </head>
 
@@ -264,7 +237,40 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
                     referrerPolicy="no-referrer-when-downgrade"></a></div>
     </noscript>
     <!-- End of Statcounter Code -->
-<script type="text/javascript"> var infolinks_pid = 3356197; var infolinks_wsid = 0; </script> <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+    <script type="text/javascript">
+        var infolinks_pid = 3356197;
+        var infolinks_wsid = 0;
+    </script> ___scripts_8___
+
+    <script src="{{ asset('js/app.min.js') }}"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRY9G4D4WQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PBFEB4TVQS');
+    </script>
+    <!-- test  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-214406203-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-214406203-1 ');
+    </script>
+    <!-- end test  -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

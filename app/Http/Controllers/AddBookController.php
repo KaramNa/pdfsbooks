@@ -187,8 +187,8 @@ class AddBookController extends Controller
     {
         $image_name = time() . '.' . 'webp';
         $imageResize = Image::make($image)->encode('webp', 90);
-        if ($imageResize->width() > 300) {
-            $imageResize->resize(300, null, function ($constraint) {
+        if ($imageResize->width() > 280) {
+            $imageResize->resize(280, 420, function ($constraint) {
                 $constraint->aspectRatio();
             });
         }
