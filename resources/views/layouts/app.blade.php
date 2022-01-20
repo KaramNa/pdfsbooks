@@ -22,9 +22,9 @@
     <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com" href="https://pdfsbooks.com/feed">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
-    <link href="{{ asset('css/app.min.css?v=' . time()) }}" rel="stylesheet">
+    <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="{{ asset('css/style.css?v=2') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css?v=1') }}">
     <meta name="theme-color" content="#fff">
     <script src="{{ asset('js/app.min.js') }}"></script>
     <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
