@@ -11,23 +11,30 @@
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:site_name" content="pdfsbooks.com">
-    <meta property="og:title" content="@yield(" book_title", "PDFsBOOks" )">
-    <meta property="og:description" content="Free download (PDF) @yield(" book_desc")">
-    <meta property="og:url" content="@yield(" book_url", "https://pdfsbooks.com" )">
-    <meta name="thumbnail" content="@yield(" share_image", asset('storage/thumbnail.jpg'))">
-    <meta property="og:image" content="@yield(" share_image", asset('storage/thumbnail.jpg'))" />
+    <meta property="og:title" content="@yield("book_title", "PDFsBOOks" )">
+    <meta property="og:description" content="Free download (PDF) @yield("book_desc")">
+    <meta property="og:url" content="@yield("book_url", "https://pdfsbooks.com" )">
+    <meta name="thumbnail" content="@yield("share_image", asset('storage/thumbnail.jpg'))">
+    <meta property="og:image" content="@yield("share_image", asset('storage/thumbnail.jpg'))" />
     <meta name="yandex-verification" content="aac0de0adfffbbb7" />
     <meta property="og:type" content="website">
-    <link rel="canonical" href="@yield(" book_url", "https://pdfsbooks.com" )">
+    <link rel="canonical" href="@yield("book_url", "https://pdfsbooks.com" )">
 
     <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com" href="https://pdfsbooks.com/feed">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon/favicon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('storage/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('storage/favicon/favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('storage/favicon/favicon-180x180.png') }}">
+
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
+    
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css?v=3') }}">
 
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#fff">
+    <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
 
 </head>
 
@@ -36,11 +43,11 @@
     <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=4435731113156551&autoLogAppEvents=1"
         nonce="fwhpdSvT"></script>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <header class="pt-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-0">
             <div class="container-fluid">
-                <a href="{{ route('home') }}" title="pdfsbooks.com" rel="home" class="logo me-5"><img
-                        src="{{ asset('images/logo.png') }}" width="200" alt="pdfsbooks"></a>
+                <a href="{{ route('home') }}" title="pdfsbooks.com" rel="home" class="logo me-5 pt-3"><img
+                        src="{{ asset('storage/logo-white.png') }}" width="200" height="84" alt="pdfsbooks"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -145,12 +152,7 @@
                             <input type="hidden" name="category" value="{{ request('category') }}">
                         @endif
                         <div>
-                            <div class="ms-2">
-                                <input id="exact_search" type="checkbox" name="exact_search"
-                                    {{ request('exact_search') == 'on' ? 'checked' : '' }}>
-                                <label for="exact_search" class="text-white">Exact Search</label>
-                            </div>
-                            <div class="d-flex">
+                            <div class="d-flex pt-4">
                                 <input class="inp" name="search1" autocomplete="off"
                                     placeholder="Search By Title or Author" type="search"
                                     value="{{ request('search1') }}" required><button aria-label="submit"
@@ -162,6 +164,11 @@
                                             </path>
                                         </g>
                                     </svg></button>
+                            </div>
+                            <div class="ms-2">
+                                <input id="exact_search" type="checkbox" name="exact_search"
+                                    {{ request('exact_search') == 'on' ? 'checked' : '' }}>
+                                <label for="exact_search" class="text-white">Exact Search</label>
                             </div>
                         </div>
                     </form>
@@ -240,10 +247,9 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
     <script type="text/javascript">
         var infolinks_pid = 3356197;
         var infolinks_wsid = 0;
-    </script> ___scripts_8___
+    </script>
 
     <script src="{{ asset('js/app.min.js') }}"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRY9G4D4WQ"></script>
     <script>
