@@ -285,7 +285,7 @@
 
                         <div class="mt-3">
                             <label for="avatar">Choose your avatar</label>
-                            <input type="hidden" id="avatar" name="avatar" value="/storage/avatars/avatar1.jpg">
+                            <input type="hidden" id="avatar" name="avatar" value="/storage/avatars/avatar1.svg">
                             <div class="row flex-row flex-nowrap  pb-4 pt-2 ps-2 h-scroll">
                                 @foreach ($avatars as $avatar)
                                     <img src="/storage/avatars/{{ $avatar }}" alt="user avatar for comments" width="100" height="100"
