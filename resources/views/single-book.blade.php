@@ -289,7 +289,7 @@
                             <div class="row flex-row flex-nowrap  pb-4 pt-2 ps-2 h-scroll">
                                 @foreach ($avatars as $avatar)
                                     <img src="/storage/avatars/{{ $avatar }}" alt="user avatar for comments" width="100" height="100"
-                                        class="avatar {{ $avatar == 'avatar1.jpg' ? 'selected' : '' }} 
+                                        class="avatar {{ $avatar == 'avatar1.svg' ? 'selected' : '' }} 
                                     w-100px mx-1 px-0 position-relative"
                                         onclick="selectAvatar(this)" />
                                 @endforeach

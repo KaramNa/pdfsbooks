@@ -19,7 +19,7 @@ class SingleBookController extends Controller
             ->whatsapp()
             ->reddit();
         $relatedBooks = Book::get()->where("category_slug", $book->category_slug)->where("draft", 0);
-        $avatars = ["avatar1.jpg", "avatar2.jpg", "avatar3.jpg", "avatar4.jpg", "avatar5.jpg", "avatar6.jpg", "avatar7.jpg", "avatar8.jpg", "avatar9.jpg", "avatar10.jpg", "avatar11.jpg", "avatar12.jpg", "avatar13.jpg", "avatar14.jpg", "avatar15.jpg", "avatar16.jpg", "avatar17.jpg", "avatar18.png", "avatar19.jpg", "avatar20.jpg", "avatar21.jpg", "avatar22.jpg", "avatar23.jpg"];
+        $avatars = ["avatar1.svg", "avatar2.svg", "avatar3.svg", "avatar4.svg", "avatar5.svg", "avatar6.svg", "avatar7.svg", "avatar8.svg", "avatar9.svg", "avatar10.svg", "avatar11.svg", "avatar12.svg", "avatar13.svg", "avatar14.svg", "avatar15.svg"];
 
         if (count($relatedBooks) > 6)
             $relatedBooks = $relatedBooks->random(6);
