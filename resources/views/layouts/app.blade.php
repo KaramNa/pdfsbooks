@@ -200,6 +200,8 @@
         </div>
     </footer>
 
+    <script src="{{ asset('js/app.min.js') }}"></script>
+
     <script>
         try {
             var url = "pdfsbooks.com" + location.pathname;
@@ -209,6 +211,7 @@
         if (location.pathname == "/")
             var home = document.getElementsByClassName("home")[0].classList.add("active");
     </script>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script>
@@ -243,26 +246,8 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
                     src="https://c.statcounter.com/12696715/0/addf9e34/1/" alt="Web Analytics Made Easy - Statcounter"
                     referrerPolicy="no-referrer-when-downgrade"></a></div>
     </noscript>
-    <!-- End of Statcounter Code -->
-    <script type="text/javascript">
-        var infolinks_pid = 3356197;
-        var infolinks_wsid = 0;
-    </script>
 
-    <script src="{{ asset('js/app.min.js') }}"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRY9G4D4WQ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-PBFEB4TVQS');
-    </script>
-    <!-- test  -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-214406203-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -274,7 +259,7 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
 
         gtag('config', 'UA-214406203-1 ');
     </script>
-    <!-- end test  -->
+    <!-- Google Analytics end   -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
         crossorigin="anonymous"></script>
 </body>
