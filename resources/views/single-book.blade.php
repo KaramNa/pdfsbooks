@@ -365,7 +365,7 @@
                 <div itemscope itemtype="https://schema.org/Book" itemid="https://pdfsbooks.com/book/{{ $book->slug }}">
                     <img itemprop="image" src="{{ asset($book->poster) }}" alt="cover art: {{ $book->title }}" />
                     <h1><span itemprop="name">{{ $book->title }}</span></h1>
-                    <div>Author: <span itemprop="author" itemscope>{{ substr($book->author, 3) }}</span></div>
+                    <div>Author: <span itemprop="author">{{ substr($book->author, 3) }}</span></div>
                     <div>Language:
                         <meta itemprop="inLanguage" content="en" />English
                     </div>
