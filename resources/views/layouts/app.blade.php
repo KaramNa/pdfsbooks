@@ -258,7 +258,7 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
         gtag('config', 'UA-214406203-1 ');
     </script>
     <!-- Google Analytics end   -->
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
+      <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
         crossorigin="anonymous"></script>
 </body>
 
