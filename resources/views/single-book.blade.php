@@ -363,7 +363,7 @@
             {{-- Look inside content --}}
             <div>
                 <div itemscope itemtype="https://schema.org/Book" itemid="https://pdfsbooks.com/book/{{ $book->slug }}">
-                    <img itemprop="image" src="{{ asset('storage/' . $book->poster) }}"
+                    <img itemprop="image" src="{{ asset($book->poster) }}"
                         alt="cover art: {{ $book->title }}" />
                     <h1><span itemprop="name">{{ $book->title }}</span></h1>
                     <div>Author: <span itemprop="author" itemscope
