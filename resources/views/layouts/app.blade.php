@@ -11,14 +11,14 @@
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:site_name" content="pdfsbooks.com">
-    <meta property="og:title" content="@yield(" book_title", "PDFsBOOks" )">
-    <meta property="og:description" content="Free download (PDF) @yield(" book_desc")">
-    <meta property="og:url" content="@yield(" book_url", "https://pdfsbooks.com" )">
-    <meta name="thumbnail" content="@yield(" share_image", asset('storage/thumbnail.jpg'))">
-    <meta property="og:image" content="@yield(" share_image", asset('storage/thumbnail.jpg'))" />
+    <meta property="og:title" content="@yield("book_title", "PDFsBOOks" )">
+    <meta property="og:description" content="Free download (PDF) @yield("book_desc")">
+    <meta property="og:url" content="@yield("book_url", "https://pdfsbooks.com" )">
+    <meta name="thumbnail" content="@yield("share_image", asset('storage/thumbnail.jpg'))">
+    <meta property="og:image" content="@yield("share_image", asset('storage/thumbnail.jpg'))" />
     <meta name="yandex-verification" content="aac0de0adfffbbb7" />
     <meta property="og:type" content="website">
-    <link rel="canonical" href="@yield(" book_url", "https://pdfsbooks.com" )">
+    <link rel="canonical" href="@yield("book_url", "https://pdfsbooks.com" )">
 
     <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com" href="https://pdfsbooks.com/feed">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon/favicon-192x192.png') }}">
