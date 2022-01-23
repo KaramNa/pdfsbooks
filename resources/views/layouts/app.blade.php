@@ -30,7 +30,7 @@
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
 
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/style.css?v=4') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css?v=1') }}">
 
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#fff">
@@ -213,25 +213,24 @@
             var home = document.getElementsByClassName("home")[0].classList.add("active");
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script>
         var nowDate = new Date();
         var date = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
 
-        jQuery(function($) {
-            $('.ads').on('click', function() {
-                localStorage.setItem("date", date);
-                window.location.reload();
-            });
-        });
 
-        $(document).ready(function() {
-            var prevDate = localStorage.getItem("date");
-            if (!prevDate || prevDate != date) {
-                $('.ads').show();
-            } else {}
-        });
+        function hideAds() {
+            localStorage.setItem("date", date);
+            window.location.reload();
+        }
+
+        var prevDate = localStorage.getItem("date");
+        if (!prevDate || prevDate != date) {
+            var ads = Array.prototype.slice.call( document.getElementsByClassName('ads') )
+            console.log(ads);
+            ads.forEach(ad => {
+                ad.classList.remove("d-none");
+            });
+        } else {}
     </script>
 
     <!-- Default Statcounter code for Pdfsbooks https://pdfsbooks.com/ -->
