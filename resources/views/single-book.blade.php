@@ -361,7 +361,7 @@
             </script>
 
             {{-- Look inside content --}}
-            <div>
+            <div class="d-none">
                 <div itemscope itemtype="https://schema.org/Book" itemid="https://pdfsbooks.com/book/{{ $book->slug }}">
                     <img itemprop="image" src="{{ asset($book->poster) }}"
                         alt="cover art: {{ $book->title }}" />
