@@ -288,7 +288,8 @@
                             <input type="hidden" id="avatar" name="avatar" value="/storage/avatars/avatar1.svg">
                             <div class="row flex-row flex-nowrap  pb-4 pt-2 ps-2 h-scroll">
                                 @foreach ($avatars as $avatar)
-                                    <img src="/storage/avatars/{{ $avatar }}" alt="user avatar for comments" width="100" height="100"
+                                    <img src="/storage/avatars/{{ $avatar }}" alt="user avatar for comments" width="100"
+                                        height="100"
                                         class="avatar {{ $avatar == 'avatar1.svg' ? 'selected' : '' }} 
                                     w-100px mx-1 px-0 position-relative"
                                         onclick="selectAvatar(this)" />
@@ -359,4 +360,18 @@
                     "https://chimpstatic.com/mcjs-connected/js/users/6504840845cc7babf43e5e51c/df32158795c8b46b17fe1b9e3.js");
             </script>
 
+            {{-- Look inside content --}}
+            <div>
+                <div itemscope itemtype="https://schema.org/Book" itemid="https://pdfsbooks.com/book/{{ $book->slug }}">
+                    <img itemprop="image" src="{{ asset('storage/' . $book->poster) }}"
+                        alt="cover art: {{ $book->title }}" />
+                    <h1><span itemprop="name">{{ $book->title }}</span></h1>
+                    <div>Author: <span itemprop="author" itemscope
+                            itemtype="https://schema.org/Person">{{ substr($book->author, 3) }}</span></div>
+                    <div>Language:
+                        <meta itemprop="inLanguage" content="en" />English
+                    </div>
+                    <div>Subject: <span itemprop="about">{{ $book->category }}</span></div>
+                </div>
+            </div>
         @stop
