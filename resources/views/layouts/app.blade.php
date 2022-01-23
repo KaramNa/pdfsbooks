@@ -35,8 +35,6 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#fff">
     <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
-        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -260,6 +258,8 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
         gtag('config', 'UA-214406203-1 ');
     </script>
     <!-- Google Analytics end   -->
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
