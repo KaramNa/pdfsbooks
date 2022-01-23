@@ -908,11 +908,12 @@ footer .google,
     display: none;
 }
 
-@media all and (min-width: 800px) {
+
+/* @media all and (min-width: 800px) {
     .adds {
         display: none!important;
     }
-}
+} */
 
 @media all and (max-width: 1250px) {
     .main {

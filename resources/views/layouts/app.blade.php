@@ -11,14 +11,14 @@
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:site_name" content="pdfsbooks.com">
-    <meta property="og:title" content="@yield("book_title", "PDFsBOOks" )">
-    <meta property="og:description" content="Free download (PDF) @yield("book_desc")">
-    <meta property="og:url" content="@yield("book_url", "https://pdfsbooks.com" )">
-    <meta name="thumbnail" content="@yield("share_image", asset('storage/thumbnail.jpg'))">
-    <meta property="og:image" content="@yield("share_image", asset('storage/thumbnail.jpg'))" />
+    <meta property="og:title" content="@yield(" book_title", "PDFsBOOks" )">
+    <meta property="og:description" content="Free download (PDF) @yield(" book_desc")">
+    <meta property="og:url" content="@yield(" book_url", "https://pdfsbooks.com" )">
+    <meta name="thumbnail" content="@yield(" share_image", asset('storage/thumbnail.jpg'))">
+    <meta property="og:image" content="@yield(" share_image", asset('storage/thumbnail.jpg'))" />
     <meta name="yandex-verification" content="aac0de0adfffbbb7" />
     <meta property="og:type" content="website">
-    <link rel="canonical" href="@yield("book_url", "https://pdfsbooks.com" )">
+    <link rel="canonical" href="@yield(" book_url", "https://pdfsbooks.com" )">
 
     <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com" href="https://pdfsbooks.com/feed">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon/favicon-192x192.png') }}">
@@ -28,14 +28,15 @@
 
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
-    
+
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css?v=4') }}">
 
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#fff">
     <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -211,7 +212,7 @@
         if (location.pathname == "/")
             var home = document.getElementsByClassName("home")[0].classList.add("active");
     </script>
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script>
@@ -260,8 +261,6 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
         gtag('config', 'UA-214406203-1 ');
     </script>
     <!-- Google Analytics end   -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>
