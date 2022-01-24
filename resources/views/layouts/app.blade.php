@@ -215,7 +215,6 @@
         var nowDate = new Date();
         var date = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
 
-
         function hideAds() {
             localStorage.setItem("date", date);
             window.location.reload();
@@ -228,7 +227,7 @@
             ads.forEach(ad => {
                 ad.classList.remove("d-none");
             });
-        } else {}
+        }
     </script>
 
     <!-- Default Statcounter code for Pdfsbooks https://pdfsbooks.com/ -->
@@ -246,6 +245,7 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
     </noscript>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-214406203-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];

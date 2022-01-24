@@ -48,7 +48,7 @@
                                 <div class="bg-light p-3 mt-5 rounded d-flex flex-column justify-content-center">
                                     <a href="<?php echo $d_link2; ?>" target="_blank" class="h2">Free download
                                         link 2</a>
-                                    <p><img src="{{ asset('storage\icons\kaspersky.png') }}" alt="kaspersky icon"
+                                    <p><img src="{{ asset('storage\kaspersky.png') }}" alt="kaspersky icon"
                                             width="120" height="30"> Checked by Kaspersky. No virus detected</p>
                                 </div>
                             @endif
