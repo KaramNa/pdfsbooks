@@ -21,7 +21,7 @@ class LoginController extends Controller
             "password" => "required"
         ]);
         if (auth()->attempt($credential, $request->has('remember'))) {
-            return redirect(session("prev.url"));
+            return redirect(route('admin.panel'));
         } else {
             return back()->with("failed", "Username or Password is incorrect");
         }
