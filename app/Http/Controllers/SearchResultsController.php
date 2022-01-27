@@ -9,7 +9,7 @@ class SearchResultsController extends Controller
 {
     public function index()
     {
-        $queries = SearchResults::orderBy("num_of_searches", "desc")->paginate(20);        
+        $queries = SearchResults::orderBy("num_of_searches", "desc")->get();        
         return view("admin.search-queries", [
             "queries" => $queries
         ]);

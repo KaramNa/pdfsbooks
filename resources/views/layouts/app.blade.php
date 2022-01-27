@@ -69,6 +69,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('ebooks.formats') }}">eBook Apps</a>
                         </li>
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.panel') }}">Admin</a>
+                            </li>
+                        @endauth
                     </ul>
                     <form action="{{ route('home') }}" method="get" role="search">
                         @if (request('category'))

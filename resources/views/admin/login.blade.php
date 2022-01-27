@@ -19,7 +19,7 @@
                 <div class="form-outline mb-4 mt-5 mt-lg-0">
                     <label class="form-label" for="username" style="margin-left: 0px;">Username</label>
                     <input type="text" id="username" name="name" class="form-control form-control-lg"
-                        placeholder="Enter a valid email address">
+                        placeholder="Enter username">
                     @error('name')
                         <div class="text-danger">
                             {{ $message }}
