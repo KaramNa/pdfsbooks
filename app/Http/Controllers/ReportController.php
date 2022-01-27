@@ -23,7 +23,7 @@ class ReportController extends Controller
             ])){
                 Notification::create([
                     "username" => "somebody",
-                    "link" => "https://pdfsbooks.com/reported-links",
+                    "link" => "/admin/reported-links",
                     "notif_type" => "report"
                 ]);
                 return back()->with("success", "Thank you for the report, we'll try to fix the link as soon as possible, and sorry for the inconvenience");
@@ -36,7 +36,7 @@ class ReportController extends Controller
     public function showReportedLinks()
     {
         $reports = Report::get();
-        return view("reported-links", [
+        return view("admin.reported-links", [
             "reports" => $reports
         ]);
     }
@@ -44,6 +44,7 @@ class ReportController extends Controller
     public function deleteReport($id)
     {
         Report::find($id)->delete();
-        return back();
+        return back()->with("success", "The report has been deleted");
+
     }
 }

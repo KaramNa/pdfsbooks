@@ -17,7 +17,7 @@ class OrderBookController extends Controller
     public function showOrders()
     {
         $suggestions = Suggestion::all();
-        return view("show-orders",[
+        return view("admin.show-orders",[
             "suggestions" => $suggestions
         ]);
     }
@@ -40,7 +40,7 @@ class OrderBookController extends Controller
         {
               Notification::create([
                 "username" => request("orderer_name"),
-                "link" => "https://pdfsbooks.com/books-orders",
+                "link" => "/admin/books-orders",
                 "notif_type" => "order"
 
             ]);

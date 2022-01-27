@@ -8,6 +8,13 @@ use App\Models\Notification;
 
 class CommentController extends Controller
 {
+    public function index()
+    {
+        $comments = Comment::get();
+        return view('admin.comments',[
+            "comments" => $comments
+        ]);
+    }
     public function comment(){
         $details = request()->validate([
             "name" => "required",
@@ -19,7 +26,7 @@ class CommentController extends Controller
         Comment::create($details);
         Notification::create([
             "username" => request("name"),
-            "link" => request("link"),
+            "link" => "/admin/comments",
             "notif_type" => "comment"
         ]);
         
@@ -30,6 +37,7 @@ class CommentController extends Controller
         $comment = Comment::find($id);
         $comment->delete();
 
-        return back();
+        return back()->with("success", "The comment has been deleted");
+
     }
 }

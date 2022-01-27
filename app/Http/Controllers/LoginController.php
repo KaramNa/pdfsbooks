@@ -11,17 +11,16 @@ class LoginController extends Controller
     public function index()
     {
         Session::put('prev.url', URL::previous());
-        return view("login");
+        return view("admin.login");
     }
 
-    public function login()
+    public function login(Request $request)
     {
-        $user = request()->validate([
+        $credential = $request->validate([
             "name" => "required",
             "password" => "required"
         ]);
-
-        if (auth()->attempt($user)) {
+        if (auth()->attempt($credential, $request->has('remember'))) {
             return redirect(session("prev.url"));
         } else {
             return back()->with("failed", "Username or Password is incorrect");

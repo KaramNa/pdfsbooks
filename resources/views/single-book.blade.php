@@ -18,33 +18,6 @@
         <div class="col300 action">
             @auth
                 <div>
-                    @if ($book->draft)
-                        <form action="{{ route('publish', $book->id) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn-down mt-3 text-start"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" width="25" height="25">
-                                    <g fill='#FFFFFF'>
-                                        <path
-                                            d="M5 11c.8.8 2.1.8 2.8 0L10 8.8V17c0 1.1.9 2 2 2s2-.9 2-2V8.8l2.2 2.1c.8.8 2.1.8 2.8 0 .8-.8.8-2 0-2.8l-5.6-5.6C13 2.2 12.5 2 12 2c-.5 0-1 .2-1.4.6L5 8.1c-.8.8-.8 2.1 0 2.9zM21 16c-.5 0-1 .5-1 1v3H4v-3c0-.5-.5-1-1-1s-1 .5-1 1v4c0 .5.5 1 1 1h18c.5 0 1-.5 1-1v-4c0-.5-.5-1-1-1z">
-                                        </path>
-                                    </g>
-                                </svg> Publish</button>
-                        </form>
-                    @else
-                        <form action="{{ route('draft', $book->id) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn-down mt-3 text-start"><svg xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" width="25" height="25">
-                                    <g fill='#FFFFFF'>
-                                        <path
-                                            d="M13 13V4h2c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1H9c-.6 0-1 .4-1 1v1c0 .6.4 1 1 1h2v9H6v4l6 6 6-6v-4h-5zM9.5 3c-.3 0-.5-.2-.5-.5s.2-.5.5-.5h5c.3 0 .5.2.5.5s-.2.5-.5.5h-5z">
-                                        </path>
-                                    </g>
-                                </svg>Draft</button>
-                        </form>
-                    @endif
-                </div>
-                <div>
                     <a href="{{ route('edit.book', $book) }}" class="btn-down mt-3 text-start"><svg
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
                             <g fill='#FFFFFF'>
@@ -52,28 +25,7 @@
                             </g>
                         </svg> Edit</a>
                 </div>
-                <div x-data="{ show: false}">
-                    <div>
-                        <button type="button" class="btn-down mt-3 text-start" @click="show = true"><svg
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
-                                <g fill='#FFFFFF'>
-                                    <path
-                                        d="M16 5s-1-2-4-2-4 2-4 2H5l.4 2h13.3l.3-2h-3zM9.4 5S10 4 12 4s2.6 1 2.6 1H9.4zM8 21h8l2.4-13H5.6z">
-                                    </path>
-                                </g>
-                            </svg> Delete</button>
-                    </div>
-                    <div x-show="show" style="display:none">
-                        <p class="mb-0 mt-3">Do You really want to delete this book?!</p>
-                        <form action="{{ route('delete.book', $book->id) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-danger mt-3 text-start">Yes</button>
-                            <button type="button" class="btn btn-primary mt-3 text-start" @click="show = false">No</button>
-                        </form>
-                    </div>
-                </div>
             @endauth
-
         </div>
     </div>
     <div class="wrap mt30">
@@ -251,7 +203,6 @@
                     <form action="{{ route('comment') }}" method="Post" class="p-4 border shadow-lg border-raduis-12 mt-5">
                         @csrf
                         <input type="hidden" name="dd" value="{{ $book->id }}">
-                        <input type="hidden" name="link" value="{{ request()->url() }}">
 
                         <h4 class="text-dark">Leave a reply</h4>
                         <p>Your email address will not be published.</p>

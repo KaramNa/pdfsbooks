@@ -13,7 +13,7 @@ class AddBookController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view("add-book", [
+        return view("admin.add-book", [
             "categories" => $categories,
         ]);
     }
@@ -132,7 +132,7 @@ class AddBookController extends Controller
                 $details["image_url"] = $image_name;
                 $details["size"] = $size;
             }
-            return view("add-book", [
+            return view("admin.add-book", [
                 "categories" => $categories,
                 "details" => $details
             ]);
@@ -144,7 +144,7 @@ class AddBookController extends Controller
     {
         $categories = Category::all();
         $book = Book::find($id);
-        return view("edit-book", [
+        return view("admin.edit-book", [
             "categories" => $categories,
             "book" => $book
         ]);
@@ -180,7 +180,7 @@ class AddBookController extends Controller
     {
         $book = Book::find($id);
         $book->delete();
-        return redirect(route("home"));
+        return back();
     }
 
     public function uploadImage($image)

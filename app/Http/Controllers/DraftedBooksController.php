@@ -26,4 +26,16 @@ class DraftedBooksController extends Controller
             return back()->with("status", "You must select one book at least");
         }
     }
+    public function draft()
+    {
+        $data = request("published");
+        if ($data){
+            foreach ($data as $id) {
+                Book::find($id)->update(["draft" => 1]);
+            }
+            return back();
+        }else{
+            return back()->with("status", "You must select one book at least");
+        }
+    }
 }

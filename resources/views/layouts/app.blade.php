@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield("page_title", "PDFs Books - Free download books")</title>
+    <title>@yield("page_title", "PDFs Books - Free download PDF,EPUB ebooks no registration")</title>
     <link rel="alternate" hreflang="en-us" href="https://pdfsbooks.com" />
     <meta name="description"
         content="Online Books library where you can find thousands of Free PDF,EPUB ebooks and download them for free, and if you can't find a Textbooks,Book you need you can order it on our website.">
@@ -69,82 +69,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('ebooks.formats') }}">eBook Apps</a>
                         </li>
-                        @auth
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Admin
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="{{ route('add.category') }}">Add Category</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{{ route('add.book') }}">Add a Book</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('books.orders') }}">Books Orders</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{{ route('drafted.books') }}">Drafted Books</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{{ route('reported.links') }}">Reported Links</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{{ route('search.results') }}">Search Results</a>
-                                    </li>
-                                    <li>
-                                        <form action="{{ route('logout') }}" method="POST">
-                                            @csrf
-                                            <button id="logout" type="submit" rel="logout" title="logout"
-                                                class="border-0 bg-transparent dropdown-item">Logout</button>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown dropdown-notifications">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span data-count="0"
-                                        class="badge badge-danger ml-2 text-danger">{{ count(App\Models\Notification::get()->where('seen', 0)) }}</span>
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30px"
-                                        hieght="30px   ">
-                                        <g fill='#FFFFFF'>
-                                            <path
-                                                d="M12 21c1.7 0 3-1.3 3-3H9c0 1.7 1.3 3 3 3zm7-6.6c-3.2-2.6 1-7.1-5-9.4 0-3-4-3-4 0-6 2.4-1.8 6.9-5 9.4-1 1-.3 2.6 1 2.6h12c1.3 0 2-1.6 1-2.6z">
-                                            </path>
-                                        </g>
-                                    </svg>
-                                </a>
-                                <ul class="dropdown-menu text-lowercase" aria-labelledby="navbarDropdown"
-                                    style="width: 300px">
-                                    @foreach (App\Models\Notification::latest()->get() as $notif)
-                                        <li class="p-2 notif-hover"><a href="{{ route('notif.seen', $notif->id) }}"
-                                                class="text-dark">
-                                                <div class="d-flex justify-content-between">
-                                                    <div>{{ $notif->username }}
-                                                        @if ($notif->notif_type == 'comment')
-                                                            left a comment
-                                                        @elseif ($notif->notif_type == 'order')
-                                                            ordered a book
-                                                        @else
-                                                            reported a link
-                                                        @endif
-                                                    </div>
-                                                    <div>
-                                                        <form action="{{ route('delete.notif', $notif->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            <button type="submit" class="bg-transparent border-0">X</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <div><span
-                                                        class="text-xs">{{ $notif->created_at->diffForHumans() }}</span>
-                                                    <span
-                                                        class="text-xs text-primary">{{ $notif->seen == 1 ? 'seen' : 'unseen' }}</span>
-                                                </div>
-                                            </a></li>
-                                        <hr class="m-0">
-                                    @endforeach
-                                </ul>
-                            </li>
-                        @endauth
                     </ul>
                     <form action="{{ route('home') }}" method="get" role="search">
                         @if (request('category'))
@@ -215,6 +139,7 @@
         var nowDate = new Date();
         var date = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
 
+
         function hideAds() {
             localStorage.setItem("date", date);
             window.location.reload();
@@ -222,12 +147,12 @@
 
         var prevDate = localStorage.getItem("date");
         if (!prevDate || prevDate != date) {
-            var ads = Array.prototype.slice.call( document.getElementsByClassName('ads') )
+            var ads = Array.prototype.slice.call(document.getElementsByClassName('ads'))
             console.log(ads);
             ads.forEach(ad => {
                 ad.classList.remove("d-none");
             });
-        }
+        } else {}
     </script>
 
     <!-- Default Statcounter code for Pdfsbooks https://pdfsbooks.com/ -->
@@ -245,7 +170,6 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
     </noscript>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-214406203-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -258,7 +182,7 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
         gtag('config', 'UA-214406203-1 ');
     </script>
     <!-- Google Analytics end   -->
-      <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
         crossorigin="anonymous"></script>
 </body>
 
