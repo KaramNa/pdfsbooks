@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\SearchResults;
-use Illuminate\Support\Facades\DB;
 
 class SearchResultsController extends Controller
 {
