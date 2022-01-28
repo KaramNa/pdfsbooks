@@ -178,9 +178,11 @@ class AddBookController extends Controller
 
     public function delete($id)
     {
-        $book = Book::find($id);
-        $book->delete();
-        return back();
+        if (request()->has('deleteForm')) {
+            $book = Book::find($id);
+            $book->delete();
+            return back();
+        }
     }
 
     public function uploadImage($image)

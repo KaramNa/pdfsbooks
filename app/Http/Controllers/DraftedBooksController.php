@@ -16,26 +16,30 @@ class DraftedBooksController extends Controller
 
     public function publish()
     {
-        $data = request("drafted");
-        if ($data){
-            foreach ($data as $id) {
-                Book::find($id)->update(["draft" => 0]);
+        if (request()->has('publishForm')) {
+            $data = request("drafted");
+            if ($data) {
+                foreach ($data as $id) {
+                    Book::find($id)->update(["draft" => 0]);
+                }
+                return back();
+            } else {
+                return back()->with("status", "You must select one book at least");
             }
-            return back();
-        }else{
-            return back()->with("status", "You must select one book at least");
         }
     }
     public function draft()
     {
-        $data = request("published");
-        if ($data){
-            foreach ($data as $id) {
-                Book::find($id)->update(["draft" => 1]);
+        if (request()->has('draftForm')) {
+            $data = request("published");
+            if ($data) {
+                foreach ($data as $id) {
+                    Book::find($id)->update(["draft" => 1]);
+                }
+                return back();
+            } else {
+                return back()->with("status", "You must select one book at least");
             }
-            return back();
-        }else{
-            return back()->with("status", "You must select one book at least");
         }
     }
 }

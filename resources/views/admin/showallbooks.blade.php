@@ -35,11 +35,10 @@
                     route('publish', $book->id) .
                     '" method="post" class="d-inline">
                                                 <input type="hidden" name="_token" value="' .
-                    csrf_token() .
-                    '">
-                                                <button class="btn btn-xs btn-default text-info mx-1 shadow" title="Publish" type="submit">
-                                                <i class="fa fa-lg fas fa-upload"></i></button>
-                                                </form>';
+                    csrf_token() . '">
+                    <button class="btn btn-xs btn-default text-info mx-1 shadow" title="Publish" type="submit" name="publishForm">
+                     <i class="fa fa-lg fas fa-upload"></i></button>
+                     </form>';
             } else {
                 $btnPublish = '';
                 $btnDraft =
@@ -48,10 +47,8 @@
                     '" method="post" class="d-inline">
                                             <input type="hidden" name="_token" value="' .
                     csrf_token() .
-                    '">
-                                            <button class="btn btn-xs btn-default text-cyan mx-1 shadow" title="Draft" type="submit">
-                                            <i class="fa fa-lg fas fa-eye-slash"></i></button>
-                                            </form>';
+                    '"><button class="btn btn-xs btn-default text-cyan mx-1 shadow" title="Draft" type="submit" name="draftForm">
+                    <i class="fa fa-lg fas fa-eye-slash"></i></button></form>';
             }
             $recored = [$book->id, $book->title, substr($book->author, 2), $book->draft == 1 ? 'Drafted' : 'Published', '<nobr>' . $btnDraft . $btnPublish . $btnEdit . $btnDelete . $btnDetails . '</nobr>'];
             array_push($data, $recored);
@@ -73,7 +70,7 @@
             <x-slot name="footerSlot">
                 <form id="deleteForm" action="<?php echo route('delete.book', 3); ?>" method="post">
                     @csrf
-                    <x-adminlte-button class="mr-auto" theme="danger" label="Yes" type="submit" />
+                    <x-adminlte-button class="mr-auto" theme="danger" label="Yes" type="submit" name="deleteForm" />
                     <x-adminlte-button theme="success" label="No" data-dismiss="modal" />
                 </form>
             </x-slot>

@@ -14,12 +14,12 @@ class BooksController extends Controller
     {
         $books = Book::filter(request(["search", "category", "search1"]))->paginate(20);
         $shareComponent = \Share::currentPage()
-        ->facebook()
-        ->twitter()
-        ->linkedin()
-        ->telegram()
-        ->whatsapp()
-        ->reddit();
+            ->facebook()
+            ->twitter()
+            ->linkedin()
+            ->telegram()
+            ->whatsapp()
+            ->reddit();
 
         $currentCategory = str_replace("-", " ", request("category"));
         if ($currentCategory == "")
@@ -32,28 +32,34 @@ class BooksController extends Controller
 
         ]);
     }
-    
-    public function howToDowload(){
+
+    public function howToDowload()
+    {
         return view("how-to-download");
     }
 
-    public function ebooksFormats(){
+    public function ebooksFormats()
+    {
         return view("ebooks-formats");
     }
-    
-     public function draft($id)
+
+    public function draft($id)
     {
-        $book = Book::find($id);
-        $book->update(["draft" => 1]);
-        return back();
+        if (request()->has("draftForm")) {
+            $book = Book::find($id);
+            $book->update(["draft" => 1]);
+            return back();
+        }
     }
     public function publish($id)
     {
-        $book = Book::find($id);
-        $book->update(["draft" => 0]);
-        return back();
+        if (request()->has("publishForm")) {
+            $book = Book::find($id);
+            $book->update(["draft" => 0]);
+            return back();
+        }
     }
-    
+
     public function getTheLink($slug)
     {
         $book = Book::get()->where("slug", $slug)->first();
