@@ -30,7 +30,7 @@
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
 
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/style.css?v=10') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css?v=2') }}">
 
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#fff">

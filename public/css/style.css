@@ -346,6 +346,24 @@ h3 {
     }
 }
 
+@media (max-width: 415px) {
+    .ribbon {
+        left: 45px !important;
+    }
+}
+
+@media (max-width: 394px) {
+    .ribbon {
+        left: 35px !important;
+    }
+}
+
+@media (max-width: 376px) {
+    .ribbon {
+        left: 25px !important;
+    }
+}
+
 .ribbon {
     left: 0;
     position: absolute;
