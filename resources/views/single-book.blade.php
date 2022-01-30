@@ -10,10 +10,10 @@
     <div class="wrap">
         <div class="col100">
             <h1 class="wine-color">{{ $book->title }}</h1>
-            <h2 class="mt-3">{{ $book->qoute }}</h2>
+            <h5 class="mt-3 text-primary">{{ $book->qoute }}</h5>
             <p><b>{{ $book->author }}</b></p>
-            <p class="label-color h4">Scroll down until you find <span class="wine-color blink fw-bold">&gt;&gt;</span> "Free
-                Download Link" <span class="wine-color blink fw-bold">&lt;&lt;</span></p>
+            <p class="label-color h4"><span class="d-lg-inline d-block">Scroll down until you find </span><span class="wine-color blink fw-bold">&gt;&gt;</span> "Free
+                Download button" <span class="wine-color blink fw-bold">&lt;&lt;</span></p>
         </div>
         <div class="col300 action">
             @auth
@@ -34,6 +34,7 @@
             <div class="soc">
                 {!! $shareComponent !!}
             </div>
+            <x-telegram />
             <div class="fb-page mb-2" data-href="https://www.facebook.com/FreeBooks/" data-tabs="" data-width=""
                 data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
                 data-show-facepile="false">
@@ -154,24 +155,8 @@
                 </div>
 
                 <div class="box1 my-3">
-                    <div class="d-flex justify-content-around align-items-center">
-                        <span class="blink h1 wine-color"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                width="75" height="75">
-                                <g fill='#800000'>
-                                    <path
-                                        d="M11 5.8c0 .4.1.7.4.9L16 11c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.6-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9l-6.8-6.2c-.8-.5-2.1.1-2.1 1.1zM3 5.8c0 .4.1.7.4.9L8 11.1c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.5-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9L5.1 4.9c-.8-.7-2.1-.1-2.1.9z">
-                                    </path>
-                                </g>
-                            </svg></span>
-                        <a href="{{ route('get.the.link', $book->slug) }}" class="h2">Free Download Link</a>
-                        <span class="blink h1 wine-color"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                width="75" height="75">
-                                <g fill='#800000'>
-                                    <path
-                                        d="M12.4 18.2c0-.4-.1-.7-.4-.9L7.4 13c-.5-.5-.5-1.4 0-1.9L12 6.8c.3-.2.4-.6.4-.9 0-1.1-1.3-1.7-2.1-.9l-6.8 6.2c-.6.5-.6 1.4 0 1.9l6.8 6.2c.8.5 2.1-.1 2.1-1.1zM20.4 18.2c0-.4-.1-.7-.4-.9L15.4 13c-.5-.5-.5-1.4 0-1.9L20 6.8c.3-.2.4-.6.4-.9 0-1.1-1.3-1.7-2.1-.9l-6.8 6.2c-.6.5-.6 1.4 0 1.9l6.8 6.2c.8.5 2.1-.1 2.1-1.1z">
-                                    </path>
-                                </g>
-                            </svg></span>
+                    <div class="d-flex justify-content-around align-items-center pt-5">
+                        <a href="{{ route('get.the.link', $book->slug) }}" class="h2"><img src="{{ asset('storage/free-dowonload.png') }}" alt="free download button" width="300" height="67"></a>
                     </div>
                 </div>
                 <x-adsense></x-adsense>

@@ -10,6 +10,7 @@
         <div class="soc">
             {!! $shareComponent !!}
         </div>
+        <x-telegram />
         <div class="fb-page mb-2" data-href="https://www.facebook.com/FreeBooks/" data-tabs="" data-width="" data-height=""
             data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
             <blockquote cite="https://www.facebook.com/FreeBooks/" class="fb-xfbml-parse-ignore"><a
@@ -56,23 +57,30 @@
                                 title="Free Download {{ $book->title }}"><img data-src="{{ $book->title }}"
                                     src="{{ $book->poster }}" class="img" alt="{{ $book->title }}"
                                     width="280" height="420"></a>
-                            <div class="pad mt-3"><a href="{{ route('single.book', $book->slug) }}"
-                                    title="Free Download {{ $book->title }}">{{ $book->title }}</a></div>
+                            <div
+                                class="mt-3">
+                                <a href="{{ route('single.book', $book->slug) }}"
+                                    title="Free Download {{ $book->title }}"><span class="">{{ $book->title }}</span>
+                                </a>
+                            </div>
                             <div class="h">{{ $book->description }}</div>
                         </div>
                     @endforeach
                 </div>
             @else
-                <h1 class="text-dark mt-3">Sorry, Nothing matches your criteria</h1>
-                <h1 class="text-dark mt-2">But you can order the book you need <span class="text-success">for Free</span>
-                    on <a class="blink" href="{{ route('order.book') }}">Order a Book </a><svg
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="75" height="75">
-                        <g fill='#800000'>
-                            <path
-                                d="M12 3c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm3 5.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5zm-6 0c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5zm7.8 7C15.7 17 14 18 12 18s-3.7-1-4.8-2.5c-.5-.6 0-1.5.8-1.5.3 0 .6.1.8.4.7 1 1.9 1.6 3.2 1.6s2.5-.6 3.2-1.6c.2-.3.5-.4.8-.4.8 0 1.3.9.8 1.5z">
-                            </path>
-                        </g>
-                    </svg></h1>
+                <div class="shadow-lg p-3 border-raduis-12 my-5">
+                    <h1 class="text-dark mt-3">Sorry, Nothing matches your criteria</h1>
+                    <h1 class="text-dark mt-2">Please suggest the book you want for us, and we'll add it on our website ASAP
+                        <a class="blink" href="{{ route('order.book') }}">Suggest a Book </a><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="75" height="75">
+                            <g fill='#800000'>
+                                <path
+                                    d="M12 3c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm3 5.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5zm-6 0c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5zm7.8 7C15.7 17 14 18 12 18s-3.7-1-4.8-2.5c-.5-.6 0-1.5.8-1.5.3 0 .6.1.8.4.7 1 1.9 1.6 3.2 1.6s2.5-.6 3.2-1.6c.2-.3.5-.4.8-.4.8 0 1.3.9.8 1.5z">
+                                </path>
+                            </g>
+                        </svg>
+                    </h1>
+                </div>
             @endif
 
             {{ $books->withQueryString()->links() }}

@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h1 class="wine-color">Contact Us</h1>
-                <form action="{{ route('contact') }}" class="mt-3 p-3 p-sm-5 shadow-lg rounded" method="POST">
+                <form action="{{ route('contact') }}" class="mt-3 p-3 p-sm-5 shadow-lg border-raduis-12" method="POST">
                     @csrf
                     @if (session()->has('success'))
                         <div class="alert alert-success alert-dismissible fade show">

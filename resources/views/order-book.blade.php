@@ -4,16 +4,15 @@
         <x-adsense></x-adsense>
 
     <div class="text-center mt-5">
-        <h1 class="wine-color">Order a book for free</h1>
-        <h2>Suggest a book for PDFSBOOKS.COM</h2>
-        <p class="mt-3">We are happy to help you finding the books you need, we'll do our best to find the book you order and we'll send the <span class="text-success">Free link</span> to your email as soon as possible.</p>
+        <h1 class="wine-color">Suggest a book for PDFSBOOKS.COM</h1>
+        <p class="mt-3">We are happy to help you finding the books you need, we'll do our best to find the book you suggest for us and we'll send the <span class="text-success">Free link</span> to you by email as soon as possible.</p>
     </div>
     @if (session()->has('success'))
         <div class="alert alert-success mt-3">{{ session("success") }}</div>
     @elseif (session()->has('failed'))
         <div class="alert alert-success mt-3">{{ session("success") }}</div>
     @endif
-    <form action="{{ route('books.orders.store') }}" method="POST" class="mt-5 p-3 p-sm-5 border shadow-lg rounded">
+    <form action="{{ route('books.orders.store') }}" method="POST" class="mt-5 p-3 p-sm-5 border shadow-lg border-raduis-12">
         @csrf
         <div>
             <label for="book_name"><span class="text-danger">*</span> Book name</label>

@@ -98,7 +98,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background: #e0e0e0;
+    background: #eeeeee;
     font-family: "PT Sans", sans-serif;
     line-height: 1.5;
     font-size: 18px;
@@ -395,6 +395,22 @@ h3 {
     bottom: -5px;
     left: -4.5px;
     border-radius: 5px 0 0 5px;
+}
+
+.telegram-button {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 65px;
+    display: inline-block;
+    padding: 0 15px;
+    transition: 0.2s linear;
+    text-align: center;
+    vertical-align: top;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 4px;
+    background: #00b8ff;
 }
 
 
