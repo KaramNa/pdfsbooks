@@ -94,7 +94,16 @@
                             </div>
                         @enderror
                     </div>
-
+                    <div class="my-2">
+                        <label for="publisher">Book publisher</label>
+                        <input type="text" class="form-control" name="publisher"
+                            value="{{ old('publisher', $book->publisher) }}">
+                        @error('publisher')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
 
                     <div class="my-2">
                         <label for="published">Book published</label>

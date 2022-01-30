@@ -54,7 +54,7 @@
             <label for="book_name">Notes</label>
             <textarea name="notes" class="form-control rounded">{{ old('notes') }}</textarea>
         </div>
-        <button class="btn btn-primary mt-3">Order now</button>
+        <button class="btn btn-primary mt-3">Suggest</button>
     </form>
         <x-adsense></x-adsense>
 

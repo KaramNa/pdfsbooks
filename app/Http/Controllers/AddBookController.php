@@ -153,6 +153,7 @@ class AddBookController extends Controller
     public function update($id)
     {
         $book = Book::find($id);
+
         $attributes =  request()->validate([
             "title" => "required",
             "qoute" => "",
