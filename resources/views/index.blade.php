@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('book_url', \Request::fullUrl())
-@section('page_title', 'PDFs Books - Free download ' . $currentCategory . ' books')
+
+@if ($currentCategory)
+    @section('page_title', 'PDFs Books - Free download ' . $currentCategory . ' books')
+@endif
 
 @section('content')
     <div class="title">
@@ -57,10 +60,10 @@
                                 title="Free Download {{ $book->title }}"><img data-src="{{ $book->title }}"
                                     src="{{ $book->poster }}" class="img" alt="{{ $book->title }}"
                                     width="280" height="420"></a>
-                            <div
-                                class="mt-3">
+                            <div class="mt-3">
                                 <a href="{{ route('single.book', $book->slug) }}"
-                                    title="Free Download {{ $book->title }}"><span class="">{{ $book->title }}</span>
+                                    title="Free Download {{ $book->title }}"><span
+                                        class="">{{ $book->title }}</span>
                                 </a>
                             </div>
                             <div class="h">{{ $book->description }}</div>
