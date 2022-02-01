@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('page_title', 'Free PDFs - Suggest a book for PDFSBOOKS.COM')
+@section('page_description', 'You can suggest a book for us to add on pdfsbooks.com so you can have it for free')
+@section('canonical_url', \Request::fullUrl())
+@section('page_url', \Request::fullUrl())
+
 @section('content')
         <x-adsense></x-adsense>
 

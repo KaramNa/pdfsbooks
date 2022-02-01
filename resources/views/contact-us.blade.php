@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('page_title', 'Free PDFs - Contact us')
+@section('page_description', 'Feel Free to contact us for any problem or any feedback')
+@section('page_url', \Request::fullUrl())
+@section('canonical_url', \Request::fullUrl())
+
 @section('content')
     <x-adsense></x-adsense>
 

@@ -4,36 +4,36 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield("page_title", "PDFs Books - Free download PDF,EPUB ebooks no registration")</title>
-    <link rel="alternate" hreflang="en-us" href="https://pdfsbooks.com" />
-    <meta name="description"
-        content="Online Books library where you can find thousands of Free PDF,EPUB ebooks and download them for free, and if you can't find a Textbooks,Book you need you can suggest it to add it on our website.">
-    <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="yandex-verification" content="aac0de0adfffbbb7" />
+
+    <title>@yield("page_title", "PDFs Books - Free Download PDF,EPUB e-Books No Registration")</title>
+    <link rel="alternate" hreflang="en-us" href="@yield("page_url", "https://pdfsbooks.com")" />
+    <meta name="description"
+        content="@yield("page_description", "books offers Free download PDF, EPUB, MOBI textbooks, articles, eBooks, All categories Medical, Computer science, IELTS, Programming, no limits.")">
+
     <meta property="og:site_name" content="pdfsbooks.com">
     <meta property="og:title" content="@yield("book_title", "PDFsBOOks" )">
     <meta property="og:description" content="Free download (PDF) @yield("book_desc")">
     <meta property="og:url" content="@yield("book_url", "https://pdfsbooks.com" )">
-    <meta name="thumbnail" content="@yield("share_image", asset('storage/thumbnail.jpg'))">
     <meta property="og:image" content="@yield("share_image", asset('storage/thumbnail.jpg'))" />
-    <meta name="yandex-verification" content="aac0de0adfffbbb7" />
     <meta property="og:type" content="website">
-    <link rel="canonical" href="@yield("book_url", "https://pdfsbooks.com" )">
+
+    <meta name="thumbnail" content="@yield("share_image", asset('storage/thumbnail.jpg'))">
+    
+    <link rel="canonical" href="@yield("canonical_url", "https://pdfsbooks.com" )">
 
     <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com" href="https://pdfsbooks.com/feed">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon/favicon-192x192.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('storage/favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('storage/favicon/favicon-16x16.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('storage/favicon/favicon-180x180.png') }}">
-
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
-
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css?v=9') }}">
 
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#fff">
     <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
 </head>
 

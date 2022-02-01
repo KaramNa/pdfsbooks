@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
+@section('page_url', \Request::fullUrl())
+@section('page_title', "Free Download $book->title")
+@section('page_description', substr($book->description, 0, strpos($book->description,'.')))
+@section('canonical_url', \Request::fullUrl())
+
 @section('share_image', "$book->poster")
 @section('book_url', request()->url())
-@section('book_desc', "$book->title")
-@section('page_title', "$book->title")
-@section('book_title', "$book->title")
+@section('book_desc', substr($book->description, 0, strpos($book->description,'.')))
+@section('book_title', "Free Download $book->title")
 
 @section('content')
     <div class="wrap">
@@ -297,7 +301,7 @@
             </script>
 
             {{-- Look inside content --}}
-            <div class="d-none">
+            {{-- <div class="d-none">
                 <div itemscope itemtype="https://schema.org/Book" itemid="https://pdfsbooks.com/book/{{ $book->slug }}">
                     <img itemprop="image" src="{{ asset($book->poster) }}" alt="cover art: {{ $book->title }}" />
                     <h1><span itemprop="name">{{ $book->title }}</span></h1>
@@ -310,5 +314,5 @@
                     Publisher: <span itemprop="publisher">{{ $book->publisher }}</span>
                     <meta itemprop="datePublished" content="{{ $book->published }}">{{ $book->published }}
                 </div>
-            </div>
+            </div> --}}
         @stop

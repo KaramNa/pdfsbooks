@@ -32,7 +32,7 @@ Route::post('/admin/login-to-hell', [LoginController::class, 'login']);
 Route::get('/contact-us', [ContactController::class, 'contact'])->name('contact');
 Route::post('/contact-us', [ContactController::class, 'sendEmail']);
 
-Route::get('/order-a-book', [OrderBookController::class, 'index'])->name('order.book');
+Route::get('/suggest-a-book', [OrderBookController::class, 'index'])->name('order.book');
 Route::post('/books-orders-store', [OrderBookController::class, 'store'])->name('books.orders.store');
 
 Route::post('/post-comment', [CommentController::class, 'comment'])->name('comment');

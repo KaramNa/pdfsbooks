@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('page_title', 'Free PDFs - How to download books')
+@section('page_description', 'Learn how to download books for free from pdfsbooks.com')
+@section('canonical_url', \Request::fullUrl())
+
+@section('page_url', \Request::fullUrl())
+
 @section('content')
     
     <h1 class="wine-color">How to download?</h1>

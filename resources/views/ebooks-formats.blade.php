@@ -1,10 +1,16 @@
 @extends('layouts.app')
 
+@section('page_title', 'Free PDFs - EBooks Readers and Digital File Formats')
+@section('page_description', 'All information about ebooks and their formats and all the programs you need to open them')
+@section('canonical_url', \Request::fullUrl())
+
+@section('page_url', \Request::fullUrl())
+
 @section('content')
     <x-adsense></x-adsense>
 
     <div>
-        <h1 class="wine-color mb-5">EBook Readers and Digital File Formats</h1>
+        <h1 class="wine-color mb-5">EBooks Readers and Digital File Formats</h1>
         <p>eBook files come in a variety of formats for use on various tablets and ereader devices and software. The
             information
             below is provided as guidance only., so be sure to choose the correct format for your device and eBook reading
