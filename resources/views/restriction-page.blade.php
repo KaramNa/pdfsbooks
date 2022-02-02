@@ -8,7 +8,7 @@
       <div style="text-align:center">
         <h1 style="font-size:5rem; color:#800000 ">PDFSBOOKS.COM</h1>
       </div>
-      <h1 style="text-align:center; font-family:Helvetica, Arial, sans-serif; font-weight:100; color: #555">
+      <h1 style="text-align:center; font-family:Helvetica, Arial, sans-serif; font-weight:100; color: #333">
         We are sorry, but due to some restrictions, you are not allowed to access the website.
       </h1>
     </div>
