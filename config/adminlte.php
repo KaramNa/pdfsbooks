@@ -310,6 +310,17 @@ return [
             'url'  => '/admin/search-queries',
             'icon' => 'fas fa-search',
         ],
+        ['header' => 'Black List'],
+        [
+            'text' => 'Countries',
+            'url'  => '/admin/black-list-countries',
+            'icon' => 'fas fa-globe-europe',
+        ],
+        [
+            'text' => 'IP Addresses',
+            'url'  => '/admin/black-list-ip-addresses',
+            'icon' => 'fas fa-info',
+        ],
 
     ],
 
