@@ -9,9 +9,9 @@
     <meta name="yandex-verification" content="aac0de0adfffbbb7" />
 
     <title>@yield("page_title", "PDFs Books - Free Download PDF,EPUB e-Books No Registration")</title>
-    <link rel="alternate" hreflang="en-us" href="@yield("page_url", "https://pdfsbooks.com")" />
-    <meta name="description"
-        content="@yield("page_description", "pdfsbooks offers Free download PDF, EPUB, MOBI textbooks, articles, eBooks, All categories Medical, Computer science, IELTS, Programming, learning, mathmaticsm children's no limits, online library website search enging finder.")">
+    <link rel="alternate" hreflang="en-us" href="@yield("page_url", "https://pdfsbooks.com" )" />
+    <meta name="description" content="@yield("page_description", "pdfsbooks offers Free download PDF, EPUB, MOBI textbooks, articles, eBooks, All categories Medical, Computer science, IELTS, Programming, learning, mathmaticsm children's no limits, online library website search enging finder."
+        )">
 
     <meta property="og:site_name" content="pdfsbooks.com">
     <meta property="og:title" content="@yield("book_title", "PDFsBOOks" )">
@@ -21,7 +21,7 @@
     <meta property="og:type" content="website">
 
     <meta name="thumbnail" content="@yield("share_image", asset('storage/thumbnail.jpg'))">
-    
+
     <link rel="canonical" href="@yield("canonical_url", "https://pdfsbooks.com" )">
 
     <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com" href="https://pdfsbooks.com/feed">
@@ -34,6 +34,18 @@
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css?v=9') }}">
 
+    <script>
+        (function(c, l, a, r, i, t, y) {
+            c[a] = c[a] || function() {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt";
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "aglve3398p");
+    </script>
     <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
 </head>
 
