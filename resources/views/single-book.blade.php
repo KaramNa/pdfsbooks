@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page_url', \Request::fullUrl())
-@section('page_title', "Free Download $book->title")
+@section('page_title', "Free Download $book->title PDF, EPUB, Mobi book")
 @section('page_description', substr($book->description, 0, strpos($book->description,'.')))
 @section('canonical_url', \Request::fullUrl())
 

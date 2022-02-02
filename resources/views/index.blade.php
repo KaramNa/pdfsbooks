@@ -59,7 +59,7 @@
                             <span class="ribbon {{ strtolower($book->category_slug) }}">{{ $book->category }}</span>
                             <a href="{{ route('single.book', $book->slug) }}"
                                 title="Free Download {{ $book->title }}"><img data-src="{{ $book->title }}"
-                                    src="{{ $book->poster }}" class="img" alt="{{ $book->title }}"
+                                    src="{{ $book->poster }}" class="img" alt="Free download PDF{{ $book->title }}"
                                     width="280" height="420"></a>
                             <div class="mt-3">
                                 <a href="{{ route('single.book', $book->slug) }}"
