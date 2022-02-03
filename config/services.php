@@ -35,5 +35,8 @@ return [
         'lists' => [
             'subscribers' => env("MAILCHIMP_LIST_SUBSCRIBERS")
         ]
-    ]
+        ],
+    'telegram-bot-api' => [
+        'token' => env('TELEGRAM_BOT_TOKEN', 'YOUR BOT TOKEN HERE')
+    ],
 ];

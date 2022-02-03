@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
+use App\Notifications\BookPublished;
 use GuzzleHttp\Client;
 use DOMXPath;
 use DOMDocument;
@@ -89,5 +90,12 @@ class BooksController extends Controller
             "book_size" => $book->PDF_size,
 
         ]);
+    }
+
+    public function sendTelegramNotif($id)
+    {
+        $book = Book::findOrFail($id);
+        $book->notify(new BookPublished());
+        return back()->with('success', 'Telegram notification has been sent');
     }
 }

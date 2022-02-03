@@ -90,7 +90,9 @@ Route::middleware('blackList')->group(function () {
 
         Route::post('/draft/{id}', [BooksController::class, 'draft'])->name('draft');
         Route::post('/publish/{id}', [BooksController::class, 'publish'])->name('publish');
-
+        
+        Route::post('/telegram-notif/{id?}', [BooksController::class, 'sendTelegramNotif'])->name('telegram.notif');
+        
         Route::post('/publish-drafted-books', [DraftedBooksController::class, 'publish'])->name('publish.drafted.books');
         Route::post('/draft-publihsed-books', [DraftedBooksController::class, 'draft'])->name('draft.published.books');
 

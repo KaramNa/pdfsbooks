@@ -13,21 +13,20 @@
             $btnEdit =
                 '<a href="' .
                 route('edit.book', $book->id) .
-                '" class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
-                                                                                                                    <i class="fa fa-lg fa-fw fa-pen"></i>
-                                                                                                                </a>';
+                '" class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit"><i class="fa fa-lg fa-fw fa-pen"></i></a>';
+            $btnTelegram =
+                '<button class="btn btn-xs btn-default text-blue mx-1 shadow" title="Telegram Notification" onclick="showTelegramModal(' .
+                $book->id .
+                ')"><i class="fab fa-lg fab fa-telegram"></i></button>';
             $btnDetails =
                 '<a href="' .
                 route('single.book', $book->slug) .
                 '" class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details" target="_blank">
-                                                                                                                       <i class="fa fa-lg fa-fw fa-eye"></i>
-                                                                                                                   </a>';
+                 <i class="fa fa-lg fa-fw fa-eye"></i></a>';
             $btnDelete =
-                '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete" onclick="showModal(' .
+                '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete" onclick="showDeleteModal(' .
                 $book->id .
-                ')">
-                                                                                      <i class="fa fa-lg fa-fw fa-trash"></i>
-                                                                                  </button>';
+                ')"><i class="fa fa-lg fa-fw fa-trash"></i></button>';
             if ($book->draft == 1) {
                 $btnDraft = '';
                 $btnPublish =
@@ -50,7 +49,7 @@
                     '"><button class="btn btn-xs btn-default text-cyan mx-1 shadow" title="Draft" type="submit" name="draftForm">
                     <i class="fa fa-lg fas fa-eye-slash"></i></button></form>';
             }
-            $recored = [$book->id, $book->title, substr($book->author, 2), $book->draft == 1 ? 'Drafted' : 'Published', '<nobr>' . $btnDraft . $btnPublish . $btnEdit . $btnDelete . $btnDetails . '</nobr>'];
+            $recored = [$book->id, $book->title, substr($book->author, 2), $book->draft == 1 ? 'Drafted' : 'Published', '<nobr>' . $btnDraft . $btnPublish . $btnEdit . $btnDelete . $btnDetails . $btnTelegram . '</nobr>'];
             array_push($data, $recored);
         }
         $config = [
@@ -68,18 +67,33 @@
         <x-adminlte-modal id="deleteModal" title="Delete Book">
             Do You really want to delete this book?
             <x-slot name="footerSlot">
-                <form id="deleteForm" action="<?php echo route('delete.book', 3); ?>" method="post">
+                <form id="deleteForm" action="#" method="post">
                     @csrf
                     <x-adminlte-button class="mr-auto" theme="danger" label="Yes" type="submit" name="deleteForm" />
                     <x-adminlte-button theme="success" label="No" data-dismiss="modal" />
                 </form>
             </x-slot>
         </x-adminlte-modal>
+        <x-adminlte-modal id="TelegramModal" title="Telegram Notification">
+            Do You really want to send a telegram notification about this book?
+            <x-slot name="footerSlot">
+                <form id="TelegramForm" action="#" method="post">
+                    @csrf
+                    <x-adminlte-button class="mr-auto" theme="danger" label="Yes" type="submit" name="telegramForm" />
+                    <x-adminlte-button theme="success" label="No" data-dismiss="modal" />
+                </form>
+            </x-slot>
+        </x-adminlte-modal>
         <script>
-            function showModal(id) {
+            function showDeleteModal(id) {
                 $("#deleteModal").modal("show");
                 var route = "{{ route('delete.book') }}/" + id;
                 $("#deleteForm").attr('action', route);
+            }
+            function showTelegramModal(id) {
+                $("#TelegramModal").modal("show");
+                var route = "{{ route('telegram.notif') }}/" + id;
+                $("#TelegramForm").attr('action', route);
             }
         </script>
     </div>

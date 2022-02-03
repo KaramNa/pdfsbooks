@@ -7,10 +7,11 @@ use App\Models\SearchResults;
 use Illuminate\Database\Eloquent\Model;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
 
 class Book extends Model
 {
-    use HasFactory, SearchableTrait;
+    use HasFactory, SearchableTrait, Notifiable;
 
     protected $searchable = [
 

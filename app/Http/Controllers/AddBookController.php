@@ -6,6 +6,7 @@ use Image;
 use Goutte\Client;
 use App\Models\Book;
 use App\Models\Category;
+use App\Notifications\BookPublished;
 use Illuminate\Support\Str;
 
 class AddBookController extends Controller
@@ -46,9 +47,12 @@ class AddBookController extends Controller
             else
                 $attributes["poster"] = request("image_url");
             $attributes["PDF_size"] .= " MB";
-            if (Book::create($attributes))
+            if ($book = Book::create($attributes)) {
+                if (request("telegram_notif"))
+                    $book->notify(new BookPublished());
                 return back()->with("success", "Book has been added. Link: https://pdfsbooks.com/book/"
                     . $slug);
+            }
         }
         if (request()->has("fill")) {
             $url = request()->validate([

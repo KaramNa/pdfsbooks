@@ -32,7 +32,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/style.css?v=9') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css?v=3') }}">
 
     <script>
         (function(c, l, a, r, i, t, y) {

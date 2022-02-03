@@ -181,6 +181,10 @@
                             </div>
                         @enderror
                     </div>
+                    <div class="my-2 form-group d-flex align-items-center">
+                        <input type="checkbox" id="telegram_notif" name="telegram_notif" {{ old('telegram_notif') ? 'checked' : '' }}>
+                        <label for="telegram_notif" class="ml-1 mb-0">Send Telegram Notification</label>
+                    </div>
 
                     <div class="d-flex justify-content-between">
                         <button type="submit" name="publish" class="btn btn-primary mt-2">Publish</button>
