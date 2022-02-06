@@ -55,7 +55,7 @@
             @if (count($books) > 0)
                 <div class="grid">
                     @foreach ($books as $book)
-                        @if (in_array($loop->index, [1, 6, 15, 17]))
+                        @if (in_array($loop->index, [1, 6, 9, 12, 15, 17]))
                             <div class="ads mb-4" style="width:282px; height:422px;">
                                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
                                                                 crossorigin="anonymous"></script>
