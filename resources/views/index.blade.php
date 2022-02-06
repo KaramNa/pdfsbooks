@@ -55,12 +55,24 @@
             @if (count($books) > 0)
                 <div class="grid">
                     @foreach ($books as $book)
+                        @if ($loop->index % 6 == 0)
+                            <div class="ads">
+                                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
+                                                                crossorigin="anonymous"></script>
+                                <ins class="adsbygoogle" style="display:block" data-ad-format="fluid"
+                                    data-ad-layout-key="+1k+s6-1h-2r+au" data-ad-client="ca-pub-2052289648779673"
+                                    data-ad-slot="1248211918"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </div>
+                        @endif
                         <div class="item ribbonBox">
                             <span class="ribbon {{ strtolower($book->category_slug) }}">{{ $book->category }}</span>
                             <a href="{{ route('single.book', $book->slug) }}"
                                 title="Free Download {{ $book->title }}"><img data-src="{{ $book->title }}"
-                                    src="{{ $book->poster }}" class="img" alt="Free download PDF{{ $book->title }}"
-                                    width="280" height="420"></a>
+                                    src="{{ $book->poster }}" class="img"
+                                    alt="Free download PDF{{ $book->title }}" width="280" height="420"></a>
                             <div class="mt-3">
                                 <a href="{{ route('single.book', $book->slug) }}"
                                     title="Free Download {{ $book->title }}"><span
@@ -69,8 +81,8 @@
                             </div>
                             <div class="h">{{ $book->description }}</div>
                         </div>
-                        
-                      
+
+
                     @endforeach
                 </div>
             @else
