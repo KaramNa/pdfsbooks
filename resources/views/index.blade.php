@@ -56,7 +56,7 @@
                 <div class="grid">
                     @foreach ($books as $book)
                         @if ($loop->index % 6 == 0)
-                            <div class="ads">
+                            <div class="ads mb-3">
                                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
                                                                 crossorigin="anonymous"></script>
                                 <ins class="adsbygoogle" style="display:block" data-ad-format="fluid"
