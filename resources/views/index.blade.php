@@ -69,6 +69,8 @@
                             </div>
                             <div class="h">{{ $book->description }}</div>
                         </div>
+                        
+                      
                     @endforeach
                 </div>
             @else

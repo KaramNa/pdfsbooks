@@ -34,18 +34,6 @@
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css?v=3') }}">
 
-    <script>
-        (function(c, l, a, r, i, t, y) {
-            c[a] = c[a] || function() {
-                (c[a].q = c[a].q || []).push(arguments)
-            };
-            t = l.createElement(r);
-            t.async = 1;
-            t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt";
-            y = l.getElementsByTagName(r)[0];
-            y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "aglve3398p");
-    </script>
     <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
 </head>
 
@@ -148,18 +136,19 @@
     </script>
 
     <!-- Default Statcounter code for Pdfsbooks https://pdfsbooks.com/ -->
-    <script type="text/javascript">
-        var sc_project = 12696715;
-        var sc_invisible = 1;
-        var sc_security = "addf9e34";
-    </script>
-    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
-    <noscript>
-        <div class="statcounter"><a title="Web Analytics Made Easy -
-Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcounter"
-                    src="https://c.statcounter.com/12696715/0/addf9e34/1/" alt="Web Analytics Made Easy - Statcounter"
-                    referrerPolicy="no-referrer-when-downgrade"></a></div>
-    </noscript>
+    <!-- Default Statcounter code for Pdf http://Https://pdfsbooks.com -->
+<script type="text/javascript">
+var sc_project=12711734; 
+var sc_invisible=1; 
+var sc_security="9add92a5"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js" async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/12711734/0/9add92a5/1/" alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-214406203-1"></script>
