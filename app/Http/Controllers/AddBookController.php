@@ -102,16 +102,18 @@ class AddBookController extends Controller
                 $authors = substr(str_replace('<br>', ', ', $author), 0, strlen(str_replace('<br>', ',', $author)) - 1);
                 $poster = "https://itbook.store" . $response->evaluate('//img[@class="test-cover-image"]')->extract(["src"])[0];
                 Storage::put('public/temp_poster.jpeg', file_get_contents('https://media.springernature.com/w306/springer-static/cover-hires/book/978-981-33-4268-2'));
-                $image = $this->uploadImage('/storage/temp_poster.jpeg');
+                $image = $this->uploadImage(asset('storage/temp_poster.jpeg'));
                 $description = addslashes($response->evaluate('//div[@itemprop="description"]')->html());
                 $publisher = addslashes($response->evaluate('//span[@itemprop="publisher"]')->text());
                 $published = addslashes($response->evaluate('//span[@itemprop="copyrightYear"]')->text());
                 $pages = addslashes($response->evaluate('//span[@id="number-of-pages"]')->text());
                 $pages = explode(', ', $pages)[1];
                 try{
-                    $link = 'https://link.springer.com' . $response->evaluate('//a[@data-track-action="Book download - pdf"]')->extract(["href"])[0];
+                    $link1 = 'https://link.springer.com' . $response->evaluate('//a[@data-track-action="Book download - pdf"]')->extract(["href"])[0];
+                    $link2 = 'https://link.springer.com' . $response->evaluate('//a[@data-track-action="Book download - ePub"]')->extract(["href"])[0];
                 }catch (\Throwable $e) {
-                    $link = '';
+                    $link1 = '';
+                    $link2 = '';
                 }
 
                 $details["title"] = $title;
@@ -124,7 +126,8 @@ class AddBookController extends Controller
                 $details["author"] = $authors;
                 $details["image_url"] = $image;
                 $details["size"] = '';
-                $details["link"] = $link;
+                $details["link1"] = $link1;
+                $details["link2"] = $link2;
             } else if (str_contains($url["url"], "libgen.is")) {
                 $attr = $response->filter('tr td');
                 foreach ($attr as $value) {
