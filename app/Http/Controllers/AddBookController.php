@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Notifications\BookPublished;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use PhpParser\Node\Stmt\Catch_;
 
 class AddBookController extends Controller
 {
@@ -22,39 +23,6 @@ class AddBookController extends Controller
 
     public function store()
     {
-        if (request()->has("publish") || request()->has("draft")) {
-            $attributes =  request()->validate([
-                "title" => "required|unique:books,title",
-                "qoute" => "",
-                "author" => "required",
-                "poster" => "image",
-                "description" => "required",
-                "category" => "required",
-                "publisher" => "required",
-                "published" => "required",
-                "pages" => "required",
-                "PDF_size" => "required",
-                "language" => "required",
-                "download_link2" => "required",
-            ]);
-            if (request()->has("draft"))
-                $attributes["draft"] = 1;
-
-            $slug = Str::slug($attributes["title"]);
-            $attributes["author"] = "by " . $attributes["author"];
-            $attributes["download_link3"] = request("download_link3");
-            if (request()->file("poster"))
-                $attributes["poster"] = $this->uploadImage(request()->file("poster"));
-            else
-                $attributes["poster"] = request("image_url");
-            $attributes["PDF_size"] .= " MB";
-            if ($book = Book::create($attributes)) {
-                if (request("telegram_notif"))
-                    $book->notify(new BookPublished());
-                return back()->with("success", "Book has been added. Link: https://pdfsbooks.com/book/"
-                    . $slug);
-            }
-        }
         if (request()->has("fill")) {
             $url = request()->validate([
                 "url" => "required",
@@ -80,7 +48,7 @@ class AddBookController extends Controller
                 }
                 $author = $response->filter('td.t50')->siblings()->text();
                 $poster = "https://itbook.store" . $response->evaluate('//img[@class="imgborder"]')->extract(["src"])[0];
-                $image_name = $this->uploadImage($poster);
+                $image = $this->uploadImage($poster);
                 $details["title"] = $title;
                 $details["description"] = $description;
                 $details["publisher"] = $publisher;
@@ -89,29 +57,33 @@ class AddBookController extends Controller
                 $details["published"] = $published;
                 $details["qoute"] = $qoute;
                 $details["author"] = $author;
-                $details["image_url"] = $image_name;
+                $details["image_url"] = $image;
                 $details["size"] = "";
             } else if (str_contains($url["url"], "link.springer.com")) {
                 $title = addslashes($response->evaluate('//span[@id="title"]')->text());
-                $qoute = addslashes($response->evaluate('//span[@id="sub-title"]')->text());
-                try{
+                try {
+                    $qoute = addslashes($response->evaluate('//span[@id="sub-title"]')->text());
+                } catch (\Throwable $e) {
+                    $qoute = '';
+                }
+                try {
                     $author = addslashes($response->evaluate('//span[@id="editors"]')->html());
-                }catch(\Throwable $e){
+                } catch (\Throwable $e) {
                     $author = addslashes($response->evaluate('//span[@id="authors"]')->html());
                 }
                 $authors = substr(str_replace('<br>', ', ', $author), 0, strlen(str_replace('<br>', ',', $author)) - 1);
-                $poster = "https://itbook.store" . $response->evaluate('//img[@class="test-cover-image"]')->extract(["src"])[0];
-                Storage::put('public/temp_poster.jpeg', file_get_contents('https://media.springernature.com/w306/springer-static/cover-hires/book/978-981-33-4268-2'));
-                $image = $this->uploadImage(asset('storage/temp_poster.jpeg'));
+                $poster = $response->evaluate('//img[@class="test-cover-image"]')->extract(["src"])[0];
+                Storage::put('/public/temp_poster.jpeg', file_get_contents($poster));
+                $image = $this->uploadImage('storage/temp_poster.jpeg');
                 $description = addslashes($response->evaluate('//div[@itemprop="description"]')->html());
                 $publisher = addslashes($response->evaluate('//span[@itemprop="publisher"]')->text());
                 $published = addslashes($response->evaluate('//span[@itemprop="copyrightYear"]')->text());
                 $pages = addslashes($response->evaluate('//span[@id="number-of-pages"]')->text());
                 $pages = explode(', ', $pages)[1];
-                try{
+                try {
                     $link1 = 'https://link.springer.com' . $response->evaluate('//a[@data-track-action="Book download - pdf"]')->extract(["href"])[0];
                     $link2 = 'https://link.springer.com' . $response->evaluate('//a[@data-track-action="Book download - ePub"]')->extract(["href"])[0];
-                }catch (\Throwable $e) {
+                } catch (\Throwable $e) {
                     $link1 = '';
                     $link2 = '';
                 }
@@ -153,12 +125,16 @@ class AddBookController extends Controller
                     }
                 }
                 $description = addslashes($response->evaluate('//td[@colspan="4"]')->text());
-                $image_src = $response->evaluate('//img')->extract(["src"])[0];
-                if (str_contains($image_src, "https"))
-                    $poster = $image_src;
-                else
-                    $poster = "https://www.libgen.is" .  $image_src;
-                $image_name = $this->uploadImage($poster);
+                try {
+                    $image_src = $response->evaluate('//img')->extract(["src"])[0];
+                    if (str_contains($image_src, "https"))
+                        $poster = $image_src;
+                    else
+                        $poster = "https://www.libgen.is" .  $image_src;
+                    $image = $this->uploadImage($poster);
+                } catch (\Throwable $e) {
+                    $image = '';
+                }
 
                 $details["title"] = $title;
                 $details["description"] = $description;
@@ -168,7 +144,7 @@ class AddBookController extends Controller
                 $details["published"] = $published;
                 $details["qoute"] = "";
                 $details["author"] = $authors;
-                $details["image_url"] = $image_name;
+                $details["image_url"] = $image;
                 $details["size"] = $size;
             } else {
                 return back()->with("error", "Please enter a valid url");
@@ -177,6 +153,42 @@ class AddBookController extends Controller
                 "categories" => $categories,
                 "details" => $details
             ]);
+        }
+        if (request()->has("publish") || request()->has("draft")) {
+            $rules = [
+                "title" => "required|unique:books,title",
+                "qoute" => "",
+                "author" => "required",
+                "description" => "required",
+                "category" => "required",
+                "publisher" => "required",
+                "published" => "required",
+                "pages" => "required",
+                "PDF_size" => "required",
+                "language" => "required",
+                "download_link2" => "required",
+            ];
+            if (request()->image_url == '') {
+                $rules["poster"] = "required|image";
+            }
+            $attributes =  request()->validate($rules);
+            if (request()->has("draft"))
+                $attributes["draft"] = 1;
+
+            $slug = Str::slug($attributes["title"]);
+            $attributes["author"] = "by " . $attributes["author"];
+            $attributes["download_link3"] = request("download_link3");
+            if (request()->file("poster"))
+                $attributes["poster"] = $this->uploadImage(request()->file("poster"));
+            else
+                $attributes["poster"] = request("image_url");
+            $attributes["PDF_size"] .= " MB";
+            if ($book = Book::create($attributes)) {
+                if (request("telegram_notif"))
+                    $book->notify(new BookPublished());
+                return back()->with("success", "Book has been added. <a href='https://pdfsbooks.com/book/"
+                    . $slug . "' target='_blank'>Book link</a>");
+            }
         }
     }
 
