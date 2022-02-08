@@ -102,7 +102,7 @@ class AddBookController extends Controller
                 $authors = substr(str_replace('<br>', ', ', $author), 0, strlen(str_replace('<br>', ',', $author)) - 1);
                 $poster = "https://itbook.store" . $response->evaluate('//img[@class="test-cover-image"]')->extract(["src"])[0];
                 Storage::put('public/temp_poster.jpeg', file_get_contents('https://media.springernature.com/w306/springer-static/cover-hires/book/978-981-33-4268-2'));
-                $image = $this->uploadImage('storage/temp_poster.jpeg');
+                $image = $this->uploadImage('/storage/temp_poster.jpeg');
                 $description = addslashes($response->evaluate('//div[@itemprop="description"]')->html());
                 $publisher = addslashes($response->evaluate('//span[@itemprop="publisher"]')->text());
                 $published = addslashes($response->evaluate('//span[@itemprop="copyrightYear"]')->text());
@@ -125,8 +125,6 @@ class AddBookController extends Controller
                 $details["image_url"] = $image;
                 $details["size"] = '';
                 $details["link"] = $link;
-                
-                // $image_name = $this->uploadImage(base64_decode($poster));
             } else if (str_contains($url["url"], "libgen.is")) {
                 $attr = $response->filter('tr td');
                 foreach ($attr as $value) {
