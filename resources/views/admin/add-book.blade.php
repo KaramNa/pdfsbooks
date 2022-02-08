@@ -17,6 +17,13 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                @elseif (session()->has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span class="text-white">{{ session('error') }}</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 @endif
                 <form action="{{ route('store.or.fill.book') }}" method="POST" class="border border-dark p-3 rounded">
                     @csrf
@@ -164,7 +171,7 @@
                     <div class="my-2">
                         <label for="download_link2">Download link</label>
                         <input type="text" class="form-control" name="download_link2"
-                            value="{{ old('download_link2') }}">
+                            value="{{ old('download_link2', $details['link']?? '') }}">
                         @error('download_link2')
                             <div class="text-danger">
                                 {{ $message }}
@@ -182,7 +189,8 @@
                         @enderror
                     </div>
                     <div class="my-2 form-group d-flex align-items-center">
-                        <input type="checkbox" id="telegram_notif" name="telegram_notif" {{ old('telegram_notif') ? 'checked' : '' }}>
+                        <input type="checkbox" id="telegram_notif" name="telegram_notif"
+                            {{ old('telegram_notif') ? 'checked' : '' }}>
                         <label for="telegram_notif" class="ml-1 mb-0">Send Telegram Notification</label>
                     </div>
 

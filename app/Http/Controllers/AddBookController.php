@@ -7,6 +7,7 @@ use Goutte\Client;
 use App\Models\Book;
 use App\Models\Category;
 use App\Notifications\BookPublished;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class AddBookController extends Controller
@@ -80,7 +81,6 @@ class AddBookController extends Controller
                 $author = $response->filter('td.t50')->siblings()->text();
                 $poster = "https://itbook.store" . $response->evaluate('//img[@class="imgborder"]')->extract(["src"])[0];
                 $image_name = $this->uploadImage($poster);
-
                 $details["title"] = $title;
                 $details["description"] = $description;
                 $details["publisher"] = $publisher;
@@ -91,7 +91,43 @@ class AddBookController extends Controller
                 $details["author"] = $author;
                 $details["image_url"] = $image_name;
                 $details["size"] = "";
-            } else {
+            } else if (str_contains($url["url"], "link.springer.com")) {
+                $title = addslashes($response->evaluate('//span[@id="title"]')->text());
+                $qoute = addslashes($response->evaluate('//span[@id="sub-title"]')->text());
+                try{
+                    $author = addslashes($response->evaluate('//span[@id="editors"]')->html());
+                }catch(\Throwable $e){
+                    $author = addslashes($response->evaluate('//span[@id="authors"]')->html());
+                }
+                $authors = substr(str_replace('<br>', ', ', $author), 0, strlen(str_replace('<br>', ',', $author)) - 1);
+                $poster = "https://itbook.store" . $response->evaluate('//img[@class="test-cover-image"]')->extract(["src"])[0];
+                Storage::put('public/temp_poster.jpeg', file_get_contents('https://media.springernature.com/w306/springer-static/cover-hires/book/978-981-33-4268-2'));
+                $image = $this->uploadImage('storage/temp_poster.jpeg');
+                $description = addslashes($response->evaluate('//div[@itemprop="description"]')->html());
+                $publisher = addslashes($response->evaluate('//span[@itemprop="publisher"]')->text());
+                $published = addslashes($response->evaluate('//span[@itemprop="copyrightYear"]')->text());
+                $pages = addslashes($response->evaluate('//span[@id="number-of-pages"]')->text());
+                $pages = explode(', ', $pages)[1];
+                try{
+                    $link = 'https://link.springer.com' . $response->evaluate('//a[@data-track-action="Book download - pdf"]')->extract(["href"])[0];
+                }catch (\Throwable $e) {
+                    $link = '';
+                }
+
+                $details["title"] = $title;
+                $details["description"] = $description;
+                $details["publisher"] = $publisher;
+                $details["pages"] = $pages;
+                $details["language"] = 'English';
+                $details["published"] = $published;
+                $details["qoute"] = $qoute;
+                $details["author"] = $authors;
+                $details["image_url"] = $image;
+                $details["size"] = '';
+                $details["link"] = $link;
+                
+                // $image_name = $this->uploadImage(base64_decode($poster));
+            } else if (str_contains($url["url"], "libgen.is")) {
                 $attr = $response->filter('tr td');
                 foreach ($attr as $value) {
                     if ($value->textContent == "Title: ")
@@ -123,8 +159,6 @@ class AddBookController extends Controller
                     $poster = "https://www.libgen.is" .  $image_src;
                 $image_name = $this->uploadImage($poster);
 
-
-                $categories = Category::all();
                 $details["title"] = $title;
                 $details["description"] = $description;
                 $details["publisher"] = $publisher;
@@ -135,6 +169,8 @@ class AddBookController extends Controller
                 $details["author"] = $authors;
                 $details["image_url"] = $image_name;
                 $details["size"] = $size;
+            } else {
+                return back()->with("error", "Please enter a valid url");
             }
             return view("admin.add-book", [
                 "categories" => $categories,

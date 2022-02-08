@@ -60,7 +60,7 @@
             <div class="tabin">
                 <a id="description"></a>
                 <div id="t_description" class="tab active">
-                    {{ $book->description }}
+                    {!! $book->description !!}
                 </div> <a id="details"></a>
                 <div id="t_details" class="tab">
                     <h3>Book Details</h3>
