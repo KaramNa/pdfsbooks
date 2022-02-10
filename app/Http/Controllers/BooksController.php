@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
-use App\Models\Category;
-use App\Notifications\BookPublished;
-use GuzzleHttp\Client;
 use DOMXPath;
 use DOMDocument;
+use App\Models\Book;
+use GuzzleHttp\Client;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use App\Notifications\BookPublished;
 
 class BooksController extends Controller
 {
@@ -92,10 +93,10 @@ class BooksController extends Controller
         ]);
     }
 
-    public function sendTelegramNotif($id)
+    public function sendTelegramNotif(Request $request)
     {
-        $book = Book::findOrFail($id);
+        $book = Book::findOrFail($request->id);
         $book->notify(new BookPublished());
-        return back()->with('success', 'Telegram notification has been sent');
+        return response()->json(['success' => 'Telegram notification has been sent']);
     }
 }

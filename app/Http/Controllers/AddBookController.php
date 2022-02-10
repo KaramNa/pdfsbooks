@@ -73,8 +73,7 @@ class AddBookController extends Controller
                 }
                 $authors = substr(str_replace('<br>', ', ', $author), 0, strlen(str_replace('<br>', ',', $author)) - 1);
                 $poster = $response->evaluate('//img[@class="test-cover-image"]')->extract(["src"])[0];
-                Storage::put('/public/temp_poster.jpeg', file_get_contents($poster));
-                $image = $this->uploadImage(asset('storage/temp_poster.jpeg'));
+                $image = $this->uploadImage(file_get_contents($poster));
                 $description = addslashes($response->evaluate('//div[@itemprop="description"]')->html());
                 $publisher = addslashes($response->evaluate('//span[@itemprop="publisher"]')->text());
                 $published = addslashes($response->evaluate('//span[@itemprop="copyrightYear"]')->text());

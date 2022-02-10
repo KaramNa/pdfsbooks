@@ -6,8 +6,8 @@
         @endif
         <div>
             <div class="d-flex pt-4">
-                <input class="inp" name="search" autocomplete="off" placeholder="Search By Title or Author"
-                    type="search" value="{{ request('search') }}" required><button aria-label="submit"
+                <input class="inp" name="search1" autocomplete="off" placeholder="Search By Title or Author"
+                    type="search1" value="{{ request('search') }}" required><button aria-label="submit"
                     class="sbm" type="submit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g fill='#FFFFFF'>
                             <path
