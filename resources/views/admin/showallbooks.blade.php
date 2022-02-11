@@ -13,7 +13,7 @@
             </button>
         </div>
         @php
-            $heads = ['id', 'Title', 'Author', 'Status', ['label' => 'Actions', 'no-export' => true, 'width' => 5]];
+            $heads = ['id', 'Title', 'Author', 'Status','Publisher', ['label' => 'Actions', 'no-export' => true, 'width' => 5]];
             $data = [];
             foreach ($books as $book) {
                 $btnEdit = '<a href="' . route('edit.book', $book->id) . '" class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit"><i class="fa fa-lg fa-fw fa-pen"></i></a>';
@@ -47,13 +47,13 @@
                         '"><button class="btn btn-xs btn-default text-cyan mx-1 shadow" title="Draft" type="submit" name="draftForm">
                                                                                                                                                         <i class="fa fa-lg fas fa-eye-slash"></i></button></form>';
                 }
-                $recored = [$book->id, $book->title, substr($book->author, 2), $book->draft == 1 ? 'Drafted' : 'Published', '<nobr>' . $btnDraft . $btnPublish . $btnEdit . $btnDelete . $btnDetails . $btnTelegram . '</nobr>'];
+                $recored = [$book->id, $book->title, substr($book->author, 2), $book->draft == 1 ? 'Drafted' : 'Published', $book->publisher, '<nobr>' . $btnDraft . $btnPublish . $btnEdit . $btnDelete . $btnDetails . $btnTelegram . '</nobr>'];
                 array_push($data, $recored);
             }
             $config = [
                 'data' => $data,
                 'order' => [[1, 'asc']],
-                'columns' => [null, null, null, null, ['orderable' => false]],
+                'columns' => [null, null, null, null,null, ['orderable' => false]],
             ];
         @endphp
         {{-- Compressed with style options / fill data using the plugin config --}}

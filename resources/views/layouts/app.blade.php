@@ -105,7 +105,8 @@
     </footer>
 
     <script src="{{ asset('js/app.min.js') }}"></script>
-
+  <div class='ads'><script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
+        crossorigin="anonymous"></script><div>
     <script>
         try {
             var url = "pdfsbooks.com" + location.pathname;
@@ -163,8 +164,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         gtag('config', 'UA-214406203-1 ');
     </script>
     <!-- Google Analytics end   -->
-    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
-        crossorigin="anonymous"></script>
+  
 </body>
 
 </html>

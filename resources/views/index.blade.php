@@ -56,7 +56,7 @@
                 <div class="grid">
                     @foreach ($books as $book)
                         @if (in_array($loop->index, [1, 6, 9, 12, 15, 17]))
-                            <div class="ads d-none mb-4">
+                            <div class="ads d-none mb-4" onclick="hideAds()">
                                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
                                                                 crossorigin="anonymous"></script>
                                 <ins class="adsbygoogle" style="display:block" data-ad-format="fluid"
@@ -81,7 +81,6 @@
                             </div>
                             <div class="h">{{ $book->description }}</div>
                         </div>
-
 
                     @endforeach
                 </div>
