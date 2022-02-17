@@ -23,13 +23,18 @@
                             $color = 'danger';
                             $icon = 'fas fa-exclamation-triangle';
                             $text = $username . ' reported a link';
+                        } elseif ($type === 'dcma') {
+                            $color = 'warning';
+                            $icon = 'fas fa-radiation';
+                            $text = $username . ' reported a book';
                         }
                     @endphp
-                        <x-adminlte-alert theme="{{ route('delete.notif', $notification->id) }}" class="bg-{{ $color }}" icon="{{ $icon }}" title="{{ $type }}" dismissable>
-                            <a href="{{ $link }}">
+                    <x-adminlte-alert theme="{{ route('delete.notif', $notification->id) }}" class="bg-{{ $color }}"
+                        icon="{{ $icon }}" title="{{ $type }}" dismissable>
+                        <a href="{{ $link }}">
                             {{ $text }}
                         </a>
-                        </x-adminlte-alert>
+                    </x-adminlte-alert>
                 @endforeach
             </div>
         </div>

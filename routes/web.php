@@ -14,6 +14,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RssFeedController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DCMAController;
 use App\Http\Controllers\OrderBookController;
 use App\Http\Controllers\SingleBookController;
 use App\Http\Controllers\DraftedBooksController;
@@ -45,6 +46,13 @@ Route::middleware('blackList')->group(function () {
 
     Route::get("/feed", [RssFeedController::class, "feed"])->name("rss.feed");
     Route::get("{category}/feed", [RssFeedController::class, "categoryFeed"])->name("rss.category.feed");
+    
+    Route::get("/DCMA", [DCMAController::class, "show"])->name("dcma.show");
+    Route::get("/DCMA-note", [DCMAController::class, "create"])->name("dcma.create");
+    Route::post("/DCMA-note-store", [DCMAController::class, "store"])->name("dcma.store");
+    
+    Route::get("/about-us", [BooksController::class, "about"])->name("about");
+    Route::get("/privacy-policy", [BooksController::class, "privayPolicy"])->name("privay.policy");
 
     Route::middleware(['auth'])->group(function () {
         Route::get("/admin/dashboard", [AdminController::class, "dashboard"])->name('admin.dashboard');
@@ -84,6 +92,13 @@ Route::middleware('blackList')->group(function () {
         Route::get('/admin/books-orders', [OrderBookController::class, 'showOrders'])->name('books.orders');
         Route::post('/delete-order/{id?}', [OrderBookController::class, 'delete'])->name('delete.order');
         Route::post('/order-done/{id}', [OrderBookController::class, 'done'])->name('order.done');
+        Route::post('/send-email-order/{id?}', [OrderReplyMail::class, 'sendMail'])->name('order.reply.mail');
+
+        Route::get('/admin/dcma', [DCMAController::class, 'index'])->name('dcma.index');
+        Route::post('/delete-dcma-notes/{id?}', [DCMAController::class, 'destroy'])->name('dcma.destroy');
+        Route::post('/dcma-note-done/{id}', [DCMAController::class, 'update'])->name('dcma.update');
+        Route::post('/send-email-dcma/{id?}', [OrderReplyMail::class, 'sendMailDCMA'])->name('dcma.reply.mail');
+
 
         Route::get('/admin/comments', [CommentController::class, 'index'])->name('all.comments');
         Route::post('/delete-comment/{id?}', [CommentController::class, 'delete'])->name('delete.comment');
@@ -96,7 +111,6 @@ Route::middleware('blackList')->group(function () {
         Route::post('/publish-drafted-books', [DraftedBooksController::class, 'publish'])->name('publish.drafted.books');
         Route::post('/draft-publihsed-books', [DraftedBooksController::class, 'draft'])->name('draft.published.books');
 
-        Route::post('/send-email/{id?}', [OrderReplyMail::class, 'sendMail'])->name('order.reply.mail');
         Route::post('/send-email-report/{id?}', [OrderReplyMail::class, 'sendMailReport'])->name('reports.reply.mail');
         Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 

@@ -3,7 +3,7 @@
 @section('title', 'black-list-ip-addresses')
 
 @section('content')
-<div class="container py-5">
+    <div class="container py-5">
         <div class="row">
             <div class="col-lg-6">
                 @if (session()->has('success'))
@@ -34,16 +34,13 @@
             
             $data = [];
             foreach ($ipAddresses as $ipAddress) {
-                $btnDelete =
-                    '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete" onclick="showDeleteModal(' .
-                    $ipAddress->id .
-                    ')"><i class="fa fa-lg fa-fw fa-trash"></i></button>';
+                $btnDelete = '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete" onclick="showDeleteModal(' . $ipAddress->id . ')"><i class="fa fa-lg fa-fw fa-trash"></i></button>';
                 $recored = [$ipAddress->id, $ipAddress->ip, '<nobr>' . $btnDelete . '</nobr>'];
                 array_push($data, $recored);
             }
             $config = [
                 'data' => $data,
-                'order' => [[1, 'asc']],
+                'order' => [[0, 'DESC']],
                 'columns' => [null, null, ['orderable' => false]],
             ];
         @endphp

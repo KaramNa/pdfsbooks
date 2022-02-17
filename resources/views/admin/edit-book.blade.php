@@ -95,6 +95,16 @@
                         @enderror
                     </div>
                     <div class="my-2">
+                        <label for="tag">Book tag</label>
+                        <input type="text" class="form-control" name="tag"
+                            value="{{ old('tag', $book->tag) }}">
+                        @error('tag')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="my-2">
                         <label for="publisher">Book publisher</label>
                         <input type="text" class="form-control" name="publisher"
                             value="{{ old('publisher', $book->publisher) }}">
@@ -163,6 +173,28 @@
                         <input type="text" class="form-control" name="download_link3"
                             value="{{ old('download_link3', $book->download_link3) }}">
                         @error('download_link3')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="my-2">
+                        <label for="post_text">Post Text</label>
+                        <input type="text" class="form-control" name="post_text"
+                            value="{{ old('post_text', $book->post_text) }}">
+                        @error('post_text')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="my-2">
+                        <label for="post_link">Post Link</label>
+                        <input type="text" class="form-control" name="post_link"
+                            value="{{ old('post_link', $book->post_link) }}">
+                        @error('post_link')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>

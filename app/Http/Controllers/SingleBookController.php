@@ -16,6 +16,7 @@ class SingleBookController extends Controller
             ->twitter()
             ->linkedin()
             ->telegram()
+            ->pinterest()
             ->whatsapp()
             ->reddit();
         $relatedBooks = Book::get()->where("category_slug", $book->category_slug)->where("draft", 0);

@@ -23,6 +23,7 @@ class Book extends Model
         'groupBy' => [
             "id",
             "title",
+            "tag",
             "slug",
             "qoute",
             "author",
@@ -46,7 +47,9 @@ class Book extends Model
             "license",
             "download_link",
             "created_at",
-            "updated_at"
+            "updated_at",
+            "post_text",
+            "post_link"
         ]
 
     ];
@@ -56,6 +59,7 @@ class Book extends Model
         "slug",
         "qoute",
         "author",
+        "tag",
         "poster",
         "description",
         "category",
@@ -67,7 +71,10 @@ class Book extends Model
         "language",
         "download_link2",
         "download_link3",
-        "draft"
+        "draft",
+        "post_text",
+        "post_link"
+
     ];
 
     public function scopeFilter($query, array $filters)
@@ -84,31 +91,42 @@ class Book extends Model
                 $query->search($search, null, true, true);
             } else
                 $query->search($search, null, true);
-        } else {
-            $query->where("draft", 0);
-        }
+        } 
+        // else {
+        //     $query->where("draft", 0);
+        // }
 
-        if (isset($filters["search1"])) {
-            if (str_contains($filters["search1"], "-")) {
-                $subsctract = substr($filters["search1"], strpos($filters["search1"], "-") + 2);
-                if ($subsctract != "")
-                    $query->where("title", "NOT LIKE", "%" . $subsctract . "%");
-            }
-            $search = substr($filters["search1"], 0, strpos($filters["search1"], "-") - 1);
-            if (request("exact_search") == "on")
-                $query->search($search, null, true, true);
-            else
-                $query->search($search, null, true);
-            $this->SearchResults($query, $filters["search1"]);
-        }
+        // if (isset($filters["search1"])) {
+        //     if (str_contains($filters["search1"], "-")) {
+        //         $subsctract = substr($filters["search1"], strpos($filters["search1"], "-") + 2);
+        //         if ($subsctract != "")
+        //             $query->where("title", "NOT LIKE", "%" . $subsctract . "%");
+        //     }
+        //     $search = substr($filters["search1"], 0, strpos($filters["search1"], "-") - 1);
+        //     if (request("exact_search") == "on")
+        //         $query->search($search, null, true, true);
+        //     else
+        //         $query->search($search, null, true);
+        //     $this->SearchResults($query, $filters["search1"]);
+        // }
 
         $query->when(
             $filters["category"] ?? false,
             fn ($query, $category) =>
             $query->where("category_slug", "like", "%" . $category . "%")
         );
+        $query->when(
+            $filters["tag"] ?? false,
+            fn ($query, $tag) =>
+            $query->where("tag", "like", $tag)
+        );
+        $query->when(
+            $filters["published"] ?? false,
+            fn ($query, $published) =>
+            $query->where("published", "like", $published)
+        );
 
-        if (!isset($filters["search"]) && !isset($filters["category"]))
+        if (!isset($filters["search"]) && !isset($filters["category"])&& !isset($filters["tag"]))
             $query->latest();
     }
 

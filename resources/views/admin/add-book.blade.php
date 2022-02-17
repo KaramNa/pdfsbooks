@@ -108,6 +108,17 @@
                     </div>
 
                     <div class="my-2">
+                        <label for="tag">Book Tag</label>
+                        <input type="text" class="form-control" name="tag"
+                            value="{{ old('tag') }}">
+                        @error('tag')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="my-2">
                         <label for="publisher">Book publisher</label>
                         <input type="text" class="form-control" name="publisher"
                             value="{{ isset($details) ? $details['publisher'] : old('publisher') }}">

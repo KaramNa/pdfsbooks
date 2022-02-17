@@ -22,7 +22,7 @@
             }
             $config = [
                 'data' => $data,
-                'order' => [[1, 'asc']],
+                'order' => [[0, 'DESC']],
                 'columns' => [null, null, null, null, ['orderable' => false]],
             ];
         @endphp

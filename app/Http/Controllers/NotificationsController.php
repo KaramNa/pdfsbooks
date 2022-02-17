@@ -32,6 +32,9 @@ class NotificationsController extends Controller
                 } else if ($type === 'report') {
                     $icon = 'fas fa-exclamation-triangle text-danger';
                     $text = $username . " reported a link";
+                } else if ($type === 'dcma') {
+                    $icon = 'fas fa-radiation text-warning';
+                    $text = $username . " reported a book";
                 }
                 $time = $notification->created_at->diffForHumans();
                 $record = [

@@ -290,7 +290,7 @@ return [
             'icon' => 'fas fa-plus',
         ],
         [
-            'text' => 'Books Orders',
+            'text' => 'Books Suggestions',
             'url'  => '/admin/books-orders',
             'icon' => 'fas fa-shopping-cart',
         ],
@@ -309,6 +309,11 @@ return [
             'text' => 'Search Queries',
             'url'  => '/admin/search-queries',
             'icon' => 'fas fa-search',
+        ],
+        [
+            'text' => 'DCMA Notes',
+            'url'  => '/admin/dcma',
+            'icon' => 'far fa-copyright',
         ],
         ['header' => 'Black List'],
         [

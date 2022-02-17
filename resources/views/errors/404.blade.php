@@ -1,17 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-4"><img src="/storage/404.jpg" alt="a crying girl" class="img-fluid"></div>
-            <div class="col-md-1"></div>
-            <div class="col-md-7 text-center">
-                <h1 class="text-dark display-2 fw-bold mb-5">Awww...Don’t Cry.</h1>
-                <p class="text-center h4">It's just a 404 Error! <br>What you’re looking for may
-                    have been misplaced in Long Term Memory.
+    <div class="container my-100 page-404">
+        <div class="flex">
+            <div><img src="/storage/404.jpeg" alt="a crying girl" class="img-fluid"></div>
+            <div></div>
+            <div class="text-center">
+                <h1>Awww ... Don’t Cry.</h1>
+                <p class="text-center">It's just a 404 Error! <br>What you’re looking for may
+                    have been misplaced in Long Term Memory.<br>
                     <a href="{{ route('home') }}" class="">
-                        <span class="me-2">BACK TO HOME </span>
+                        <span>BACK TO HOME </span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
                             <g fill='#000'>
                                 <path
@@ -21,8 +20,8 @@
                         </svg>
                     </a>
                 </p>
-                <p class="text-center h4 mt-5 mb-0">Or try searching for something else, we have alot of books to choose from</p>
-                <x-search-form color="dark" />
+                <p class="text-center">Or try searching for something else, we have alot of books to choose from</p>
+                <x-search-form />
             </div>
         </div>
     </div>

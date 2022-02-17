@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use App\Models\Suggestion;
 use App\Mail\BookOrderMail;
+use App\Mail\DCMAMail;
 use App\Mail\LinkReportMail;
+use App\Models\DCMA;
 use Illuminate\Support\Facades\Mail;
 
 class OrderReplyMail extends Controller
@@ -32,6 +34,18 @@ class OrderReplyMail extends Controller
             "book_url" => $report->reported_link
         ];
         Mail::send(new LinkReportMail($data));
+
+        return back()->with("success", "Email has been sent successfully");
+    }
+    public function sendMailDCMA($id)
+    {
+        $dcma = DCMA::findorFail($id);
+        $data = [
+            "subject" => "Thank you for your report",
+            "email" => $dcma->email,
+            "name" => $dcma->name
+        ];
+        Mail::send(new DCMAMail($data));
 
         return back()->with("success", "Email has been sent successfully");
     }

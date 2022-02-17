@@ -56,7 +56,7 @@ class OrderBookController extends Controller
         return back();
     }
     public function done($id){
-        $suggestion = Suggestion::find($id);
+        $suggestion = Suggestion::findorFail($id);
         $suggestion->update(["status" => 1]);
         return back();
     }

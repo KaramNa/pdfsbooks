@@ -6,42 +6,51 @@
 @section('canonical_url', \Request::fullUrl())
 
 @section('content')
-    <x-adsense></x-adsense>
+    <x-adsense/>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h1 class="wine-color">Contact Us</h1>
-                <form action="{{ route('contact') }}" class="mt-3 p-3 p-sm-5 shadow-lg border-raduis-12" method="POST">
-                    @csrf
-                    @if (session()->has('success'))
-                        <div class="alert alert-success alert-dismissible fade show">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-                    <input name="name" type="text" placeholder="Enter your name" class="form-control">
-                    @error('name')
-                        <div class="text-danger">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <input name="email" type="email" placeholder="Enter your email" class="form-control mt-3">
-                    @error('email')
-                        <div class="text-danger">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <textarea name="message" class="form-control mt-3" placeholder="Enter your message"></textarea>
-                    @error('message')
-                        <div class="text-danger">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <button type="submit" class="btn btn-dark text-white mt-3">Send email</button>
-                </form>
-            </div>
+    <div class="container my-100">
+        <div>
+            <h1 class="text-center">Contact Us</h1>
+            <form action="{{ route('contact') }}" class="form" method="POST">
+                @csrf
+                @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" onclick="closeDiv(this)">X</button>
+                    </div>
+                @endif
+                <div>
+                    <label for="name"><span class="text-red">*</span> Your Name</label>
+                    <input name="name" type="text" placeholder="Enter your name" class="form-control" required>
+                </div>
+                @error('name')
+                    <div class="error">
+                        {{ $message }}
+                    </div>
+                @enderror
+                <div>
+                    <label for="email"><span class="text-red">*</span> Your email</label>
+                    <input name="email" type="email" placeholder="Enter your email" class="form-control mt-3" required>
+                </div>
+                @error('email')
+                    <div class="error">
+                        {{ $message }}
+                    </div>
+                @enderror
+                <div>
+                    <label for="message"><span class="text-red">*</span> Your message</label>
+                    <textarea name="message" class="form-control mt-3" placeholder="Enter your message" required></textarea>
+                </div>
+                @error('message')
+                    <div class="error">
+                        {{ $message }}
+                    </div>
+                @enderror
+                <button type="submit" class="btn btn-primary">Send email</button>
+            </form>
         </div>
+        <x-adsense />
+        <x-newsletter />
     </div>
-    <x-adsense></x-adsense>
 
 @stop

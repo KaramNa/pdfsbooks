@@ -2,46 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
-use App\Models\Category;
-use App\Notifications\BookPublished;
-use GuzzleHttp\Client;
 use DOMXPath;
 use DOMDocument;
+use App\Models\Book;
+use GuzzleHttp\Client;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use App\Notifications\BookPublished;
 
 class BooksController extends Controller
 {
     public function index()
     {
-        $books = Book::filter(request(["search", "category", "search1"]))->paginate(20);
+        $books = Book::filter(request(["search", "category", "search", "tag", "published"]))->paginate(20);
         $shareComponent = \Share::currentPage()
             ->facebook()
+            ->pinterest()
             ->twitter()
-            ->linkedin()
-            ->telegram()
             ->whatsapp()
-            ->reddit();
+            ->linkedin()
+            ->reddit()
+            ->telegram();
 
         $currentCategory = str_replace("-", " ", request("category"));
+        $tags = Book::groupBy("tag")->get('tag');
         if ($currentCategory == "")
             $currentCategory = null;
         return view("index", [
             "books" => $books,
             "categories" => Category::all(),
             "currentCategory" => $currentCategory,
-            "shareComponent" => $shareComponent
-
+            "shareComponent" => $shareComponent,
+            "tags" => $tags
         ]);
-    }
-
-    public function howToDowload()
-    {
-        return view("how-to-download");
-    }
-
-    public function ebooksFormats()
-    {
-        return view("ebooks-formats");
     }
 
     public function draft($id)
@@ -88,14 +81,33 @@ class BooksController extends Controller
             "d_link2" => $d_link2,
             "slug" => $slug,
             "book_size" => $book->PDF_size,
-
+            "book" => $book
         ]);
     }
 
-    public function sendTelegramNotif($id)
+    public function sendTelegramNotif(Request $request)
     {
-        $book = Book::findOrFail($id);
+        $book = Book::findOrFail($request->id);
         $book->notify(new BookPublished());
-        return back()->with('success', 'Telegram notification has been sent');
+        return response()->json(['success' => 'Telegram notification has been sent']);
     }
+    public function howToDowload()
+    {
+        return view("how-to-download");
+    }
+
+    public function ebooksFormats()
+    {
+        return view("ebooks-formats");
+    }
+    public function about()
+    {
+        return view("about");
+    }
+    public function privayPolicy()
+    {
+        return view("privacy-policy");
+    }
+
+  
 }

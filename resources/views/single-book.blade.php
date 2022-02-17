@@ -2,317 +2,328 @@
 
 @section('page_url', \Request::fullUrl())
 @section('page_title', "Free Download $book->title PDF, EPUB, Mobi book")
-@section('page_description', substr($book->description, 0, strpos($book->description,'.')))
+@section('page_description', substr($book->description, 0, strpos($book->description, '.')))
 @section('canonical_url', \Request::fullUrl())
 
 @section('share_image', "$book->poster")
 @section('book_url', request()->url())
-@section('book_desc', substr($book->description, 0, strpos($book->description,'.')))
+@section('book_desc', substr($book->description, 0, strpos($book->description, '.')))
 @section('book_title', "Free Download $book->title")
 
 @section('content')
-    <div class="wrap">
-        <div class="col100">
-            <h1 class="wine-color">{{ $book->title }}</h1>
-            <h5 class="mt-3 text-primary">{{ $book->qoute }}</h5>
-            <p><b>{{ $book->author }}</b></p>
-            <p class="label-color h4"><span class="d-lg-inline d-block">Scroll down until you find </span><span class="wine-color blink fw-bold">&gt;&gt;</span> "Free
-                Download button" <span class="wine-color blink fw-bold">&lt;&lt;</span></p>
+    <div itemscope itemtype="https://schema.org/Book" itemid="https://pdfsbooks.com/book/{{ $book->slug }}"
+        class="container my-100 single-book">
+        <div class="wrap">
+            <div>
+                <h1 itemprop="name">{{ $book->title }}</h1>
+                <p>{{ $book->qoute }}</p>
+                <h2 itemprop="author" itemtype="https://schema.org/Person">Authors: {{ substr($book->author, 3) }}</h2>
+                <div class="edit-button">
+                    @auth
+                        <div>
+                            <a href="{{ route('edit.book', $book) }}" class="btn-down mt-3 text-start"><svg
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                                    <g fill='#FFFFFF'>
+                                        <path d="M2 17l-2 7 7-2zM3 16L16 3l5 5L8 21zM22 7l1-1c2-2-3-7-5-5l-1 1 5 5z"></path>
+                                    </g>
+                                </svg> Edit</a>
+                        </div>
+                    @endauth
+                </div>
+            </div>
         </div>
-        <div class="col300 action">
-            @auth
+        <div class="wrap content">
+            <div class="left-section">
+                <img itemprop="image" data-src="{{ $book->title }}" src="{{ $book->poster }}" class="img"
+                    alt="Free download PDF{{ $book->title }}" width="280" height="420"
+                    onerror="this.src='/storage/no-cover.png';">
+                <div class="social-buttons">
+                    {!! $shareComponent !!}
+                    <div class="fb-telg">
+                        <x-telegram />
+                        <x-facebook />
+                    </div>
+                </div>
+            </div>
+            <div class="right-section">
                 <div>
-                    <a href="{{ route('edit.book', $book) }}" class="btn-down mt-3 text-start"><svg
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-                            <g fill='#FFFFFF'>
-                                <path d="M2 17l-2 7 7-2zM3 16L16 3l5 5L8 21zM22 7l1-1c2-2-3-7-5-5l-1 1 5 5z"></path>
-                            </g>
-                        </svg> Edit</a>
+                    <a href="#description" id="a_description" onclick="return tab('description')" class="btn-menu active"
+                        title="Book Description">
+                        <span>Description</span>
+                    </a>
+                    <a href="#details" id="a_details" onclick="return tab('details')" class="btn-menu"
+                        title="Book Details">
+                        <span>Details</span>
+                    </a>
                 </div>
-            @endauth
-        </div>
-    </div>
-    <div class="wrap mt30">
-        <div class="col300 center"> <img src="{{ $book->poster }}" alt="Remote Sensing of Plant Biodiversity"
-                class="img" width="277.5" height="417.167">
-            <div class="soc">
-                {!! $shareComponent !!}
-            </div>
-            <x-telegram />
-            <div class="fb-page mb-2" data-href="https://www.facebook.com/FreeBooks/" data-tabs="" data-width=""
-                data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
-                data-show-facepile="false">
-                <blockquote cite="https://www.facebook.com/FreeBooks/" class="fb-xfbml-parse-ignore"><a
-                        href="https://www.facebook.com/FreeBooks/">E-Books</a></blockquote>
-            </div>
-
-        </div>
-        <div class="col100 txt mt-4 mt-sm-0 position-relative">
-            <a href="#description" id="a_description" onclick="return tab('description')" class="btn-menu active"
-                title="Book Description">
-                <span class="mobi1">Description</span>
-                <span class="mobi2"></span>
-            </a>
-            <a href="#details" id="a_details" onclick="return tab('details')" class="btn-menu" title="Book Details">
-                <span class="mobi1">Details</span>
-                <span class="mobi2"></span>
-            </a>
-            <div class="tabin">
-                <a id="description"></a>
-                <div id="t_description" class="tab active">
-                    {{ $book->description }}
-                </div> <a id="details"></a>
-                <div id="t_details" class="tab">
-                    <h3>Book Details</h3>
-                    <div>
-                        <span class="info1">Category: </span>
-                        <span class="info2">{{ $book->category }}</span>
+                <div class="form">
+                    <a id="description"></a>
+                    <div id="t_description" class="tab active">
+                        {!! $book->description !!}
                     </div>
-                    <div>
-                        <span class="info1">Publisher: </span>
-                        <span class="info2">{{ $book->publisher }}</span>
+                    <a id="details"></a>
+                    <div id="t_details" class="tab">
+                        <div>
+                            <span class="info1">Category: </span>
+                            <span itemprop="about"><a
+                                    href="/?category={{ $book->category_slug }}">{{ $book->category }}</a></span>
+                        </div>
+                        @if ($book->tag)
+                            <div>
+                                <span class="info1">Tag: </span>
+                                <span itemprop="about"><a href="/?tag={{ $book->tag }}">{{ $book->tag }}</a></span>
+                            </div>
+                        @endif
+                        <div>
+                            <span class="info1">Publisher: </span>
+                            <span itemprop="publisher">{{ $book->publisher }}</span>
+                        </div>
+                        <div>
+                            <span class="info1">Published: </span>
+                            <span itemprop="datePublished" content="{{ $book->published }}"><a
+                                    href="/?published={{ $book->published }}">{{ $book->published }}</a></span>
+                        </div>
+                        <div>
+                            <span class="info1">Pages: </span>
+                            <span itemprop="numberOfPages">{{ $book->pages }}</span>
+                        </div>
+                        <div>
+                            <span class="info1">Language: </span>
+                            <span itemprop="inLanguage" content="en">{{ $book->language }}</span>
+                        </div>
+                        <div>
+                            <span class="info1">PDF Size: </span>
+                            <span>{{ $book->PDF_size }}</span>
+                        </div>
                     </div>
-                    <div>
-                        <span class="info1">Published: </span>
-                        <span class="info2">{{ $book->published }}</span>
-                    </div>
-                    <div>
-                        <span class="info1">Pages: </span>
-                        <span class="info2">{{ $book->pages }}</span>
-                    </div>
-                    <div>
-                        <span class="info1">Language: </span>
-                        <span class="info2">{{ $book->language }}</span>
-                    </div>
-                    <div>
-                        <span class="info1">PDF Size: </span>
-                        <span class="info2">{{ $book->PDF_size }}</span>
-                    </div>
-                </div>
-
-                <script>
-                    function tab(a) {
-                        a = a.replace("#", "");
-                        if (!['description', 'details'].includes(a)) {
+                    <script>
+                        function tab(a) {
+                            a = a.replace("#", "");
+                            if (!['description', 'details'].includes(a)) {
+                                return false;
+                            }
+                            var menuElements = document.getElementsByClassName('btn-menu');
+                            for (var i = 0; i < menuElements.length; i++) {
+                                menuElements[i].classList.remove('active');
+                                var id = menuElements[i].getAttribute('id');
+                                id = id.replace("a_", "t_");
+                                document.getElementById(id).classList.remove('active');
+                            }
+                            document.getElementById("a_" + a).classList.add('active');
+                            document.getElementById("t_" + a).classList.add('active');
                             return false;
                         }
-                        var menuElements = document.getElementsByClassName('btn-menu');
-                        for (var i = 0; i < menuElements.length; i++) {
-                            menuElements[i].classList.remove('active');
-                            var id = menuElements[i].getAttribute('id');
-                            id = id.replace("a_", "t_");
-                            document.getElementById(id).classList.remove('active');
-                        }
-                        document.getElementById("a_" + a).classList.add('active');
-                        document.getElementById("t_" + a).classList.add('active');
-                        return false;
-                    }
-                    if (window.location.hash) {
-                        tab(window.location.hash);
-                    }
-                </script>
-            </div>
-            <x-adsense></x-adsense>
-
-            <h3 class="text-dark">Related Books</h3>
-            <div class="grid m">
-                @foreach ($relatedBooks as $relatedBook)
-                    <div class="item"><a href="{{ route('single.book', $relatedBook->slug) }}"
-                            title="{{ $relatedBook->title }}"><img data-src="{{ $relatedBook->poster }}"
-                                src="{{ $relatedBook->poster }}" class="img"
-                                alt="{{ $relatedBook->title }}" width="277.5" height="417.167"></a>
-                        <div class="pad"><a href="{{ route('single.book', $relatedBook->slug) }}"
-                                title="{{ $relatedBook->title }}">{{ $relatedBook->title }}</a></div>
-                        <div class="h">{{ $relatedBook->description }}</div>
-                    </div>
-                @endforeach
-            </div>
-            <x-adsense></x-adsense>
-            <div class="mb-5">
-                <strong>Disclaimer:</strong><br>
-                <strong>This site complies with DMCA Digital Copyright Laws.</strong> Please bear in mind that we do not own
-                copyrights to
-                this book/software. We are not hosting any copyrighted contents on our servers, it’s a catalog of links that
-                already found on the internet. <br><strong>pdfsbooks.com</strong> doesn’t have any material hosted on the
-                server of this
-                page, only links to books that are taken from other sites on the web are published and these links are
-                unrelated to the book server.<br> Moreover <strong>pdfsbooks.com</strong> server does not store any type of
-                book, guide,
-                software, or images. No illegal copies are made or any copyright © and / or copyright is damaged or
-                infringed since all material is free on the internet. If you feel that we have
-                violated your copyrights, then please contact us immediately. <br>We’re sharing this with our audience ONLY
-                for
-                educational purpose and we highly encourage our visitors to purchase original licensed software/Books. If
-                someone with copyrights wants us to remove this software/Book, please contact us. immediately.
-            </div>
-            <div class="text-center">
-                <div class="p-3 mb-3 border-raduis-12 text-start" style="background-color: #cde1f1">
-                    <p>
-                        If you have any troubles while downloading, Please visit <a class="text-decoration-underline"
-                            href="{{ route('how.to.download') }}">How to download</a> page.
-                    </p>
-                    <p>Please visit <a class="text-decoration-underline" href="{{ route('ebooks.formats') }}">eBook
-                            Readers</a> page to know about ebooks formats and programs you need to open them.</p>
-                    <p class="text-danger">PLEASE NOTE THAT ALL BOOKS YOU DOWNLOAD FROM THIS WEBSITE ARE IN "PDF" OR
-                        "EPUB" FORMAT DON'T DOWNLOAD
-                        ANYTHING LIKE "EXE" OR "APK" OR ANY OTHER FORMAT</p>
-                </div>
-
-                <div class="box1 my-3">
-                    <div class="d-flex justify-content-around align-items-center pt-5">
-                        <a href="{{ route('get.the.link', $book->slug) }}" class="h2"><img src="{{ asset('storage/free-dowonload.png') }}" alt="free download button" width="300" height="67"></a>
-                    </div>
-                </div>
-                <x-adsense></x-adsense>
-
-                <div class="mt-5">
-                    @if (session()->has('subscribed_success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <span class="text-dark">{{ session('subscribed_success') }}</span>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
-                        </div>
-                    @endif
-                    @error('bad_email')
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <span class="text-dark">{{ $message }}</span>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        @endif
-                        @error('email_address')
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <span class="text-dark">{{ $message }}</span>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        @enderror
-                        <x-newsletter></x-newsletter>
-                    </div>
-                </div>
-                <section>
-                    <form action="{{ route('comment') }}" method="Post" class="p-4 border shadow-lg border-raduis-12 mt-5">
-                        @csrf
-                        <input type="hidden" name="dd" value="{{ $book->id }}">
-
-                        <h4 class="text-dark">Leave a reply</h4>
-                        <p>Your email address will not be published.</p>
-                        <div class="mt-2">
-                            <label for="comment">Comment <span class="text-danger">*</span></label>
-                            <textarea id="comment" name="comment" class="form-control">{{ old('comment') }}</textarea>
-                            @error('comment')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <div class="mt-2">
-                            <label for="name">Name <span class="text-danger">*</span></label>
-                            <input id="name" type="text" name="name" class="form-control" value="{{ old('name') }}">
-                            @error('name')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <div class="mt-2">
-                            <label for="email">Email <span class="text-danger">*</span></label>
-                            <input id="email" type="text" name="email" class="form-control" value="{{ old('email') }}">
-                            @error('email')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                        <div class="mt-3">
-                            <label for="avatar">Choose your avatar</label>
-                            <input type="hidden" id="avatar" name="avatar" value="/storage/avatars/avatar1.svg">
-                            <div class="row flex-row flex-nowrap  pb-4 pt-2 ps-2 h-scroll">
-                                @foreach ($avatars as $avatar)
-                                    <img src="/storage/avatars/{{ $avatar }}" alt="user avatar for comments" width="100"
-                                        height="100"
-                                        class="avatar {{ $avatar == 'avatar1.svg' ? 'selected' : '' }} 
-                                    w-100px mx-1 px-0 position-relative"
-                                        onclick="selectAvatar(this)" />
-                                @endforeach
-                            </div>
-                        </div>
-                        <button class="btn btn-dark mt-3">Post comment</button>
-                    </form>
-                    <script>
-                        function selectAvatar(element) {
-                            document.getElementsByClassName('selected')[0].classList.remove('selected');
-                            element.classList.add('selected');
-                            document.getElementById("avatar").value = element.getAttribute('src');
+                        if (window.location.hash) {
+                            tab(window.location.hash);
                         }
                     </script>
-                    @foreach ($book->comments as $comment)
-                        <article class="d-flex p-3 border justify-content-between shadow-lg border-raduis-12 mt-5">
-                            <div class="d-flex">
-                                <div>
-                                    <img src="{{ $comment->avatar }}" alt="" class="border-raduis-12 me-3" width="70"
-                                        height="70">
-                                </div>
-                                <div>
-                                    <div>
-                                        <h5 class="fw-bold text-left mb-0 text-dark">{{ ucwords($comment->name) }}</h4>
-                                            <p class="text-xs">
-                                                Posted
-                                                <time>{{ $comment->created_at->diffForHumans(null, true) . ' ago' }}</time>
-                                            </p>
+                </div>
+                <x-adsense></x-adsense>
+                <h2>Related Books</h3>
+                    <div class="related-books">
+                        @foreach ($relatedBooks as $relatedBook)
+                            <div>
+                                <a href="{{ route('single.book', $relatedBook->slug) }}"
+                                    title="{{ $relatedBook->title }}">
+                                    <img data-src="{{ $relatedBook->title }}" src="{{ $relatedBook->poster }}"
+                                        class="img" alt="Free download PDF{{ $relatedBook->title }}"
+                                        width="280" height="420" onerror="this.src='/storage/no-cover.png';">
+                                </a>
+                                <a href="{{ route('single.book', $relatedBook->slug) }}"
+                                    title="{{ $relatedBook->title }}"
+                                    class="book-title">{{ $relatedBook->title }}</a>
+                            </div>
+                        @endforeach
+                    </div>
+                    <x-adsense></x-adsense>
+                    <div class="disclaimer">
+                        <strong>Disclaimer:</strong><br>
+                        <strong>This site complies with DMCA Digital Copyright Laws.</strong> Please bear in mind that we do
+                        not
+                        own
+                        copyrights to
+                        this book. We are not hosting any copyrighted contents on our servers, it’s a catalog of
+                        links
+                        that
+                        already found on the internet. <br><strong>pdfsbooks.com</strong> doesn’t have any material hosted
+                        on
+                        the
+                        server of this
+                        page, only links to books that are taken from other sites on the web are published and these links
+                        are
+                        unrelated to the book server.<br> Moreover <strong>pdfsbooks.com</strong> server does not store any
+                        type
+                        of
+                        book, guide,
+                        software, or images. No illegal copies are made or any copyright © and / or copyright is damaged or
+                        infringed since all material is free on the internet. If you feel that we have
+                        violated your copyrights, then please contact us immediately. <br>We’re sharing this with our
+                        audience
+                        ONLY
+                        for
+                        educational purpose and we highly encourage our visitors to purchase original licensed
+                        Books.
+                        If
+                        someone with copyrights wants us to remove this Book, please contact us. immediately.
+                    </div>
+                    <div class="note">
+                        <p>
+                            If you have any troubles while downloading, Please visit <a class="text-decoration-underline"
+                                href="{{ route('how.to.download') }}">How to
+                                download</a> page.
+                        </p>
+                        <p>Please visit <a class="text-decoration-underline" href="{{ route('ebooks.formats') }}">eBook
+                                Readers</a> page to know about ebooks formats and programs you need to open them.</p>
+                        <p class="text-red">PLEASE NOTE THAT ALL BOOKS YOU DOWNLOAD FROM THIS WEBSITE ARE IN "PDF"
+                            OR
+                            "EPUB" OR "MOBI" FORMAT DON'T DOWNLOAD
+                            ANYTHING LIKE "EXE" OR "APK" OR ANY OTHER FORMAT</p>
+                    </div>
+                    <x-adsense />
+                    <x-related-post :book='$book' />
+
+                    @if (str_contains($book->download_link2, 'amazon'))
+                        <p class="text-center">We're sorry, this book isn't available for free download</p>
+                        <div class="download-button amazon">
+                            <a href="{{ $book->download_link2 }}" class="h2">Amazon
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
+                                    <g fill='#FFFFFF'>
+                                        <path
+                                            d="M11 5.8c0 .4.1.7.4.9L16 11c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.6-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9l-6.8-6.2c-.8-.5-2.1.1-2.1 1.1zM3 5.8c0 .4.1.7.4.9L8 11.1c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.5-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9L5.1 4.9c-.8-.7-2.1-.1-2.1.9z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                    @else
+                        <div class="download-button">
+                            <a href="{{ route('get.the.link', $book->slug) }}" class="h2">Free Download
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
+                                    <g fill='#FFFFFF'>
+                                        <path
+                                            d="M11 5.8c0 .4.1.7.4.9L16 11c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.6-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9l-6.8-6.2c-.8-.5-2.1.1-2.1 1.1zM3 5.8c0 .4.1.7.4.9L8 11.1c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.5-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9L5.1 4.9c-.8-.7-2.1-.1-2.1.9z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                    @endif
+
+                    <div>
+                        <x-newsletter />
+                    </div>
+                    <x-adsense />
+
+                    <section>
+                        <form action="{{ route('comment') }}" method="Post" class="form">
+                            @csrf
+                            <input type="hidden" name="dd" value="{{ $book->id }}">
+                            <h4>Leave a reply</h4>
+                            <p>Your email address will not be published.</p>
+                            <div>
+                                <label for="comment"><span class="text-red">*</span> Comment</label>
+                                <textarea id="comment" name="comment"
+                                    class="form-control">{{ old('comment') }}</textarea>
+                                @error('comment')
+                                    <div class="erorr">
+                                        {{ $message }}
                                     </div>
-                                    <p>{{ $comment->comment }}</p>
+                                @enderror
+                            </div>
+                            <div>
+                                <label for="name"><span class="text-red">*</span> Name</label>
+                                <input id="name" type="text" name="name" class="form-control"
+                                    value="{{ old('name') }}">
+                                @error('name')
+                                    <div class="erorr">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div>
+                                <label for="email"><span class="text-red">*</span> Email</label>
+                                <input id="email" type="text" name="email" class="form-control"
+                                    value="{{ old('email') }}">
+                                @error('email')
+                                    <div class="erorr">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div>
+                                <label for="avatar">Choose your avatar</label>
+                                <input type="hidden" id="avatar" name="avatar" value="/storage/avatars/avatar1.svg">
+                                <div class="avatars">
+                                    @foreach ($avatars as $avatar)
+                                        <img src="/storage/avatars/{{ $avatar }}" alt="user avatar for comments"
+                                            width="100" height="100"
+                                            class="avatar {{ $avatar == 'avatar1.svg' ? 'selected' : '' }}"
+                                            onclick="selectAvatar(this)" />
+                                    @endforeach
                                 </div>
                             </div>
-                            @auth
-                                <div>
-                                    <div x-data="{ show: false}">
+                            <button class="btn btn-primary">Post comment</button>
+                        </form>
+                        <script>
+                            function selectAvatar(element) {
+                                document.getElementsByClassName('selected')[0].classList.remove('selected');
+                                element.classList.add('selected');
+                                document.getElementById("avatar").value = element.getAttribute('src');
+                            }
+                        </script>
+                        @foreach ($book->comments as $comment)
+                            <article class="comment-section form">
+                                <div class="flex">
+                                    <div>
+                                        <img src="{{ $comment->avatar }}" alt="user avatar" width="70" height="70">
+                                    </div>
+                                    <div>
                                         <div>
-                                            <button type="button" class="bg-transparent border-0" @click="show = true"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
-                                                    <g fill='#800000'>
-                                                        <path
-                                                            d="M16 5s-1-2-4-2-4 2-4 2H5l.4 2h13.3l.3-2h-3zM9.4 5S10 4 12 4s2.6 1 2.6 1H9.4zM8 21h8l2.4-13H5.6z">
-                                                        </path>
-                                                    </g>
-                                                </svg></button>
+                                            <h5 class="comment-user">{{ ucwords($comment->name) }}
+                                                </h4>
+                                                <p class="comment-time">
+                                                    Posted
+                                                    <time>{{ $comment->created_at->diffForHumans(null, true) . ' ago' }}</time>
+                                                </p>
                                         </div>
-                                        <div x-show="show" style="display: none">
-                                            <form action="{{ route('delete.comment', $comment->id) }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="bg-transparent border-0 text-danger">Yes</button>
-                                                <button type="button" class="bg-transparent border-0 text-primary"
-                                                    @click="show = false">No</button>
-                                            </form>
-                                        </div>
+                                        <p>{{ $comment->comment }}</p>
                                     </div>
                                 </div>
-                            @endauth
-
-                        </article>
-                    @endforeach
-                </section>
+                                @auth
+                                    <div>
+                                        <div x-data="{ show: false}">
+                                            <div>
+                                                <button type="button" class="button" @click="show = true"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30"
+                                                        height="30">
+                                                        <g fill='#2196f3'>
+                                                            <path
+                                                                d="M16 5s-1-2-4-2-4 2-4 2H5l.4 2h13.3l.3-2h-3zM9.4 5S10 4 12 4s2.6 1 2.6 1H9.4zM8 21h8l2.4-13H5.6z">
+                                                            </path>
+                                                        </g>
+                                                    </svg></button>
+                                            </div>
+                                            <div x-show="show" style="display: none">
+                                                <form action="{{ route('delete.comment', $comment->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="button text-red">Yes</button>
+                                                    <button type="button" class="button text-green"
+                                                        @click="show = false">No</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endauth
+                            </article>
+                        @endforeach
+                    </section>
             </div>
-            <script id="mcjs">
-                ! function(c, h, i, m, p) {
-                    m = c.createElement(h), p = c.getElementsByTagName(h)[0], m.async = 1, m.src = i, p.parentNode.insertBefore(m,
-                        p)
-                }(document, "script",
-                    "https://chimpstatic.com/mcjs-connected/js/users/6504840845cc7babf43e5e51c/df32158795c8b46b17fe1b9e3.js");
-            </script>
-
-            {{-- Look inside content --}}
-            {{-- <div class="d-none">
-                <div itemscope itemtype="https://schema.org/Book" itemid="https://pdfsbooks.com/book/{{ $book->slug }}">
-                    <img itemprop="image" src="{{ asset($book->poster) }}" alt="cover art: {{ $book->title }}" />
-                    <h1><span itemprop="name">{{ $book->title }}</span></h1>
-                    <div>Author: <span itemprop="author" itemtype="https://schema.org/Person">{{ substr($book->author, 3) }}</span></div>
-                    <div>Language:
-                        <meta itemprop="inLanguage" content="en" />English
-                    </div>
-                    <div>Subject: <span itemprop="about">{{ $book->category }}</span></div>
-                    <span itemprop="numberOfPages">{{ $book->pages }}</span> pages
-                    Publisher: <span itemprop="publisher">{{ $book->publisher }}</span>
-                    <meta itemprop="datePublished" content="{{ $book->published }}">{{ $book->published }}
-                </div>
-            </div> --}}
-        @stop
+        </div>
+        <script id="mcjs">
+            ! function(c, h, i, m, p) {
+                m = c.createElement(h), p = c.getElementsByTagName(h)[0], m.async = 1, m.src = i, p.parentNode.insertBefore(m,
+                    p)
+            }(document, "script",
+                "https://chimpstatic.com/mcjs-connected/js/users/6504840845cc7babf43e5e51c/df32158795c8b46b17fe1b9e3.js");
+        </script>
+    @stop
