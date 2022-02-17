@@ -10,9 +10,10 @@
 
     <title>@yield("page_title", "PDFs Books - Free Download PDF,EPUB e-Books No Registration")</title>
     <link rel="alternate" hreflang="en-us" href="@yield("page_url", "https://pdfsbooks.com" )" />
-    <meta name="description" content="@yield("
-        page_description", "pdfsbooks offers Free download PDF, EPUB, MOBI textbooks, articles, eBooks, All categories Medical, Computer science, IELTS, Programming, learning, mathmaticsm children's no limits, online library website search enging finder."
-        )">
+    <meta name="description" content="@yield("page_description", 
+    "pdfsbooks offers Free download PDF, EPUB, MOBI textbooks, articles, eBooks, 
+    All categories Medical, Computer science, IELTS, Programming, learning, 
+    mathmaticsm children's no limits, online library website search enging finder.")">
 
     <meta property="og:site_name" content="pdfsbooks.com">
     <meta property="og:title" content="@yield("book_title", "PDFsBOOks" )">
