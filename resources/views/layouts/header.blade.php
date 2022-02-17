@@ -33,10 +33,9 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
     @yield('style')
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&#038;display=swap" rel="stylesheet" />
     <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/pdfsbooks.css') }}" rel="stylesheet">
-    <script sync src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
+    <link href="{{ asset('css/pdfsbooks.css?v=2') }}" rel="stylesheet">
+    <script defer src="{{ asset('js/alpinejs.min.js') }}"></script>
     <script src="{{ asset('js/pdfsbooks.js') }}"></script>
 
 </head>

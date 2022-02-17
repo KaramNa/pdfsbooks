@@ -1,5 +1,5 @@
 <div>
-    <a class="join-button telegram-button" href="https://t.me/e_pdfsbooks" target="_blank">
+    <a class="join-button telegram-button" href="https://t.me/e_pdfsbooks" target="_blank" title="PDFsBOOKs Telegram channel link">
         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="telegram-plane"
             class="svg-inline--fa fa-telegram-plane fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512" width="30" height="30">

@@ -1,5 +1,5 @@
 <div>
-    <a href="https://www.facebook.com/FreeBooks/" class="join-button facebook-button" target="_blank"><svg aria-hidden="true" focusable="false"
+    <a href="https://www.facebook.com/FreeBooks/" class="join-button facebook-button" target="_blank" title="PDFsBOOKs Facebook page link"><svg aria-hidden="true" focusable="false"
             data-prefix="fab" data-icon="facebook-f" class="svg-inline--fa fa-facebook-f fa-w-10" role="img"
             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="25" height="25">
             <path fill="currentColor"
