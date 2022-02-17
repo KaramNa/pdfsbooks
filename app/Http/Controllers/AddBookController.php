@@ -7,7 +7,9 @@ use Goutte\Client;
 use App\Models\Book;
 use App\Models\Category;
 use App\Notifications\BookPublished;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use PhpParser\Node\Stmt\Catch_;
 
 class AddBookController extends Controller
 {
@@ -187,6 +189,42 @@ class AddBookController extends Controller
                 "categories" => $categories,
                 "details" => $details
             ]);
+        }
+        if (request()->has("publish") || request()->has("draft")) {
+            $rules = [
+                "title" => "required|unique:books,title",
+                "qoute" => "",
+                "author" => "required",
+                "description" => "required",
+                "category" => "required",
+                "publisher" => "required",
+                "published" => "required",
+                "pages" => "required",
+                "PDF_size" => "required",
+                "language" => "required",
+                "download_link2" => "required",
+            ];
+            if (request()->image_url == '') {
+                $rules["poster"] = "required|image";
+            }
+            $attributes =  request()->validate($rules);
+            if (request()->has("draft"))
+                $attributes["draft"] = 1;
+
+            $slug = Str::slug($attributes["title"]);
+            $attributes["author"] = "by " . $attributes["author"];
+            $attributes["download_link3"] = request("download_link3");
+            if (request()->file("poster"))
+                $attributes["poster"] = $this->uploadImage(request()->file("poster"));
+            else
+                $attributes["poster"] = request("image_url");
+            $attributes["PDF_size"] .= " MB";
+            if ($book = Book::create($attributes)) {
+                if (request("telegram_notif"))
+                    $book->notify(new BookPublished());
+                return back()->with("success", "Book has been added. <a href='https://pdfsbooks.com/book/"
+                    . $slug . "' target='_blank'>Book link</a>");
+            }
         }
     }
 

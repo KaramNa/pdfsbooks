@@ -162,6 +162,7 @@
                             </a>
 
                         </div>
+
                     @endforeach
                 @else
                     <div class="container no-results">

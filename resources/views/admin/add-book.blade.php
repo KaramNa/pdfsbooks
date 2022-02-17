@@ -12,7 +12,14 @@
             <div class="col-md-6">
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <span class="text-white">{{ session('success') }}</span>
+                        <span class="text-white">{!! session('success') !!}</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @elseif (session()->has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span class="text-white">{{ session('error') }}</span>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -77,11 +84,6 @@
                                 </div>
                             </x-slot>
                         </x-adminlte-input-file>
-                        @error('poster')
-                            <div class="text-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
                     </div>
 
                     <div class="my-2">
@@ -175,7 +177,7 @@
                     <div class="my-2">
                         <label for="download_link2">Download link</label>
                         <input type="text" class="form-control" name="download_link2"
-                            value="{{ old('download_link2') }}">
+                            value="{{ old('download_link2', $details['link1']?? '') }}">
                         @error('download_link2')
                             <div class="text-danger">
                                 {{ $message }}
@@ -185,7 +187,7 @@
                     <div class="my-2">
                         <label for="download_link3">Download link 2</label>
                         <input type="text" class="form-control" name="download_link3"
-                            value="{{ old('download_link3') }}">
+                            value="{{ old('download_link3', $details['link2']?? '') }}">
                         @error('download_link3')
                             <div class="text-danger">
                                 {{ $message }}
@@ -193,7 +195,8 @@
                         @enderror
                     </div>
                     <div class="my-2 form-group d-flex align-items-center">
-                        <input type="checkbox" id="telegram_notif" name="telegram_notif" {{ old('telegram_notif') ? 'checked' : '' }}>
+                        <input type="checkbox" id="telegram_notif" name="telegram_notif"
+                            {{ old('telegram_notif') ? 'checked' : '' }}>
                         <label for="telegram_notif" class="ml-1 mb-0">Send Telegram Notification</label>
                     </div>
 
