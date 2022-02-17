@@ -1129,6 +1129,7 @@ a.tag:hover,
 
 .right-section {
     position: relative;
+    max-width: 100%;
 }
 
 .right-section>div:nth-child(1) {
