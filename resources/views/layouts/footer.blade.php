@@ -4,7 +4,7 @@
             <h3>PDFsBOOKs</h3>
             <ul class="social">
                 <li>
-                    <a href="https://www.facebook.com/FreeBooks/" class="facebook" target="_blank">
+                    <a href="https://www.facebook.com/FreeBooks/" class="facebook" target="_blank" title="Facebook page link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
                             class="svg-inline--fa fa-facebook-f fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 320 512" width="25">
@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://t.me/e_pdfsbooks" class="telegram" target="_blank">
+                    <a href="https://t.me/e_pdfsbooks" class="telegram" target="_blank" title="Telegram channel link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="telegram-plane"
                             class="svg-inline--fa fa-telegram-plane fa-w-14" role="img"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="30">
@@ -108,7 +108,7 @@
     var sc_invisible = 1;
     var sc_security = "9add92a5";
 </script>
-<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+<script defer type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
 <noscript>
     <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img
                 class="statcounter" src="https://c.statcounter.com/12711734/0/9add92a5/1/" alt="Web Analytics"
@@ -117,7 +117,7 @@
 <!-- End of Statcounter Code -->
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-214406203-1"></script>
+<script defer src="https://www.googletagmanager.com/gtag/js?id=UA-214406203-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
 
