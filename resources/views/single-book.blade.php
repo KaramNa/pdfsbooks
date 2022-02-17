@@ -66,12 +66,12 @@
                         <div>
                             <span class="info1">Category: </span>
                             <span itemprop="about"><a
-                                    href="/?category={{ $book->category_slug }}">{{ $book->category }}</a></span>
+                                    href="/?category={{ $book->category_slug }}" title="{{ $book->category }} Books>{{ $book->category }}</a></span>
                         </div>
                         @if ($book->tag)
                             <div>
                                 <span class="info1">Tag: </span>
-                                <span itemprop="about"><a href="/?tag={{ $book->tag }}">{{ $book->tag }}</a></span>
+                                <span itemprop="about"><a href="/?tag={{ $book->tag }}" title="{{ $book->title }} Books>{{ $book->tag }}</a></span>
                             </div>
                         @endif
                         <div>
@@ -81,7 +81,7 @@
                         <div>
                             <span class="info1">Published: </span>
                             <span itemprop="datePublished" content="{{ $book->published }}"><a
-                                    href="/?published={{ $book->published }}">{{ $book->published }}</a></span>
+                                    href="/?published={{ $book->published }}" title="published in {{ $book->published }}">{{ $book->published }}</a></span>
                         </div>
                         <div>
                             <span class="info1">Pages: </span>

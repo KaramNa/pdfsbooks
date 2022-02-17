@@ -14,7 +14,7 @@
                 <h1>PDFsBooks, Free online ebooks Library</h1>
                 <h2>Here you can find all the books you need for free, No registration, No download limits.</h2>
                 <br>
-                <x-blog />
+                {{-- <x-blog /> --}}
             </div>
             <div class="share-section">
                 <h3>Always remember that <span class="sharing-is-caring">
@@ -75,21 +75,23 @@
                 <div class="tags">
                     @foreach ($tags as $tag)
                         @if ($tag->tag)
-                            <a href="/?tag={{ $tag->tag }}" class="tag">
-                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            <div class="box">
+                                <a href="/?tag={{ $tag->tag }}" class="tag" title="{{ $book->title }} Books>
+                                        <svg version=" 1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 442.688 442.688"
                                     style="enable-background:new 0 0 442.688 442.688;" xml:space="preserve" width="15">
                                     <g>
                                         <g>
                                             <path d="M442.666,178.822l-4.004-145.078c-0.447-16.222-13.504-29.279-29.727-29.728l-145.08-4.004
-                                            c-8.475-0.237-16.493,2.97-22.468,8.945L8.954,241.391c-11.924,11.924-11.924,31.325,0,43.249l149.083,149.082
-                                            c11.951,11.953,31.296,11.956,43.25,0.001L433.721,201.29C439.636,195.374,442.897,187.184,442.666,178.822z M376.238,139.979
-                                            c-20.323,20.322-53.215,20.324-73.539,0c-20.275-20.275-20.275-53.265,0-73.539c20.323-20.323,53.215-20.324,73.539,0
-                                            C396.512,86.714,396.512,119.704,376.238,139.979z" />
+                                                    c-8.475-0.237-16.493,2.97-22.468,8.945L8.954,241.391c-11.924,11.924-11.924,31.325,0,43.249l149.083,149.082
+                                                    c11.951,11.953,31.296,11.956,43.25,0.001L433.721,201.29C439.636,195.374,442.897,187.184,442.666,178.822z M376.238,139.979
+                                                    c-20.323,20.322-53.215,20.324-73.539,0c-20.275-20.275-20.275-53.265,0-73.539c20.323-20.323,53.215-20.324,73.539,0
+                                                    C396.512,86.714,396.512,119.704,376.238,139.979z" />
                                         </g>
                                     </g>
-                                </svg> {{ $tag->tag }}
-                            </a>
+                                    </svg> {{ $tag->tag }}
+                                </a>
+                            </div>
                         @endif
                     @endforeach
                 </div>
@@ -99,7 +101,7 @@
             <div class="books">
                 @if (count($books) > 0)
                     @foreach ($books as $book)
-                    @if (in_array($loop->index, [1, 5, 6, 11, 12, 17]))
+                        @if (in_array($loop->index, [1, 5, 6, 11, 12, 17]))
                             <div class="ads d-none mb-4" onclick="hideAds()">
                                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
                                                                 crossorigin="anonymous"></script>
@@ -107,9 +109,9 @@
                                     data-ad-layout-key="+1k+s6-1h-2r+au" data-ad-client="ca-pub-2052289648779673"
                                     data-ad-slot="1248211918"></ins>
                                 <script>
-                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                    (adsbygoogle = window.adsbygoogle || [])
+                                    .push({});
                                 </script>
-                                
                             </div>
                         @endif
                         <div class="box">
@@ -123,7 +125,8 @@
                                 </h5>
                                 <h5>Tag:
                                     <span class="tags">
-                                        <a href="/?tag={{ $book->tag }}" class="tag">
+                                        <a href="/?tag={{ $book->tag }}" class="tag"
+                                            title="{{ $book->title }} Books">
                                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                                 viewBox="0 0 442.688 442.688"
@@ -133,10 +136,10 @@
                                                     <g>
                                                         <path
                                                             d="M442.666,178.822l-4.004-145.078c-0.447-16.222-13.504-29.279-29.727-29.728l-145.08-4.004
-                                                                        c-8.475-0.237-16.493,2.97-22.468,8.945L8.954,241.391c-11.924,11.924-11.924,31.325,0,43.249l149.083,149.082
-                                                                        c11.951,11.953,31.296,11.956,43.25,0.001L433.721,201.29C439.636,195.374,442.897,187.184,442.666,178.822z M376.238,139.979
-                                                                        c-20.323,20.322-53.215,20.324-73.539,0c-20.275-20.275-20.275-53.265,0-73.539c20.323-20.323,53.215-20.324,73.539,0
-                                                                        C396.512,86.714,396.512,119.704,376.238,139.979z" />
+                                                                            c-8.475-0.237-16.493,2.97-22.468,8.945L8.954,241.391c-11.924,11.924-11.924,31.325,0,43.249l149.083,149.082
+                                                                            c11.951,11.953,31.296,11.956,43.25,0.001L433.721,201.29C439.636,195.374,442.897,187.184,442.666,178.822z M376.238,139.979
+                                                                            c-20.323,20.322-53.215,20.324-73.539,0c-20.275-20.275-20.275-53.265,0-73.539c20.323-20.323,53.215-20.324,73.539,0
+                                                                            C396.512,86.714,396.512,119.704,376.238,139.979z" />
                                                     </g>
                                                 </g>
                                             </svg>
@@ -162,7 +165,6 @@
                             </a>
 
                         </div>
-
                     @endforeach
                 @else
                     <div class="container no-results">
