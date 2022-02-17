@@ -66,12 +66,12 @@
                         <div>
                             <span class="info1">Category: </span>
                             <span itemprop="about"><a
-                                    href="/?category={{ $book->category_slug }}" title="{{ $book->category }} Books>{{ $book->category }}</a></span>
+                                    href="/?category={{ $book->category_slug }}" title="{{ $book->category }} Books">{{ $book->category }}</a></span>
                         </div>
                         @if ($book->tag)
                             <div>
                                 <span class="info1">Tag: </span>
-                                <span itemprop="about"><a href="/?tag={{ $book->tag }}" title="{{ $book->title }} Books>{{ $book->tag }}</a></span>
+                                <span itemprop="about"><a href="/?tag={{ $book->tag }}" title="{{ $book->title }} Books">{{ $book->tag }}</a></span>
                             </div>
                         @endif
                         <div>
