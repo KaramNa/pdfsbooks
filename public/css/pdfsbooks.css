@@ -1,10 +1,10 @@
 /* arabic */
 
 @font-face {
-    font-family: 'Cairo';
+    font-family: "Cairo";
     font-style: normal;
     font-weight: 300;
-    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIkTpu0xg.woff2) format('woff2');
+    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIkTpu0xg.woff2) format("woff2");
     unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
 }
 
@@ -12,10 +12,10 @@
 /* latin-ext */
 
 @font-face {
-    font-family: 'Cairo';
+    font-family: "Cairo";
     font-style: normal;
     font-weight: 300;
-    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIvTpu0xg.woff2) format('woff2');
+    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIvTpu0xg.woff2) format("woff2");
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -23,10 +23,10 @@
 /* latin */
 
 @font-face {
-    font-family: 'Cairo';
+    font-family: "Cairo";
     font-style: normal;
     font-weight: 300;
-    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIhTps.woff2) format('woff2');
+    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIhTps.woff2) format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -34,10 +34,10 @@
 /* arabic */
 
 @font-face {
-    font-family: 'Cairo';
+    font-family: "Cairo";
     font-style: normal;
     font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIkTpu0xg.woff2) format('woff2');
+    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIkTpu0xg.woff2) format("woff2");
     unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
 }
 
@@ -45,10 +45,10 @@
 /* latin-ext */
 
 @font-face {
-    font-family: 'Cairo';
+    font-family: "Cairo";
     font-style: normal;
     font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIvTpu0xg.woff2) format('woff2');
+    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIvTpu0xg.woff2) format("woff2");
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -56,10 +56,10 @@
 /* latin */
 
 @font-face {
-    font-family: 'Cairo';
+    font-family: "Cairo";
     font-style: normal;
     font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIhTps.woff2) format('woff2');
+    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIhTps.woff2) format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -67,10 +67,10 @@
 /* arabic */
 
 @font-face {
-    font-family: 'Cairo';
+    font-family: "Cairo";
     font-style: normal;
     font-weight: 700;
-    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIkTpu0xg.woff2) format('woff2');
+    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIkTpu0xg.woff2) format("woff2");
     unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
 }
 
@@ -78,10 +78,10 @@
 /* latin-ext */
 
 @font-face {
-    font-family: 'Cairo';
+    font-family: "Cairo";
     font-style: normal;
     font-weight: 700;
-    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIvTpu0xg.woff2) format('woff2');
+    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIvTpu0xg.woff2) format("woff2");
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -89,10 +89,10 @@
 /* latin */
 
 @font-face {
-    font-family: 'Cairo';
+    font-family: "Cairo";
     font-style: normal;
     font-weight: 700;
-    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIhTps.woff2) format('woff2');
+    src: url(https://fonts.gstatic.com/s/cairo/v17/SLXGc1nY6HkvalIhTps.woff2) format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -971,7 +971,7 @@ a.tag:hover,
 .main-content .book-title {
     position: absolute;
     top: 50px;
-    padding: 0 20px;
+    padding: 0 30px 0 10px;
     font-size: 25px;
     color: #fff;
     opacity: 0;
@@ -1102,6 +1102,7 @@ a.tag:hover,
 
 .single-book .left-section {
     margin-right: 40px;
+    position: relative;
 }
 
 @media (max-width: 767px) {
@@ -1349,6 +1350,80 @@ a.tag:hover,
 
 
 /* End Single Book Page */
+
+
+/* Start Ribbon */
+
+.ribbon-wrapper-4 {
+    width: 108px;
+    height: 108px;
+    overflow: hidden;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    z-index: 1;
+}
+
+.ribbon-4 {
+    font: bold 15px Sans-Serif;
+    line-height: 18px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    position: relative;
+    padding: 7px 0;
+    left: -4px;
+    top: 26px;
+    width: 150px;
+    background-color: #2196f3;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+    background-image: linear-gradient(#0bafff, #2196f3);
+    box-shadow: -3px 5px 6px -5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+
+.ribbon-4:before,
+.ribbon-4:after {
+    content: "";
+    border-top: 4px solid #2196f3;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    position: absolute;
+    bottom: -4px;
+}
+
+.ribbon-4:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 4px solid #2196f3;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid #2196f3;
+}
+
+.ribbon-4:after {
+    content: "";
+    position: absolute;
+    right: 7px;
+    top: 100%;
+    z-index: -1;
+    border-left: 4px solid transparent;
+    border-right: 4px solid #2196f3;
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid #2196f3;
+}
+
+
+/* End Ribbon */
 
 
 /* Start Get The Link Page */

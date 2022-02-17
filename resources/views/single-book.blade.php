@@ -34,6 +34,11 @@
         </div>
         <div class="wrap content">
             <div class="left-section">
+                @if ($book->draft == 0)
+                    <div class='ribbon-wrapper-4'>
+                        <div class='ribbon-4'>Free</div>
+                    </div>
+                @endif
                 <img itemprop="image" data-src="{{ $book->title }}" src="{{ $book->poster }}" class="img"
                     alt="Free download PDF{{ $book->title }}" width="280" height="420"
                     onerror="this.src='/storage/no-cover.png';">

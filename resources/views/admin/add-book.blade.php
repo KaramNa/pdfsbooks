@@ -201,8 +201,8 @@
                     </div>
 
                     <div class="d-flex justify-content-between">
-                        <button type="submit" name="publish" class="btn btn-primary mt-2">Publish</button>
-                        <button type="submit" name="draft" class="btn btn-danger mt-2">Draft</button>
+                        <button type="submit" name="publish" class="btn btn-primary mt-2">Free</button>
+                        <button type="submit" name="draft" class="btn btn-danger mt-2">Amazon</button>
                     </div>
                 </form>
 
