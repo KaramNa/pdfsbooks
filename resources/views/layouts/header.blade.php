@@ -36,7 +36,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&#038;display=swap" rel="stylesheet" />
     <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
     <link href="{{ asset('css/pdfsbooks.css') }}" rel="stylesheet">
-    <script src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.5.1/dist/cdn.min.js"></script>
     <script src="{{ asset('js/pdfsbooks.js') }}"></script>
 
 </head>
