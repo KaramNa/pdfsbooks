@@ -704,6 +704,12 @@ label {
     transition: var(--main-transition);
 }
 
+@media (max-width: 992px) {
+    .landing .go-down {
+        bottom: 30px;
+    }
+}
+
 .landing .go-down:hover {
     color: var(--main-color-alt);
 }
