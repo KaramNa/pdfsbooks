@@ -18,8 +18,8 @@
                 <h1 itemprop="name">{{ $book->title }}</h1>
                 <p>{{ $book->qoute }}</p>
                 <h2 itemprop="author" itemtype="https://schema.org/Person">Authors: {{ substr($book->author, 3) }}</h2>
-                <div class="edit-button">
-                    @auth
+                @auth
+                    <div class="edit-button">
                         <div>
                             <a href="{{ route('edit.book', $book) }}" class="btn-down mt-3 text-start"><svg
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
@@ -28,8 +28,8 @@
                                     </g>
                                 </svg> Edit</a>
                         </div>
-                    @endauth
-                </div>
+                    </div>
+                @endauth
             </div>
         </div>
         <div class="wrap content">
@@ -65,13 +65,14 @@
                     <div id="t_details" class="tab">
                         <div>
                             <span class="info1">Category: </span>
-                            <span itemprop="about"><a
-                                    href="/?category={{ $book->category_slug }}" title="{{ $book->category }} Books">{{ $book->category }}</a></span>
+                            <span itemprop="about"><a href="/?category={{ $book->category_slug }}"
+                                    title="{{ $book->category }} Books">{{ $book->category }}</a></span>
                         </div>
                         @if ($book->tag)
                             <div>
                                 <span class="info1">Tag: </span>
-                                <span itemprop="about"><a href="/?tag={{ $book->tag }}" title="{{ $book->title }} Books">{{ $book->tag }}</a></span>
+                                <span itemprop="about"><a href="/?tag={{ $book->tag }}"
+                                        title="{{ $book->title }} Books">{{ $book->tag }}</a></span>
                             </div>
                         @endif
                         <div>
@@ -81,7 +82,8 @@
                         <div>
                             <span class="info1">Published: </span>
                             <span itemprop="datePublished" content="{{ $book->published }}"><a
-                                    href="/?published={{ $book->published }}" title="published in {{ $book->published }}">{{ $book->published }}</a></span>
+                                    href="/?published={{ $book->published }}"
+                                    title="published in {{ $book->published }}">{{ $book->published }}</a></span>
                         </div>
                         <div>
                             <span class="info1">Pages: </span>
