@@ -698,7 +698,7 @@ label {
 .landing .go-down {
     color: var(--main-color);
     position: absolute;
-    bottom: 30px;
+    bottom: 120px;
     left: 50%;
     transform: translateX(-50%);
     transition: var(--main-transition);
@@ -708,7 +708,7 @@ label {
     color: var(--main-color-alt);
 }
 
-.landing .go-down i {
+.landing .go-down svg {
     animation: bouncing 1.5s infinite;
 }
 
@@ -1873,6 +1873,21 @@ a.tag:hover,
         border-radius: 0;
         width: 50%;
         height: 100%;
+    }
+}
+
+@keyframes bouncing {
+    0%,
+    10%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40%,
+    60% {
+        transform: translateY(-15px);
     }
 }
 
