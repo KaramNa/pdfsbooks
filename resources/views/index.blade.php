@@ -8,6 +8,8 @@
 @endif
 
 @section('content')
+        <x-adsense />
+
     <div class="landing">
         <div class="container">
             <div class="text">
@@ -63,9 +65,9 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    {{-- <div class="container">
         <x-adsense />
-    </div>
+    </div> --}}
     <div class="main-content" id="main-content">
         <div class="container books-filter">
             <div>
