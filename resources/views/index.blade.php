@@ -8,8 +8,6 @@
 @endif
 
 @section('content')
-        <x-adsense />
-
     <div class="landing">
         <div class="container">
             <div class="text">
@@ -65,9 +63,7 @@
             </div>
         </div>
     </div>
-    {{-- <div class="container">
-        <x-adsense />
-    </div> --}}
+    <x-adsense />
     <div class="main-content" id="main-content">
         <div class="container books-filter">
             <div>
@@ -181,9 +177,7 @@
             {{ $books->withQueryString()->links() }}
         </div>
     </div>
-    <div class="container">
-        <x-adsense />
-    </div>
+    <x-adsense />
     <div class="container my-100">
         <x-newsletter />
     </div>
