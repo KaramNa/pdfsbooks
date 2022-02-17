@@ -248,13 +248,13 @@ class AddBookController extends Controller
             "poster" => "image",
             "description" => "required",
             "category" => "required",
-            "tag" => "required",
+            "tag" => "",
             "publisher" => "required",
             "published" => "required",
             "pages" => "required",
             "PDF_size" => "required",
             "language" => "required",
-            "post_link" => "url",
+            "post_link" => "",
             "post_text"=> "max:255"
         ]);
 
