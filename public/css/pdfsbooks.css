@@ -1369,6 +1369,10 @@ a.tag:hover,
     font-size: 2rem;
 }
 
+.get-the-link #link .form {
+    margin-bottom: 20px;
+}
+
 .get-the-link .report button {
     margin-top: 0;
 }

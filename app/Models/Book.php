@@ -127,7 +127,7 @@ class Book extends Model
         );
 
         if (!isset($filters["search"]) && !isset($filters["category"])&& !isset($filters["tag"]))
-            $query->latest();
+        $query->where("draft", 0)->latest();
     }
 
     public function comments()
