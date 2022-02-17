@@ -1263,6 +1263,7 @@ a.tag:hover,
 
 .right-section .download-button.amazon a {
     background: #f3a847;
+    font-size: 15px;
 }
 
 .right-section .download-button.amazon a:hover {
