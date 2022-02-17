@@ -695,18 +695,26 @@ label {
     }
 }
 
+.landing .down-left {
+    left: 50px;
+    bottom: 450px;
+}
+
+.landing .down-right {
+    right: 0;
+    bottom: 450px;
+}
+
 .landing .go-down {
     color: var(--main-color);
     position: absolute;
-    bottom: 200px;
-    left: 50%;
     transform: translateX(-50%);
     transition: var(--main-transition);
 }
 
 @media (max-width: 992px) {
     .landing .go-down {
-        bottom: 30px;
+        bottom: 600px;
     }
 }
 
