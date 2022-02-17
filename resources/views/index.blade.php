@@ -63,7 +63,9 @@
             </div>
         </div>
     </div>
-    <x-adsense />
+    <div class="container">
+        <x-adsense />
+    </div>
     <div class="main-content" id="main-content">
         <div class="container books-filter">
             <div>
@@ -177,7 +179,9 @@
             {{ $books->withQueryString()->links() }}
         </div>
     </div>
-    <x-adsense />
+    <div class="container">
+        <x-adsense />
+    </div>
     <div class="container my-100">
         <x-newsletter />
     </div>
