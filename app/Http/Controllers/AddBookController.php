@@ -31,7 +31,7 @@ class AddBookController extends Controller
                 "publisher" => "required",
                 "published" => "required",
                 "pages" => "required",
-                "PDF_size" => "required",
+                "PDF_size" => "",
                 "tag" => "required",
                 "language" => "required",
                 "download_link2" => "required",
@@ -252,7 +252,7 @@ class AddBookController extends Controller
             "publisher" => "required",
             "published" => "required",
             "pages" => "required",
-            "PDF_size" => "required",
+            "PDF_size" => "",
             "language" => "required",
             "post_link" => "",
             "post_text"=> "max:255"

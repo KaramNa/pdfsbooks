@@ -210,8 +210,8 @@ ul {
 }
 
 .my-3 {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .mb-100 {
@@ -1252,7 +1252,8 @@ a.tag:hover,
     background-color: #63b1f01f;
 }
 
-.right-section .download-button a {
+.right-section .download-button a,
+.left-section .download-button a {
     border-radius: 6px;
     background: var(--main-color);
     padding: 20px;
@@ -1261,25 +1262,28 @@ a.tag:hover,
     font-weight: 600;
 }
 
-.right-section .download-button.amazon a {
+.left-section .download-button.amazon a {
     background: #f3a847;
-    font-size: 15px;
+    font-size: 17.99px;
 }
 
-.right-section .download-button.amazon a:hover {
+.left-section .download-button.amazon a:hover {
     background: #f5b967;
 }
 
-.right-section .download-button {
+.right-section .download-button,
+.left-section .download-button {
     text-align: center;
     margin: 50px 0;
 }
 
-.right-section .download-button a:hover {
+.right-section .download-button a:hover,
+.left-section .download-button a:hover {
     background-color: var(--main-color-alt);
 }
 
-.right-section .download-button svg {
+.right-section .download-button svg,
+.left-section .download-button svg {
     animation: moving-arrow 0.6s linear infinite;
 }
 

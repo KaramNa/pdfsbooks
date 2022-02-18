@@ -49,6 +49,19 @@
                         <x-facebook />
                     </div>
                 </div>
+                @if ($book->draft == 1)
+                    <div class="download-button amazon">
+                        <a href="{{ $book->download_link2 }}">Get you copy from Amazon
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
+                                <g fill='#FFFFFF'>
+                                    <path
+                                        d="M11 5.8c0 .4.1.7.4.9L16 11c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.6-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9l-6.8-6.2c-.8-.5-2.1.1-2.1 1.1zM3 5.8c0 .4.1.7.4.9L8 11.1c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.5-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9L5.1 4.9c-.8-.7-2.1-.1-2.1.9z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </a>
+                    </div>
+                @endif
             </div>
             <div class="right-section">
                 <div>
@@ -130,6 +143,11 @@
                     <div class="related-books">
                         @foreach ($relatedBooks as $relatedBook)
                             <div>
+                                @if ($relatedBook->draft == 0)
+                                    <div class='ribbon-wrapper-4'>
+                                        <div class='ribbon-4'>Free</div>
+                                    </div>
+                                @endif
                                 <a href="{{ route('single.book', $relatedBook->slug) }}"
                                     title="{{ $relatedBook->title }}">
                                     <img data-src="{{ $relatedBook->title }}" src="{{ $relatedBook->poster }}"
@@ -188,21 +206,7 @@
                     </div>
                     <x-adsense />
                     <x-related-post :book='$book' />
-
-                    @if ($book->draft == 1)
-                        <p class="text-center">We're sorry, this book isn't available for free download</p>
-                        <div class="download-button amazon">
-                            <a href="{{ $book->download_link2 }}">Get you copy from Amazon
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
-                                    <g fill='#FFFFFF'>
-                                        <path
-                                            d="M11 5.8c0 .4.1.7.4.9L16 11c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.6-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9l-6.8-6.2c-.8-.5-2.1.1-2.1 1.1zM3 5.8c0 .4.1.7.4.9L8 11.1c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.5-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9L5.1 4.9c-.8-.7-2.1-.1-2.1.9z">
-                                        </path>
-                                    </g>
-                                </svg>
-                            </a>
-                        </div>
-                    @else
+                    @if ($book->draft == 0)
                         <div class="download-button">
                             <a href="{{ route('get.the.link', $book->slug) }}">Free Download
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
