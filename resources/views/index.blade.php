@@ -169,9 +169,9 @@
                                 </h5>
                             </div>
                             <a href="{{ route('single.book', $book->slug) }}"
-                                title="Free Download {{ $book->title }}">
+                                title="@if($book->draft == 0)Free Download @endif {{ $book->title }}">
                                 <div class="info">
-                                    <span class="">Free Download</span>
+                                    <span class="">@if($book->draft == 0) Free Download @else Read More @endif</span>
                                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
                                             <g fill='#2196f3'>

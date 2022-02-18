@@ -16,7 +16,7 @@
 
     <meta property="og:site_name" content="pdfsbooks.com">
     <meta property="og:title" content="@yield("book_title", "PDFsBOOks" )">
-    <meta property="og:description" content="Free download (PDF) @yield("book_desc")">
+    <meta property="og:description" content="@yield("book_desc")">
     <meta property="og:url" content="@yield("book_url", "https://pdfsbooks.com" )">
     <meta property="og:image" content="@yield("share_image", asset('storage/thumbnail.jpg'))" />
     <meta property="og:type" content="website">

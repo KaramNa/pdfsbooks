@@ -1,14 +1,20 @@
 @extends('layouts.app')
 
 @section('page_url', \Request::fullUrl())
-@section('page_title', "Free Download $book->title PDF, EPUB, Mobi book")
+@php
+    if($book->draft == 0)
+    $book_title = "Free Download " . $book->title;
+    else
+    $book_title = $book->title;
+@endphp
+@section('page_title', "$book_title")
 @section('page_description', substr($book->description, 0, strpos($book->description, '.')))
 @section('canonical_url', \Request::fullUrl())
 
 @section('share_image', "$book->poster")
 @section('book_url', request()->url())
 @section('book_desc', substr($book->description, 0, strpos($book->description, '.')))
-@section('book_title', "Free Download $book->title")
+@section('book_title', "$book_title")
 
 @section('content')
     <div itemscope itemtype="https://schema.org/Book" itemid="https://pdfsbooks.com/book/{{ $book->slug }}"
@@ -51,7 +57,7 @@
                 </div>
                 @if (str_contains($book->download_link2, 'amazon'))
                     <div class="download-button amazon">
-                        <a href="{{ $book->download_link2 }}">Get you copy from Amazon
+                        <a href="{{ $book->download_link2 }}" target="_blank" title="Amazon {{ $book->title }}">Get you copy from Amazon
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
                                 <g fill='#FFFFFF'>
                                     <path
