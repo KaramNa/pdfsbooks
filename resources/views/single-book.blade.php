@@ -68,7 +68,9 @@
                         </a>
                     </div>
                 @endif
+                 <x-amazon-audioBook />
             </div>
+
             <div class="right-section">
                 <div>
                     <a href="#description" id="a_description" onclick="return tab('description')" class="btn-menu active"
@@ -225,7 +227,7 @@
                             </a>
                         </div>
                     @endif
-
+                        <x-kindle />
                     <div>
                         <x-newsletter />
                     </div>

@@ -33,6 +33,7 @@
                 <x-facebook />
             </div>
             <x-related-post :book="$book" />
+            <x-kindle />
             <x-adsense />
 
             <div id="link" class="d-none">

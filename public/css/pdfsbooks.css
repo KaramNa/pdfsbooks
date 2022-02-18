@@ -297,6 +297,17 @@ ul {
     border-color: var(--main-color);
 }
 
+.btn-warning {
+    color: #000;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #ffd044;
+    border-color: #ffd044;
+}
+
 .btn-primary:hover {
     color: #fff;
     background-color: var(--main-color-alt);
@@ -818,6 +829,52 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.kindle {
+    width: 80%;
+}
+
+.kindle>span:nth-child(1) {
+    font-size: 50px;
+    font-weight: 600;
+    color: #f5a93d;
+}
+
+.kindle>span:nth-child(2) {
+    font-size: 50px;
+}
+
+.kindle p {
+    font-weight: 600;
+}
+
+.kindle.form {
+    padding-left: 50px;
+}
+
+.kindle a {
+    font-weight: 600;
+}
+
+.amazonAd {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 600px) {
+    .kindle {
+        width: 100%;
+    }
+    .kindle>span:nth-child(1) {
+        font-size: 30px;
+    }
+    .kindle>span:nth-child(2) {
+        font-size: 30px;
+    }
+    .kindle.form {
+        padding-left: 10;
+    }
 }
 
 
