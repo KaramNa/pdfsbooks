@@ -206,7 +206,7 @@
                     </div>
                     <x-adsense />
                     <x-related-post :book='$book' />
-                    @if ($book->draft == 0)
+                    @if (!str_contains($book->download_link2, 'amazon'))
                         <div class="download-button">
                             <a href="{{ route('get.the.link', $book->slug) }}">Free Download
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
