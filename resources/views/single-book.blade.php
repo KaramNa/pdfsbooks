@@ -47,7 +47,7 @@
                 @endif
                 <img itemprop="image" data-src="{{ $book->title }}" src="{{ $book->poster }}" class="img"
                     alt="Free download PDF{{ $book->title }}" width="280" height="420"
-                    onerror="this.src='/storage/no-cover.png';">
+                    onerror="this.src='{{ asset('storage/no-cover.png') }}'>
                 <div class="social-buttons">
                     {!! $shareComponent !!}
                     <div class="fb-telg">
