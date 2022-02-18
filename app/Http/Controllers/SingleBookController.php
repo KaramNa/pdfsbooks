@@ -19,7 +19,7 @@ class SingleBookController extends Controller
             ->pinterest()
             ->whatsapp()
             ->reddit();
-        $relatedBooks = Book::get()->where("category_slug", $book->category_slug)->where("draft", 0);
+        $relatedBooks = Book::get()->where("category_slug", $book->category_slug);
         $avatars = ["avatar1.svg", "avatar2.svg", "avatar3.svg", "avatar4.svg", "avatar5.svg", "avatar6.svg", "avatar7.svg", "avatar8.svg", "avatar9.svg", "avatar10.svg", "avatar11.svg", "avatar12.svg", "avatar13.svg", "avatar14.svg", "avatar15.svg"];
 
         if (count($relatedBooks) > 6)

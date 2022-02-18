@@ -92,23 +92,6 @@ class Book extends Model
             } else
                 $query->search($search, null, true);
         } 
-        // else {
-        //     $query->where("draft", 0);
-        // }
-
-        // if (isset($filters["search1"])) {
-        //     if (str_contains($filters["search1"], "-")) {
-        //         $subsctract = substr($filters["search1"], strpos($filters["search1"], "-") + 2);
-        //         if ($subsctract != "")
-        //             $query->where("title", "NOT LIKE", "%" . $subsctract . "%");
-        //     }
-        //     $search = substr($filters["search1"], 0, strpos($filters["search1"], "-") - 1);
-        //     if (request("exact_search") == "on")
-        //         $query->search($search, null, true, true);
-        //     else
-        //         $query->search($search, null, true);
-        //     $this->SearchResults($query, $filters["search1"]);
-        // }
 
         $query->when(
             $filters["category"] ?? false,
@@ -127,7 +110,7 @@ class Book extends Model
         );
 
         if (!isset($filters["search"]) && !isset($filters["category"])&& !isset($filters["tag"]))
-        $query->where("draft", 0)->latest();
+        $query->latest();
     }
 
     public function comments()
