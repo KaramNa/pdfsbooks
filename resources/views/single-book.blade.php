@@ -49,7 +49,7 @@
                         <x-facebook />
                     </div>
                 </div>
-                @if (str_contains($book->link, 'amazon'))
+                @if (str_contains($book->link2, 'amazon'))
                     <div class="download-button amazon">
                         <a href="{{ $book->download_link2 }}">Get you copy from Amazon
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
