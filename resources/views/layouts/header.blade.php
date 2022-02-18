@@ -9,21 +9,21 @@
     <meta name="yandex-verification" content="aac0de0adfffbbb7" />
 
     <title>@yield("page_title", "PDFs Books - Free Download PDF,EPUB e-Books No Registration")</title>
-    <link rel="alternate" hreflang="en-us" href="@yield(" page_url", "https://pdfsbooks.com" )" />
-    <meta name="description" content="@yield(" page_description", "pdfsbooks offers Free download PDF, EPUB, MOBI textbooks, articles, eBooks, 
+    <link rel="alternate" hreflang="en-us" href="@yield("page_url", "https://pdfsbooks.com" )" />
+    <meta name="description" content="@yield("page_description", "pdfsbooks offers Free download PDF, EPUB, MOBI textbooks, articles, eBooks, 
     All categories Medical, Computer science, IELTS, Programming, learning, 
     mathmaticsm children's no limits, online library website search enging finder." )">
 
     <meta property="og:site_name" content="pdfsbooks.com">
-    <meta property="og:title" content="@yield(" book_title", "PDFsBOOks" )">
-    <meta property="og:description" content="Free download (PDF) @yield(" book_desc")">
-    <meta property="og:url" content="@yield(" book_url", "https://pdfsbooks.com" )">
-    <meta property="og:image" content="@yield(" share_image", asset('storage/thumbnail.jpg'))" />
+    <meta property="og:title" content="@yield("book_title", "PDFsBOOks" )">
+    <meta property="og:description" content="Free download (PDF) @yield("book_desc")">
+    <meta property="og:url" content="@yield("book_url", "https://pdfsbooks.com" )">
+    <meta property="og:image" content="@yield("share_image", asset('storage/thumbnail.jpg'))" />
     <meta property="og:type" content="website">
 
-    <meta name="thumbnail" content="@yield(" share_image", asset('storage/thumbnail.jpg'))">
+    <meta name="thumbnail" content="@yield("share_image", asset('storage/thumbnail.jpg'))">
 
-    <link rel="canonical" href="@yield(" canonical_url", "https://pdfsbooks.com" )">
+    <link rel="canonical" href="@yield("canonical_url", "https://pdfsbooks.com" )">
 
     <link rel="alternate" type="application/rss+xml" title="pdfsbooks.com" href="https://pdfsbooks.com/feed">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon/favicon-192x192.png') }}">
