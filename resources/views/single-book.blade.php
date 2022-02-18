@@ -55,7 +55,7 @@
                         <x-facebook />
                     </div>
                 </div>
-                @if (str_contains($book->download_link2, 'amazon'))
+                @if ($book->draft == 1)
                     <div class="download-button amazon">
                         <a href="{{ $book->download_link2 }}" target="_blank" title="Amazon {{ $book->title }}">Get you copy from Amazon
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
@@ -212,7 +212,7 @@
                     </div>
                     <x-adsense />
                     <x-related-post :book='$book' />
-                    @if (!str_contains($book->download_link2, 'amazon'))
+                    @if ($book->draft == 0)
                         <div class="download-button">
                             <a href="{{ route('get.the.link', $book->slug) }}">Free Download
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
