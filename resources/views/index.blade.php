@@ -8,7 +8,7 @@
 @endif
 
 @section('content')
-    @if (!request()->has('search') && !request()->has('category') && !request()->has('tag'))
+    @if (!request()->has('search') && !request()->has('category') && !request()->has('tag') && !request()->has('page'))
         <div class="landing">
             <div class="container">
                 <div class="text">
@@ -90,7 +90,7 @@
                 <div class="tags">
                     @foreach ($tags as $tag)
                         @if ($tag->tag)
-                            <a href="/?tag={{ $tag->tag }}" class="tag" title="{{ $tag->tag }} eBooks">
+                            <a href="/?tag={{ $tag->tag }}&{{ http_build_query(request()->except(['tag', 'category'])) }}" class="tag" title="{{ $tag->tag }} eBooks">
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 442.688 442.688"
                                     style="enable-background:new 0 0 442.688 442.688;" xml:space="preserve" width="15">

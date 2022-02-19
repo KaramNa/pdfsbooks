@@ -6,7 +6,9 @@
 @section('canonical_url', \Request::fullUrl())
 
 @section('content')
+    <x-adsense />
     <div class="container my-100 dcma">
+        <x-kindle />
         <h1>DMCA Notice of Alleged Infringement (&ldquo;<strong>Notice</strong>&rdquo;)</h1>
         <ol>
             <li>

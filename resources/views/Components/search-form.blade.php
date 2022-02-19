@@ -19,5 +19,10 @@
                     {{ request('exact_search') == 'on' ? 'checked' : '' }}>
                 <label for="exact_search"><strong>Exact Search</strong></label>
             </div>
+            <div>
+                <input id="free_books" type="checkbox" name="free_books"
+                    {{ request('free_books') == 'on' ? 'checked' : '' }}>
+                <label for="free_books"><strong>Free Books</strong></label>
+            </div>
         </div>
 </form>

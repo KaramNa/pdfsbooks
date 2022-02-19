@@ -88,11 +88,13 @@ class Book extends Model
             }
             $search = substr($filters["search"], 0, strpos($filters["search"], "-") - 1);
             if (request("exact_search") == "on") {
-                $query->search($search, null, true, true);
+                $query->where("title", "LIKE", "%" . $filters["search"] . "%");
             } else
                 $query->search($search, null, true);
-        } 
+        }
 
+        if (request()->has("free") || request("free_books") == "on") 
+            $query->where('draft', 0);
         $query->when(
             $filters["category"] ?? false,
             fn ($query, $category) =>
@@ -101,15 +103,15 @@ class Book extends Model
         $query->when(
             $filters["tag"] ?? false,
             fn ($query, $tag) =>
-            $query->where("tag", "like", $tag)
+            $query->where("tag", "like", "%" . $tag . "%")
         );
         $query->when(
             $filters["published"] ?? false,
             fn ($query, $published) =>
-            $query->where("published", "like", $published)
+            $query->where("published", "like", "%" . $published . "%")
         );
 
-        if (!isset($filters["search"]) && !isset($filters["category"])&& !isset($filters["tag"]))
+        if (!isset($filters["search"]))
         $query->latest();
     }
 
