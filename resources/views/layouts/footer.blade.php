@@ -76,16 +76,15 @@
 
 
 <script>
+    if (window.location.href.indexOf("free") > -1)
+        var home = document.getElementsByClassName("free_books")[0].classList.add("active");
+    else if (location.pathname == "/")
+        var home = document.getElementsByClassName("home")[0].classList.add("active");
     try {
         var url = "pdfsbooks.com" + location.pathname;
         document.querySelector('a[href=' + CSS.escape(url) + ']').classList.add(
             'active');
     } catch {}
-
-    if (window.location.href.indexOf("free") > -1)
-        var home = document.getElementsByClassName("free_books")[0].classList.add("active");
-    else if (location.pathname == "/")
-        var home = document.getElementsByClassName("home")[0].classList.add("active");
 </script>
 
 <script>
