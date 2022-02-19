@@ -19,7 +19,7 @@
 
 
             @foreach ($categories as $category)
-                <a href="/?category={{ $category->slug }}&{{ http_build_query(request()->except('category')) }}"
+                <a href="/?category={{ $category->slug }}&{{ http_build_query(request()->except(['category','tag','page'])) }}"
                     class="d-block py-1 px-3 text-start {{ isset($currentCategory) && $currentCategory === Str::lower($category->name) ? 'active' : '' }}">{{ Str::headline($category->name) }}</a>
 
             @endforeach
