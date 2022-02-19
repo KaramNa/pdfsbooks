@@ -90,7 +90,7 @@
                 <div class="tags">
                     @foreach ($tags as $tag)
                         @if ($tag->tag)
-                            <a href="/?tag={{ $tag->tag }}&{{ http_build_query(request()->except(['tag', 'category', 'search'])) }}"
+                            <a href="/?tag={{ $tag->tag }}&{{ http_build_query(request()->except(['tag', 'category', 'search','page'])) }}"
                                 class="tag" title="{{ $tag->tag }} eBooks">
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 442.688 442.688"
