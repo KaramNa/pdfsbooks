@@ -7,7 +7,7 @@
 
 @section('content')
     <x-adsense />
-
+    <x-kindle />
     <div class="container my-100 privacy-policy">
         <div>
             <h1 class="text-center">Privacy Policy</h1>

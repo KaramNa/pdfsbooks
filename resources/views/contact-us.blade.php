@@ -6,9 +6,9 @@
 @section('canonical_url', \Request::fullUrl())
 
 @section('content')
-    <x-adsense/>
-
+    <x-adsense />
     <div class="container my-100">
+        <x-kindle />
         <div>
             <h1 class="text-center">Contact Us</h1>
             <form action="{{ route('contact') }}" class="form" method="POST">

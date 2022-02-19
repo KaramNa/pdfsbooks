@@ -9,10 +9,13 @@
 @section('content')
     <div class="container my-100 ebooks-readers about">
         <x-adsense />
+        <x-kindle />
+
         <div>
             <h1 class="text-center">About PDFsBOOKs.COM</h1>
             <h3>Who are we?</h3>
-            <p>PDFsBOOKs.COM is an online ebooks library which contains links offer free download for thousands of eBooks and it doesn’t have any
+            <p>PDFsBOOKs.COM is an online ebooks library which contains links offer free download for thousands of eBooks
+                and it doesn’t have any
                 material hosted on the server of this server, only links to books that are taken from other sites on the web
                 are published and these links are unrelated to our server.</p>
             <p> We’re sharing this with our audience ONLY for educational purpose and we highly encourage our visitors to

@@ -6,7 +6,9 @@
 @section('canonical_url', \Request::fullUrl())
 
 @section('content')
+    <x-adsense />
     <div class="container my-100 dcma">
+        <x-kindle />
         <h1 class="text-center">Disclaimer for PDFsBooks</h1>
 
         <p>PdfsBooks respects the intellectual property rights of others and expects its users to do the same.</p>

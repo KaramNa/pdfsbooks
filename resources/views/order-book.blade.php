@@ -7,8 +7,8 @@
 
 @section('content')
     <x-adsense/>
-
     <div class="container my-100 suggestions">
+        <x-kindle />
         <div class="text-center">
             <h1>Suggest a book for PDFSBOOKS.COM</h1>
             <h4>We are happy to help you finding the books you need, we'll do our best to find the book you suggest for us
