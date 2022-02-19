@@ -4,7 +4,8 @@
             <h3>PDFsBOOKs</h3>
             <ul class="social">
                 <li>
-                    <a href="https://www.facebook.com/FreeBooks/" class="facebook" target="_blank" title="Facebook page link">
+                    <a href="https://www.facebook.com/FreeBooks/" class="facebook" target="_blank"
+                        title="Facebook page link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
                             class="svg-inline--fa fa-facebook-f fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 320 512" width="25">
@@ -15,7 +16,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://t.me/e_pdfsbooks" class="telegram" target="_blank" title="Telegram channel link">
+                    <a href="https://t.me/e_pdfsbooks" class="telegram" target="_blank"
+                        title="Telegram channel link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="telegram-plane"
                             class="svg-inline--fa fa-telegram-plane fa-w-14" role="img"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="30">
@@ -79,7 +81,10 @@
         document.querySelector('a[href=' + CSS.escape(url) + ']').classList.add(
             'active');
     } catch {}
-    if (location.pathname == "/")
+
+    if (window.location.href.indexOf("free") > -1)
+        var home = document.getElementsByClassName("free_books")[0].classList.add("active");
+    else if (location.pathname == "/")
         var home = document.getElementsByClassName("home")[0].classList.add("active");
 </script>
 

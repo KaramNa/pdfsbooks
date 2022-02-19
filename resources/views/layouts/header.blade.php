@@ -34,7 +34,7 @@
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
     @yield('style')
     <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/pdfsbooks.css?v=16') }}" rel="stylesheet">
+    <link href="{{ asset('css/pdfsbooks.css?v=17') }}" rel="stylesheet">
     <script defer src="{{ asset('js/alpinejs.min.js') }}"></script>
     <script src="{{ asset('js/pdfsbooks.js') }}"></script>
 
@@ -65,7 +65,7 @@
                     <a aria-current="page" href="https://blog.pdfsbooks.com" class="blog-link">Blog <x-new/></a>
                 </li> --}}
                 <li>
-                    <a href="?free=free&{{ http_build_query(request()->except(['free','search'])) }}">Free Books</a>
+                    <a class="free_books" href="?free=free&{{ http_build_query(request()->except(['free','search'])) }}">Free Books</a>
                 </li>
                 <li>
                     <a href="{{ route('order.book') }}">Suggest a book</a>
