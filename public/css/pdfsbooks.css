@@ -1164,7 +1164,7 @@ a.tag:hover,
 }
 
 .single-book .left-section .ribbon-wrapper-4 {
-    right: -4;
+    right: 15px;
 }
 
 @media (max-width: 767px) {
