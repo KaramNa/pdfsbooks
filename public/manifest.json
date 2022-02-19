@@ -1,7 +1,7 @@
 {
     "name": "pdfsbooks",
     "short_name": "pdfsbooks",
-    "start_url": "https://www.pdfsbooks.com",
+    "start_url": "https://pdfsbooks.com",
     "description": "Online Books library where you can find thousands of Free PDF,EPUB ebooks and download them for free, and if you can't find a Textbooks,Book you need you can order it on our website.",
     "icons": [{
             "src": "/storage/favicon/favicon-192x192.png",
