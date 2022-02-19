@@ -857,8 +857,25 @@ label {
     align-items: center;
 }
 
-.kindle {
-    width: 80%;
+.books .kindle {
+    width: 280px;
+    height: 571px;
+}
+
+.books .kindle p {
+    line-height: 3;
+    margin-top: 40px;
+    font-size: 22px;
+}
+
+.books .kindle.form {
+    text-align: center;
+    padding: 20px;
+    margin: 0 30px 60px 30px;
+}
+
+.books .kindle>span {
+    font-size: 30px !important;
 }
 
 .kindle>span:nth-child(1) {
@@ -877,11 +894,12 @@ label {
 
 .kindle.form {
     padding-left: 50px;
-    border: 0!important;
+    border: 0 !important;
 }
 
 .kindle a {
     font-weight: 600;
+    font-size: 30px;
 }
 
 .amazonAd {
@@ -890,9 +908,6 @@ label {
 }
 
 @media (max-width: 600px) {
-    .kindle {
-        width: 100%;
-    }
     .kindle>span:nth-child(1) {
         font-size: 30px;
     }

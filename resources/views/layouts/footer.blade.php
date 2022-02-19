@@ -76,7 +76,6 @@
 <script>
     try {
         var url = "https://pdfsbooks.com" + location.pathname;
-        console.log(url)
         document.querySelector('a[href=' + CSS.escape(url) + ']').classList.add(
             'active');
     } catch {}

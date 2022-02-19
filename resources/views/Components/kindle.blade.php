@@ -1,4 +1,4 @@
-  <div class="kindle container form">
+  <div class="kindle form">
         <span>Kindle</span><span>Unlimited</span>
         <p>
             Unlimited Reading. Unlimited Listening. Any Device. Take this Chance Now
