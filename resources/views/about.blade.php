@@ -33,6 +33,7 @@
                 open, public and free.</p>
             <h3>I still have some questions.</h3>
             <p>You can <a href="{{ route('contact') }}">contact us.</a>
+                <div class="ads" onclick="hideAds()">H</div>
         </div>
     </div>
 @stop
