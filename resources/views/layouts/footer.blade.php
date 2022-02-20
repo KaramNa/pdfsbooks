@@ -131,7 +131,7 @@
     gtag('config', 'UA-214406203-1 ');
 </script>
 <!-- Google Analytics end   -->
-<div class="ads" onclick="hideAds()">
+<div class="ads d-none" onclick="hideAds()">
     <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
         crossorigin="anonymous"></script>
 </div>
