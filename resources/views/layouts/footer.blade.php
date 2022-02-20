@@ -4,7 +4,8 @@
             <h3>PDFsBOOKs</h3>
             <ul class="social">
                 <li>
-                    <a href="https://www.facebook.com/FreeBooks/" class="facebook" target="_blank" title="Facebook page link">
+                    <a href="https://www.facebook.com/FreeBooks/" class="facebook" target="_blank"
+                        title="Facebook page link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
                             class="svg-inline--fa fa-facebook-f fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 320 512" width="25">
@@ -15,7 +16,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://t.me/e_pdfsbooks" class="telegram" target="_blank" title="Telegram channel link">
+                    <a href="https://t.me/e_pdfsbooks" class="telegram" target="_blank"
+                        title="Telegram channel link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="telegram-plane"
                             class="svg-inline--fa fa-telegram-plane fa-w-14" role="img"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="30">
@@ -94,12 +96,21 @@
         localStorage.setItem("date", date);
         window.location.reload();
     }
+    function loadScript() {
+        var newScript = document.createElement("script");
+        newScript.type = "text/javascript";
+        newScript.setAttribute("defer", "true");
+        newScript.setAttribute("src", "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673");
+        newScript.setAttribute("crossorigin", "anonymous");
 
+        document.documentElement.firstChild.appendChild(newScript);
+    }
     var prevDate = localStorage.getItem("date");
     if (!prevDate || prevDate != date) {
         var ads = Array.prototype.slice.call(document.getElementsByClassName('ads'))
         ads.forEach(ad => {
             ad.classList.remove("d-none");
+            loadScript();
         });
     }
 </script>
@@ -131,10 +142,10 @@
     gtag('config', 'UA-214406203-1 ');
 </script>
 <!-- Google Analytics end   -->
-<div class="ads d-none" onclick="hideAds()">
+{{-- <div class="ads d-none" onclick="hideAds()">
     <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
         crossorigin="anonymous"></script>
-</div>
+</div> --}}
 </body>
 
 </html>
