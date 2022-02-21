@@ -16,17 +16,17 @@
 
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-12 text-uppercase">
-                <x-adminlte-small-box title="Published Books" text="{{ count($books->where('draft', 0)) }}" icon="fas fa-upload" theme="info" url="{{ route('published.books') }}"
+                <x-adminlte-small-box title="Free Books" text="{{ count($books->where('draft', 0)) }}" icon="fas fa-upload" theme="info" url="{{ route('published.books') }}"
                     url-text="View details" />
 
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-12 text-uppercase">
-                <x-adminlte-small-box title="Drafted Books" text="{{ count($books->where('draft', 1)) }}" icon="fas fa-eye-slash" theme="primary" url="{{ route('drafted.books') }}"
+                <x-adminlte-small-box title="Paid Books" text="{{ count($books->where('draft', 1)) }}" icon="fas fa-eye-slash" theme="primary" url="{{ route('drafted.books') }}"
                     url-text="View details" />
 
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-12 text-uppercase">
-                <x-adminlte-small-box title="Links Reports" text="{{ count($reports) }}" icon="fas fa-exclamation-triangle" theme="danger" url="{{ route('reported.links') }}"
+                <x-adminlte-small-box title="Links Reports" text="{{ count($reports) }}" icon="fas fa-dollar-sign" theme="danger" url="{{ route('reported.links') }}"
                     url-text="View details" />
 
             </div>

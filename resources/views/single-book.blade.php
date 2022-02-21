@@ -2,10 +2,11 @@
 
 @section('page_url', \Request::fullUrl())
 @php
-    if($book->draft == 0)
-    $book_title = "Free Download " . $book->title;
-    else
+if ($book->draft == 0) {
+    $book_title = 'Free Download ' . $book->title;
+} else {
     $book_title = $book->title;
+}
 @endphp
 @section('page_title', "$book_title")
 @section('page_description', substr($book->description, 0, strpos($book->description, '.')))
@@ -59,7 +60,8 @@
                 </div>
                 @if ($book->draft == 1)
                     <div class="download-button amazon">
-                        <a href="{{ $book->download_link2 }}" target="_blank" title="Amazon {{ $book->title }}">Get you copy from Amazon
+                        <a href="{{ $book->download_link2 }}" target="_blank" title="Amazon {{ $book->title }}">Get you
+                            copy from Amazon
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
                                 <g fill='#FFFFFF'>
                                     <path
@@ -70,7 +72,7 @@
                         </a>
                     </div>
                 @endif
-                 <x-amazon-audioBook />
+                <x-amazon-audioBook />
             </div>
 
             <div class="right-section">
@@ -121,10 +123,12 @@
                             <span class="info1">Language: </span>
                             <span itemprop="inLanguage" content="en">{{ $book->language }}</span>
                         </div>
-                        <div>
-                            <span class="info1">PDF Size: </span>
-                            <span>{{ $book->PDF_size }}</span>
-                        </div>
+                        @if ($book->PDF_size)
+                            <div>
+                                <span class="info1">PDF Size: </span>
+                                <span>{{ $book->PDF_size }}</span>
+                            </div>
+                        @endif
                     </div>
                     <script>
                         function tab(a) {
@@ -229,7 +233,7 @@
                             </a>
                         </div>
                     @endif
-                        <x-kindle />
+                    <x-kindle />
                     <div>
                         <x-newsletter />
                     </div>

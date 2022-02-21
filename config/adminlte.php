@@ -273,14 +273,14 @@ return [
                     'icon' => 'fas fa-medal',
                 ],
                 [
-                    'text' => 'Publishded Books',
+                    'text' => 'Free Books',
                     'url'  => 'admin/books/published',
                     'icon' => 'fas fa-upload',
                 ],
                 [
-                    'text' => 'Drafted Books',
+                    'text' => 'Paid Books',
                     'url'  => 'admin/books/drafted',
-                    'icon' => 'fas fa-eye-slash',
+                    'icon' => 'fas fa-dollar-sign',
                 ],
             ],
         ],

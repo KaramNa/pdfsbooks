@@ -1056,7 +1056,8 @@ a.tag,
 }
 
 a.tag:hover,
-.box .tags .tag:hover {
+.box .tags .tag:hover,
+.show-hide-tags-button:hover {
     background-color: #efefef;
 }
 
@@ -1065,6 +1066,29 @@ a.tag:hover,
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.show-less {
+    overflow: hidden;
+    max-height: 85px;
+}
+
+.show-hide-tags-button {
+    font-weight: 600;
+    padding: 3px 30px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+    border-radius: 20px;
+    border: none;
+    background-color: #fff;
+    color: var(--main-color);
+    display: inline-block;
+    margin: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+#books>div:nth-child(2)>div:nth-child(3) {
+    text-align: center;
+    margin-top: 30px;
 }
 
 .main-content .book-title {
