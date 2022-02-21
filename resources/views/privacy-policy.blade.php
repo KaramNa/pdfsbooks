@@ -36,7 +36,7 @@
                 browser to refuse cookies, or to alert you when cookies are being sent. If they do so, note that some parts
                 of the Site may not function properly.</p>
             <h3>How we use collected information</h3>
-            <p>dBooks.org collects and uses Users personal information for the following purposes:</p>
+            <p>PDFsBOOKS.COM collects and uses Users personal information for the following purposes:</p>
             <ul>
                 <li>To improve customer service
                     Your information helps us to more effectively respond to your customer service requests and support
