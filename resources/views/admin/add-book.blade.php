@@ -108,16 +108,18 @@
                             @endforeach
                         </x-adminlte-select2>
                     </div>
-
                     <div class="my-2">
                         <label for="tag">Book Tag</label>
-                        <input type="text" class="form-control" name="tag"
-                            value="{{ old('tag') }}">
-                        @error('tag')
-                            <div class="text-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                        <x-adminlte-select2 name="tag" class="form-control bg-white">
+                            <option value="" selected>Choose tag</option>
+                            @foreach ($tags as $tag)
+                                @if ($tag->tag)
+                                    <option value="{{ $tag->tag }}" {{ old('tag') == $tag->tag ? 'selected' : '' }}>
+                                        {{ $tag->tag }}
+                                    </option>
+                                @endif
+                            @endforeach
+                        </x-adminlte-select2>
                     </div>
 
                     <div class="my-2">
@@ -177,7 +179,7 @@
                     <div class="my-2">
                         <label for="download_link2">Download link</label>
                         <input type="text" class="form-control" name="download_link2"
-                            value="{{ old('download_link2', $details['link1']?? '') }}">
+                            value="{{ old('download_link2', $details['link1'] ?? '') }}">
                         @error('download_link2')
                             <div class="text-danger">
                                 {{ $message }}
@@ -187,7 +189,7 @@
                     <div class="my-2">
                         <label for="download_link3">Download link 2</label>
                         <input type="text" class="form-control" name="download_link3"
-                            value="{{ old('download_link3', $details['link2']?? '') }}">
+                            value="{{ old('download_link3', $details['link2'] ?? '') }}">
                         @error('download_link3')
                             <div class="text-danger">
                                 {{ $message }}

@@ -14,8 +14,10 @@ class AddBookController extends Controller
     public function index()
     {
         $categories = Category::all();
+        $tags = Book::groupBy("tag")->get('tag');
         return view("admin.add-book", [
             "categories" => $categories,
+            "tags" => $tags,
         ]);
     }
 
