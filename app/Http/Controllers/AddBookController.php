@@ -65,6 +65,7 @@ class AddBookController extends Controller
                 "url" => "required",
             ]);
             $categories = Category::all();
+            $tags = Book::groupBy("tag")->get('tag');
             $httpClient = new Client();
             $response = $httpClient->request(
                 'GET',
