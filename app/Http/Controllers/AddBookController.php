@@ -188,7 +188,8 @@ class AddBookController extends Controller
             }
             return view("admin.add-book", [
                 "categories" => $categories,
-                "details" => $details
+                "details" => $details,
+                "tags" => $tags
             ]);
         }
         if (request()->has("publish") || request()->has("draft")) {
