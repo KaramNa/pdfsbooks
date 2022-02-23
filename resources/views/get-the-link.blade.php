@@ -61,6 +61,30 @@
                         class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reportModal">Here</button> to
                     report</p>
             </div>
+            @if ($relatedBooks)
+                <h2>You maybe like these</h2>
+                    <div class="related-books">
+                        @foreach ($relatedBooks as $relatedBook)
+                            <div class="book">
+                                @if ($relatedBook->draft == 0)
+                                    <div class='ribbon-wrapper-4'>
+                                        <div class='ribbon-4'>Free</div>
+                                    </div>
+                                @endif
+                                <a href="{{ route('single.book', $relatedBook->slug) }}"
+                                    title="{{ $relatedBook->title }}">
+                                    <img data-src="{{ $relatedBook->title }}" src="{{ $relatedBook->poster }}"
+                                        class="img" alt="Free download PDF{{ $relatedBook->title }}"
+                                        width="280" height="420" onerror="this.src='/storage/no-cover.png';">
+                                </a>
+                                <a href="{{ route('single.book', $relatedBook->slug) }}"
+                                    title="{{ $relatedBook->title }}"
+                                    class="book-title">{{ $relatedBook->title }}</a>
+                            </div>
+                        @endforeach
+                    </div>
+            @endif
+
             <x-adsense />
 
         </div>

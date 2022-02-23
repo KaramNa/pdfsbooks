@@ -94,15 +94,18 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="my-2">
-                        <label for="tag">Book tag</label>
-                        <input type="text" class="form-control" name="tag"
-                            value="{{ old('tag', $book->tag) }}">
-                        @error('tag')
-                            <div class="text-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                   <div class="my-2">
+                        <label for="tag">Book Tag</label>
+                        <x-adminlte-select2 name="tag" class="form-control bg-white">
+                            <option value="" selected>Choose tag</option>
+                            @foreach ($tags as $tag)
+                                @if ($tag->tag)
+                                    <option value="{{ $tag->tag }}" {{ old('tag', $book->tag) == $tag->tag ? 'selected' : '' }}>
+                                        {{ $tag->tag }}
+                                    </option>
+                                @endif
+                            @endforeach
+                        </x-adminlte-select2>
                     </div>
                     <div class="my-2">
                         <label for="publisher">Book publisher</label>

@@ -235,9 +235,11 @@ class AddBookController extends Controller
     {
         $categories = Category::all();
         $book = Book::find($id);
+        $tags = Book::groupBy("tag")->get('tag');
         return view("admin.edit-book", [
             "categories" => $categories,
-            "book" => $book
+            "book" => $book,
+            "tags" => $tags,
         ]);
     }
 

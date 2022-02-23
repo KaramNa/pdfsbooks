@@ -57,7 +57,9 @@ class BooksController extends Controller
     public function getTheLink($slug)
     {
         $book = Book::get()->where("slug", $slug)->first();
-
+        $relatedBooks = Book::get()->where("tag", $book->tag)->where('title', '!=', $book->title);
+        if (count($relatedBooks) == 0)
+            $relatedBooks = Book::get()->where("category", $book->category);
         $url = $book->download_link;
         $d_link2 = "";
         if ($url) {
@@ -81,7 +83,8 @@ class BooksController extends Controller
             "d_link2" => $d_link2,
             "slug" => $slug,
             "book_size" => $book->PDF_size,
-            "book" => $book
+            "book" => $book,
+            "relatedBooks" => $relatedBooks
         ]);
     }
 
@@ -108,6 +111,4 @@ class BooksController extends Controller
     {
         return view("privacy-policy");
     }
-
-  
 }
