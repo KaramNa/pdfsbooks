@@ -1604,7 +1604,10 @@ a.tag:hover,
 
 .get-the-link .report button {
     margin-top: 0;
-    margin-bottom: 40px;
+}
+
+.get-the-link .report {
+    margin-bottom: 50px;
 }
 
 .get-the-link .blog {
