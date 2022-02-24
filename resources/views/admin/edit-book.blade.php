@@ -96,8 +96,9 @@
                     </div>
                    <div class="my-2">
                         <label for="tag">Book Tag</label>
-                        <x-adminlte-select2 name="tag" class="form-control bg-white">
+                        <x-adminlte-select2 id="tagsSelect" name="tag" class="form-control bg-white">
                             <option value="" selected>Choose tag</option>
+                            <option value="NEW">Add new tag</option>
                             @foreach ($tags as $tag)
                                 @if ($tag->tag)
                                     <option value="{{ $tag->tag }}" {{ old('tag', $book->tag) == $tag->tag ? 'selected' : '' }}>
@@ -210,4 +211,21 @@
             </div>
         </div>
     </div>
+@stop
+@section('Myjs')
+    <script>
+        $(function() {
+            $("#tagsSelect").on('select2:close', function() {
+                    var el = $(this);
+                    console.log('fdsa');
+                    if (el.val() === "NEW") {
+                        var newval = prompt("Enter new value: ");
+                        if (newval !== null) {
+                            el.append('<option>' + newval + '</option>')
+                                .val(newval);
+                        }
+                    }
+                });
+        });
+    </script>
 @stop
