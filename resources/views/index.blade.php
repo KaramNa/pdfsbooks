@@ -15,7 +15,7 @@
                     <h1>PDFsBooks, Free online ebooks Library</h1>
                     <h2>Here you can find all the books you need for free, No registration, No download limits.</h2>
                     <br>
-                    {{-- <x-blog /> --}}
+                    <x-blog />
                 </div>
                 <div class="share-section">
                     <h3>Always remember that <span class="sharing-is-caring">

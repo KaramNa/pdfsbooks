@@ -40,9 +40,9 @@
         <div></div>
         <div class="box">
             <ul class="links">
-                {{-- <li>
+                <li>
                     <x-double-right-arrows /><a href="https://blog.pdfsbooks.com">Blog</a>
-                </li> --}}
+                </li>
                 <li>
                     <x-double-right-arrows /><a href="{{ route('order.book') }}">Suggest a book</a>
                 </li>

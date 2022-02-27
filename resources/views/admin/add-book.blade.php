@@ -217,7 +217,6 @@
         $(function() {
             $("#tagsSelect").on('select2:close', function() {
                     var el = $(this);
-                    console.log('fdsa');
                     if (el.val() === "NEW") {
                         var newval = prompt("Enter new value: ");
                         if (newval !== null) {

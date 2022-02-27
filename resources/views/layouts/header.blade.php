@@ -61,9 +61,9 @@
                 <li>
                     <a aria-current="page" class="home" href="{{ route('home') }}">Home<span></span></a>
                 </li>
-                {{-- <li>
+                <li>
                     <a aria-current="page" href="https://blog.pdfsbooks.com" class="blog-link">Blog <x-new/></a>
-                </li> --}}
+                </li>
                 <li>
                     <a class="free_books" href="/?free=free&{{ http_build_query(request()->except(['free','search','page','tag'])) }}">Free Books</a>
                 </li>
