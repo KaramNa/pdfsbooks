@@ -28,12 +28,25 @@ if ($book->draft == 0) {
                 @auth
                     <div class="edit-button">
                         <div>
-                            <a href="{{ route('edit.book', $book) }}" class="btn-down mt-3 text-start"><svg
+                            <a href="{{ route('edit.book', $book) }}" class=""><svg
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
                                     <g fill='#FFFFFF'>
                                         <path d="M2 17l-2 7 7-2zM3 16L16 3l5 5L8 21zM22 7l1-1c2-2-3-7-5-5l-1 1 5 5z"></path>
                                     </g>
                                 </svg> Edit</a>
+                        </div>
+                    </div>
+                    <div x-data="{ show: false}">
+                        <div>
+                            <button type="button" class="delete-button" @click="show = true">Delete</button>
+                        </div>
+                        <div x-show="show" style="display: none">
+                            <form action="{{ route('delete.book', $book) }}" method="post">
+                                @csrf
+                                <label>Delete this book?</label>
+                                <button type="submit" name="delete_book" class="button text-red">Yes</button>
+                                <button type="button" class="button text-green" @click="show = false">No</button>
+                            </form>
                         </div>
                     </div>
                 @endauth
@@ -60,7 +73,8 @@ if ($book->draft == 0) {
                 </div>
                 @if ($book->draft == 1)
                     <div class="download-button amazon">
-                        <a href="{{ $book->download_link2 }}" target="_blank" title="Amazon {{ $book->title }}">Get you
+                        <a href="{{ $book->download_link2 }}" target="_blank" title="Amazon {{ $book->title }}">Get
+                            you
                             copy from Amazon
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
                                 <g fill='#FFFFFF'>

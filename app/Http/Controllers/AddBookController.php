@@ -281,6 +281,11 @@ class AddBookController extends Controller
             $book->delete();
             return back();
         }
+        if (request()->has('delete_book')) {
+            $book = Book::find($id);
+            $book->delete();
+            return redirect('/');
+        }
     }
 
     public function uploadImage($image)
