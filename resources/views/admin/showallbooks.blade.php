@@ -47,8 +47,8 @@
                         '"><button class="btn btn-xs btn-default text-cyan mx-1 shadow" title="Draft" type="submit" name="draftForm">
                                                                                                                                                         <i class="fa fa-lg fas fa-eye-slash"></i></button></form>';
                 }
-                $recored = [$book->id, $book->title, substr($book->author, 2), $book->draft == 1 ? 'Drafted' : 'Published', $book->publisher, '<nobr>' . $btnDraft . $btnPublish . $btnEdit . $btnDelete . $btnDetails . $btnTelegram . '</nobr>'];
-                array_push($data, $recored);
+                $record = [$book->id, $book->title, substr($book->author, 2), $book->draft == 1 ? 'Drafted' : 'Published', $book->publisher, '<nobr>' . $btnDraft . $btnPublish . $btnEdit . $btnDelete . $btnDetails . $btnTelegram . '</nobr>'];
+                array_push($data, $record);
             }
             $config = [
                 'data' => $data,
@@ -61,6 +61,7 @@
             <x-adminlte-datatable id="table2" :heads="$heads" head-theme="light" :config="$config" class="mb-5"
                 striped hoverable bordered compressed />
         </div>
+        {{ $books->links() }}
         {{-- Minimal --}}
         <x-adminlte-modal id="deleteModal" title="Delete Book">
             Do You really want to delete this book?

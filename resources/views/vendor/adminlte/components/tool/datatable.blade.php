@@ -1,5 +1,4 @@
 {{-- Table --}}
-
 <div class="table-responsive">
 
 <table id="{{ $id }}" style="width:100%" {{ $attributes->merge(['class' => $makeTableClass()]) }}>
@@ -38,7 +37,6 @@
 
 @push('js')
 <script>
-
     $(() => {
         $('#{{ $id }}').DataTable( @json($config) );
     })

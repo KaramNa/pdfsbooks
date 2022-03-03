@@ -65,6 +65,7 @@
                     class="mb-5" striped hoverable bordered compressed />
             </div>
         </form>
+        {{ $books->links() }}
 
         {{-- Minimal --}}
         <x-adminlte-modal id="deleteModal" title="Delete Book">

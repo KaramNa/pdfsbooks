@@ -32,7 +32,7 @@ class AdminController extends Controller
 
     public function allBooks()
     {
-        $books = Book::get();
+        $books = Book::paginate(1000);
         return view("admin.showallbooks", [
             "books" => $books
         ]);
@@ -40,14 +40,14 @@ class AdminController extends Controller
     
     public function publishedBooks()
     {
-        $books = Book::where("draft", 0)->get();
+        $books = Book::where("draft", 0)->paginate(1000);
         return view("admin.published", [
             "books" => $books
         ]);
     }
     public function draftedBooks()
     {
-        $books = Book::where("draft", 1)->get();
+        $books = Book::where("draft", 1)->paginate(1000);
         return view("admin.drafted", [
             "books" => $books
         ]);
