@@ -2,7 +2,6 @@
 
 @section('title', 'Show All Books')
 
-
 @section('content')
     {{-- Setup data for datatables --}}
     <div class="container">

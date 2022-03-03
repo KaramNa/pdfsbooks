@@ -38,7 +38,9 @@
 @push('js')
 <script>
     $(() => {
+        $('#{{ $id }}').DataTable().clear().destroy();
         $('#{{ $id }}').DataTable( @json($config) );
+        
     })
 
 </script>
