@@ -46,7 +46,7 @@ class AddBookController extends Controller
                 $attributes["draft"] = 1;
             $attributes["tag"] = Str::upper($attributes["tag"]);
             $slug = Str::slug($attributes["title"]);
-            $attributes["author"] = "by " . $attributes["author"];
+            $attributes["author"] = $attributes["author"];
             $attributes["download_link3"] = request("download_link3");
             if (request()->file("poster"))
             $attributes["poster"] = $this->uploadImage(request()->file("poster"));
@@ -214,7 +214,7 @@ class AddBookController extends Controller
                 $attributes["draft"] = 1;
 
             $slug = Str::slug($attributes["title"]);
-            $attributes["author"] = "by " . $attributes["author"];
+            $attributes["author"] = $attributes["author"];
             $attributes["download_link3"] = request("download_link3");
             if (request()->file("poster"))
                 $attributes["poster"] = $this->uploadImage(request()->file("poster"));

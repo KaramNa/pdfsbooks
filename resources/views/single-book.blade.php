@@ -24,7 +24,7 @@ if ($book->draft == 0) {
             <div>
                 <h1 itemprop="name">{{ $book->title }}</h1>
                 <p>{{ $book->qoute }}</p>
-                <h2 itemprop="author" itemtype="https://schema.org/Person">Authors: {{ substr($book->author, 3) }}</h2>
+                <h2 itemprop="author" itemtype="https://schema.org/Person">Authors: {{ $book->author }}</h2>
                 @auth
                     <div class="edit-button">
                         <div>
