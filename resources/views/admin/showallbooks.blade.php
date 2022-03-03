@@ -12,7 +12,7 @@
             </button>
         </div>
         @php
-            $heads = ['id', 'Title', 'Author', 'Status','Publisher', ['label' => 'Actions', 'no-export' => true, 'width' => 5]];
+            $heads = ['id', 'Title', 'Status','Publisher', ['label' => 'Actions', 'no-export' => true, 'width' => 5]];
             $data = [];
             foreach ($books as $book) {
                 $btnEdit = '<a href="' . route('edit.book', $book->id) . '" class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit"><i class="fa fa-lg fa-fw fa-pen"></i></a>';
@@ -46,13 +46,13 @@
                         '"><button class="btn btn-xs btn-default text-cyan mx-1 shadow" title="Draft" type="submit" name="draftForm">
                                                                                                                                                         <i class="fa fa-lg fas fa-eye-slash"></i></button></form>';
                 }
-                $record = [$book->id, $book->title, substr($book->author, 2), $book->draft == 1 ? 'Drafted' : 'Published', $book->publisher, '<nobr>' . $btnDraft . $btnPublish . $btnEdit . $btnDelete . $btnDetails . $btnTelegram . '</nobr>'];
+                $record = [$book->id, $book->title, $book->draft == 1 ? 'Drafted' : 'Published', $book->publisher, '<nobr>' . $btnDraft . $btnPublish . $btnEdit . $btnDelete . $btnDetails . $btnTelegram . '</nobr>'];
                 array_push($data, $record);
             }
             $config = [
                 'data' => $data,
                 'order' => [[0, 'DESC']],
-                'columns' => [null, null, null, null,null, ['orderable' => false]],
+                'columns' => [null, null, null,null, ['orderable' => false]],
             ];
         @endphp
         {{-- Compressed with style options / fill data using the plugin config --}}
@@ -60,7 +60,6 @@
             <x-adminlte-datatable id="table2" :heads="$heads" head-theme="light" :config="$config" class="mb-5"
                 striped hoverable bordered compressed />
         </div>
-        {{ $books->links() }}
         {{-- Minimal --}}
         <x-adminlte-modal id="deleteModal" title="Delete Book">
             Do You really want to delete this book?

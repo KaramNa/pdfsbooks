@@ -15,7 +15,7 @@
             @endif
             {{-- Setup data for datatables --}}
             @php
-                $heads = [['label' => '<input type="checkbox" id="selectAll" onclick="toggle(this)"><span class="fw-bold"> Check all</span>', 'width' => 10], 'id', 'Title', 'Author', 'Status', ['label' => 'Actions', 'no-export' => true, 'width' => 5]];
+                $heads = [['label' => '<input type="checkbox" id="selectAll" onclick="toggle(this)"><span class="fw-bold"> Check all</span>', 'width' => 10], 'id', 'Title', 'Status', ['label' => 'Actions', 'no-export' => true, 'width' => 5]];
                 
                 $data = [];
                 foreach ($books as $book) {
@@ -56,13 +56,13 @@
                             '"><button class="btn btn-xs btn-default text-cyan mx-1 shadow" title="Draft" type="submit" name="draftForm">
                                             <i class="fa fa-lg fas fa-eye-slash"></i></button></form>';
                     }
-                    $recored = ['<input type="checkbox" name="published[]" value="' . $book->id . '">', $book->id, $book->title, substr($book->author, 2), $book->draft == 1 ? 'Drafted' : 'Published', '<nobr>' . $btnDraft . $btnPublish . $btnEdit . $btnDelete . $btnDetails . '</nobr>'];
+                    $recored = ['<input type="checkbox" name="published[]" value="' . $book->id . '">', $book->id, $book->title, $book->draft == 1 ? 'Drafted' : 'Published', '<nobr>' . $btnDraft . $btnPublish . $btnEdit . $btnDelete . $btnDetails . '</nobr>'];
                     array_push($data, $recored);
                 }
                 $config = [
                     'data' => $data,
                     'order' => [[0, 'DESC']],
-                    'columns' => [['orderable' => false], null, null, null, null, ['orderable' => false]],
+                    'columns' => [['orderable' => false], null, null, null, ['orderable' => false]],
                 ];
             @endphp
             {{-- Compressed with style options / fill data using the plugin config --}}
@@ -71,7 +71,6 @@
                     class="mb-5" striped hoverable bordered compressed />
             </div>
         </form>
-        {{ $books->links() }}
         {{-- Minimal --}}
         <x-adminlte-modal id="deleteModal" title="Delete Book">
             Do You really want to delete this book?
