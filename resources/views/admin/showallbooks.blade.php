@@ -44,7 +44,7 @@
                                                                                                                                                                                 <input type="hidden" name="_token" value="' .
                         csrf_token() .
                         '"><button class="btn btn-xs btn-default text-cyan mx-1 shadow" title="Draft" type="submit" name="draftForm">
-                                                                                                                                                        <i class="fa fa-lg fas fa-eye-slash"></i></button></form>';
+                         <i class="fa fa-lg fas fa-eye-slash"></i></button></form>';
                 }
                 $record = [$book->id, $book->title, $book->draft == 1 ? 'Drafted' : 'Published', $book->publisher, '<nobr>' . $btnDraft . $btnPublish . $btnEdit . $btnDelete . $btnDetails . $btnTelegram . '</nobr>'];
                 array_push($data, $record);

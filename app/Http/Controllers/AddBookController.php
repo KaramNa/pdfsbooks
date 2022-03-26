@@ -245,7 +245,7 @@ class AddBookController extends Controller
 
     public function update($id)
     {
-        $book = Book::find($id);
+        if (request()->has("updateForm")) { $book = Book::find($id);
 
         $attributes =  request()->validate([
             "title" => "required",
@@ -271,7 +271,7 @@ class AddBookController extends Controller
         $attributes["tag"] = Str::upper($attributes["tag"]);
         $book->update($attributes);
 
-        return back()->with("success", "Book has been updated");
+        return back()->with("success", "Book has been updated");}
     }
 
     public function delete($id)

@@ -7,7 +7,7 @@
 @section('content')
     <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-lg-8 position-relative">
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <span class="text-white">{{ session('success') }}</span>
@@ -94,14 +94,15 @@
                             </div>
                         @enderror
                     </div>
-                   <div class="my-2">
+                    <div class="my-2">
                         <label for="tag">Book Tag</label>
                         <x-adminlte-select2 id="tagsSelect" name="tag" class="form-control bg-white">
                             <option value="" selected>Choose tag</option>
                             <option value="NEW">Add new tag</option>
                             @foreach ($tags as $tag)
                                 @if ($tag->tag)
-                                    <option value="{{ $tag->tag }}" {{ old('tag', $book->tag) == $tag->tag ? 'selected' : '' }}>
+                                    <option value="{{ $tag->tag }}"
+                                        {{ old('tag', $book->tag) == $tag->tag ? 'selected' : '' }}>
                                         {{ $tag->tag }}
                                     </option>
                                 @endif
@@ -205,9 +206,21 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-primary mt-2">Update</button>
+                    <button type="submit" class="btn btn-primary mt-2" name="updateForm">Update</button>
                 </form>
-
+                @if ($book->draft == 1)
+                    <form action="{{ route('publish', $book->id) }}" method="post" class="d-inline position-absolute" style="right: 9px;bottom: 4px;">
+                        @csrf
+                        <button class="btn btn-primary mt-2" title="Publish" type="submit" name="publishForm">
+                            Make it Free</button>
+                    </form>
+                @else
+                    <form action="{{ route('draft', $book->id) }}" method="post" class="d-inline position-absolute" style="right: 9px;bottom: 4px;">
+                        @csrf
+                        <button class="btn btn-primary mt-2" title="Draft" type="submit" name="draftForm">
+                            Make it Paid</button>
+                    </form>
+                @endif
             </div>
         </div>
     </div>
@@ -216,15 +229,15 @@
     <script>
         $(function() {
             $("#tagsSelect").on('select2:close', function() {
-                    var el = $(this);
-                    if (el.val() === "NEW") {
-                        var newval = prompt("Enter new value: ");
-                        if (newval !== null) {
-                            el.append('<option>' + newval + '</option>')
-                                .val(newval);
-                        }
+                var el = $(this);
+                if (el.val() === "NEW") {
+                    var newval = prompt("Enter new value: ");
+                    if (newval !== null) {
+                        el.append('<option>' + newval + '</option>')
+                            .val(newval);
                     }
-                });
+                }
+            });
         });
     </script>
 @stop
