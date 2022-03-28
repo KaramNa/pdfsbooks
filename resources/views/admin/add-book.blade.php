@@ -179,7 +179,7 @@
                      <div class="my-2">
                         <label for="paid_download_link">Paid download link</label>
                         <input type="text" class="form-control" name="paid_download_link"
-                            value="{{ old('paid_download_link', $book->paid_download_link) }}">
+                            value="{{ old('paid_download_link') }}">
                         @error('paid_download_link')
                             <div class="text-danger">
                                 {{ $message }}
