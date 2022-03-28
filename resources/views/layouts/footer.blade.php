@@ -96,11 +96,13 @@
         localStorage.setItem("date", date);
         window.location.reload();
     }
+
     function loadScript() {
         var newScript = document.createElement("script");
         newScript.type = "text/javascript";
         newScript.setAttribute("defer", "true");
-        newScript.setAttribute("src", "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673");
+        newScript.setAttribute("src",
+            "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673");
         newScript.setAttribute("crossorigin", "anonymous");
 
         document.documentElement.firstChild.appendChild(newScript);
@@ -116,17 +118,20 @@
 </script>
 
 <!-- Default Statcounter code for Pdf http://Https://pdfsbooks.com -->
+<!-- Default Statcounter code for pdf https://pdfsbooks.com -->
 <script type="text/javascript">
-    var sc_project = 12711734;
+    var sc_project = 12736308;
     var sc_invisible = 1;
-    var sc_security = "9add92a5";
+    var sc_security = "d35d4988";
 </script>
-<script defer type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
 <noscript>
-    <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img
-                class="statcounter" src="https://c.statcounter.com/12711734/0/9add92a5/1/" alt="Web Analytics"
+    <div class="statcounter"><a title="Web Analytics Made Easy -
+Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcounter"
+                src="https://c.statcounter.com/12736308/0/d35d4988/1/" alt="Web Analytics Made Easy - Statcounter"
                 referrerPolicy="no-referrer-when-downgrade"></a></div>
 </noscript>
+<!-- End of Statcounter Code -->
 <!-- End of Statcounter Code -->
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
