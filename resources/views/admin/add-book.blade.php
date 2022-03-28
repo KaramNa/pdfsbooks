@@ -176,8 +176,18 @@
                             </div>
                         @enderror
                     </div>
+                     <div class="my-2">
+                        <label for="paid_download_link">Paid download link</label>
+                        <input type="text" class="form-control" name="paid_download_link"
+                            value="{{ old('paid_download_link', $book->paid_download_link) }}">
+                        @error('paid_download_link')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
                     <div class="my-2">
-                        <label for="download_link2">Download link</label>
+                        <label for="download_link2">Free download link</label>
                         <input type="text" class="form-control" name="download_link2"
                             value="{{ old('download_link2', $details['link1'] ?? '') }}">
                         @error('download_link2')
@@ -187,7 +197,7 @@
                         @enderror
                     </div>
                     <div class="my-2">
-                        <label for="download_link3">Download link 2</label>
+                        <label for="download_link3">Free download link 2</label>
                         <input type="text" class="form-control" name="download_link3"
                             value="{{ old('download_link3', $details['link2'] ?? '') }}">
                         @error('download_link3')

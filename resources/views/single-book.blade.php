@@ -73,8 +73,8 @@ if ($book->draft == 0) {
                 </div>
                 @if ($book->draft == 1)
                     <div class="download-button amazon">
-                        <a href="{{ $book->download_link2 }}" target="_blank" title="Amazon {{ $book->title }}">Get
-                            you
+                        <a href="{{ $book->paid_download_link }}" target="_blank" title="Amazon {{ $book->title }}">Get
+                            your
                             copy from Amazon
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
                                 <g fill='#FFFFFF'>
