@@ -9,7 +9,7 @@ if ($book->draft == 0) {
 }
 @endphp
 @section('page_title', "$book_title")
-@section('page_description', substr($book->description, 0, strpos($book->description, '.')))
+@section('page_description', "$book->description")
 @section('canonical_url', \Request::fullUrl())
 
 @section('share_image', "$book->poster")
