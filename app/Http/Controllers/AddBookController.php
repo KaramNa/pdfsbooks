@@ -73,7 +73,7 @@ class AddBookController extends Controller
             );
             if (str_contains($url["url"], "itbook.store")) {
                 $title = addslashes($response->evaluate('//h1')->text());
-                $description = addslashes($response->evaluate('//div[@id="desc"]')->text());
+                $description = addslashes($response->evaluate('//div[@id="desc"]')->html());
                 $publisher = $response->evaluate('//table[@class="table table-striped"]//td[@itemprop="publisher"]//b')->text();
                 $pages = $response->evaluate('//table[@class="table table-striped"]//b[@itemprop="numberOfPages"]')->text();
                 $language = $response->evaluate('//table[@class="table table-striped"]//b[@itemprop="inLanguage"]')->text();
@@ -161,7 +161,7 @@ class AddBookController extends Controller
                             $size = number_format($size / 1024, 1);
                     }
                 }
-                $description = addslashes($response->evaluate('//td[@colspan="4"]')->text());
+                $description = addslashes($response->evaluate('//td[@colspan="4"]')->html());
                 try {
                     $image_src = $response->evaluate('//img')->extract(["src"])[0];
                     if (str_contains($image_src, "https"))
