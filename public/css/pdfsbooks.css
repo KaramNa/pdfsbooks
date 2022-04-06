@@ -1614,7 +1614,7 @@ a.tag:hover,
 }
 
 .get-the-link #link .form a {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .get-the-link #link .form {
@@ -1643,6 +1643,13 @@ a.tag:hover,
 
 .get-the-link .related-books .book {
     margin: 0 20px;
+}
+
+.arrow {
+    font-size: 35px;
+    color: #bd081c;
+    font-weight: bold;
+    animation: blinking-arrow .2s linear infinite;
 }
 
 
@@ -2108,6 +2115,15 @@ a.tag:hover,
 @keyframes moving-arrow {
     100% {
         transform: translateX(10px);
+    }
+}
+
+@keyframes blinking-arrow {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 

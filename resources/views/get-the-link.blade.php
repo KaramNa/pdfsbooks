@@ -41,16 +41,16 @@
                     <div>
                         @if ($d_link)
                             <div class="form">
-                                <a href="<?php echo $d_link; ?>" target="_blank">Free download
-                                    link 1</a>
+                                <a href="<?php echo $d_link; ?>" target="_blank"><span class="arrow">&gt;&gt;</span> Free download
+                                    link 1 <span class="arrow">&lt;&lt;</span></a>
                                 <p><img src="{{ asset('storage\kaspersky.png') }}" alt="kaspersky icon" width="120"
                                         height="30"> Checked by Kaspersky. No virus detected</p>
                             </div>
                         @endif
                         @if ($d_link2)
                             <div class="form">
-                                <a href="<?php echo $d_link2; ?>" target="_blank">Free download
-                                    link 2</a>
+                                <a href="<?php echo $d_link2; ?>" target="_blank"><span class="arrow">&gt;&gt; </span> Free download
+                                    link 2 <span class="arrow"> &lt;&lt;</span></a>
                                 <p><img src="{{ asset('storage\kaspersky.png') }}" alt="kaspersky icon" width="120"
                                         height="30"> Checked by Kaspersky. No virus detected</p>
                             </div>
