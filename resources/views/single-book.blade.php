@@ -103,7 +103,7 @@ if ($book->draft == 0) {
                 <div class="form">
                     <a id="description"></a>
                     <div id="t_description" class="tab active">
-                        {!! $book->description !!}
+                        {!! stripslashes($book->description) !!}
                     </div>
                     <a id="details"></a>
                     <div id="t_details" class="tab">
