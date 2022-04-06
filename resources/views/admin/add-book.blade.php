@@ -176,7 +176,7 @@
                             </div>
                         @enderror
                     </div>
-                     <div class="my-2">
+                    <div class="my-2">
                         <label for="paid_download_link">Paid download link</label>
                         <input type="text" class="form-control" name="paid_download_link"
                             value="{{ old('paid_download_link') }}">
@@ -226,15 +226,18 @@
     <script>
         $(function() {
             $("#tagsSelect").on('select2:close', function() {
-                    var el = $(this);
-                    if (el.val() === "NEW") {
-                        var newval = prompt("Enter new value: ");
-                        if (newval !== null) {
-                            el.append('<option>' + newval + '</option>')
-                                .val(newval);
-                        }
+                var el = $(this);
+                if (el.val() === "NEW") {
+                    var newval = prompt("Enter new value: ");
+                    if (newval !== null) {
+                        el.append('<option>' + newval + '</option>')
+                            .val(newval);
                     }
-                });
+                }
+            });
+            $(document).on('select2:open', () => {
+                document.querySelector('.select2-search__field').focus();
+            });
         });
     </script>
 @stop
