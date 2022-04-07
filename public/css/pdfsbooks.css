@@ -1652,6 +1652,11 @@ a.tag:hover,
     animation: blinking-arrow .2s linear infinite;
 }
 
+.scroll-down {
+    font-size: 3rem;
+    animation: blinking-arrow 2s linear infinite;
+}
+
 
 /* ENd Get The Link Page */
 

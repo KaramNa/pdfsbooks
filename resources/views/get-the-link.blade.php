@@ -41,7 +41,8 @@
                     <div>
                         @if ($d_link)
                             <div class="form">
-                                <a href="<?php echo $d_link; ?>" target="_blank"><span class="arrow">&gt;&gt;</span> Free download
+                                <a href="<?php echo $d_link; ?>" target="_blank"><span class="arrow">&gt;&gt;</span>
+                                    Free download
                                     link 1 <span class="arrow">&lt;&lt;</span></a>
                                 <p><img src="{{ asset('storage\kaspersky.png') }}" alt="kaspersky icon" width="120"
                                         height="30"> Checked by Kaspersky. No virus detected</p>
@@ -49,7 +50,8 @@
                         @endif
                         @if ($d_link2)
                             <div class="form">
-                                <a href="<?php echo $d_link2; ?>" target="_blank"><span class="arrow">&gt;&gt; </span> Free download
+                                <a href="<?php echo $d_link2; ?>" target="_blank"><span class="arrow">&gt;&gt; </span>
+                                    Free download
                                     link 2 <span class="arrow"> &lt;&lt;</span></a>
                                 <p><img src="{{ asset('storage\kaspersky.png') }}" alt="kaspersky icon" width="120"
                                         height="30"> Checked by Kaspersky. No virus detected</p>
@@ -63,26 +65,24 @@
             </div>
             @if ($relatedBooks)
                 <h2>You maybe like these</h2>
-                    <div class="related-books">
-                        @foreach ($relatedBooks as $relatedBook)
-                            <div class="book">
-                                @if ($relatedBook->draft == 0)
-                                    <div class='ribbon-wrapper-4'>
-                                        <div class='ribbon-4'>Free</div>
-                                    </div>
-                                @endif
-                                <a href="{{ route('single.book', $relatedBook->slug) }}"
-                                    title="{{ $relatedBook->title }}">
-                                    <img data-src="{{ $relatedBook->title }}" src="{{ $relatedBook->poster }}"
-                                        class="img" alt="Free download PDF{{ $relatedBook->title }}"
-                                        width="280" height="420" onerror="this.src='/storage/no-cover.png';">
-                                </a>
-                                <a href="{{ route('single.book', $relatedBook->slug) }}"
-                                    title="{{ $relatedBook->title }}"
-                                    class="book-title">{{ $relatedBook->title }}</a>
-                            </div>
-                        @endforeach
-                    </div>
+                <div class="related-books">
+                    @foreach ($relatedBooks as $relatedBook)
+                        <div class="book">
+                            @if ($relatedBook->draft == 0)
+                                <div class='ribbon-wrapper-4'>
+                                    <div class='ribbon-4'>Free</div>
+                                </div>
+                            @endif
+                            <a href="{{ route('single.book', $relatedBook->slug) }}" title="{{ $relatedBook->title }}">
+                                <img data-src="{{ $relatedBook->title }}" src="{{ $relatedBook->poster }}"
+                                    class="img" alt="Free download PDF{{ $relatedBook->title }}" width="280"
+                                    height="420" onerror="this.src='/storage/no-cover.png';">
+                            </a>
+                            <a href="{{ route('single.book', $relatedBook->slug) }}" title="{{ $relatedBook->title }}"
+                                class="book-title">{{ $relatedBook->title }}</a>
+                        </div>
+                    @endforeach
+                </div>
             @endif
 
             <x-adsense />
@@ -119,7 +119,8 @@
             count--;
             document.getElementById('countDown').innerHTML = count;
             if (count == 0) {
-                document.getElementById('link').classList.remove('d-none');
+                document.getElementById("countDown").innerHTML = "<span class='scroll-down'>Scroll Down</span>";
+                    document.getElementById('link').classList.remove('d-none');
                 clearInterval(timer);
             }
         }, 1000);
