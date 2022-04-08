@@ -1151,7 +1151,7 @@ a.tag:hover,
     font-size: 13.7px;
 }
 
-.main-content .box .content h5:nth-child(1) a:hover {
+.main-content .box .content h5 a:hover {
     text-decoration: underline;
 }
 

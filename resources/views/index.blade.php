@@ -153,7 +153,7 @@
                                 </h5>
                                 <h5>Tag:
                                     <span class="tags">
-                                        <a href="/?tag={{ $book->tag }}&{{ http_build_query(request()->except(['tag', 'category', 'search', 'page']))}}" class="tag"
+                                        <a href="/?tag={{ $book->tag }}&{{ http_build_query(request()->except(['tag', 'category', 'search', 'page']))}}"
                                             title="{{ $book->title }} eBooks">
                                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
