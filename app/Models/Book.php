@@ -95,7 +95,7 @@ class Book extends Model
                 $query->search($search, null, true);
         }
 
-        if (request()->has("free") || request("free_books") == "on") 
+        if (request()->has("free") || request("free_books") == "on")
             $query->where('draft', 0);
         $query->when(
             $filters["category"] ?? false,
@@ -112,9 +112,13 @@ class Book extends Model
             fn ($query, $published) =>
             $query->where("published", "like", "%" . $published . "%")
         );
-
+        $query->when(
+            $filters["language"] ?? false,
+            fn ($query, $language) =>
+            $query->where("language", "like", "%" . $language . "%")
+        );
         if (!isset($filters["search"]))
-        $query->latest();
+            $query->latest();
     }
 
     public function comments()

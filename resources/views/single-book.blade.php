@@ -36,7 +36,7 @@ if ($book->draft == 0) {
                                 </svg> Edit</a>
                         </div>
                     </div>
-                    <div x-data="{ show: false}">
+                    <div x-data="{ show: false }">
                         <div>
                             <button type="button" class="delete-button" @click="show = true">Delete</button>
                         </div>
@@ -135,7 +135,8 @@ if ($book->draft == 0) {
                         </div>
                         <div>
                             <span class="info1">Language: </span>
-                            <span itemprop="inLanguage" content="en">{{ $book->language }}</span>
+                            <span itemprop="inLanguage" content="en"><a href="/?language={{ $book->language }}"
+                                    title="language in {{ $book->language }}">{{ $book->language }}</a></span>
                         </div>
                         @if ($book->PDF_size)
                             <div>
@@ -261,8 +262,7 @@ if ($book->draft == 0) {
                             <p>Your email address will not be published.</p>
                             <div>
                                 <label for="comment"><span class="text-red">*</span> Comment</label>
-                                <textarea id="comment" name="comment"
-                                    class="form-control">{{ old('comment') }}</textarea>
+                                <textarea id="comment" name="comment" class="form-control">{{ old('comment') }}</textarea>
                                 @error('comment')
                                     <div class="erorr">
                                         {{ $message }}
@@ -330,7 +330,7 @@ if ($book->draft == 0) {
                                 </div>
                                 @auth
                                     <div>
-                                        <div x-data="{ show: false}">
+                                        <div x-data="{ show: false }">
                                             <div>
                                                 <button type="button" class="button" @click="show = true"><svg
                                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30"
