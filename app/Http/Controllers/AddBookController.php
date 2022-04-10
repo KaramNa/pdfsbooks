@@ -47,17 +47,18 @@ class AddBookController extends Controller
             $attributes["tag"] = Str::upper($attributes["tag"]);
             $slug = Str::slug($attributes["title"]);
             $attributes["author"] = $attributes["author"];
+            $attributes["paid_download_link"] = request("paid_download_link");
             $attributes["download_link3"] = request("download_link3");
             if (request()->file("poster"))
-            $attributes["poster"] = $this->uploadImage(request()->file("poster"));
+                $attributes["poster"] = $this->uploadImage(request()->file("poster"));
             else
                 $attributes["poster"] = request("image_url");
             $attributes["PDF_size"] .= " MB";
             if ($book = Book::create($attributes)) {
                 if (request("telegram_notif"))
-                $book->notify(new BookPublished());
+                    $book->notify(new BookPublished());
                 return back()->with("success", "Book has been added. <a href='https://pdfsbooks.com/book/"
-                . $slug . "' target='_blank'>Book link</a>");
+                    . $slug . "' target='_blank'>Book link</a>");
             }
         }
         if (request()->has("fill")) {
@@ -141,9 +142,9 @@ class AddBookController extends Controller
                 $attr = $response->filter('tr td');
                 foreach ($attr as $value) {
                     if ($value->textContent == "Title: ")
-                    $title = $value->nextSibling->textContent;
+                        $title = $value->nextSibling->textContent;
                     elseif ($value->textContent == "Author(s):")
-                    $authors = $value->nextSibling->textContent;
+                        $authors = $value->nextSibling->textContent;
                     elseif ($value->textContent == "Publisher:") {
                         $publisher = $value->nextSibling->textContent;
                     } elseif ($value->textContent == "Year:") {
@@ -192,43 +193,6 @@ class AddBookController extends Controller
                 "tags" => $tags
             ]);
         }
-        if (request()->has("publish") || request()->has("draft")) {
-            $rules = [
-                "title" => "required|unique:books,title",
-                "qoute" => "",
-                "author" => "required",
-                "description" => "required",
-                "category" => "required",
-                "publisher" => "required",
-                "published" => "required",
-                "pages" => "required",
-                "PDF_size" => "required",
-                "language" => "required",
-                "download_link2" => "required",
-            ];
-            if (request()->image_url == '') {
-                $rules["poster"] = "required|image";
-            }
-            $attributes =  request()->validate($rules);
-            if (request()->has("draft"))
-                $attributes["draft"] = 1;
-
-            $slug = Str::slug($attributes["title"]);
-            $attributes["author"] = $attributes["author"];
-            $attributes["paid_download_link"] = request("paid_download_link");
-            $attributes["download_link3"] = request("download_link3");
-            if (request()->file("poster"))
-                $attributes["poster"] = $this->uploadImage(request()->file("poster"));
-            else
-                $attributes["poster"] = request("image_url");
-            $attributes["PDF_size"] .= " MB";
-            if ($book = Book::create($attributes)) {
-                if (request("telegram_notif"))
-                    $book->notify(new BookPublished());
-                return back()->with("success", "Book has been added. <a href='https://pdfsbooks.com/book/"
-                    . $slug . "' target='_blank'>Book link</a>");
-            }
-        }
     }
 
 
@@ -246,34 +210,36 @@ class AddBookController extends Controller
 
     public function update($id)
     {
-        if (request()->has("updateForm")) { $book = Book::find($id);
+        if (request()->has("updateForm")) {
+            $book = Book::find($id);
 
-        $attributes =  request()->validate([
-            "title" => "required",
-            "qoute" => "",
-            "author" => "required",
-            "poster" => "image",
-            "description" => "required",
-            "category" => "required",
-            "tag" => "",
-            "publisher" => "required",
-            "published" => "required",
-            "pages" => "required",
-            "PDF_size" => "",
-            "language" => "required",
-            "post_link" => "",
-            "post_text"=> "max:255"
-        ]);
+            $attributes =  request()->validate([
+                "title" => "required",
+                "qoute" => "",
+                "author" => "required",
+                "poster" => "image",
+                "description" => "required",
+                "category" => "required",
+                "tag" => "",
+                "publisher" => "required",
+                "published" => "required",
+                "pages" => "required",
+                "PDF_size" => "",
+                "language" => "required",
+                "post_link" => "",
+                "post_text" => "max:255"
+            ]);
 
-        if (isset($attributes["poster"]))
-            $attributes["poster"] = $this->uploadImage(request()->file("poster"));
-        $attributes["paid_download_link"] = request("paid_download_link");
-        $attributes["download_link2"] = request("download_link2");
-        $attributes["download_link3"] = request("download_link3");
-        $attributes["tag"] = Str::upper($attributes["tag"]);
-        $book->update($attributes);
+            if (isset($attributes["poster"]))
+                $attributes["poster"] = $this->uploadImage(request()->file("poster"));
+            $attributes["paid_download_link"] = request("paid_download_link");
+            $attributes["download_link2"] = request("download_link2");
+            $attributes["download_link3"] = request("download_link3");
+            $attributes["tag"] = Str::upper($attributes["tag"]);
+            $book->update($attributes);
 
-        return back()->with("success", "Book has been updated");}
+            return back()->with("success", "Book has been updated");
+        }
     }
 
     public function delete($id)
