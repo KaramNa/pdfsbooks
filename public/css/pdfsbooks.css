@@ -1418,11 +1418,11 @@ a.tag:hover,
 }
 
 .right-section .download-button.amazon a {
-    background: #800000;
+    background: #c80000;
 }
 
 .right-section .download-button.amazon a:hover {
-    background: #c80000;
+    background: #ec0000;
 }
 
 .right-section .download-button {
