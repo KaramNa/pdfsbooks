@@ -175,8 +175,6 @@ if ($book->draft == 0) {
                             </div>
                         @endforeach
                     </div>
-                    <x-adsense></x-adsense>
-
                     <x-adsense />
                     <x-related-post :book='$book' />
                     @if (($book->download_link || $book->download_link2 || $book->download_link3) && $book->paid_download_link)
@@ -224,6 +222,7 @@ if ($book->draft == 0) {
                                 otherwise please support the authors and buy this book form the paid link.
                             </span>
                         </div>
+                    <x-adsense></x-adsense>
                     @endif
                     <div class="download-buttons">
                         @if ($book->download_link || $book->download_link2 || $book->download_link3)
