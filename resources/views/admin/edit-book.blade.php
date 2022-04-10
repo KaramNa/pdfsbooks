@@ -219,13 +219,15 @@
                     <button type="submit" class="btn btn-primary mt-2" name="updateForm">Update</button>
                 </form>
                 @if ($book->draft == 1)
-                    <form action="{{ route('publish', $book->id) }}" method="post" class="d-inline position-absolute" style="right: 9px;bottom: 4px;">
+                    <form action="{{ route('publish', $book->id) }}" method="post" class="d-inline position-absolute"
+                        style="right: 9px;bottom: 4px;">
                         @csrf
                         <button class="btn btn-primary mt-2" title="Publish" type="submit" name="publishForm">
                             Make it Free</button>
                     </form>
                 @else
-                    <form action="{{ route('draft', $book->id) }}" method="post" class="d-inline position-absolute" style="right: 9px;bottom: 4px;">
+                    <form action="{{ route('draft', $book->id) }}" method="post" class="d-inline position-absolute"
+                        style="right: 9px;bottom: 4px;">
                         @csrf
                         <button class="btn btn-primary mt-2" title="Draft" type="submit" name="draftForm">
                             Make it Paid</button>
@@ -249,8 +251,8 @@
                 }
             });
         });
-         $(document).on('select2:open', () => {
-                document.querySelector('.select2-search__field').focus();
-            });
+        $(document).on('select2:open', () => {
+            document.querySelector('.select2-search__field').focus();
+        });
     </script>
 @stop

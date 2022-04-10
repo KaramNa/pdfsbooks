@@ -1343,7 +1343,7 @@ a.tag:hover,
     display: block;
 }
 
-.right-section div.form {
+.right-section .details.form {
     margin-top: 0;
     border-radius: 0 6px 6px 6px;
     border: 1px solid #ccc;
@@ -1397,17 +1397,14 @@ a.tag:hover,
     line-height: 1.5;
     font-size: 1.3rem;
     color: #4a4a4a;
+    text-align: left;
 }
 
-.right-section .note {
-    border-radius: 6px;
-    margin: 50px 0;
-    padding: 10px;
-    background-color: #63b1f01f;
+.download-buttons {
+    text-align: center;
 }
 
-.right-section .download-button a,
-.left-section .download-button a {
+.right-section .download-button a {
     border-radius: 6px;
     background: var(--main-color);
     padding: 20px;
@@ -1416,28 +1413,25 @@ a.tag:hover,
     font-weight: 600;
 }
 
-.left-section .download-button.amazon a {
-    background: #f3a847;
-    font-size: 17px;
-}
-
-.left-section .download-button.amazon a:hover {
-    background: #f5b967;
-}
-
-.right-section .download-button,
-.left-section .download-button {
-    text-align: center;
-    margin: 50px 0;
-}
-
-.right-section .download-button a:hover,
-.left-section .download-button a:hover {
+.right-section .download-button a:hover {
     background-color: var(--main-color-alt);
 }
 
-.right-section .download-button svg,
-.left-section .download-button svg {
+.right-section .download-button.amazon a {
+    background: #800000;
+}
+
+.right-section .download-button.amazon a:hover {
+    background: #c80000;
+}
+
+.right-section .download-button {
+    text-align: center;
+    margin: 50px 20px;
+    display: inline-block;
+}
+
+.right-section .download-button svg {
     animation: moving-arrow 0.6s linear infinite;
 }
 

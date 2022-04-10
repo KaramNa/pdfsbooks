@@ -71,21 +71,7 @@ if ($book->draft == 0) {
                         <x-facebook />
                     </div>
                 </div>
-                @if ($book->draft == 1)
-                    <div class="download-button amazon">
-                        <a href="{{ $book->paid_download_link }}" target="_blank" title="Amazon {{ $book->title }}">Get
-                            your
-                            copy from Amazon
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
-                                <g fill='#FFFFFF'>
-                                    <path
-                                        d="M11 5.8c0 .4.1.7.4.9L16 11c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.6-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9l-6.8-6.2c-.8-.5-2.1.1-2.1 1.1zM3 5.8c0 .4.1.7.4.9L8 11.1c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.5-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9L5.1 4.9c-.8-.7-2.1-.1-2.1.9z">
-                                    </path>
-                                </g>
-                            </svg>
-                        </a>
-                    </div>
-                @endif
+
                 <x-amazon-audioBook />
             </div>
 
@@ -100,7 +86,7 @@ if ($book->draft == 0) {
                         <span>Details</span>
                     </a>
                 </div>
-                <div class="form">
+                <div class="details form">
                     <a id="description"></a>
                     <div id="t_description" class="tab active">
                         {!! stripslashes($book->description) !!}
@@ -190,37 +176,85 @@ if ($book->draft == 0) {
                         @endforeach
                     </div>
                     <x-adsense></x-adsense>
-                    <div class="disclaimer">
-                        <strong>Disclaimer:</strong><br>
-                        <strong>This site complies with DMCA Digital Copyright Laws.</strong> Please bear in mind that we do
-                        not
-                        own
-                        copyrights to
-                        this book. We are not hosting any copyrighted contents on our servers, it’s a catalog of
-                        links
-                        that
-                        already found on the internet. <br><strong>pdfsbooks.com</strong> doesn’t have any material hosted
-                        on
-                        the
-                        server of this
-                        page, only links to books that are taken from other sites on the web are published and these links
-                        are
-                        unrelated to the book server.<br> Moreover <strong>pdfsbooks.com</strong> server does not store any
-                        type
-                        of
-                        book, guide,
-                        software, or images. No illegal copies are made or any copyright © and / or copyright is damaged or
-                        infringed since all material is free on the internet. If you feel that we have
-                        violated your copyrights, then please contact us immediately. <br>We’re sharing this with our
-                        audience
-                        ONLY
-                        for
-                        educational purpose and we highly encourage our visitors to purchase original licensed
-                        Books.
-                        If
-                        someone with copyrights wants us to remove this Book, please contact us. immediately.
+
+                    <x-adsense />
+                    <x-related-post :book='$book' />
+                    @if (($book->download_link || $book->download_link2 || $book->download_link3) && $book->paid_download_link)
+                        <div class="disclaimer form">
+                            <strong>Disclaimer:</strong><br>
+                            <strong>This site complies with DMCA Digital Copyright Laws.</strong> Please bear in mind
+                            that
+                            we do
+                            not
+                            own
+                            copyrights to
+                            this book. We are not hosting any copyrighted contents on our servers, it’s a catalog of
+                            links
+                            that
+                            already found on the internet. <br><strong>pdfsbooks.com</strong> doesn’t have any material
+                            hosted
+                            on
+                            the
+                            server of this
+                            page, only links to books that are taken from other sites on the web are published and these
+                            links
+                            are
+                            unrelated to the book server.<br> Moreover <strong>pdfsbooks.com</strong> server does not
+                            store
+                            any
+                            type
+                            of
+                            book, guide,
+                            software, or images. No illegal copies are made or any copyright © and / or copyright is
+                            damaged
+                            or
+                            infringed since all material is free on the internet. If you feel that we have
+                            violated your copyrights, then If
+                            someone with copyrights wants us to remove this Book, please contact us. immediately.
+                            <br>We’re
+                            sharing this with our
+                            audience
+                            ONLY
+                            for
+                            educational purpose and we highly encourage our visitors to purchase original licensed
+                            Books.<br>
+                            <span class="text-red">
+                                Please don't use the free download link unless you can't afford this book and you need
+                                it for your education,
+                                otherwise please support the authors and buy this book form the paid link.
+                            </span>
+                        </div>
+                    @endif
+                    <div class="download-buttons">
+                        @if ($book->download_link || $book->download_link2 || $book->download_link3)
+                            <div class="download-button">
+                                <a href="{{ route('get.the.link', $book->slug) }}">Free Download
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
+                                        <g fill='#FFFFFF'>
+                                            <path
+                                                d="M11 5.8c0 .4.1.7.4.9L16 11c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.6-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9l-6.8-6.2c-.8-.5-2.1.1-2.1 1.1zM3 5.8c0 .4.1.7.4.9L8 11.1c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.5-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9L5.1 4.9c-.8-.7-2.1-.1-2.1.9z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        @endif
+                        @if ($book->paid_download_link)
+                            <div class="download-button amazon">
+                                <a href="{{ $book->paid_download_link }}" target="_blank"
+                                    title="Amazon {{ $book->title }}">Paid Download
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
+                                        <g fill='#FFFFFF'>
+                                            <path
+                                                d="M11 5.8c0 .4.1.7.4.9L16 11c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.6-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9l-6.8-6.2c-.8-.5-2.1.1-2.1 1.1zM3 5.8c0 .4.1.7.4.9L8 11.1c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.5-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9L5.1 4.9c-.8-.7-2.1-.1-2.1.9z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        @endif
                     </div>
-                    <div class="note">
+                    <div class="form">
                         <p>
                             If you have any troubles while downloading, Please visit <a class="text-decoration-underline"
                                 href="{{ route('how.to.download') }}">How to
@@ -233,21 +267,6 @@ if ($book->draft == 0) {
                             "EPUB" OR "MOBI" FORMAT DON'T DOWNLOAD
                             ANYTHING LIKE "EXE" OR "APK" OR ANY OTHER FORMAT</p>
                     </div>
-                    <x-adsense />
-                    <x-related-post :book='$book' />
-                    @if ($book->draft == 0)
-                        <div class="download-button">
-                            <a href="{{ route('get.the.link', $book->slug) }}">Free Download
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
-                                    <g fill='#FFFFFF'>
-                                        <path
-                                            d="M11 5.8c0 .4.1.7.4.9L16 11c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.6-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9l-6.8-6.2c-.8-.5-2.1.1-2.1 1.1zM3 5.8c0 .4.1.7.4.9L8 11.1c.5.5.5 1.4 0 1.9l-4.6 4.3c-.3.2-.4.5-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9L5.1 4.9c-.8-.7-2.1-.1-2.1.9z">
-                                        </path>
-                                    </g>
-                                </svg>
-                            </a>
-                        </div>
-                    @endif
                     <x-kindle />
                     <div>
                         <x-newsletter />
