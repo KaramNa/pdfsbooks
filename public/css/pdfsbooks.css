@@ -715,6 +715,30 @@ label {
     margin-top: 30px;
 }
 
+.landing .follow-section .social {
+    margin-bottom: 15px;
+}
+
+.landing .follow-section .social .facebook {
+    color: #1877f2;
+}
+
+.landing .follow-section .social .telegram {
+    color: #0088cc;
+}
+
+.landing .follow-section .social .twitter {
+    color: #1da1f2;
+}
+
+.landing .follow-section .social .instagram {
+    color: #c32aa3;
+}
+
+.landing .follow-section .social .pinterest {
+    color: #bd081c;
+}
+
 .landing .share-section {
     margin-top: 70px;
 }
@@ -781,6 +805,10 @@ label {
     font-size: 40px;
 }
 
+.social.share-link ul li a {
+    width: auto;
+}
+
 .join-button {
     color: #fff;
     font-size: 15px;
@@ -811,29 +839,14 @@ label {
     padding-left: 0;
 }
 
-.telegram-button {
-    padding: 3px 10px;
-}
-
-.facebook-button {
-    padding: 5.5px 15px;
-    margin-right: 0;
-}
-
 .newsletter-button {
     padding: 5px 10px;
-    background: #ff5400;
-}
-
-.telegram-button:hover,
-.facebook-button:hover {
-    background: var(--main-color-alt);
+    background: var(--main-color);
     color: #fff;
 }
 
 .newsletter-button:hover {
-    background: #ffc460;
-    color: #fff;
+    background: var(--main-color-alt);
 }
 
 .join-us {
@@ -843,9 +856,6 @@ label {
 }
 
 @media (max-width: 767px) {
-    .telegram-button {
-        padding: 5.5px 10px;
-    }
     .sharing-is-caring {
         display: block;
     }
@@ -853,7 +863,6 @@ label {
 
 .go-to-newsletter {
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -930,7 +939,7 @@ label {
 }
 
 .facebook:hover {
-    color: #4f95f0;
+    color: #1877f2;
 }
 
 .twitter {
@@ -1229,6 +1238,10 @@ a.tag:hover,
     width: 280px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.single-book .left-section .share-section h3 {
+    margin-bottom: 0;
 }
 
 .single-book .left-section>div:nth-child(1) {
@@ -1643,7 +1656,7 @@ a.tag:hover,
     font-size: 35px;
     color: #bd081c;
     font-weight: bold;
-    animation: blinking-arrow .2s linear infinite;
+    animation: blinking-arrow 0.2s linear infinite;
 }
 
 .scroll-down {
@@ -2014,23 +2027,17 @@ a.tag:hover,
     margin: 0 0 20px;
 }
 
-.footer .box .social {
+.social {
     display: flex;
 }
 
 @media (max-width: 767px) {
-    .footer .box .social {
+    .social {
         justify-content: center;
     }
 }
 
-.footer .box .social li {
-    margin-right: 10px;
-}
-
-.footer .box .social li a {
-    background-color: #313131;
-    color: #b9b9b9;
+.social li a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -2040,14 +2047,53 @@ a.tag:hover,
     transition: var(--main-transition);
 }
 
-.footer .box .social .facebook:hover {
-    background-color: #1877f2;
-    color: #fff;
+.footer .social li {
+    margin-right: 10px;
 }
 
-.footer .box .social .telegram:hover {
+.footer .social li a {
+    color: #b9b9b9;
+    background-color: #313131;
+}
+
+.social .facebook:hover {
+    background-color: #1877f2;
+    color: #fff !important;
+}
+
+.social .telegram:hover {
+    background-color: #0088cc;
+    color: #fff !important;
+}
+
+.social .twitter:hover {
     background-color: #1da1f2;
-    color: #fff;
+    color: #fff !important;
+}
+
+.social .instagram:hover {
+    background-color: #c32aa3;
+    color: #fff !important;
+}
+
+.social .pinterest:hover {
+    background-color: #bd081c;
+    color: #fff !important;
+}
+
+.social .whatsapp:hover {
+    background-color: #25d366;
+    color: #fff !important;
+}
+
+.social .reddit:hover {
+    background-color: #fa8459;
+    color: #fff !important;
+}
+
+.social .linkedin:hover {
+    background-color: #3a7ec1;
+    color: #fff !important;
 }
 
 .footer .box .text {
