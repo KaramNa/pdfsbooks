@@ -207,8 +207,7 @@ if ($book->draft == 0) {
                             damaged
                             or
                             infringed since all material is free on the internet. If you feel that we have
-                            violated your copyrights, then If
-                            someone with copyrights wants us to remove this Book, please contact us. immediately.
+                            violated your copyrights, and you want us to remove this Book, please contact us. immediately.
                             <br>We’re
                             sharing this with our
                             audience

@@ -173,7 +173,21 @@ class AddBookController extends Controller
                 } catch (\Throwable $e) {
                     $image = '';
                 }
-
+                $nextPageLink = $response->selectLink('this mirror')->link();
+                $nextPage = $httpClient->click($nextPageLink);
+                $donwload_links = $nextPage->evaluate('//div[@id="download"]//ul//li//a');
+                $tempCount = 0;
+                foreach ($donwload_links as $d) {
+                    if ($tempCount == 0)
+                        $free1 = $d->attributes[0]->value;
+                    else if ($tempCount == 1)
+                        $free2 = $d->attributes[0]->value;
+                    else
+                        break;
+                    $tempCount++;
+                }
+                $details["link1"] = $free1;
+                $details["link2"] = $free2;
                 $details["title"] = $title;
                 $details["description"] = $description;
                 $details["publisher"] = $publisher;

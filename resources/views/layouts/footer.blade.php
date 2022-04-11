@@ -74,7 +74,7 @@
         </svg> By PDFsBooks Team<br>All rights reserved PDFsBOOKs &copy; 2022</p>
 </div>
 
-
+{{-- 
 <script>
     try {
         var url = "https://pdfsbooks.com" + location.pathname;
@@ -150,7 +150,7 @@ Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcou
 {{-- <div class="ads d-none" onclick="hideAds()">
     <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2052289648779673"
         crossorigin="anonymous"></script>
-</div> --}}
+</div> --}} --}}
 </body>
 
 </html>
