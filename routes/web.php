@@ -14,6 +14,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RssFeedController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheatSheetController;
 use App\Http\Controllers\DCMAController;
 use App\Http\Controllers\OrderBookController;
 use App\Http\Controllers\SingleBookController;
@@ -25,6 +26,7 @@ Route::middleware('blackList')->group(function () {
     Route::get('/', [BooksController::class, 'index'])->name('home');
 
     Route::get('/book/{slug}', [SingleBookController::class, 'index'])->name('single.book');
+    Route::get('/cheatsheets', [CheatSheetController::class, 'index'])->name('cheatsheets');
 
     Route::get('/how-to-download', [BooksController::class, 'howToDowload'])->name('how.to.download');
     Route::get('/eBook-digital-formats', [BooksController::class, 'ebooksFormats'])->name('ebooks.formats');
