@@ -114,20 +114,22 @@
         <button class="flashcard-close" onclick="closeFlashCard()">X</button>
     </div>
     <p class="falshcard-text">We have a new section on our website that might interest you.</p>
-    <a class="take-me-there" href="https://pdfsbooks.com/cheatsheets">Take me there</a>
+    <button class="take-me-there" onclick="closeFlashCard(true)">Take me there</button>
 </div>
 <script defer>
     var falshcard = new Date().getHours();
 
     var prevDate = localStorage.getItem("falshcard");
-    if (!prevDate || prevDate <  new Date().getHours()) {
+    if (!prevDate || prevDate < new Date().getHours()) {
         document.getElementsByClassName('flashcard')[0].classList.remove('hidden');
-        };
+    };
 
-        function closeFlashCard() {
-            document.getElementsByClassName('flashcard')[0].classList.add('hidden');
-            localStorage.setItem("falshcard", falshcard);
-        }
+    function closeFlashCard(take_me_there = false) {
+        document.getElementsByClassName('flashcard')[0].classList.add('hidden');
+        localStorage.setItem("falshcard", falshcard);
+        if (take_me_there)
+            window.location.href = "https://pdfsbooks.com/cheatsheets";
+    }
 </script>
 <script>
     try {
