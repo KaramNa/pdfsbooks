@@ -350,6 +350,54 @@ label {
     margin-right: auto;
 }
 
+.hidden {
+    display: none;
+}
+
+
+/* start falsh card */
+
+.flashcard {
+    width: 350px;
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+    box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+    padding: 30px;
+    border-radius: 6px;
+}
+
+.falshcard-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flashcard-close {
+    line-height: 50px;
+    padding: 5px 10px;
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 20px;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.take-me-there {
+    padding: 10px;
+    background: var(--main-color);
+    margin: 20px auto;
+    display: block;
+    width: 120px;
+    color: #fff;
+    border-radius: 6px;
+}
+
+
+/* end falsh card */
+
 
 /* scrollbar */
 

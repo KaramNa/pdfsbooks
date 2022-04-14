@@ -106,9 +106,29 @@
                 <path d="M18,4c-4-1-6,3-6,3s-2-4-6-3s-4,6-2,8l8,8l8-8C22,10,22,5,18,4z"></path>
             </g>
         </svg> By PDFsBooks Team<br>All rights reserved PDFsBOOKs &copy; 2022</p>
+
 </div>
+<div class="flashcard hidden">
+    <div class="falshcard-header">
+        <h3 class="flashcard-title">New Section</h3>
+        <button class="flashcard-close" onclick="closeFlashCard()">X</button>
+    </div>
+    <p class="falshcard-text">We have a new section on our website that might interest you.</p>
+    <a class="take-me-there" href="https://pdfsbooks.com/cheatsheets">Take me there</a>
+</div>
+<script defer>
+    var falshcard = new Date().getHours();
 
+    var prevDate = localStorage.getItem("falshcard");
+    if (!prevDate || prevDate <  new Date().getHours()) {
+        document.getElementsByClassName('flashcard')[0].classList.remove('hidden');
+        };
 
+        function closeFlashCard() {
+            document.getElementsByClassName('flashcard')[0].classList.add('hidden');
+            localStorage.setItem("falshcard", falshcard);
+        }
+</script>
 <script>
     try {
         var url = "https://pdfsbooks.com" + location.pathname;

@@ -127,6 +127,8 @@
 }
 
 .cheatsheet .download-button {
+    border: 0;
+    vertical-align: middle;
     border-radius: 6px;
     background: var(--main-color);
     padding: 20px;
@@ -135,4 +137,5 @@
     font-weight: 600;
     margin: 50px 0;
     display: inline-block;
+    cursor: pointer;
 }
