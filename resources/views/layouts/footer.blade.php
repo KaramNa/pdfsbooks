@@ -116,6 +116,14 @@
     <p class="falshcard-text">We have a new section on our website that might interest you.</p>
     <button class="take-me-there" onclick="closeFlashCard(true)">Take me there</button>
 </div>
+{{-- <div class="falshcard">
+    <div class="falshcard-header">
+        <h3 class="flashcard-title">New Section</h3>
+        <button class="flashcard-close" onclick="closeFlashCard()">X</button>
+    </div>
+    <p class="falshcard-text">Join us on Telegram to get our special offers</p>
+    <button class="take-me-there" onclick="closeFlashCard(true)">Join Us</button>
+</div> --}}
 <script defer>
     var falshcard = new Date().getHours();
 
