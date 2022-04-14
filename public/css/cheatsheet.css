@@ -1,0 +1,138 @@
+/* index page */
+
+.all-subjects .subject_link {
+    border-top: 5px solid #666;
+    display: block;
+    color: #fff;
+    text-shadow: 1px 1px 3px #666;
+    text-align: center;
+    background: #888;
+    background: linear-gradient(#2196f3, #0bafff);
+    padding: 25px 0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.all-subjects .subject_link i {
+    margin-bottom: 15px;
+}
+
+.all-subjects .subject_link:active,
+.all-subjects .subject_link:hover {
+    background: #2196f3;
+    background: linear-gradient(#ff9640, #f38630);
+}
+
+.all-subjects .subject {
+    float: left;
+    width: 30%;
+    margin-right: 2%;
+}
+
+.all-subjects .title {
+    margin: 50px 0 100px;
+}
+
+.clear {
+    clear: both;
+}
+
+
+/* single subject */
+
+.cs.search-form {
+    padding: 50px 20px;
+    flex: 1;
+}
+
+.cheatsheet.filters {
+    display: flex;
+}
+
+.cheatsheet.filters .download-button {
+    display: block;
+    height: 55px;
+    padding: 10px;
+}
+
+.cheatsheet-cover {
+    height: 420px;
+    padding: 30px;
+    border-bottom: 1px solid #e6e6e7;
+}
+
+.cheatsheet-subtitle {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #888;
+}
+
+.main-content .cheatsheets .box {
+    width: 350px;
+}
+
+.show-more {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.cheatsheets .content h5 {
+    margin: 5px 0!important;
+}
+
+
+/* Cheatsheet Page */
+
+.cheatsheet .title {
+    margin-top: 50px;
+}
+
+.cheatsheet .subtitle {
+    margin-bottom: 50px;
+    color: #666;
+}
+
+.cheatsheet .subject {
+    color: #666;
+    background-color: #eaeaea;
+    padding: 7px;
+    font-size: 17px;
+}
+
+.cheatsheet .tag {
+    color: #666;
+    padding: 7px;
+    font-size: 17px;
+}
+
+.cheatsheet .date {
+    color: #666;
+    background-color: #eaeaea;
+    padding: 7px;
+    font-size: 17px;
+}
+
+.cheatsheet .downloads {
+    color: #666;
+    padding: 7px;
+    font-size: 17px;
+}
+
+.cheatsheet .pages {
+    color: #666;
+    background-color: #eaeaea;
+    padding: 7px;
+    font-size: 17px;
+}
+
+.cheatsheet .download-button {
+    border-radius: 6px;
+    background: var(--main-color);
+    padding: 20px;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 600;
+    margin: 50px 0;
+    display: inline-block;
+}

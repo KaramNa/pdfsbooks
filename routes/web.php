@@ -26,7 +26,9 @@ Route::middleware('blackList')->group(function () {
     Route::get('/', [BooksController::class, 'index'])->name('home');
 
     Route::get('/book/{slug}', [SingleBookController::class, 'index'])->name('single.book');
-    Route::get('/cheatsheets', [CheatSheetController::class, 'index'])->name('cheatsheets');
+
+    Route::get('/cheatsheets', [CheatSheetController::class, 'index'])->name('cheatsheets.subject');
+    Route::get('/cheatsheets/{cheatsheet_slug}', [CheatSheetController::class, 'show'])->name('cheatsheets.cheatsheet');
 
     Route::get('/how-to-download', [BooksController::class, 'howToDowload'])->name('how.to.download');
     Route::get('/eBook-digital-formats', [BooksController::class, 'ebooksFormats'])->name('ebooks.formats');
@@ -48,11 +50,11 @@ Route::middleware('blackList')->group(function () {
 
     Route::get("/feed", [RssFeedController::class, "feed"])->name("rss.feed");
     Route::get("{category}/feed", [RssFeedController::class, "categoryFeed"])->name("rss.category.feed");
-    
+
     Route::get("/DCMA", [DCMAController::class, "show"])->name("dcma.show");
     Route::get("/DCMA-note", [DCMAController::class, "create"])->name("dcma.create");
     Route::post("/DCMA-note-store", [DCMAController::class, "store"])->name("dcma.store");
-    
+
     Route::get("/about-us", [BooksController::class, "about"])->name("about");
     Route::get("/privacy-policy", [BooksController::class, "privayPolicy"])->name("privay.policy");
 
@@ -107,9 +109,9 @@ Route::middleware('blackList')->group(function () {
 
         Route::post('/draft/{id}', [BooksController::class, 'draft'])->name('draft');
         Route::post('/publish/{id}', [BooksController::class, 'publish'])->name('publish');
-        
+
         Route::post('/telegram-notif/{id?}', [BooksController::class, 'sendTelegramNotif'])->name('telegram.notif');
-        
+
         Route::post('/publish-drafted-books', [DraftedBooksController::class, 'publish'])->name('publish.drafted.books');
         Route::post('/draft-publihsed-books', [DraftedBooksController::class, 'draft'])->name('draft.published.books');
 

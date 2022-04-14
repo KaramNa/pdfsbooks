@@ -168,7 +168,7 @@
                         @endif
                     @endforeach
                 </div>
-                <div>
+                {{-- <div>
                     <button onclick="showTags(this)" class="show-hide-tags-button">Show More</button>
                 </div>
                 <script>
@@ -183,7 +183,7 @@
 
                         }
                     }
-                </script>
+                </script> --}}
             </div>
         </div>
         <div class="container">

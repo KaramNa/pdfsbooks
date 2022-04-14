@@ -32,9 +32,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('storage/favicon/favicon-180x180.png') }}">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
-    @yield('style')
     <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/pdfsbooks.css?v=31') }}" rel="stylesheet">
+    <link href="{{ asset('css/pdfsbooks.css?v=32') }}" rel="stylesheet">
+    @yield('style')
     <script defer src="{{ asset('js/alpinejs.min.js') }}"></script>
     <script src="{{ asset('js/pdfsbooks.js') }}"></script>
 
@@ -66,6 +66,9 @@
                 </li>
                 <li>
                     <a class="free_books" href="/?free=free&{{ http_build_query(request()->except(['free','search','page','tag'])) }}">Free Books</a>
+                </li>
+                <li>
+                    <a href="{{ route('order.book') }}" class="blog-link">Cheat Sheets <x-new/></a>
                 </li>
                 <li>
                     <a href="{{ route('order.book') }}">Suggest a book</a>

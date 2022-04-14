@@ -351,6 +351,30 @@ label {
 }
 
 
+/* scrollbar */
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e85c41;
+}
+
+
+/* end scrollbar */
+
+
 /* Small */
 
 @media (min-width: 768px) {
@@ -425,7 +449,7 @@ label {
     height: auto !important;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 992px) {
     .header .main-nav {
         height: 0;
         display: block;
@@ -452,7 +476,7 @@ label {
     height: 70px;
     position: relative;
     color: black;
-    padding: 0 30px;
+    padding: 0 25px;
     overflow: hidden;
     font-size: 16px;
     transition: var(--main-transition);
@@ -461,7 +485,7 @@ label {
 
 @media (max-width: 1200px) {
     .header .main-nav>li>a {
-        padding: 0 20px;
+        padding: 0 16px;
         height: 90px;
     }
 }
@@ -1070,7 +1094,8 @@ a.tag:hover,
     background-color: #efefef;
 }
 
-.main-content .books {
+.main-content .books,
+.main-content .cheatsheets {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -1078,8 +1103,8 @@ a.tag:hover,
 }
 
 .show-less {
-    overflow: hidden;
-    max-height: 85px;
+    overflow-y: scroll;
+    max-height: 200px;
 }
 
 .show-hide-tags-button {
