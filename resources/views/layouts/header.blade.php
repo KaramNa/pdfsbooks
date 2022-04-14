@@ -68,7 +68,7 @@
                     <a class="free_books" href="/?free=free&{{ http_build_query(request()->except(['free','search','page','tag'])) }}">Free Books</a>
                 </li>
                 <li>
-                    <a href="{{ route('order.book') }}" class="blog-link">Cheat Sheets <x-new/></a>
+                    <a href="{{ route('cheatsheets.subject') }}" class="blog-link">Cheat Sheets <x-new/></a>
                 </li>
                 <li>
                     <a href="{{ route('order.book') }}">Suggest a book</a>
