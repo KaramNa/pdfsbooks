@@ -10,7 +10,7 @@
 
 @section('page_url', \Request::fullUrl())
 @section('style')
-    <link href="{{ asset('css/cheatsheet.css?v=1') }}" rel="stylesheet">
+    <link href="{{ asset('css/cheatsheet.css?v=2') }}" rel="stylesheet">
 @stop
 @section('content')
     <div class=" cheatsheet container">
