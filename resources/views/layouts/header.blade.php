@@ -33,7 +33,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('storage/favicon.png') }}">
     <link rel="apple-touch-icon" sizes="100x100" href="{{ asset('storage/favicon.png') }}">
     <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/pdfsbooks.css?v=34') }}" rel="stylesheet">
+    <link href="{{ asset('css/pdfsbooks.css?v=35') }}" rel="stylesheet">
     @yield('style')
     <script defer src="{{ asset('js/alpinejs.min.js') }}"></script>
     <script src="{{ asset('js/pdfsbooks.js') }}"></script>

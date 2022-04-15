@@ -848,7 +848,7 @@ label {
 
 @media (max-width: 992px) {
     .landing .go-down {
-        bottom: 30px;
+        bottom: 15px;
     }
 }
 
@@ -863,6 +863,10 @@ label {
 .blog {
     color: var(--main-color);
     font-size: 1.4rem;
+}
+
+#social-links {
+    margin: 0 auto;
 }
 
 #social-links ul {
@@ -932,6 +936,10 @@ label {
     .sharing-is-caring {
         display: block;
     }
+}
+
+.go-to-newsletter a {
+    margin: 0 auto;
 }
 
 .go-to-newsletter {
@@ -2103,6 +2111,7 @@ a.tag:hover,
 
 .social {
     display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 767px) {

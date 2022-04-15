@@ -125,10 +125,11 @@
     <button class="take-me-there" onclick="closeFlashCard(true)">Join Us</button>
 </div> --}}
 <script defer>
-    var falshcard = new Date().getHours();
+    var nowDate = new Date();
+    var falshcard = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
 
-    var prevDate = localStorage.getItem("falshcard");
-    if (!prevDate || prevDate < new Date().getHours()) {
+    var prevflashDate = localStorage.getItem("falshcard");
+    if (!prevDate || prevflashDate != falshcard ) {
         document.getElementsByClassName('flashcard')[0].classList.remove('hidden');
     };
 
