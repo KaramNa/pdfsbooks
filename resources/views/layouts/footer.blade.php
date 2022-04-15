@@ -129,7 +129,7 @@
     var falshcard = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
 
     var prevflashDate = localStorage.getItem("falshcard");
-    if (!prevDate || prevflashDate != falshcard ) {
+    if (!prevflashDate || prevflashDate != falshcard ) {
         document.getElementsByClassName('flashcard')[0].classList.remove('hidden');
     };
 
