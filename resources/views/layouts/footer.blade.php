@@ -108,7 +108,7 @@
         </svg> By PDFsBooks Team<br>All rights reserved PDFsBOOKs &copy; 2022</p>
 
 </div>
-<div class="flashcard hidden">
+<div id="flashcard" class="flashcard hidden">
     <div class="falshcard-header">
         <h3 class="flashcard-title">New Section</h3>
         <button class="flashcard-close" onclick="closeFlashCard()">X</button>
@@ -116,28 +116,44 @@
     <p class="falshcard-text">We have a new section on our website that might interest you.</p>
     <button class="take-me-there" onclick="closeFlashCard(true)">Take me there</button>
 </div>
-{{-- <div class="falshcard">
+<div id="telegramFlashCard" class="flashcard hidden">
     <div class="falshcard-header">
-        <h3 class="flashcard-title">New Section</h3>
-        <button class="flashcard-close" onclick="closeFlashCard()">X</button>
+        <h3 class="flashcard-title">Remember</h3>
+        <button class="flashcard-close" onclick="closeTelegramFlashCard(this)">X</button>
     </div>
-    <p class="falshcard-text">Join us on Telegram to get our special offers</p>
-    <button class="take-me-there" onclick="closeFlashCard(true)">Join Us</button>
-</div> --}}
+    <p class="falshcard-text">Join us on Telegram to get our special free offers</p>
+    <button class="take-me-there" onclick="closeFlashCard(true)">Join Us Now</button>
+</div>
 <script defer>
     var nowDate = new Date();
     var falshcard = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
 
     var prevflashDate = localStorage.getItem("falshcard");
-    if (!prevflashDate || prevflashDate != falshcard ) {
-        document.getElementsByClassName('flashcard')[0].classList.remove('hidden');
+    if (!prevflashDate || prevflashDate != falshcard) {
+        document.getElementById('flashcard').classList.remove('hidden');
     };
 
     function closeFlashCard(take_me_there = false) {
-        document.getElementsByClassName('flashcard')[0].classList.add('hidden');
+        document.getElementById('flashcard').classList.add('hidden');
         localStorage.setItem("falshcard", falshcard);
         if (take_me_there)
             window.location.href = "https://pdfsbooks.com/cheatsheets";
+    }
+
+    var telegramFalshcard = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
+
+    var prevTelegramFlashDate = localStorage.getItem("telegramFalshcard");
+
+    setTimeout(function() {
+        if (!prevTelegramFlashDate || prevTelegramFlashDate != falshcard) {
+            document.getElementById('telegramFlashCard').classList.remove('hidden');
+        };
+    }, 5000);
+
+    function closeTelegramFlashCard(button) {
+        document.getElementById('telegramFlashCard').classList.add('hidden');
+        localStorage.setItem("telegramFalshcard", telegramFalshcard);
+
     }
 </script>
 <script>

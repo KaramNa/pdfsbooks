@@ -367,6 +367,7 @@ label {
     box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
     padding: 30px;
     border-radius: 6px;
+    transition: all 1s;
 }
 
 .falshcard-header {
@@ -394,6 +395,10 @@ label {
     color: #fff;
     border-radius: 6px;
     cursor: pointer;
+}
+
+#flashcard .take-me-there {
+    background: #c533a6;
 }
 
 
