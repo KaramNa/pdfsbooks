@@ -122,7 +122,7 @@
         <button class="flashcard-close" onclick="closeTelegramFlashCard(this)">X</button>
     </div>
     <p class="falshcard-text">Join us on Telegram to get our special free offers</p>
-    <button class="take-me-there" onclick="closeFlashCard(true)">Join Us Now</button>
+    <a class="take-me-there" href="https://t.me/e_pdfsbooks" target="_blank">Join Us Now</a>
 </div>
 <script defer>
     var nowDate = new Date();
@@ -150,10 +150,9 @@
         };
     }, 5000);
 
-    function closeTelegramFlashCard(button) {
+    function closeTelegramFlashCard() {
         document.getElementById('telegramFlashCard').classList.add('hidden');
         localStorage.setItem("telegramFalshcard", telegramFalshcard);
-
     }
 </script>
 <script>
