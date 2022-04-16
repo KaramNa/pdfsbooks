@@ -31,7 +31,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () use ($book) {
             $book->notify(new BookPublished());
             $book->delete();
-        })->everyMinute();
+        })->everyTwoHours();
     }
 
     /**

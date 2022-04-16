@@ -90,7 +90,6 @@ class BooksController extends Controller
 
     public function sendTelegramNotif(Request $request)
     {
-        dd($request->id);
         $book = Book::findOrFail($request->id);
         if (TelegramNotification::where("title", $book->title)->first())
             return response()->json(['failed' => 'The book is already in Telegram notification queue']);
