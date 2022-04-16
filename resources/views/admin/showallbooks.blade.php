@@ -5,46 +5,46 @@
 @section('content')
     {{-- Setup data for datatables --}}
     <div class="container">
-        <div class="alert alert-success alert-dismissible fade show d-none mt-3" role="alert">
+        <div class="alert alert-dismissible fade show d-none mt-3" role="alert">
             <span class="text-white"></span>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         @php
-            $heads = ['id', 'Title', 'Status','Publisher', ['label' => 'Actions', 'no-export' => true, 'width' => 5]];
+            $heads = ['id', 'Title', 'Status', 'Publisher', ['label' => 'Actions', 'no-export' => true, 'width' => 5]];
             $data = [];
             foreach ($books as $book) {
                 $btnEdit = '<a href="' . route('edit.book', $book->id) . '" class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit"><i class="fa fa-lg fa-fw fa-pen"></i></a>';
                 $btnTelegram = '<button class="btn btn-xs btn-default text-blue mx-1 shadow" title="Telegram Notification" onclick="showTelegramModal(' . $book->id . ')"><i class="fab fa-lg fab fa-telegram"></i></button>';
                 $btnDetails =
                     '<a href="' .
-                    route('single.book', $book->slug) .
-                    '" class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details" target="_blank">
-                      <i class="fa fa-lg fa-fw fa-eye"></i></a>';
+            route('single.book', $book->slug) .
+            '" class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details" target="_blank">
+                              <i class="fa fa-lg fa-fw fa-eye"></i></a>';
                 $btnDelete = '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete" onclick="showDeleteModal(' . $book->id . ')"><i class="fa fa-lg fa-fw fa-trash"></i></button>';
                 if ($book->draft == 1) {
                     $btnDraft = '';
                     $btnPublish =
                         '<form action="' .
-                        route('publish', $book->id) .
-                        '" method="post" class="d-inline">
-                                                                                                                                                                                    <input type="hidden" name="_token" value="' .
-                        csrf_token() .
-                        '">
-                        <button class="btn btn-xs btn-default text-info mx-1 shadow" title="Publish" type="submit" name="publishForm">
-                        <i class="fa fa-lg fas fa-upload"></i></button>
-                        </form>';
+                route('publish', $book->id) .
+                '" method="post" class="d-inline">
+                                                                                                                                                                                            <input type="hidden" name="_token" value="' .
+                csrf_token() .
+                '">
+                                <button class="btn btn-xs btn-default text-info mx-1 shadow" title="Publish" type="submit" name="publishForm">
+                                <i class="fa fa-lg fas fa-upload"></i></button>
+                                </form>';
                 } else {
                     $btnPublish = '';
                     $btnDraft =
                         '<form action="' .
-                        route('draft', $book->id) .
-                        '" method="post" class="d-inline">
-                                                                                                                                                                                <input type="hidden" name="_token" value="' .
-                        csrf_token() .
-                        '"><button class="btn btn-xs btn-default text-cyan mx-1 shadow" title="Draft" type="submit" name="draftForm">
-                         <i class="fa fa-lg fas fa-eye-slash"></i></button></form>';
+                route('draft', $book->id) .
+                '" method="post" class="d-inline">
+                                                                                                                                                                                        <input type="hidden" name="_token" value="' .
+                csrf_token() .
+                '"><button class="btn btn-xs btn-default text-cyan mx-1 shadow" title="Draft" type="submit" name="draftForm">
+                                 <i class="fa fa-lg fas fa-eye-slash"></i></button></form>';
                 }
                 $record = [$book->id, $book->title, $book->draft == 1 ? 'Drafted' : 'Published', $book->publisher, '<nobr>' . $btnDraft . $btnPublish . $btnEdit . $btnDelete . $btnDetails . $btnTelegram . '</nobr>'];
                 array_push($data, $record);
@@ -52,7 +52,7 @@
             $config = [
                 'data' => $data,
                 'order' => [[0, 'DESC']],
-                'columns' => [null, null, null,null, ['orderable' => false]],
+                'columns' => [null, null, null, null, ['orderable' => false]],
             ];
         @endphp
         {{-- Compressed with style options / fill data using the plugin config --}}
@@ -91,7 +91,7 @@
 
             function showTelegramModal(id) {
                 $("#telegramModal").modal("show");
-                $("#telegram_button").val(id);  
+                $("#telegram_button").val(id);
             }
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -110,7 +110,17 @@
                     success: function(response) {
                         if (response) {
                             $("#telegramModal").modal("hide");
-                            $('.alert>span').text(response.success);
+                            if (response.success){
+                                $('.alert>span').text(response.success);
+                                $('.alert').removeClass('alert-danger');
+                                $('.alert').addClass('alert-success');
+                            }
+                                
+                            if (response.failed){
+                                $('.alert>span').text(response.failed);
+                                $('.alert').removeClass('alert-success');
+                                $('.alert').addClass('alert-danger');
+                            }
                             $('.alert').removeClass('d-none');
                         }
                     },

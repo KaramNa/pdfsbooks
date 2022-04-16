@@ -8,7 +8,7 @@ use App\Models\Book;
 use GuzzleHttp\Client;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Notifications\BookPublished;
+use App\Models\TelegramNotification;
 
 class BooksController extends Controller
 {
@@ -90,9 +90,16 @@ class BooksController extends Controller
 
     public function sendTelegramNotif(Request $request)
     {
+        dd($request->id);
         $book = Book::findOrFail($request->id);
-        $book->notify(new BookPublished());
-        return response()->json(['success' => 'Telegram notification has been sent']);
+        if (TelegramNotification::where("title", $book->title)->first())
+            return response()->json(['failed' => 'The book is already in Telegram notification queue']);
+        TelegramNotification::create([
+            "poster" => $book->poster,
+            "title" => $book->title,
+            "slug" => $book->slug,
+        ]);
+        return response()->json(['success' => 'The book has been added to Telegram notification queue']);
     }
     public function howToDowload()
     {

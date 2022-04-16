@@ -6,8 +6,9 @@ use Image;
 use Goutte\Client;
 use App\Models\Book;
 use App\Models\Category;
-use App\Notifications\BookPublished;
 use Illuminate\Support\Str;
+use App\Models\TelegramNotification;
+use App\Notifications\BookPublished;
 
 class AddBookController extends Controller
 {
@@ -55,8 +56,14 @@ class AddBookController extends Controller
                 $attributes["poster"] = request("image_url");
             $attributes["PDF_size"] .= " MB";
             if ($book = Book::create($attributes)) {
-                if (request("telegram_notif"))
-                    $book->notify(new BookPublished());
+                if (request("telegram_notif")){
+                    TelegramNotification::create([
+                        "poster" => $book->poster,
+                        "title" => $book->title,
+                        "slug" => $book->slug,
+                    ]);
+                }
+                // $book->notify(new BookPublished());
                 return back()->with("success", "Book has been added. <a href='https://pdfsbooks.com/book/"
                     . $slug . "' target='_blank'>Book link</a>");
             }
