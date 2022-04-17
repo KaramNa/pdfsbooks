@@ -42,13 +42,13 @@ class BookPublished extends Notification
     {
         $image = \Storage::get('public' . substr($book->poster, 8));
         $interventionImage = \Image::make($image)->encode("png", 100);
-        $interventionImage->save('storage/tempImg.png');
-        $cover = 'storage/tempImg.png';
-        return TelegramFile::create()
-            ->to('@e_pdfsbooks')
-            ->content("Free Download available *Now*\n*" . $book->title . "*")
-            ->file($cover, 'photo')
-            ->button('Free Download', 'https://pdfsbooks.com/book/' . $book->slug);
+        $interventionImage->save('public/images/tempImg.png');
+        $cover = 'public/images/tempImg.png';
+        // return TelegramFile::create()
+        //     ->to('@e_pdfsbooks')
+        //     ->content("Free Download available *Now*\n*" . $book->title . "*")
+        //     ->file($cover, 'photo')
+        //     ->button('Free Download', 'https://pdfsbooks.com/book/' . $book->slug);
     }
 
     /**
