@@ -4,12 +4,8 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use NotificationChannels\Telegram\TelegramFile;
-use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Support\Facades\Storage;
 use NotificationChannels\Telegram\TelegramChannel;
-use NotificationChannels\Telegram\TelegramMessage;
 
 class BookPublished extends Notification
 {

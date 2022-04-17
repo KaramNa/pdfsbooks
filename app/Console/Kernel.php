@@ -27,11 +27,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $book = TelegramNotification::firstOrFail();
-        $schedule->call(function () use ($book) {
+        $schedule->call(function () {
+            $book = TelegramNotification::firstOrFail();
             $book->notify(new BookPublished());
             $book->delete();
-        })->everyTwoHours();
+        })->everyMinute();
     }
 
     /**
