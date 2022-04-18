@@ -4,6 +4,7 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Storage;
 use NotificationChannels\Telegram\TelegramFile;
 use NotificationChannels\Telegram\TelegramChannel;
 
@@ -40,15 +41,15 @@ class BookPublished extends Notification
      */
     public function toTelegram($book)
     {
-        $image = \Storage::get('public' . substr($book->poster, 8));
-        $interventionImage = \Image::make($image)->encode("png", 100);
-        $interventionImage->save('public/images/tempImg.png');
-        $cover = 'public/images/tempImg.png';
-        // return TelegramFile::create()
-        //     ->to('@e_pdfsbooks')
-        //     ->content("Free Download available *Now*\n*" . $book->title . "*")
-        //     ->file($cover, 'photo')
-        //     ->button('Free Download', 'https://pdfsbooks.com/book/' . $book->slug);
+        $image = 'public' .  substr($book->poster, 8);
+        if (Storage::exists('public/temptemp.jpg'))
+            Storage::delete('public/temptemp.jpg');
+        Storage::copy($image, 'public/temptemp.jpg');
+        return TelegramFile::create()
+            ->to('@e_pdfsbooks')
+            ->content("Free Download available *Now*\n*" . $book->title . "*")
+            ->file('public/storage/temptemp.jpg', 'photo')
+            ->button('Free Download', 'https://pdfsbooks.com/book/' . $book->slug);
     }
 
     /**
