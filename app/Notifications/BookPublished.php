@@ -49,7 +49,7 @@ class BookPublished extends Notification
         return TelegramFile::create()
             ->to('@e_pdfsbooks')
             ->content("Free Download available *Now*\n*" . $book->title . "*")
-            ->file('https://pdfsbooks.com/public/storage/telegram' . $time . '.jpg', 'photo')
+            ->file('https://pdfsbooks.com/public/storage/telegram/' . $time . '.jpg', 'photo')
             ->button('Free Download', 'https://pdfsbooks.com/book/' . $book->slug);
     }
 
