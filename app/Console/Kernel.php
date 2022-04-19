@@ -31,7 +31,7 @@ class Kernel extends ConsoleKernel
             $book = TelegramNotification::firstOrFail();
             $book->notify(new BookPublished());
             $book->delete();
-        })->everyMinute();
+        })->everyTwoHours();
     }
 
     /**
