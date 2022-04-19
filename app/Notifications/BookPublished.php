@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Storage;
 use NotificationChannels\Telegram\TelegramFile;
 use NotificationChannels\Telegram\TelegramChannel;
+use Illuminate\Support\Facades\File;
 
 class BookPublished extends Notification
 {
@@ -42,13 +43,13 @@ class BookPublished extends Notification
     public function toTelegram($book)
     {
         $image = 'public' .  substr($book->poster, 8);
-        if (Storage::exists('public/temptemp.jpg'))
-            Storage::delete('public/temptemp.jpg');
-        Storage::copy($image, 'public/temptemp.jpg');
+        $time = time();
+        File::cleanDirectory('public/storage/telegram');
+        Storage::copy($image, 'public/telegram/' . $time . '.jpg');
         return TelegramFile::create()
             ->to('@e_pdfsbooks')
             ->content("Free Download available *Now*\n*" . $book->title . "*")
-            ->file('public/storage/temptemp.jpg', 'photo')
+            ->file('https://pdfsbooks.com/public/storage/telegram' . $time . '.jpg', 'photo')
             ->button('Free Download', 'https://pdfsbooks.com/book/' . $book->slug);
     }
 
