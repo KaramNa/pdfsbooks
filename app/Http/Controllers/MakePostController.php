@@ -31,9 +31,9 @@ class MakePostController extends Controller
         $covers = json_decode($request->covers);
         $images = [];
         for ($i = 0; $i < count($covers); $i++) {
-            $url = substr($covers[$i], 22, strlen("https://pdfsbooks.com/public" . $covers[$i]));
+            $url = substr($covers[$i], 22, strlen($covers[$i]));
 
-            $images[$i] = file_get_contents($url);
+            $images[$i] = file_get_contents('https://pdfsbooks.com/public/' . $url);
         }
 
         if (count($images) == 1)
