@@ -58,13 +58,12 @@
                 @csrf
                 <div class="mt-3">
                     <label for="book_link" class="h6">Post Text:</label>
-                    <textarea type="text" id="post_text" name="post_text" class="form-control"></textarea>
+                    <textarea type="text" id="post_facebook_text" name="post_text" class="form-control"></textarea>
                 </div>
                 {{-- <div class="mt-3">
                     <label for="collection_url" class="h6">link:</label>
                     <input type="text" id="collection_url" name="collection_url" class="form-control">
                 </div> --}}
-                <input type="hidden" id="collage_name" name="collage_name">
                 <x-slot name="footerSlot">
                     <x-adminlte-button class="mr-auto" theme="primary" label="Send" type="button"
                         id="facebook_button" />
@@ -215,7 +214,7 @@
         $("#facebook_button").click(function(event) {
             event.preventDefault();
             // let url = $("#collection_url").val();
-            let post_text = $("#post_text").val();
+            let post_text = $("#post_facebook_text").val();
             let collage_name = $("#collage_name").val();
             let _token = $('meta[name="csrf-token"]').attr('content');;
             $.ajax({

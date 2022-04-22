@@ -41,7 +41,7 @@ class FacebookCollectionPost extends Notification
      */
     public function toFacebookPoster()
     {
-        return (new FacebookPosterPost($this->request->post_text));
+        return (new FacebookPosterPost($this->request->post_text))->withImage(url('https://pdfsbooks.com/public/storage/collage/' . $this->request->collage_name));
     }
 
     /**
