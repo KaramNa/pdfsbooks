@@ -39,9 +39,4 @@ return [
     'telegram-bot-api' => [
         'token' => env('TELEGRAM_BOT_TOKEN', 'YOUR BOT TOKEN HERE')
     ],
-
-    'facebook_poster' => [
-        'page_id' => env('FACEBOOK_PAGE_ID'),
-        'access_token' => env('FACEBOOK_ACCESS_TOKEN'),
-    ],
 ];
