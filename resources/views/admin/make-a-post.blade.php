@@ -1,6 +1,7 @@
 @extends("adminlte::page")
 
 @section('title', 'Make a post')
+@section('plugins.Select2', true)
 
 @section('content')
     <div class="container py-5">
@@ -61,9 +62,10 @@
         }
 
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+@stop
+@section('js')
     <script>
-        $('#tagsSelect').change(function(event) {
+        $('#tagsSelect').on("change", (function(event) {
             let tag = $('#tagsSelect').val();
             if (tag != "") {
                 $.ajax({
@@ -93,7 +95,7 @@
                     }
                 });
             }
-        });
+        }));
         var selectedCovers = [];
 
         function selectCover(element) {
@@ -186,6 +188,9 @@
                 }
             });
         });
+
+        $(document).on('select2:open', () => {
+            document.querySelector('.select2-search__field').focus();
+        });
     </script>
 @stop
-
