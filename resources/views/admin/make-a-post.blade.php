@@ -53,12 +53,12 @@
                 </x-slot>
             </x-adminlte-modal>
         </form>
-        <form id="facebookForm" action="#" method="post">
+        {{-- <form id="facebookForm" action="#" method="post">
             <x-adminlte-modal id="facebookModal" title="Post to Facebook">
                 @csrf
                 <div class="mt-3">
                     <label for="book_link" class="h6">Post Text:</label>
-                    <textarea type="text" id="post_facebook_text" name="post_text" class="form-control"></textarea>
+                    <textarea type="text" id="post_facebook_text" name="post_facebook_text" class="form-control"></textarea>
                 </div>
                 {{-- <div class="mt-3">
                     <label for="collection_url" class="h6">link:</label>
@@ -70,7 +70,7 @@
                     <x-adminlte-button theme="danger" label="Cancel" data-dismiss="modal" />
                 </x-slot>
             </x-adminlte-modal>
-        </form>
+        </form> --}}
 
     </div>
     <style>
@@ -210,7 +210,7 @@
             document.querySelector('.select2-search__field').focus();
         });
     </script>
-    <script>
+    {{-- <script>
         $("#facebook_button").click(function(event) {
             event.preventDefault();
             // let url = $("#collection_url").val();
@@ -248,5 +248,5 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 @stop

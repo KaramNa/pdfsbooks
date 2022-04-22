@@ -76,6 +76,6 @@ class MakePostController extends Controller
 
         $book->notify(new FacebookCollectionPost($request));
 
-        return response()->json(['success' => 'The book has been posted to Telegram']);
+        return response()->json(['success' => 'The book has been posted to Facebook']);
     }
 }
