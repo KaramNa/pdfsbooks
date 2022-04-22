@@ -210,43 +210,5 @@
             document.querySelector('.select2-search__field').focus();
         });
     </script>
-    {{-- <script>
-        $("#facebook_button").click(function(event) {
-            event.preventDefault();
-            // let url = $("#collection_url").val();
-            let post_text = $("#post_facebook_text").val();
-            let collage_name = $("#collage_name").val();
-            let _token = $('meta[name="csrf-token"]').attr('content');;
-            $.ajax({
-                url: "{{ route('make.facebook.post') }}",
-                type: "POST",
-                data: {
-                    _token: _token,
-                    post_text: post_text,
-                    collage_name: collage_name,
-                    // collection_url: url
-                },
-                success: function(response) {
-                    if (response) {
-                        $("#facebookModal").modal("hide");
-                        if (response.success) {
-                            $('.alert>span').text(response.success);
-                            $('.alert').removeClass('alert-danger');
-                            $('.alert').addClass('alert-success');
-                        }
-
-                        if (response.failed) {
-                            $('.alert>span').text(response.failed);
-                            $('.alert').removeClass('alert-success');
-                            $('.alert').addClass('alert-danger');
-                        }
-                        $('.alert').removeClass('d-none');
-                    }
-                },
-                error: function(error) {
-                    console.log(error);
-                }
-            });
-        });
-    </script> --}}
+   
 @stop
