@@ -54,6 +54,7 @@
             </x-adminlte-modal>
         </form>
 
+
     </div>
     <style>
         .selected-cover {
@@ -146,7 +147,7 @@
         }
 
         function showFacebookModal() {
-            $("#FacebookModal").modal("show");
+            $("#facebookModal").modal("show");
         }
     </script>
     <script>
@@ -167,7 +168,6 @@
                 },
                 success: function(response) {
                     if (response) {
-                        console.log(response);
                         $("#telegramModal").modal("hide");
                         if (response.success) {
                             $('.alert>span').text(response.success);
@@ -193,4 +193,5 @@
             document.querySelector('.select2-search__field').focus();
         });
     </script>
+   
 @stop
