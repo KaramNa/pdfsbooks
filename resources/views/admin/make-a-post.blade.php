@@ -53,6 +53,24 @@
                 </x-slot>
             </x-adminlte-modal>
         </form>
+        {{-- <form id="facebookForm" action="#" method="post">
+            <x-adminlte-modal id="facebookModal" title="Post to Facebook">
+                @csrf
+                <div class="mt-3">
+                    <label for="book_link" class="h6">Post Text:</label>
+                    <textarea type="text" id="post_facebook_text" name="post_facebook_text" class="form-control"></textarea>
+                </div>
+                {{-- <div class="mt-3">
+                    <label for="collection_url" class="h6">link:</label>
+                    <input type="text" id="collection_url" name="collection_url" class="form-control">
+                </div> --}}
+                <x-slot name="footerSlot">
+                    <x-adminlte-button class="mr-auto" theme="primary" label="Send" type="button"
+                        id="facebook_button" />
+                    <x-adminlte-button theme="danger" label="Cancel" data-dismiss="modal" />
+                </x-slot>
+            </x-adminlte-modal>
+        </form> --}}
 
 
     </div>

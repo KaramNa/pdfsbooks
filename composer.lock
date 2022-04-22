@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c46b3e481c8eb98c6504614ecb8de07f",
+    "content-hash": "3878ba5c8cc7d6174b5a5c21a14792cb",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1602,6 +1602,53 @@
                 "source": "https://github.com/jorenvh/laravel-share/tree/4.1.0"
             },
             "time": "2021-08-09T18:48:08+00:00"
+        },
+        {
+            "name": "laravel-notification-channels/facebook-poster",
+            "version": "5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-notification-channels/facebook-poster.git",
+                "reference": "7be24803328409cecf1fa629256d37f0b8597cb6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-notification-channels/facebook-poster/zipball/7be24803328409cecf1fa629256d37f0b8597cb6",
+                "reference": "7be24803328409cecf1fa629256d37f0b8597cb6",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.2",
+                "illuminate/notifications": "^8.0|^9.0",
+                "illuminate/support": "^8.0|^9.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3.3",
+                "phpunit/phpunit": "~9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\FacebookPoster\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahmed Ashraf",
+                    "email": "ahmed29329@gmail.com"
+                }
+            ],
+            "description": "Use notification to create posts on Facebook",
+            "support": {
+                "issues": "https://github.com/laravel-notification-channels/facebook-poster/issues",
+                "source": "https://github.com/laravel-notification-channels/facebook-poster/tree/5.1.0"
+            },
+            "time": "2022-01-26T10:38:05+00:00"
         },
         {
             "name": "laravel-notification-channels/telegram",
