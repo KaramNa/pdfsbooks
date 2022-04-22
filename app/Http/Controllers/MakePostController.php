@@ -75,8 +75,7 @@ class MakePostController extends Controller
         $book = TelegramNotification::firstOrFail();
 
         $book->notify(new FacebookCollectionPost($request));
-        return "yes";
 
-        // return response()->json(['success' => 'The book has been posted to Telegram']);
+        return response()->json(['success' => 'The book has been posted to Telegram']);
     }
 }
