@@ -132,7 +132,7 @@ Route::middleware('blackList')->group(function () {
         Route::post('/make-collage', [MakePostController::class, 'makeCollage'])->name('make.collage');
         Route::post('/make-telegram-post', [MakePostController::class, 'makeTelegramPost'])->name('make.telegram.post');
 
-        Route::get('/admin/make-facebook-post', [MakePostController::class, 'makeFacebookPost'])->name('make.facebook.post');
+        Route::post('/admin/make-facebook-post', [MakePostController::class, 'makeFacebookPost'])->name('make.facebook.post');
 
     });
 });
