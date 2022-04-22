@@ -8,7 +8,6 @@ use Tzsk\Collage\Facade\Collage;
 use App\Models\TelegramNotification;
 use App\Notifications\CollectionPublished;
 use App\Notifications\FacebookCollectionPost;
-use NotificationChannels\Telegram\TelegramFile;
 
 class MakePostController extends Controller
 {
@@ -63,7 +62,7 @@ class MakePostController extends Controller
 
     public function makeTelegramPost(Request $request)
     {
-        $book = TelegramNotification::firstOrFail();
+        $book = Book::firstOrFail();
 
         $book->notify(new CollectionPublished($request));
 
