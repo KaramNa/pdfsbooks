@@ -21,7 +21,8 @@
         "laravel/tinker": "^2.5",
         "mailchimp/marketing": "^3.0",
         "nicolaslopezj/searchable": "^1.13",
-        "stevebauman/location": "^6.2"
+        "stevebauman/location": "^6.2",
+        "tzsk/collage": "^6.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -7,7 +7,9 @@ use DOMDocument;
 use App\Models\Book;
 use GuzzleHttp\Client;
 use App\Models\Category;
+use App\Collage\FiveImage;
 use Illuminate\Http\Request;
+use Tzsk\Collage\Facade\Collage;
 use App\Models\TelegramNotification;
 
 class BooksController extends Controller
@@ -117,4 +119,5 @@ class BooksController extends Controller
     {
         return view("privacy-policy");
     }
+
 }

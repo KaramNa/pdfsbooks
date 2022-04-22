@@ -1,0 +1,94 @@
+<?php
+
+namespace App\Collage;
+
+use Closure;
+use Intervention\Image\Image;
+use Intervention\Image\ImageManagerStatic;
+use Tzsk\Collage\Contracts\CollageGenerator;
+
+class EightImage extends CollageGenerator
+{
+    /**
+     * @var Image
+     */
+    protected $canvas;
+
+    /**
+     * @param Closure $closure
+     *
+     * @return \Intervention\Image\Image
+     */
+    public function create($closure = null)
+    {
+        $this->check(8);
+
+        $height = $this->file->getHeight() - $this->file->getPadding();
+        $width = $this->file->getWidth() - $this->file->getPadding();
+
+        $this->canvas = ImageManagerStatic::canvas($width, $height);
+
+        $this->makeSelection($closure);
+
+        return ImageManagerStatic::canvas(
+            $this->file->getWidth(),
+            $this->file->getHeight(),
+            $this->file->getColor()
+        )->insert($this->canvas, 'center');
+    }
+
+    /**
+     * Process all images.
+     */
+    public function grid()
+    {
+        list($width, $height) = $this->getSmallSize();
+
+        $one = $this->images->get(0);
+        $this->canvas->insert($one->fit($width, $height), 'top-left');
+
+        $two = $this->images->get(1);
+        $this->canvas->insert($two->fit($width, $height), 'top-left', intval($this->file->getWidth() / 4));
+
+        $three = $this->images->get(2);
+        $this->canvas->insert($three->fit($width, $height), 'top-left', intval($this->file->getWidth() / 2));
+
+        $four = $this->images->get(3);
+        $this->canvas->insert($four->fit($width, $height), 'top-right');
+
+        $five = $this->images->get(4);
+        $this->canvas->insert($five->fit($width, $height), 'bottom-left');
+
+        $six = $this->images->get(5);
+        $this->canvas->insert($six->fit($width, $height), 'bottom-left', intval($this->file->getWidth() / 4));
+
+        $seven = $this->images->get(6);
+        $this->canvas->insert($seven->fit($width, $height), 'bottom-left', intval($this->file->getWidth() / 2));
+
+        $eight = $this->images->get(7);
+        $this->canvas->insert($eight->fit($width, $height), 'bottom-right');
+    }
+
+    /**
+     * @param Closure $closure
+     */
+    protected function makeSelection($closure = null)
+    {
+        if ($closure) {
+            call_user_func($closure, $this);
+        } else {
+            $this->grid();
+        }
+    }
+
+    /**
+     * @return array
+     */
+    protected function getSmallSize()
+    {
+        $width = $this->file->getWidth() / 4 - ceil($this->file->getPadding() * 0.75);
+        $height = $this->file->getHeight() / 2 - ceil($this->file->getPadding() * 0.75);
+
+        return [$width, $height];
+    }
+}

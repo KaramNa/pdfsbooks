@@ -19,6 +19,7 @@ use App\Http\Controllers\DCMAController;
 use App\Http\Controllers\OrderBookController;
 use App\Http\Controllers\SingleBookController;
 use App\Http\Controllers\DraftedBooksController;
+use App\Http\Controllers\MakePostController;
 use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\SearchResultsController;
 
@@ -124,5 +125,11 @@ Route::middleware('blackList')->group(function () {
         Route::post('/delete-country/{id?}', [BlackListController::class, 'deleteCountry'])->name('destroy.country');
         Route::post('/delete-ip-address/{id?}', [BlackListController::class, 'deleteIpAddress'])->name('destroy.ipAddress');
         Route::post('/admin/block-ip-address', [BlackListController::class, 'blockIpAddress'])->name('block.ipAddress');
+
+
+        Route::get('/admin/make-a-post', [MakePostController::class, 'index'])->name('make.post');
+        Route::get('/admin/get-books-covers/{tag?}', [MakePostController::class, 'getCovers'])->name('get.books.covers');
+        Route::post('/make-collage', [MakePostController::class, 'makeCollage'])->name('make.collage');
+        Route::post('/make-telegram-post', [MakePostController::class, 'makeTelegramPost'])->name('make.telegram.post');
     });
 });

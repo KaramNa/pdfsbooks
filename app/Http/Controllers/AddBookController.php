@@ -9,6 +9,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use App\Models\TelegramNotification;
 use App\Notifications\BookPublished;
+use PhpParser\Node\Expr\Throw_;
 
 class AddBookController extends Controller
 {
@@ -56,7 +57,7 @@ class AddBookController extends Controller
                 $attributes["poster"] = request("image_url");
             $attributes["PDF_size"] .= " MB";
             if ($book = Book::create($attributes)) {
-                if (request("telegram_notif")){
+                if (request("telegram_notif")) {
                     TelegramNotification::create([
                         "poster" => $book->poster,
                         "title" => $book->title,
@@ -158,7 +159,8 @@ class AddBookController extends Controller
                         $published = $value->nextSibling->textContent;
                     } elseif (str_contains($value->textContent, "Pages (biblio\\tech):")) {
                         $pages = $value->nextSibling->textContent;
-                        $pages = explode("\\", $pages)[0];
+                        $pages = explode("\\", $pages)[1];
+                        $pages = preg_replace('/[^0-9]/', '', $pages);
                     } elseif ($value->textContent == "Language:") {
                         $language = $value->nextSibling->textContent;
                     } elseif ($value->textContent == "Size:") {
@@ -180,18 +182,25 @@ class AddBookController extends Controller
                 } catch (\Throwable $e) {
                     $image = '';
                 }
-                $nextPageLink = $response->selectLink('this mirror')->link();
-                $nextPage = $httpClient->click($nextPageLink);
-                $donwload_links = $nextPage->evaluate('//div[@id="download"]//ul//li//a');
-                $tempCount = 0;
-                foreach ($donwload_links as $d) {
-                    if ($tempCount == 0)
-                        $free1 = $d->attributes[0]->value;
-                    else if ($tempCount == 1)
-                        $free2 = $d->attributes[0]->value;
-                    else
-                        break;
-                    $tempCount++;
+                try {
+                    $free1 = "";
+                    $free2 = "";
+                    $nextPageLink = $response->selectLink('this mirror')->link();
+                    $nextPage = $httpClient->click($nextPageLink);
+                    $donwload_links = $nextPage->evaluate('//div[@id="download"]//ul//li//a');
+                    $tempCount = 0;
+                    foreach ($donwload_links as $d) {
+                        if ($tempCount == 0)
+                            $free1 = $d->attributes[0]->value;
+                        else if ($tempCount == 1)
+                            $free2 = $d->attributes[0]->value;
+                        else
+                            break;
+                        $tempCount++;
+                    }
+                } catch (\Throwable $e) {
+                    $free1 = "";
+                    $free2 = "";
                 }
                 $details["link1"] = $free1;
                 $details["link2"] = $free2;

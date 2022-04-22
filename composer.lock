@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf52599417f9d55b013709b0b1a748d9",
+    "content-hash": "c46b3e481c8eb98c6504614ecb8de07f",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -6530,6 +6530,86 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.4"
             },
             "time": "2021-12-08T09:12:39+00:00"
+        },
+        {
+            "name": "tzsk/collage",
+            "version": "6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tzsk/collage.git",
+                "reference": "91f873d1fcc79687269553e76cf65682816743f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tzsk/collage/zipball/91f873d1fcc79687269553e76cf65682816743f2",
+                "reference": "91f873d1fcc79687269553e76cf65682816743f2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.0|^9.0",
+                "intervention/image": "^2.5",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "laravel/legacy-factories": "^1.0",
+                "orchestra/testbench": "^6.0|^7.0",
+                "phpunit/phpunit": "^9.3",
+                "vimeo/psalm": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tzsk\\Collage\\Provider\\CollageServiceProvider"
+                    ],
+                    "aliases": {
+                        "Collage": "Tzsk\\Collage\\Facade\\Collage"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tzsk\\Collage\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "tzsk",
+                    "email": "mailtokmahmed@gmail.com",
+                    "homepage": "https://github.com/tzsk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Generate Image Collage with Laravel",
+            "homepage": "https://github.com/tzsk/collage",
+            "keywords": [
+                "collage",
+                "create image collage laravel",
+                "image collage php",
+                "laravel image collage",
+                "php collage",
+                "tzsk"
+            ],
+            "support": {
+                "issues": "https://github.com/tzsk/collage/issues",
+                "source": "https://github.com/tzsk/collage/tree/6.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/KMAhmed",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/tzsk",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-02-13T06:28:50+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

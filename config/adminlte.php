@@ -290,6 +290,11 @@ return [
             'icon' => 'fas fa-plus',
         ],
         [
+            'text' => 'Make a Post',
+            'url'  => '/admin/make-a-post',
+            'icon' => 'fas fa-blog',
+        ],
+        [
             'text' => 'Books Suggestions',
             'url'  => '/admin/books-orders',
             'icon' => 'fas fa-shopping-cart',
