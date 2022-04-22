@@ -1,6 +1,7 @@
 @extends("adminlte::page")
 
 @section('title', 'Make a post')
+@section('plugins.Select2', true)
 
 @section('content')
     <div class="container py-5">
@@ -187,5 +188,11 @@
             });
         });
     </script>
-
+@stop
+@section('Myjs')
+    <script>
+        $(document).on('select2:open', () => {
+            document.querySelector('.select2-search__field').focus();
+        });
+    </script>
 @stop
