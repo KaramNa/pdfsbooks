@@ -165,7 +165,7 @@
         }
 
         function showFacebookModal() {
-            $("#FacebookModal").modal("show");
+            $("#facebookModal").modal("show");
         }
     </script>
     <script>
