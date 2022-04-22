@@ -64,34 +64,36 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $('#tagsSelect').change(function(event) {
-            let tag = $('#tagsSelect').val();
-            $.ajax({
-                url: "{{ route('get.books.covers') }}",
-                type: "GET",
-                data: {
-                    tag: tag,
-                },
-                success: function(response) {
-                    if (response) {
-                        $("#books_covers").html("");
-                        $('#books_covers').append(
-                            "<p>Select covers you want to use to make a collage, number of selected covers must be in [1,2,3,4,6,8,9]</p>"
-                        );
-                        response.forEach(element => {
-                            let i = 0;
-                            $('#books_covers').append(
-                                "<img src='" +
-                                element['poster'] +
-                                "'class='m-2' width=220 height=370 onclick='selectCover(this)'>"
-                            );
-                        });
-                    }
-                },
-                error: function(error) {
-                    console.log(error);
-                }
-            });
-        });
+                let tag = $('#tagsSelect').val();
+                if (tag != "") {
+                    $.ajax({
+                        url: "{{ route('get.books.covers') }}",
+                        type: "GET",
+                        data: {
+                            tag: tag,
+                        },
+                        success: function(response) {
+                            if (response) {
+                                $("#books_covers").html("");
+                                $('#books_covers').append(
+                                    "<p>Select covers you want to use to make a collage, number of selected covers must be in [1,2,3,4,6,8,9]</p>"
+                                );
+                                response.forEach(element => {
+                                    let i = 0;
+                                    $('#books_covers').append(
+                                        "<img src='" +
+                                        element['poster'] +
+                                        "'class='m-2' width=220 height=370 onclick='selectCover(this)'>"
+                                    );
+                                });
+                            }
+                        },
+                        error: function(error) {
+                            console.log(error);
+                        }
+                    });
+                });
+        }
         var selectedCovers = [];
 
         function selectCover(element) {
@@ -120,7 +122,8 @@
                 success: function(response) {
                     if (response) {
                         $("#books_covers").html(
-                            "<p><img src='https://pdfsbooks.com/public/storage/collage/" + response +
+                            "<p><img src='https://pdfsbooks.com/public/storage/collage/" +
+                            response +
                             "'></p><p><a class='btn btn-success' href='https://pdfsbooks.com/public/storage/collage/" +
                             response +
                             "' download>Download collage</a><button type='button' class='btn btn-primary mx-4' onclick='showFacebookModal()'>Post to Facebook</button><button type='button' class='btn btn-warning' onclick='showTelegramModal()'>Post to Telegram</button></p>"
