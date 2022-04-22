@@ -54,8 +54,8 @@ class MakePostController extends Controller
             $image = Collage::make(1080, 706)->padding(10)->from($images);
         else if (count($images) == 9)
             $image = Collage::make(810, 1260)->padding(10)->from($images);
-            $image_name = time() . '.jpg';
-        $image->save('storage/collage/' . $image_name);
+        $image_name = time() . '.jpg';
+        $image->save(public_path('/storage/collage/') . $image_name);
 
         return response()->json($image_name);
     }
@@ -68,6 +68,5 @@ class MakePostController extends Controller
 
 
         return response()->json(['success' => 'The book has been posted to Telegram']);
-
     }
 }
