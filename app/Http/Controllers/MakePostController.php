@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Tzsk\Collage\Facade\Collage;
 use App\Models\TelegramNotification;
 use App\Notifications\CollectionPublished;
+use App\Notifications\FacebookCollectionPost;
 use NotificationChannels\Telegram\TelegramFile;
 
 class MakePostController extends Controller
@@ -68,5 +69,14 @@ class MakePostController extends Controller
 
 
         return response()->json(['success' => 'The book has been posted to Telegram']);
+    }
+    public function makeFacebookPost(Request $request)
+    {
+        $book = TelegramNotification::firstOrFail();
+
+        $book->notify(new FacebookCollectionPost($request));
+        return "yes";
+
+        // return response()->json(['success' => 'The book has been posted to Telegram']);
     }
 }

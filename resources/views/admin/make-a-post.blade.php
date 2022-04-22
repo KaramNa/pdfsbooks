@@ -53,6 +53,25 @@
                 </x-slot>
             </x-adminlte-modal>
         </form>
+        <form id="facebookForm" action="#" method="post">
+            <x-adminlte-modal id="facebookModal" title="Post to Facebook">
+                @csrf
+                <div class="mt-3">
+                    <label for="book_link" class="h6">Post Text:</label>
+                    <textarea type="text" id="post_text" name="post_text" class="form-control"></textarea>
+                </div>
+                {{-- <div class="mt-3">
+                    <label for="collection_url" class="h6">link:</label>
+                    <input type="text" id="collection_url" name="collection_url" class="form-control">
+                </div> --}}
+                <input type="hidden" id="collage_name" name="collage_name">
+                <x-slot name="footerSlot">
+                    <x-adminlte-button class="mr-auto" theme="primary" label="Send" type="button"
+                        id="facebook_button" />
+                    <x-adminlte-button theme="danger" label="Cancel" data-dismiss="modal" />
+                </x-slot>
+            </x-adminlte-modal>
+        </form>
 
     </div>
     <style>
@@ -167,7 +186,6 @@
                 },
                 success: function(response) {
                     if (response) {
-                        console.log(response);
                         $("#telegramModal").modal("hide");
                         if (response.success) {
                             $('.alert>span').text(response.success);
@@ -191,6 +209,45 @@
 
         $(document).on('select2:open', () => {
             document.querySelector('.select2-search__field').focus();
+        });
+    </script>
+    <script>
+        $("#facebook_button").click(function(event) {
+            event.preventDefault();
+            // let url = $("#collection_url").val();
+            let post_text = $("#post_text").val();
+            let collage_name = $("#collage_name").val();
+            let _token = $('meta[name="csrf-token"]').attr('content');;
+            $.ajax({
+                url: "{{ route('make.facebook.post') }}",
+                type: "POST",
+                data: {
+                    _token: _token,
+                    post_text: post_text,
+                    collage_name: collage_name,
+                    // collection_url: url
+                },
+                success: function(response) {
+                    if (response) {
+                        $("#facebookModal").modal("hide");
+                        if (response.success) {
+                            $('.alert>span').text(response.success);
+                            $('.alert').removeClass('alert-danger');
+                            $('.alert').addClass('alert-success');
+                        }
+
+                        if (response.failed) {
+                            $('.alert>span').text(response.failed);
+                            $('.alert').removeClass('alert-success');
+                            $('.alert').addClass('alert-danger');
+                        }
+                        $('.alert').removeClass('d-none');
+                    }
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
         });
     </script>
 @stop
