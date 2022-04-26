@@ -36,23 +36,23 @@ class MakePostController extends Controller
         }
 
         if (count($images) == 1)
-            $image = Collage::make(270, 420)->padding(10)->from($images);
+            $image = Collage::make(280, 420)->padding(10)->from($images);
         else if (count($images) == 2)
-            $image = Collage::make(540, 420)->padding(10)->from($images, function ($alignment) {
+            $image = Collage::make(560, 420)->padding(10)->from($images, function ($alignment) {
                 $alignment->vertical();
             });
         else if (count($images) == 3)
-            $image = Collage::make(810, 420)->padding(10)->from($images, function ($alignment) {
+            $image = Collage::make(840, 420)->padding(10)->from($images, function ($alignment) {
                 $alignment->vertical();
             });
         else if (count($images) == 4)
-            $image = Collage::make(540, 840)->padding(10)->from($images);
+            $image = Collage::make(560, 840)->padding(10)->from($images);
         else if (count($images) == 6)
-            $image = Collage::make(810, 840)->padding(10)->from($images);
+            $image = Collage::make(840, 840)->padding(10)->from($images);
         else if (count($images) == 8)
-            $image = Collage::make(1080, 840)->padding(10)->from($images);
+            $image = Collage::make(1120, 840)->padding(10)->from($images);
         else if (count($images) == 9)
-            $image = Collage::make(810, 1260)->padding(10)->from($images);
+            $image = Collage::make(840, 1260)->padding(10)->from($images);
         $image_name = time() . '.jpg';
         $image->save(public_path('/storage/collage/') . $image_name);
 
