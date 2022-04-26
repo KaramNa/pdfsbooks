@@ -44,7 +44,7 @@ class BookPublished extends Notification
     {
         $image = 'public' .  substr($book->poster, 8);
         $time = time();
-        File::cleanDirectory('public/storage/telegram');
+        File::cleanDirectory('public/storage/telegram/');
         Storage::copy($image, 'public/telegram/' . $time . '.jpg');
         return TelegramFile::create()
             ->to('@e_pdfsbooks')
