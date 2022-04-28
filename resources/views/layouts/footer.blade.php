@@ -198,16 +198,17 @@
 </script>
 
 <!-- Default Statcounter code for pdf https://pdfsbooks.com -->
+<!-- Default Statcounter code for pdfsbooks https://pdfsbooks.com -->
 <script type="text/javascript">
-    var sc_project = 12736308;
+    var sc_project = 12747946;
     var sc_invisible = 1;
-    var sc_security = "d35d4988";
+    var sc_security = "aa5cb68c";
 </script>
 <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
 <noscript>
     <div class="statcounter"><a title="Web Analytics Made Easy -
 Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcounter"
-                src="https://c.statcounter.com/12736308/0/d35d4988/1/" alt="Web Analytics Made Easy - Statcounter"
+                src="https://c.statcounter.com/12747946/0/aa5cb68c/1/" alt="Web Analytics Made Easy - Statcounter"
                 referrerPolicy="no-referrer-when-downgrade"></a></div>
 </noscript>
 <!-- End of Statcounter Code -->
