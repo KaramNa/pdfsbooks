@@ -6,6 +6,10 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-md-8">
+                <form class="mb-5" action="{{ route('delete.all.notifications') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Delete All</button>
+                </form>
                 @foreach ($notifications as $notification)
                     @php
                         $type = $notification->notif_type;

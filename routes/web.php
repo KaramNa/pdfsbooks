@@ -72,6 +72,7 @@ Route::middleware('blackList')->group(function () {
         Route::get('notifications/show', [NotificationsController::class, 'showNotifications'])->name('notifications.show');
         Route::get('/update-notification-status/{id}', [NotificationsController::class, 'updateStatus'])->name('update.notification.status');
         Route::post('/delete-notification/{id}', [NotificationsController::class, 'delete'])->name('delete.notif');
+        Route::post('/delete-notification', [NotificationsController::class, 'deleteAll'])->name('delete.all.notifications');
 
         Route::get("/admin/books/all", [AdminController::class, "allBooks"])->name('all.books');
         Route::get("/admin/books/published", [AdminController::class, "publishedBooks"])->name('published.books');

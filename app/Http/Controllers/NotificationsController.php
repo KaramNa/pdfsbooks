@@ -93,4 +93,9 @@ class NotificationsController extends Controller
 
         return back();
     }
+
+    public function deleteAll(){
+        Notification::truncate();
+        return back();
+    }
 }
