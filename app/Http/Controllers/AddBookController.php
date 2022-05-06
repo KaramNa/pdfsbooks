@@ -290,9 +290,7 @@ class AddBookController extends Controller
     {
         $image_name = time() . '.' . 'webp';
         $imageResize = Image::make($image)->encode('webp', 90);
-            $imageResize->resize(280, 420, function ($constraint) {
-                $constraint->aspectRatio();
-            });
+        $imageResize->resize(280, 420);
         $destinationPath = public_path('/storage/posters/');
         $imageResize->save($destinationPath . $image_name);
         return '/storage/posters/' . $image_name;

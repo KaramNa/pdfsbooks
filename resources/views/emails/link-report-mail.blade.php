@@ -1,7 +1,7 @@
 @component('mail::message')
     <img src="{{ asset('logo.jpg') }}" alt="">
     <h4>Hello, we hope you're donig well.</h4>
-    <p>Thank you for your report, it helps us too mauch</p>
+    <p>Thank you for your report, it helps us too much</p>
     <p>We have good news for you, we fixed the link you have reported.</p>
     <p>We would like to suggest on you to follow our page on Facebook to stay up-to-date to date with our acivities, you can
         find it on this <a href="https://www.facebook.com/FreeBooks/">link</a> .</p>
