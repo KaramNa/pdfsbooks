@@ -159,30 +159,31 @@
         </div>
     </div>
     <script>
-        var count = 0;
-        var c = parseFloat("{{ $book_size }}");
-        switch (true) {
-            case c <= 5:
-                count = 10;
-                break;
-            case (c > 5) && (c <= 10):
-                count = 15;
-                break;
-            case (c > 10) && (c <= 15):
-                count = 20;
-                break;
-            case (c > 15) && (c <= 20):
-                count = 25;
-                break;
-            case c > 20:
-                count = 30;
-                break;
-            default:
-                count = 15;
-                break;
-        }
+        var count = 10;
+        // var c = parseFloat("{{ $book_size }}");
+        // switch (true) {
+        //     case c <= 5:
+        //         count = 10;
+        //         break;
+        //     case (c > 5) && (c <= 10):
+        //         count = 15;
+        //         break;
+        //     case (c > 10) && (c <= 15):
+        //         count = 20;
+        //         break;
+        //     case (c > 15) && (c <= 20):
+        //         count = 25;
+        //         break;
+        //     case c > 20:
+        //         count = 30;
+        //         break;
+        //     default:
+        //         count = 15;
+        //         break;
+        // }
+        //this process could take from <span class="text-red">10</span> to <span class="text-red">30</span> secondes depending on the file size 
         document.getElementById('preparing_file').innerHTML =
-            'Please wait while preparing the download link and checking for viruses, this process could take from <span class="text-red">10</span> to <span class="text-red">30</span> secondes depending on the file size <span id="countDown">' +
+            'Please wait while preparing the download link and checking for viruses <span id="countDown">' +
             count + '</span>';
         var timer = setInterval(function() {
             count--;
