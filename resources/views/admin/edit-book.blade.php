@@ -165,8 +165,12 @@
 
                     <div class="my-2">
                         <label for="paid_download_link">Paid download link</label>
-                        <input type="text" class="form-control" name="paid_download_link"
-                            value="{{ old('paid_download_link', $book->paid_download_link) }}">
+                        <div class="d-flex">
+                            <input type="text" class="form-control" name="paid_download_link"
+                                value="{{ old('paid_download_link', $book->paid_download_link) }}">
+                            <a href="{{ $book->paid_download_link }}" class="btn btn-dark text-white ml-4"
+                                target="_blank">Visit</a>
+                        </div>
                         @error('paid_download_link')
                             <div class="text-danger">
                                 {{ $message }}
