@@ -287,8 +287,8 @@ if ($book->draft == 0) {
                 @endif
                 <div class="download-buttons">
                     @if ($book->download_link || $book->download_link2 || $book->download_link3)
-                        <div class="download-button">
-                            <a href="{{ route('get.the.link', $book->slug) }}">Free Download
+                        <div id="free_download_link_div" class="download-button">
+                            <a id="free_download_link_button" href="{{ route('get.the.link', $book->slug) }}" class="hidden">Free Download
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='30'>
                                     <g fill='#FFFFFF'>
                                         <path

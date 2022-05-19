@@ -354,6 +354,14 @@ label {
     display: none;
 }
 
+.adblock-alter {
+    padding: 30px;
+    background-color: #ff8282;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 20px;
+}
+
 
 /* start falsh card */
 
