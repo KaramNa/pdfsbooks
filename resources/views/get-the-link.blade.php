@@ -182,18 +182,27 @@
         //         break;
         // }
         //this process could take from <span class="text-red">10</span> to <span class="text-red">30</span> secondes depending on the file size 
-        document.getElementById('preparing_file').innerHTML =
-            'Please wait while preparing the download link and checking for viruses <span id="countDown">' +
-            count + '</span>';
-        var timer = setInterval(function() {
-            count--;
-            document.getElementById('countDown').innerHTML = count;
-            if (count == 0) {
-                document.getElementById("countDown").innerHTML = "<span class='scroll-down'>Scroll Down</span>";
-                document.getElementById('link').classList.remove('d-none');
-                clearInterval(timer);
+        window.onload = function() {
+            var ad = document.querySelector("ins.adsbygoogle");
+            if (ad && ad.innerHTML.replace(/\s/g, "").length == 0) {
+                document.getElementById('preparing_file').innerHTML =
+                    "<div class='adblock-alter'>Ads Help us to keep this service up and free, please disable your ad blocker to get the free download link, Thanks for your understanding</div>";
+            } else {
+                document.getElementById('preparing_file').innerHTML =
+                    'Please wait while preparing the download link and checking for viruses <span id="countDown">' +
+                    count + '</span>';
+                var timer = setInterval(function() {
+                    count--;
+                    document.getElementById('countDown').innerHTML = count;
+                    if (count == 0) {
+                        document.getElementById("countDown").innerHTML =
+                            "<span class='scroll-down'>Scroll Down</span>";
+                        document.getElementById('link').classList.remove('d-none');
+                        clearInterval(timer);
+                    }
+                }, 1000);
             }
-        }, 1000);
+        };
     </script>
 
     <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="false">
