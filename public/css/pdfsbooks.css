@@ -356,10 +356,11 @@ label {
 
 .adblock-alter {
     padding: 30px;
-    background-color: #ff8282;
+    background-color: #f46363;
     border-radius: 6px;
     color: #fff;
-    font-size: 20px;
+    font-size: 30px;
+    margin-bottom: 50px;
 }
 
 
