@@ -124,6 +124,17 @@
     <p class="falshcard-text">Join us on Telegram to get our special free offers</p>
     <a class="take-me-there" href="https://t.me/e_pdfsbooks" target="_blank">Join Us Now</a>
 </div>
+<script>
+    window.onload = function() {
+        var ad = document.querySelector("ins.adsbygoogle");
+        if (ad && ad.innerHTML.replace(/\s/g, "").length == 0) {
+            document.getElementById("free_download_link_div").innerHTML =
+                "<div class='adblock-alter'>Ads Help us to keep this service up and free, please disable your ad blocker to get the free download link, Thanks for your understanding</div>";
+        } else {
+            document.getElementById("free_download_link_button").classList.remove('hidden');
+        }
+    };
+</script>
 <script defer>
     var nowDate = new Date();
     var falshcard = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
