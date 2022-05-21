@@ -186,7 +186,7 @@
             var ad = document.querySelector("ins.adsbygoogle");
             if (ad && ad.innerHTML.replace(/\s/g, "").length == 0) {
                 document.getElementById('preparing_file').innerHTML =
-                    "<div class='adblock-alter'>Ads Help us to keep this service up and free, please disable your ad blocker to get the free download link, Thanks for your understanding</div>";
+                    "<div class='adblock-alter'>Ads Help us to keep this service up and free, please disable your ad blocker to get the free download link, Thanks for your understanding</div><img class='adblock-disable' src='/storage/adblock.jpg' /><br><br>";
             } else {
                 document.getElementById('preparing_file').innerHTML =
                     'Please wait while preparing the download link and checking for viruses <span id="countDown">' +

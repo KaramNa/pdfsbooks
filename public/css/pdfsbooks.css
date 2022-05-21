@@ -1930,7 +1930,8 @@ a.tag:hover,
 
 /* Start How to Download Page */
 
-.how-to-download img {
+.how-to-download img,
+.adblock-disable {
     max-width: 100%;
     box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
     border-radius: 6px;
