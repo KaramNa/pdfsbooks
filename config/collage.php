@@ -35,5 +35,6 @@ return [
         6 => App\Collage\SixImage::class,
         8 => App\Collage\EightImage::class,
         9 => App\Collage\NineImage::class,
+        12 => App\Collage\TwelveImage::class,
     ],
 ];

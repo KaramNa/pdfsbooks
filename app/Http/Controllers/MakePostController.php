@@ -53,6 +53,8 @@ class MakePostController extends Controller
             $image = Collage::make(1120, 840)->padding(10)->from($images);
         else if (count($images) == 9)
             $image = Collage::make(840, 1260)->padding(10)->from($images);
+        else if (count($images) == 12)
+            $image = Collage::make(840, 1680)->padding(10)->from($images);
         $image_name = time() . '.jpg';
         $image->save(public_path('/storage/collage/') . $image_name);
 

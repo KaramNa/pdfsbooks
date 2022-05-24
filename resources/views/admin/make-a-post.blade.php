@@ -1,4 +1,4 @@
-@extends("adminlte::page")
+@extends('adminlte::page')
 
 @section('title', 'Make a post')
 @section('plugins.Select2', true)
@@ -30,7 +30,8 @@
                     </x-adminlte-select2>
                 </div>
             </div>
-            <p><button id='makeCollage' class='btn btn-primary ml-2' type='button' disabled>Make collage</button></p>
+            <p><button id='makeCollage' class='btn btn-primary ml-2' type='button' disabled>Make collage</button><button
+                    id='selectAll' class='btn btn-dark ml-2' type='button' onclick="selectAll()">Select All</button></p>
             <div id="books_covers">
             </div>
         </div>
@@ -77,14 +78,14 @@
                         if (response) {
                             $("#books_covers").html("");
                             $('#books_covers').append(
-                                "<p>Select covers you want to use to make a collage, number of selected covers must be in [1,2,3,4,6,8,9]</p>"
+                                "<p>Select covers you want to use to make a collage, number of selected covers must be in [1,2,3,4,6,8,9,12]</p>"
                             );
                             response.forEach(element => {
                                 let i = 0;
                                 $('#books_covers').append(
                                     "<img src='" +
                                     element['poster'] +
-                                    "'class='m-2' width=220 height=370 onclick='selectCover(this)'>"
+                                    "'class='m-2 collageImage' width=220 height=370 onclick='selectCover(this)'>"
                                 );
                             });
                         }
@@ -97,6 +98,15 @@
         }));
         var selectedCovers = [];
 
+        function selectAll() {
+            var elements = document.getElementsByClassName("collageImage");
+            if (elements.length > 0) {
+                for (let index = 0; index < elements.length; index++) {
+                    selectCover(elements[index]);
+                }
+            }
+        }
+
         function selectCover(element) {
             element.classList.toggle('selected-cover');
             var arr = $('.selected-cover');
@@ -104,7 +114,7 @@
             for (let index = 0; index < arr.length; index++) {
                 selectedCovers.push(arr[index].src);
             }
-            if ([1, 2, 3, 4, 6, 8, 9].indexOf(selectedCovers.length) > -1)
+            if ([1, 2, 3, 4, 6, 8, 9, 12].indexOf(selectedCovers.length) > -1)
                 $("#makeCollage").prop("disabled", false);
             else
                 $("#makeCollage").prop("disabled", true);
@@ -191,5 +201,5 @@
             document.querySelector('.select2-search__field').focus();
         });
     </script>
-   
+
 @stop
