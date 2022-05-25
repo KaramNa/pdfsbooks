@@ -110,7 +110,7 @@
                     <div>
                         @if ($d_link)
                             <div class="form">
-                                <a href="<?php echo $d_link; ?>" target="_blank"><span class="arrow">&gt;&gt;</span>
+                                <a href="<?php echo $d_link; ?>" target="_blank" rel="nofollow"><span class="arrow">&gt;&gt;</span>
                                     Free download
                                     link 1 <span class="arrow">&lt;&lt;</span></a>
                                 <p><img src="{{ asset('storage\kaspersky.png') }}" alt="kaspersky icon" width="120"
@@ -119,7 +119,7 @@
                         @endif
                         @if ($d_link2)
                             <div class="form">
-                                <a href="<?php echo $d_link2; ?>" target="_blank"><span class="arrow">&gt;&gt; </span>
+                                <a href="<?php echo $d_link2; ?>" target="_blank" rel="nofollow"><span class="arrow">&gt;&gt; </span>
                                     Free download
                                     link 2 <span class="arrow"> &lt;&lt;</span></a>
                                 <p><img src="{{ asset('storage\kaspersky.png') }}" alt="kaspersky icon" width="120"
