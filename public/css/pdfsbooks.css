@@ -804,7 +804,7 @@ label {
 
 .landing .follow-section .social {
     margin-bottom: 15px;
-    justify-content: start;
+    /* justify-content: start; */
 }
 
 .landing .follow-section .social .facebook {
@@ -925,10 +925,6 @@ label {
     #social-links ul {
         justify-content: center;
     }
-}
-
-#social-links ul li a:nth-child(1) {
-    padding-left: 0;
 }
 
 .newsletter-button {
@@ -1336,6 +1332,10 @@ a.tag:hover,
     width: 280px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.left-section h3 {
+    text-align: center;
 }
 
 .single-book .left-section .share-section h3 {
