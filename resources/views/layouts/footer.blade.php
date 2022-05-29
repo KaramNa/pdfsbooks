@@ -210,20 +210,17 @@
 </script>
 
 <!-- Default Statcounter code for pdf https://pdfsbooks.com -->
-<!-- Default Statcounter code for pdfsbooks https://pdfsbooks.com -->
 <script type="text/javascript">
-    var sc_project = 12747946;
+    var sc_project = 12758071;
     var sc_invisible = 1;
-    var sc_security = "aa5cb68c";
+    var sc_security = "0a401d87";
 </script>
 <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
 <noscript>
-    <div class="statcounter"><a title="Web Analytics Made Easy -
-Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcounter"
-                src="https://c.statcounter.com/12747946/0/aa5cb68c/1/" alt="Web Analytics Made Easy - Statcounter"
+    <div class="statcounter"><a title="website statistics" href="https://statcounter.com/" target="_blank"><img
+                class="statcounter" src="https://c.statcounter.com/12758071/0/0a401d87/1/" alt="website statistics"
                 referrerPolicy="no-referrer-when-downgrade"></a></div>
 </noscript>
-<!-- End of Statcounter Code -->
 <!-- End of Statcounter Code -->
 
 <!-- Global site tag (gtag.js) - Google Analytics -->

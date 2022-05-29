@@ -146,7 +146,7 @@ class AddBookController extends Controller
                 $details["size"] = '';
                 $details["link1"] = $link1;
                 $details["link2"] = $link2;
-            } else if (str_contains($url["url"], "libgen.is")) {
+            } else if (str_contains($url["url"], "libgen")) {
                 $attr = $response->filter('tr td');
                 foreach ($attr as $value) {
                     if ($value->textContent == "Title: ")
