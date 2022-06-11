@@ -156,7 +156,9 @@ if ($book->draft == 0) {
                     </div>
                 </div>
 
-                <x-amazon-audioBook />
+                <div class="text-center my-20">
+                    <x-amazon-audioBook />
+                </div>
             </div>
 
             <div class="right-section">

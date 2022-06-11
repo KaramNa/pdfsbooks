@@ -157,10 +157,10 @@
                                         <g>
                                             <path
                                                 d="M442.666,178.822l-4.004-145.078c-0.447-16.222-13.504-29.279-29.727-29.728l-145.08-4.004
-                                                                                                                        c-8.475-0.237-16.493,2.97-22.468,8.945L8.954,241.391c-11.924,11.924-11.924,31.325,0,43.249l149.083,149.082
-                                                                                                                        c11.951,11.953,31.296,11.956,43.25,0.001L433.721,201.29C439.636,195.374,442.897,187.184,442.666,178.822z M376.238,139.979
-                                                                                                                        c-20.323,20.322-53.215,20.324-73.539,0c-20.275-20.275-20.275-53.265,0-73.539c20.323-20.323,53.215-20.324,73.539,0
-                                                                                                                        C396.512,86.714,396.512,119.704,376.238,139.979z" />
+                                                                                                                                                    c-8.475-0.237-16.493,2.97-22.468,8.945L8.954,241.391c-11.924,11.924-11.924,31.325,0,43.249l149.083,149.082
+                                                                                                                                                    c11.951,11.953,31.296,11.956,43.25,0.001L433.721,201.29C439.636,195.374,442.897,187.184,442.666,178.822z M376.238,139.979
+                                                                                                                                                    c-20.323,20.322-53.215,20.324-73.539,0c-20.275-20.275-20.275-53.265,0-73.539c20.323-20.323,53.215-20.324,73.539,0
+                                                                                                                                                    C396.512,86.714,396.512,119.704,376.238,139.979z" />
                                         </g>
                                     </g>
                                 </svg> {{ $tag->tag }}
@@ -190,7 +190,38 @@
             <div class="books">
                 @if (count($books) > 0)
                     @foreach ($books as $book)
-                        @if (in_array($loop->index, [3, 8]))
+                        @if (in_array($loop->index, [2]))
+                            <div class="box ad-box">
+                                <a href="https://www.amazon.com/Likebook-Reader-P6-Playstore-External/dp/B09MYCSFYL?crid=3P2IUASZHYE2Y&keywords=ebooks+reader&qid=1654888845&s=electronics&sprefix=ebooks+read%2Celectronics-intl-ship%2C313&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyUjJFVEhBVjQ2WDFKJmVuY3J5cHRlZElkPUEwMDc2NjI3MUkzTkMyQVEzNFVIMSZlbmNyeXB0ZWRBZElkPUEwMzQ2MzE4MTNBUzlPREtLUklTSCZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU%3D&linkCode=li3&tag=pdfsbooks-20&linkId=d5cfe4d513e85394ddfe9a4208105615&language=en_US&ref_=as_li_ss_il"
+                                    target="_blank"><img border="0"
+                                        src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B09MYCSFYL&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=pdfsbooks-20&language=en_US"></a>
+                                <div class="content">
+                                    <h5>Get a better reading experience with<h3 class="facebook"> Likebook E-Reader P6</h3></h5>
+                                    <h4>
+                                        Sale on Amazon for <span class="text-red">$139</span> Only
+                                    </h4>
+                                </div>
+                                <a href="https://www.amazon.com/Likebook-Reader-P6-Playstore-External/dp/B09MYCSFYL?crid=3P2IUASZHYE2Y&keywords=ebooks+reader&qid=1654888845&s=electronics&sprefix=ebooks+read%2Celectronics-intl-ship%2C313&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyUjJFVEhBVjQ2WDFKJmVuY3J5cHRlZElkPUEwMDc2NjI3MUkzTkMyQVEzNFVIMSZlbmNyeXB0ZWRBZElkPUEwMzQ2MzE4MTNBUzlPREtLUklTSCZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU%3D&linkCode=li3&tag=pdfsbooks-20&linkId=d5cfe4d513e85394ddfe9a4208105615&language=en_US&ref_=as_li_ss_il"
+                                    target="_blank">
+                                    <div class="info">
+                                        <span class="">
+                                            Get it now
+                                        </span>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
+                                                height="20">
+                                                <g fill='#2196f3'>
+                                                    <path
+                                                        d="M12 4c-.8.8-.8 2.1 0 2.8l3.2 3.2H4c-1.1 0-2 .9-2 2s.9 2 2 2h11.2L12 17.2c-.8.8-.8 2.1 0 2.8.8.8 2 .8 2.8 0l6.6-6.6c.4-.4.6-.9.6-1.4 0-.5-.2-1-.6-1.4L14.8 4c-.7-.8-2-.8-2.8 0z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                        @endif
+                        @if (in_array($loop->index, [5,10]))
                             <x-kindle />
                         @endif
                         <div class="box">
@@ -222,10 +253,10 @@
                                                     <g>
                                                         <path
                                                             d="M442.666,178.822l-4.004-145.078c-0.447-16.222-13.504-29.279-29.727-29.728l-145.08-4.004
-                                                                            c-8.475-0.237-16.493,2.97-22.468,8.945L8.954,241.391c-11.924,11.924-11.924,31.325,0,43.249l149.083,149.082
-                                                                            c11.951,11.953,31.296,11.956,43.25,0.001L433.721,201.29C439.636,195.374,442.897,187.184,442.666,178.822z M376.238,139.979
-                                                                            c-20.323,20.322-53.215,20.324-73.539,0c-20.275-20.275-20.275-53.265,0-73.539c20.323-20.323,53.215-20.324,73.539,0
-                                                                            C396.512,86.714,396.512,119.704,376.238,139.979z" />
+                                                                                                        c-8.475-0.237-16.493,2.97-22.468,8.945L8.954,241.391c-11.924,11.924-11.924,31.325,0,43.249l149.083,149.082
+                                                                                                        c11.951,11.953,31.296,11.956,43.25,0.001L433.721,201.29C439.636,195.374,442.897,187.184,442.666,178.822z M376.238,139.979
+                                                                                                        c-20.323,20.322-53.215,20.324-73.539,0c-20.275-20.275-20.275-53.265,0-73.539c20.323-20.323,53.215-20.324,73.539,0
+                                                                                                        C396.512,86.714,396.512,119.704,376.238,139.979z" />
                                                     </g>
                                                 </g>
                                             </svg>

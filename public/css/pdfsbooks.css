@@ -218,6 +218,11 @@ ul {
     margin-bottom: 100px;
 }
 
+.my-20 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .alert {
     position: relative;
     padding: 1rem 1rem;
@@ -1228,6 +1233,10 @@ a.tag:hover,
 
 .main-content .box:hover img {
     filter: brightness(20%);
+}
+
+.main-content .ad-box:hover img {
+    filter: brightness(100%);
 }
 
 .main-content .box img {

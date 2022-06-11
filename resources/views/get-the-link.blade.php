@@ -103,6 +103,9 @@
             </div>
             <x-related-post :book="$book" />
             <x-kindle />
+            <iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
+                style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0"
+                src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=pdfsbooks-20&language=en_US&marketplace=amazon&region=US&placement=B09MYCSFYL&asins=B09MYCSFYL&linkId=2294c918ba52e1e804afa52f0e232f5c&show_border=true&link_opens_in_new_window=true"></iframe>
             <x-adsense />
 
             <div id="link" class="d-none">
@@ -110,7 +113,8 @@
                     <div>
                         @if ($d_link)
                             <div class="form">
-                                <a href="<?php echo $d_link; ?>" target="_blank" rel="nofollow"><span class="arrow">&gt;&gt;</span>
+                                <a href="<?php echo $d_link; ?>" target="_blank" rel="nofollow"><span
+                                        class="arrow">&gt;&gt;</span>
                                     Free download
                                     link 1 <span class="arrow">&lt;&lt;</span></a>
                                 <p><img src="{{ asset('storage\kaspersky.png') }}" alt="kaspersky icon" width="120"
@@ -119,7 +123,8 @@
                         @endif
                         @if ($d_link2)
                             <div class="form">
-                                <a href="<?php echo $d_link2; ?>" target="_blank" rel="nofollow"><span class="arrow">&gt;&gt; </span>
+                                <a href="<?php echo $d_link2; ?>" target="_blank" rel="nofollow"><span
+                                        class="arrow">&gt;&gt; </span>
                                     Free download
                                     link 2 <span class="arrow"> &lt;&lt;</span></a>
                                 <p><img src="{{ asset('storage\kaspersky.png') }}" alt="kaspersky icon" width="120"
@@ -182,9 +187,10 @@
         //         break;
         // }
         //this process could take from <span class="text-red">10</span> to <span class="text-red">30</span> secondes depending on the file size 
+        // (ad && ad.innerHTML.replace(/\s/g, "").length == 0)
         window.onload = function() {
             var ad = document.querySelector("ins.adsbygoogle");
-            if (ad && ad.innerHTML.replace(/\s/g, "").length == 0) {
+            if (false) {
                 document.getElementById('preparing_file').innerHTML =
                     "<div class='adblock-alter'>Ads Help us to keep this service up and free, please disable your ad blocker to get the free download link, Thanks for your understanding</div><img class='adblock-disable' src='/storage/adblock.jpg' /><br><br>";
             } else {
