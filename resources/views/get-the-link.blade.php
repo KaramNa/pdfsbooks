@@ -104,7 +104,7 @@
             <x-related-post :book="$book" />
             <x-kindle />
             <iframe sandbox="allow-popups allow-scripts allow-modals allow-forms allow-same-origin"
-                style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0"
+                style="width:240px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0"
                 src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=pdfsbooks-20&language=en_US&marketplace=amazon&region=US&placement=B09MYCSFYL&asins=B09MYCSFYL&linkId=2294c918ba52e1e804afa52f0e232f5c&show_border=true&link_opens_in_new_window=true"></iframe>
             <x-adsense />
 
