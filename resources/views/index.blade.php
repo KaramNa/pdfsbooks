@@ -195,9 +195,9 @@
                                 <a href="https://www.amazon.com/Likebook-Reader-P6-Playstore-External/dp/B09MYCSFYL?crid=3P2IUASZHYE2Y&keywords=ebooks+reader&qid=1654888845&s=electronics&sprefix=ebooks+read%2Celectronics-intl-ship%2C313&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyUjJFVEhBVjQ2WDFKJmVuY3J5cHRlZElkPUEwMDc2NjI3MUkzTkMyQVEzNFVIMSZlbmNyeXB0ZWRBZElkPUEwMzQ2MzE4MTNBUzlPREtLUklTSCZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU%3D&linkCode=li3&tag=pdfsbooks-20&linkId=d5cfe4d513e85394ddfe9a4208105615&language=en_US&ref_=as_li_ss_il"
                                     target="_blank"><img border="0"
                                         src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B09MYCSFYL&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=pdfsbooks-20&language=en_US"></a>
-                                <div class="content">
-                                    <h5>Get a better reading experience with<h3 class="facebook"> Likebook E-Reader P6</h3></h5>
-                                    <h4>
+                                <div class="content" style="padding-top: 3px;padding-bottom: 3px">
+                                    <h5 class="my-10">Get a better reading experience with<h3 class="facebook my-10"> Likebook E-Reader P6</h3></h5>
+                                    <h4 class="my-10">
                                         Sale on Amazon for <span class="text-red">$139</span> Only
                                     </h4>
                                 </div>
