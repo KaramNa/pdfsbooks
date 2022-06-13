@@ -323,7 +323,7 @@ return [
         [
             'text' => 'Email Black List',
             'url'  => '/admin/email-black-list',
-            'icon' => 'far fa-email',
+            'icon' => 'fas fa-at',
         ],
         ['header' => 'Black List'],
         [

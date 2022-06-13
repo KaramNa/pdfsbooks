@@ -23,11 +23,7 @@ class ContactController extends Controller
         ]);
         $blocked = email_black_list::pluck('email')->values()->toArray();
         if (!(in_array(strtolower($details['name']), $blocked) || in_array(strtolower($details['email']), $blocked)))
-            // Mail::to("info@pdfsbooks.com")->send(new ContactMail($details));
-            dd('send email');
-
-        else
-            dd('don\'nt send email');
+            Mail::to("info@pdfsbooks.com")->send(new ContactMail($details));
         return back()->with("success", "Your message has been sent successfully, Thank You for contacting us");
     }
 }
