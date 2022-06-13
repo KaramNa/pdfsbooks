@@ -320,6 +320,11 @@ return [
             'url'  => '/admin/dcma',
             'icon' => 'far fa-copyright',
         ],
+        [
+            'text' => 'Email Black List',
+            'url'  => '/admin/email-black-list',
+            'icon' => 'far fa-email',
+        ],
         ['header' => 'Black List'],
         [
             'text' => 'Countries',

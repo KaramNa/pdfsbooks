@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BlackListCountry;
 use App\Models\BlackListIp;
+use App\Models\email_black_list;
 use Illuminate\Http\Request;
 
 class BlackListController extends Controller
@@ -61,5 +62,34 @@ class BlackListController extends Controller
         $ip = BlackListIp::findOrFail($id);
         $ip->delete();
         return back()->with('success', 'Ip address has been removed from the Black List');
+    }
+
+    public function emails()
+    {
+        $emails = email_black_list::get();
+        return view('admin.email-black-list', [
+            'emails' => $emails,
+        ]);
+    }
+
+    public function blockEmails()
+    {
+        if (request()->has('blockEmailForm')) {
+            $email = request()->validate([
+                'email' => 'required|unique:email_black_lists,email'
+            ]);
+
+            email_black_list::create([
+                'email' => strtolower($email['email']),
+            ]);
+            return back()->with('success', 'Email has been added to the Black List');
+        }
+    }
+
+    public function deleteEmail($id)
+    {
+        $email = email_black_list::findOrFail($id);
+        $email->delete();
+        return back()->with('success', 'Email has been removed from the Black List');
     }
 }

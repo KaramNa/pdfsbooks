@@ -17,7 +17,7 @@
                 <form action="{{ route('block.country') }}" method="POST">
                     @csrf
 
-                    <label for="country">IP Address</label>
+                    <label for="country">Country</label>
                     <input type="text" class="form-control" name="country" focus>
                     @error('country')
                         <div class="text-danger">
@@ -57,7 +57,7 @@
         {{-- Minimal --}}
 
         <x-adminlte-modal id="deleteModal" title="Delete country">
-            Do You really want to delete this country?
+            Do You really want to remove this country?
             <x-slot name="footerSlot">
                 <form id="deleteForm" action="#" method="post">
                     @csrf

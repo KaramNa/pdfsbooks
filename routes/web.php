@@ -122,10 +122,13 @@ Route::middleware('blackList')->group(function () {
 
         Route::get('/admin/black-list-countries', [BlackListController::class, 'countries']);
         Route::get('/admin/black-list-ip-addresses', [BlackListController::class, 'ipAddresses']);
+        Route::get('/admin/email-black-list', [BlackListController::class, 'emails']);
         Route::post('/block-countries', [BlackListController::class, 'blockCountries'])->name('block.country');
+        Route::post('/admin/block-ip-address', [BlackListController::class, 'blockIpAddress'])->name('block.ipAddress');
+        Route::post('/block-emails', [BlackListController::class, 'blockEmails'])->name('block.email');
         Route::post('/delete-country/{id?}', [BlackListController::class, 'deleteCountry'])->name('destroy.country');
         Route::post('/delete-ip-address/{id?}', [BlackListController::class, 'deleteIpAddress'])->name('destroy.ipAddress');
-        Route::post('/admin/block-ip-address', [BlackListController::class, 'blockIpAddress'])->name('block.ipAddress');
+        Route::post('/delete-email/{id?}', [BlackListController::class, 'deleteEmail'])->name('destroy.email');
 
 
         Route::get('/admin/make-a-post', [MakePostController::class, 'index'])->name('make.post');
