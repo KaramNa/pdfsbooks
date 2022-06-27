@@ -102,7 +102,7 @@ class BooksController extends Controller
         ]);
         return response()->json(['success' => 'The book has been added to Telegram notification queue']);
     }
-    public function howToDowload()
+    public function howToDownload()
     {
         return view("how-to-download");
     }

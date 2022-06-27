@@ -4,8 +4,8 @@
             <h3>PDFsBOOKs</h3>
             <ul class="social">
                 <li>
-                    <a href="https://www.facebook.com/FreeBooks/" class="facebook" target="_blank"
-                        title="Facebook page link">
+                    <a href="https://www.facebook.com/groups/594645551607306" class="facebook" target="_blank"
+                        title="Facebook group link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
                             class="svg-inline--fa fa-facebook-f fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 320 512" width="25">
@@ -29,7 +29,7 @@
                 </li>
                 <li>
                     <a href="https://twitter.com/pdfsbooks_" class="twitter" target="_blank"
-                        title="Telegram channel link">
+                        title="Twitter link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter"
                             class="svg-inline--fa fa-twitter fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 512" width="30">
@@ -41,7 +41,7 @@
                 </li>
                 <li>
                     <a href="https://www.instagram.com/pdfsbooks_" class="instagram" target="_blank"
-                        title="Telegram channel link">
+                        title="Instagram link">
                         <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 1536 1536" width="30">
                             <path fill="currentColor"
@@ -50,8 +50,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.pinterest.com/freepdfsbooks" class="pinterest" target="_blank"
-                        title="Telegram channel link">
+                    <a href="https://www.pinterest.com/freepdfsbooks1" class="pinterest" target="_blank"
+                        title="pinterest link">
                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="pinterest-p"
                             class="svg-inline--fa fa-pinterest-p fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 384 512" width="25">
@@ -108,14 +108,14 @@
         </svg> By PDFsBooks Team<br>All rights reserved PDFsBOOKs &copy; 2022</p>
 
 </div>
-<div id="flashcard" class="flashcard hidden">
+{{-- <div id="flashcard" class="flashcard hidden">
     <div class="falshcard-header">
         <h3 class="flashcard-title">New Section</h3>
         <button class="flashcard-close" onclick="closeFlashCard()">X</button>
     </div>
     <p class="falshcard-text">We have a new section on our website that might interest you.</p>
     <button class="take-me-there" onclick="closeFlashCard(true)">Take me there</button>
-</div>
+</div> --}}
 <div id="telegramFlashCard" class="flashcard hidden">
     <div class="falshcard-header">
         <h3 class="flashcard-title">Remember</h3>

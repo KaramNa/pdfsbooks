@@ -31,7 +31,7 @@ Route::middleware('blackList')->group(function () {
     Route::get('/cheatsheets', [CheatSheetController::class, 'index'])->name('cheatsheets.subject');
     Route::get('/cheatsheets/{cheatsheet_slug}', [CheatSheetController::class, 'show'])->name('cheatsheets.cheatsheet');
 
-    Route::get('/how-to-download', [BooksController::class, 'howToDowload'])->name('how.to.download');
+    Route::get('/how-to-download', [BooksController::class, 'howToDownload'])->name('how.to.download');
     Route::get('/eBook-digital-formats', [BooksController::class, 'ebooksFormats'])->name('ebooks.formats');
     Route::get('get-the-link/{slug}', [BooksController::class, 'getTheLink'])->name('get.the.link');
 
