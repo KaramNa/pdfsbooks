@@ -138,17 +138,17 @@
     var nowDate = new Date();
     var falshcard = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
 
-    var prevflashDate = localStorage.getItem("falshcard");
-    if (!prevflashDate || prevflashDate != falshcard) {
-        document.getElementById('flashcard').classList.remove('hidden');
-    };
+    // var prevflashDate = localStorage.getItem("falshcard");
+    // if (!prevflashDate || prevflashDate != falshcard) {
+    //     document.getElementById('flashcard').classList.remove('hidden');
+    // };
 
-    function closeFlashCard(take_me_there = false) {
-        document.getElementById('flashcard').classList.add('hidden');
-        localStorage.setItem("falshcard", falshcard);
-        if (take_me_there)
-            window.location.href = "https://pdfsbooks.com/cheatsheets";
-    }
+    // function closeFlashCard(take_me_there = false) {
+    //     document.getElementById('flashcard').classList.add('hidden');
+    //     localStorage.setItem("falshcard", falshcard);
+    //     if (take_me_there)
+    //         window.location.href = "https://pdfsbooks.com/cheatsheets";
+    // }
 
     var telegramFalshcard = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
 
